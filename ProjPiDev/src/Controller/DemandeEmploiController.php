@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class DemandeEmploiController extends AbstractController
 {
     /**
-     * @Route("demande/emploi", name="demande_emploi")
+     * @Route("/Ajout/demande/emploi", name="Ajout_demande_emploi")
      */
-    public function index(): Response
+    public function Ajout(): Response
     {
-        return $this->render('demande_emploi/index.html.twig', [
+        return $this->render('demande_emploi/Ajout_demande_emploi.html.twig', [
             'controller_name' => 'DemandeEmploiController',
         ]);
     }
@@ -24,6 +24,16 @@ class DemandeEmploiController extends AbstractController
     public function listeD(): Response
     {
         return $this->render('demande_emploi/liste_demande_emploi.html.twig', [
+            'controller_name' => 'DemandeEmploiController',
+        ]);
+    }
+
+    /**
+     * @Route("/list/demande/back", name="list_demande_back")
+     */
+    public function listeDB(): Response
+    {
+        return $this->render('demande_emploi/liste_demande_back.html.twig', [
             'controller_name' => 'DemandeEmploiController',
         ]);
     }
