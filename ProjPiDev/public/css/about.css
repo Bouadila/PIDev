@@ -1,0 +1,238 @@
+/*
+Template Name:Consulting
+File: Layout CSS
+Author: Templates On Web
+Author URI: http://templateonweb.com/
+Licence: <a href="http://www.templateonweb.com/terms.php?v=content&contentid=152">Website Template Licence</a>
+*/
+
+
+/********************* about ****************/
+#about{ 
+ background-image: url(../img/31.jpg);
+ padding-bottom: 180px;
+ padding-top: 180px;
+ background-repeat: no-repeat;
+ background-size: cover;
+ }
+.about_1{ 
+ background-color: #2a385569;
+ width: 30%;
+ text-align: center;
+ padding: 25px 20px 2px 10px;
+ }
+.about_1 h2{ 
+ color: #fff;
+ font-weight:bold;
+ }
+.about_1 i{ 
+ color: #fff;
+ padding-left:5px;
+ }
+.about_1 p a{ 
+ color: #fff;
+ }
+.about_1 p a:hover{ 
+ color: #fff;
+ }
+/********************* about_end ****************/
+/********************* about_inner ****************/
+#about_inner{ 
+ padding-top:30px;
+ padding-bottom:30px;
+ background-color: #efebeb;
+ }
+.about_inner_1 img{   
+ padding:0;
+ margin:0;
+ width:100%;
+ padding-top:10px;
+ padding-bottom:10px;
+	  }
+.about_inner_2{  
+ padding: 0;
+ margin: 0;
+ background: #181f2d;
+ border: 2px solid #ffffff;
+ padding-top: 20px;
+ padding-bottom: 39px;
+ margin-top: 12px;
+  }
+.about_inner_2 h2{  
+ padding: 0;
+ margin: 0;
+ padding-top: 10px;
+ font-weight: bold;
+ color: #fff;
+ padding-bottom: 10px;  
+  }
+.about_inner_2 p{  
+ padding: 0;
+ margin: 0;
+ font-size: 20px;
+ color: #999;		   
+ }
+/********************* about_inner_end ****************/
+/********************* choose ****************/
+#choose{ 
+ padding-top:30px;
+ padding-bottom:30px;
+ }
+.choose_1{ 
+ text-align:center;
+ }
+.choose_1 h2{ 
+ color: #2a3855;
+ padding-bottom:10px;
+ }
+.choose_1 p{ 
+ padding-bottom:20px;
+ }
+.choose_3 img{ 
+ border-radius: 15px;
+ }
+.choose_4 i{ 
+ padding-right:10px;
+ }
+.choose_4 h3{ 
+ color: #2a3855;
+ padding-bottom:10px;
+ padding-top:20px;
+ }
+.choose_4 p{ 
+ padding-bottom:10px;
+ }
+/********************* choose_end ****************/
+/********************* news ****************/
+#news{ 
+ padding-top:30px;
+ padding-bottom:50px;
+ background-color: #f1efef;
+ }
+.news_1{ 
+ text-align:center;
+ }
+.news_1 h2{ 
+ color: #2a3855;
+ padding-bottom:10px;
+ }
+.news_1 p{ 
+ padding-bottom:20px;
+ }
+.news_4 h3{ 
+ padding-top: 10px;
+ padding-bottom: 10px;
+ color: #2a3855;
+ font-weight: bold; 
+ }
+.news_4 h5{ 
+ padding-bottom: 10px;
+ color: #999;
+ }
+.news_4 p{ 
+ padding-bottom: 16px;
+ }
+/********************* news_end ****************/
+
+
+
+
+
+@media screen and (max-width : 767px){
+#about {
+ padding-bottom: 50px;
+ padding-top: 50px;
+}
+.about_1 {
+ width: 100%;
+}
+#about_inner {
+ text-align: center;
+}
+.about_inner_2 h2 {
+ font-size:35px;
+}
+#choose {
+ text-align: center;
+}
+#news {
+ text-align: center;
+ padding-bottom: 15px;
+}
+.news_4 p {
+ padding-bottom: 5px;
+}
+.news_4{ 
+ padding-bottom:20px; 
+}
+}
+
+@media (min-width:470px) and (max-width:767px) {
+	
+} 
+
+@media (min-width:768px) and (max-width:960px) { 
+.about_1 {
+ width: 50%;
+}
+.about_inner_2 p {
+ font-size: 14px;
+}
+.about_inner_2 h2 {
+ padding-top: 0px;
+ padding-bottom: 0px;
+}
+.about_inner_2 {
+ padding-top: 10px;
+ padding-bottom: 10px;
+ margin-top: 0px;
+}
+.choose_4 h3 {
+ padding-top: 0px;
+}
+.choose_4 p {
+ font-size: 15px;
+}
+.news_4 h3 {
+ font-size: 20px;
+}
+} 
+ 
+@media (min-width:961px) and (max-width:1200px) {
+.about_1 {
+ width: 50%;
+}
+.about_inner_2 p {
+ font-size: 14px;
+}
+.about_inner_2 h2 {
+ padding-top: 0px;
+ padding-bottom: 0px;
+}
+.about_inner_2 {
+ padding-top: 10px;
+ padding-bottom: 10px;
+ margin-top: 0px;
+}
+.choose_4 h3 {
+ padding-top: 0px;
+}
+.choose_4 p {
+ font-size: 15px;
+}
+.news_4 h3 {
+ font-size: 20px;
+}
+}
+
+@media (min-width:1201px) and (max-width:1320px) {
+.excellent_2 {
+ top: 258%;
+}
+#header .mega-dropdown-menu:before {
+ left: 470px;
+}
+#header .mega-dropdown-menu:after {
+ left: 468px;
+}
+}
