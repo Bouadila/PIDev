@@ -1,0 +1,69 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}compte candidat{% endblock %}
+
+{% block body %}
+    <section id="services_main">
+        <div class="container">
+            <div class="row">
+                <div class="services_main_1">
+                    <h2>SERVICES</h2>
+                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="history">
+        <section id="about_inner">
+            <div class="about_inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="about_inner_1"><img src="img/32.jpg" alt="abc" class="img_responsive"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="about_inner_2">
+                                    <h2 class="text-center"> nom prenom  <a href="{{ path ('Modif_espace_candidat') }}" class="fa fa-pencil" ></a></h2>
+                                    <p class="text-center"> date naiss </p>
+                                    <p class="text-center"> Gouvernorat : </p>
+                                    <p class="text-center"> email </p>
+                                    <p class="text-center"> num </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="choose">
+            <div class="container">
+                <div class="row">
+                    <div class="choose_2 clearfix">
+                        <div class="col-sm-6">
+                            <div class="choose_3">
+                                <a href="#"><img src="img/18.jpg" alt="abc" class="img_responsive"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="choose_4">
+                                <h3>Spécialité</h3>
+                                <p> les speci </p>
+                            </div>
+                            <div class="choose_4">
+                                <h3>Diplome </h3>
+                                <p>bac <br> master <br>doctorat</p>
+                            </div>
+                            <p> Description : bla bl abla </p>
+
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ path ('home') }}" class="button">Supprimer compte</a>
+
+            </div>
+        </section>
+
+    </section>
+{% endblock %}

@@ -1,12 +1,12 @@
-{% extends 'baseCandidat.html.twig' %}
+{% extends 'baseEspaceCandidat.html.twig' %}
 
-{% block title %}Demande d'emploi{% endblock %}
+{% block title %}compte candidat{% endblock %}
 
 {% block body %}
     <!DOCTYPE html>
 <html>
   <head>
-    <title>Demande d'emploi</title>
+    <title>compte candidat</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -201,92 +201,103 @@
   </head>
   <body>
     <div class="testbox">
-      <form action="/">
+      <form {{ form_start(form) }} >
         <div class="banner">
-          <h1>Demande d'emploi</h1>
+          <h1>Créer votre profil candidat</h1>
         </div>
-        <p class="top-info">Veuillez remplir le formulaire de demande</p>
+        <p class="top-info">Veuillez remplir le formulaire </p>
         <div class="item">
-          <p>Nom<span class="required">*</span></p>
+           <p>Nom<span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Prenom" required/>
-            <input type="text" name="name" placeholder="Nom" required/>
+                {{ form_widget(form.nom) }}
+          </div>
+          <p>Prenom<span class="required">*</span></p>
+          <div class="name-item">
+                {{ form_widget(form.prenom) }}
+          </div>
+          <p>Email<span class="required">*</span></p>
+          <div class="name-item">
+                {{ form_widget(form.email) }}
+          </div>
+          </div>
+
+        <p>Mot de Passe<span class="required">*</span></p>
+          <div class="name-item">
+                          {{ form_widget(form.mdp) }}
+          </div>
+            <div class="question">
+          <p>Civilité :</p>
+          <div class="question-answer">
+                          {{ form_widget(form.genre) }}
+            <div>
+{#              <label for="radio_5" class="radio"><span>Homme</span></label>#}
+            </div>
+            <div>
+{#              <label for="radio_6" class="radio"><span>Femme</span></label>#}
+            </div>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="item">
-            <p>Email<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+
+
+<div class="item">
+
+            <p>Image<span class="required">*</span></p>
+                      <div class="name-item">
+
+                          {{ form_widget(form.img) }}
           </div>
-          <div class="item">
-            <p>Phone<span class="required">*</span></p>
-            <input type="text" name="name" required/>
           </div>
+
           <div class="item">
-            <p>Description<span class="required">*</span></p>
-            <textarea rows="3" name="name"required/></textarea>
+            <p>Numéro de télephone<span class="required">*</span></p>
+                                  <div class="name-item">
+                          {{ form_widget(form.num) }}
           </div>
+           <p>spécialité<span class="required">*</span></p>
+          <div class="name-item">
+                                             {{ form_widget(form.special) }}
+
+          </div>
+         <p>Diplome :<span class="required">*</span></p>
+                                   {{ form_widget(form.diplome) }}
+
+{#        <p>#}
+{#	       Bac <input type="checkbox" name="name" value="Bac" /><br />#}
+{#	        Ingénieur <input type="checkbox" name="name" value="Ingénieur" /><br />#}
+{#	        Master<input type="checkbox" name="name" value="Master" /><br />#}
+{#	        Doctorat <input type="checkbox" name="name" value="Doctorat" />#}
+{#</p>#}
+
+        <div class="item">
+          <p>Votre CV:</p>
+             <div class="name-item">
+                {{ form_widget(form.cv) }}
+
         </div>
-        <div class="position-item">
-          <div class="item">
-            <p>Veuillez choisir type de travail<span class="required">*</span></p>
-            <select required>
-              <option value="1">Engenieur</option>
-              <option value="2">Docteur</option>
-              <option value="3">Avocat</option>
-              <option value="4">technicien</option>
-              <option value="5">Professeur</option>
-            </select>
-          </div>
-          <div class="item">
-            <p>Available start date<span class="required">*</span></p>
-            <input type="date" name="bdate" required/>
+        </div>
+
+
+                  <div class="item">
+            <p>Date de Naissance<span class="required" >*</span></p>
+
+                {{ form_widget(form.date_naiss) }}
             <i class="fas fa-calendar-alt"></i>
           </div>
-        </div>
-        <div class="question">
-          <p>What is your current employment status?<span class="required">*</span></p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_1" name="status" required/>
-              <label for="radio_1" class="radio"><span>Employed</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_2" name="status" required/>
-              <label for="radio_2" class="radio"><span>Self-Employed</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_3" name="status" required/>
-              <label for="radio_3" class="radio"><span>Unemployed</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_4" name="status" required/>
-              <label for="radio_4" class="radio"><span>Student</span></label>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <p>Submit your resume by providing your resume URL or attach file:</p>
-          <input type="text" name="providing"/>
-  <input type="file" name="file" accept="file/*">
-        </div>
-        <div class="question">
-          <p>Would you like to list references</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_5" name="references" />
-              <label for="radio_5" class="radio"><span>Yes</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_6" name="references" />
-              <label for="radio_6" class="radio"><span>No</span></label>
-            </div>
-          </div>
-        </div>
+            <p>Gouvernorat :<span class="required" name="gvr">*</span></p>
+{#          <select >#}
+                {{ form_widget(form.gover) }}
+
+{#	<option>Ariana </option>#}
+{#	<option>Ben Arous</option>#}
+{#	<option>Kairouan</option> 	<option>Kébili</option> 	<option>Nabeul</option>#}
+{#</select>#}
+
+
+
         <div class="btn-block">
-          <button type="submit" href="{{ path('list_demande_emploi') }}">Publier</button>
+                {{ form_widget(form.gover) }}
         </div>
-      </form>
+      </form {{ form_end(form) }} >
     </div>
   </body>
 </html>

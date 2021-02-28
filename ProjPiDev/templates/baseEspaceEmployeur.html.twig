@@ -10,9 +10,9 @@
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/global.css')}}" rel="stylesheet">
         <link href="{{asset('css/index.css')}}" rel="stylesheet">
+        <link href="{{asset('css/ken-burns.css')}}" rel="stylesheet" type="text/css" media="all" />
         <link href="{{asset('css/services.css')}}" rel="stylesheet">
         <link href="{{asset('css/contact.css')}}" rel="stylesheet">
-        <link href="{{asset('css/ken-burns.css')}}" rel="stylesheet" type="text/css" media="all" />
         <link type="text/css" rel="stylesheet" href="{{asset('css/animate.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
@@ -23,6 +23,7 @@
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
     {% endblock %}
 
+</head>
 
 
 <section id="header">
@@ -43,15 +44,11 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-2">
                     <ul class="nav navbar-nav navbar col-sm-7">
                         <li class="active"><a href="{{ path('home') }}">Acceuil</a></li>
-                        <li><a href="{{ path('demande_emploi') }}">Demande Emploi</a></li>
-                        <li><a href="offre.html">Offre d'emploi</a></li>
-                        <li><a href="annonce.html">Annonce Presse</a></li>
+                        <li><a href="details.html">A propos</a></li>
+                        <li><a href="offre.html">demande d'emploi</a></li>
                         <li><a href="{{ path('contact') }}">Contact</a></li>
-                        <li><a href="{{ path('aff_espace_candidat') }}">Compte</a></li>
-                        <li><a href="{{ path('home') }}">Déconnexion</a></li>
-
-
                     </ul>
+
                     <ul class="nav navbar-nav navbar nav_1 col-sm-3">
                         <li>
                             <div id="custom-search-input">
@@ -66,21 +63,56 @@
                             </div>
                         </li>
                     </ul>
+                    <ul class="nav navbar-nav navbar nav_2 col-sm-2">
+                        <div class="login">
+                            <ul class="nav-login">
+
+                                <li class="tell_main_8"><a href="#" data-toggle="modal" data-target="#myModal1">Login employeur</a></li>
+                                <li class="tell_main_9"> <a href="{{ path ('ajout_espace_employeur') }}" class="button">SignUp employeur</a></li>
+                            </ul>
+                        </div>
+                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content modal-info">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    </div>
+                                    <div class="modal-body modal-spa">
+                                        <div class="login-grids">
+
+                                            <div class="login-right">
+                                                <form action="#" method="post">
+                                                    <h3> Connexion compte </h3>
+                                                    <input type="text" value="Entrer votre Email" name=" Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}" required="">
+                                                    <input type="password" value="Mot de passe" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                                                    <h4><a href="#">Mot de passe oublier</a> / <a href="#">Changer mot de passe</a></h4>
+                                                    <input type="submit" value="Connexion">
+                                                </form>
+                                            </div>
+
+                                            <p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //login -->
+                        <!-- signup -->
+
+                    </ul>
+
                 </div><!-- /.navbar-collapse -->
             </div>
         </div><!-- /.container -->
     </nav>
 
 </section>
-</head>
 
 {% block body %}
 
-
 {% endblock %}
 
-
-  <section id="footer">
+<section id="footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -98,6 +130,7 @@
                             <li><a href="#">123 4567 89 90</a></li>
                             <li>Lundi-Vendredi: 9h-17h </li>
                             <li>Samedi: 9h-13h </li>
+
                         </ul>
                     </div>
                 </div>
@@ -106,8 +139,8 @@
                         <h3>Index</h3>
                         <ul>
                             <li><a href="{{ path('home') }}">Acceuil</a></li>
-                            <li><a href="#">Offre d'emploi</a></li>
-                            <li><a href="#">Annonce presse</a></li>
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">demande d'emploi</a></li>
                             <li><a href="{{ path('contact') }}">Contact</a></li>
                         </ul>
                     </div>
@@ -115,5 +148,5 @@
             </div>
         </div>
     </div>
-  </section>
+</section>
 </html>

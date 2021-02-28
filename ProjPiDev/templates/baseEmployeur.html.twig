@@ -10,9 +10,9 @@
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/global.css')}}" rel="stylesheet">
         <link href="{{asset('css/index.css')}}" rel="stylesheet">
-        <link href="{{asset('css/ken-burns.css')}}" rel="stylesheet" type="text/css" media="all" />
         <link href="{{asset('css/services.css')}}" rel="stylesheet">
         <link href="{{asset('css/contact.css')}}" rel="stylesheet">
+        <link href="{{asset('css/ken-burns.css')}}" rel="stylesheet" type="text/css" media="all" />
         <link type="text/css" rel="stylesheet" href="{{asset('css/animate.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
     {% endblock %}
 
-</head>
 
 
     <section id="header">
@@ -44,12 +43,15 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-2">
                         <ul class="nav navbar-nav navbar col-sm-7">
                             <li class="active"><a href="{{ path('home') }}">Acceuil</a></li>
-                            <li><a href="details.html">A propos</a></li>
+                            <li><a href="{{ path('demande_emploi') }}">Demande Emploi</a></li>
                             <li><a href="offre.html">Offre d'emploi</a></li>
-                            <li><a href="annonce.html">Annonce Presse</a></li>
+                            <li><a href="offre.html">Reclamation</a></li>
                             <li><a href="{{ path('contact') }}">Contact</a></li>
-                        </ul>
+                            <li><a href="{{ path('aff_espace_employeur') }}">Compte</a></li>
+                            <li><a href="{{ path('home') }}">Déconnexion</a></li>
 
+
+                        </ul>
                         <ul class="nav navbar-nav navbar nav_1 col-sm-3">
                             <li>
                                 <div id="custom-search-input">
@@ -64,67 +66,54 @@
                                 </div>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar nav_2 col-sm-2">
-                            <div class="login">
-                                <ul class="nav-login">
-                                    <li class="tell_main_8"><a href="{{ path ('espace_candidat') }}" >Espace Candidat</a></li>
-                                    <li class="tell_main_9"><a href="{{ path ('espace_employeur') }}"  >Espace Employeur</a></li>
-
-                                    </ul>
-                            </div>
-
-                            <!-- //login -->
-                            <!-- signup -->
-
-                        </ul>
-
                     </div><!-- /.navbar-collapse -->
                 </div>
             </div><!-- /.container -->
         </nav>
 
     </section>
+</head>
 
 {% block body %}
 
+
 {% endblock %}
 
-    <section id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-3">
-                        <div class="footer_1">
-                            <h2>Details</h2>
-                            <p>Recruitini, le portail tunisien de l’emploi, accompagne les candidats comme les recruteurs pour un avenir meilleur !</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="footer_2">
-                            <h3>Pour nous contacter</h3>
-                            <ul>
-                                <li><a href="#">Recuitini@gmail.com</a></li>
-                                <li><a href="#">123 4567 89 90</a></li>
-                                <li>Lundi-Vendredi: 9h-17h </li>
-                                <li>Samedi: 9h-13h </li>
 
-                            </ul>
-                        </div>
+<section id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <div class="footer_1">
+                        <h2>Details</h2>
+                        <p>Recruitini, le portail tunisien de l’emploi, accompagne les candidats comme les recruteurs pour un avenir meilleur !</p>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="footer_2">
-                            <h3>Index</h3>
-                            <ul>
-                                <li><a href="{{ path('home') }}">Acceuil</a></li>
-                                <li><a href="#">A propos</a></li>
-                                <li><a href="#">Offre d'emploi</a></li>
-                                <li><a href="#">Annonce presse</a></li>
-                                <li><a href="{{ path('contact') }}">Contact</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="footer_2">
+                        <h3>Pour nous contacter</h3>
+                        <ul>
+                            <li><a href="#">Recuitini@gmail.com</a></li>
+                            <li><a href="#">123 4567 89 90</a></li>
+                            <li>Lundi-Vendredi: 9h-17h </li>
+                            <li>Samedi: 9h-13h </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="footer_2">
+                        <h3>Index</h3>
+                        <ul>
+                            <li><a href="{{ path('home') }}">Acceuil</a></li>
+                            <li><a href="#">Offre d'emploi</a></li>
+                            <li><a href="#">Annonce presse</a></li>
+                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </html>
