@@ -23,7 +23,7 @@ class DemandeEmploiController extends AbstractController
         $form=$this->createForm(DemandeType::class,$demande);
         $form->add('Ajouter Demande',SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted())
+        if($form->isSubmitted() and $form->isValid() )
         {
             $em=$this->getDoctrine()->getManager();
             $em->persist($demande);

@@ -121,6 +121,8 @@ class DemandeType extends AbstractType
                 ]
             ])
             ->add('cvCand', FileType::class, array('data_class' => null , 'label' => 'Choisissez votre fichier'))
+
+            // ,['attr'=>['formnovalidate'=>'formnovalidate']])
         ;
     }
 

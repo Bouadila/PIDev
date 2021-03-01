@@ -210,42 +210,52 @@
         <p>Titre de votre demande<span >*</span></p>
           <div class="name-item">
                 {{ form_widget(formdemande.TitreDemande) }}
+                {{ form_errors(formdemande.TitreDemande) }}
           </div>
            <p>Nom<span >*</span></p>
           <div class="name-item">
                 {{ form_widget(formdemande.nomCand) }}
+                {{ form_errors(formdemande.nomCand) }}
           </div>
           <p>Prenom<span >*</span></p>
           <div class="name-item">
                 {{ form_widget(formdemande.prenomCand) }}
+                {{ form_errors(formdemande.prenomCand) }}
           </div>
           <p>Email<span >*</span></p>
           <div class="name-item">
                 {{ form_widget(formdemande.emailCand) }}
+                {{ form_errors(formdemande.emailCand) }}
           </div>
           <p>Numéro<span >*</span></p>
            <div class="name-item">
                           {{ form_widget(formdemande.numCand) }}
+                          {{ form_errors(formdemande.numCand) }}
           </div>
           <p>Adresse<span >*</span></p>
            <div class="name-item">
                           {{ form_widget(formdemande.adresseCand) }}
+                          {{ form_errors(formdemande.adresseCand) }}
           </div>
           <p>Votre Domaine<span >*</span></p>
            <div class="name-item">
                           {{ form_widget(formdemande.domaineTravail) }}
+                          {{ form_errors(formdemande.domaineTravail) }}
           </div>
           <p>Statut<span >*</span></p>
            <div class="name-item">
                           {{ form_widget(formdemande.statutCand) }}
+                          {{ form_errors(formdemande.statutCand) }}
           </div>
           <p>Description<span >*</span></p>
            <div class="name-item">
                           {{ form_widget(formdemande.description) }}
+                          {{ form_errors(formdemande.description) }}
           </div>
            <p>Votre CV<span >*</span></p>
            <div class="name-item">
                           {{ form_widget(formdemande.cvCand) }}
+                          {{ form_errors(formdemande.cvCand) }}
           </div>
                 </form {{ form_end(formdemande) }} >
          </div>
