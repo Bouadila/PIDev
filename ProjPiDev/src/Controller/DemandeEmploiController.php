@@ -2,60 +2,94 @@
 
 namespace App\Controller;
 
+use App\Entity\Demande;
+use App\Form\DemandeType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DemandeEmploiController extends AbstractController
 {
     /**
-     * @Route("/Ajout/demande/emploi", name="Ajout_demande_emploi")
+     * @Route("/Ajout/demande/emploi", name="Ajout_demande_emploi" , methods={"GET","POST"})
      */
-    public function Ajout(): Response
+    public function Ajout(Request $request): Response
     {
-        return $this->render('demande_emploi/Ajout_demande_emploi.html.twig', [
-            'controller_name' => 'DemandeEmploiController',
-        ]);
+
+        $demande=new demande();
+        $form=$this->createForm(DemandeType::class,$demande);
+        $form->add('Ajouter Demande',SubmitType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted())
+        {
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($demande);
+            $em->flush();
+            return $this->redirectToRoute("list_demande_emploi");
+        }
+
+        return $this->render('demande_emploi/Ajout_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
+
     }
 
     /**
-     * @Route("/list/demande/emploi", name="list_demande_emploi")
+     * @Route("/list/demande/emploi", name="list_demande_emploi" , methods={"GET"})
      */
     public function listeD(): Response
     {
-        return $this->render('demande_emploi/liste_demande_emploi.html.twig', [
-            'controller_name' => 'DemandeEmploiController',
-        ]);
+
+        $demande=$this->getDoctrine()->getRepository(Demande::class);
+        $demandes=$demande->findAll();
+        return $this->render('demande_emploi/liste_demande_emploi.html.twig',['demandes'=>$demandes , ]);
     }
 
     /**
-     * @Route("/list/demande/back", name="list_demande_back")
+     * @Route("/list/demande/back", name="list_demande_back" , methods={"GET"})
      */
     public function listeDB(): Response
     {
-        return $this->render('demande_emploi/liste_demande_back.html.twig', [
-            'controller_name' => 'DemandeEmploiController',
-        ]);
+
+        $demande=$this->getDoctrine()->getRepository(Demande::class);
+        $demandes=$demande->findAll();
+        return $this->render('demande_emploi/liste_demande_back.html.twig',['demandes'=>$demandes , ]);
+
     }
 
     /**
-     * @Route("/Supp/demande/emploi", name="Supp_demande_emploi")
+     * @Route("/Supp/demande/emploi/{id}", name="Supp_demande_emploi" , methods={"DELETE"})
      */
-    public function listeSu(): Response
+    public function listeSu(Request $request, Demande $demande): Response
     {
-        return $this->render('demande_emploi/Supp_demande_emploi.html.twig', [
-            'controller_name' => 'DemandeEmploiController',
-        ]);
+        if ($this->isCsrfTokenValid('delete' . $demande->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($demande);
+            $entityManager->flush();
+        }
+        return $this->redirectToRoute("list_demande_emploi");
     }
 
-    /**
-     * @Route("/Modif/demande/emploi", name="Modif_demande_emploi")
+
+        /**
+     * @Route("/Modif/demande/emploi/{id}", name="Modif_demande_emploi" , methods={"GET","POST"})
      */
-    public function listeModif(): Response
+    public function listeModif(Request $request, $id): Response
     {
-        return $this->render('demande_emploi/Modif_demande_emploi.html.twig', [
-            'controller_name' => 'DemandeEmploiController',
-        ]);
+
+        $demande=$this->getDoctrine()->getRepository(Demande::class)->find($id);
+        $form=$this->createForm(DemandeType::class,$demande);
+        $form->add('Modifier Demande',SubmitType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted())
+        {
+            $em=$this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute("list_demande_emploi");
+        }
+
+        return $this->render("demande_emploi/Modif_demande_emploi.html.twig",array('formdemande'=>$form->createView()));
     }
 
 }

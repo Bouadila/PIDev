@@ -197,96 +197,58 @@
       width: 100%;
       }
       }
-    </style>
+      </style>
   </head>
   <body>
     <div class="testbox">
-      <form action="/">
+      <form {{ form_start(formdemande) }} >
         <div class="banner">
-          <h1>Demande d'emploi</h1>
+          <h1>Créer votre demande de recherche</h1>
         </div>
-        <p class="top-info">Veuillez remplir le formulaire de demande</p>
+        <p class="top-info">Veuillez remplir le formulaire </p>
         <div class="item">
-          <p>Nom<span class="required">*</span></p>
+        <p>Titre de votre demande<span >*</span></p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Prenom" required/>
-            <input type="text" name="name" placeholder="Nom" required/>
+                {{ form_widget(formdemande.TitreDemande) }}
           </div>
-        </div>
-        <div class="contact-item">
-          <div class="item">
-            <p>Email<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+           <p>Nom<span >*</span></p>
+          <div class="name-item">
+                {{ form_widget(formdemande.nomCand) }}
           </div>
-          <div class="item">
-            <p>Phone<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+          <p>Prenom<span >*</span></p>
+          <div class="name-item">
+                {{ form_widget(formdemande.prenomCand) }}
           </div>
-          <div class="item">
-            <p>Description<span class="required">*</span></p>
-            <textarea rows="3" name="name"required/></textarea>
+          <p>Email<span >*</span></p>
+          <div class="name-item">
+                {{ form_widget(formdemande.emailCand) }}
           </div>
-        </div>
-        <div class="position-item">
-          <div class="item">
-            <p>Veuillez choisir type de travail<span class="required">*</span></p>
-            <select required>
-              <option value="1">Engenieur</option>
-              <option value="2">Docteur</option>
-              <option value="3">Avocat</option>
-              <option value="4">technicien</option>
-              <option value="5">Professeur</option>
-            </select>
+          <p>Numéro<span >*</span></p>
+           <div class="name-item">
+                          {{ form_widget(formdemande.numCand) }}
           </div>
-          <div class="item">
-            <p>Available start date<span class="required">*</span></p>
-            <input type="date" name="bdate" required/>
-            <i class="fas fa-calendar-alt"></i>
+          <p>Adresse<span >*</span></p>
+           <div class="name-item">
+                          {{ form_widget(formdemande.adresseCand) }}
           </div>
-        </div>
-        <div class="question">
-          <p>What is your current employment status?<span class="required">*</span></p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_1" name="status" required/>
-              <label for="radio_1" class="radio"><span>Employed</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_2" name="status" required/>
-              <label for="radio_2" class="radio"><span>Self-Employed</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_3" name="status" required/>
-              <label for="radio_3" class="radio"><span>Unemployed</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_4" name="status" required/>
-              <label for="radio_4" class="radio"><span>Student</span></label>
-            </div>
+          <p>Votre Domaine<span >*</span></p>
+           <div class="name-item">
+                          {{ form_widget(formdemande.domaineTravail) }}
           </div>
-        </div>
-        <div class="item">
-          <p>Submit your resume by providing your resume URL or attach file:</p>
-          <input type="text" name="providing"/>
-  <input type="file" name="file" accept="file/*">
-        </div>
-        <div class="question">
-          <p>Would you like to list references</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_5" name="references" />
-              <label for="radio_5" class="radio"><span>Yes</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_6" name="references" />
-              <label for="radio_6" class="radio"><span>No</span></label>
-            </div>
+          <p>Statut<span >*</span></p>
+           <div class="name-item">
+                          {{ form_widget(formdemande.statutCand) }}
           </div>
-        </div>
-        <div class="btn-block">
-          <button type="submit" href="/">Publier</button>
-        </div>
-      </form>
+          <p>Description<span >*</span></p>
+           <div class="name-item">
+                          {{ form_widget(formdemande.description) }}
+          </div>
+           <p>Votre CV<span >*</span></p>
+           <div class="name-item">
+                          {{ form_widget(formdemande.cvCand) }}
+          </div>
+                </form {{ form_end(formdemande) }} >
+         </div>
     </div>
   </body>
 </html>

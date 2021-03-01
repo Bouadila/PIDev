@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\DemandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=DemandeRepository::class)
@@ -19,51 +22,62 @@ class Demande
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Titre est vide")
      */
     private $TitreDemande;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Nom est vide")
      */
     private $nomCand;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Prénom est vide")
      */
     private $prenomCand;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Adresse mail est vide")
      */
     private $emailCand;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Numéro est vide")
+     * @Assert\NotNull(message="le salaire ne doit pas être nulle")
      */
     private $numCand;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
+     * @Assert\NotBlank(message="Votre Adresse est vide")
      */
     private $adresseCand;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez selectioner votre domaine")
      */
     private $domaineTravail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez selectioner votre statut")
      */
     private $statutCand;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous devez faire une description")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez mettre votre cv")
      */
     private $cvCand;
 
