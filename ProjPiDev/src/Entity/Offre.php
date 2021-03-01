@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\OffreRepository;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=OffreRepository::class)
@@ -20,31 +21,39 @@ class Offre
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="la description d'offre ne peut pas être vide ")
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="le salaire d'offre ne peut pas être vide ")
+     * @Assert\NotNull(message="le salaire ne doit pas être nulle")
      */
     private $salaire;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank()
      */
     private $dateDepo;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="la date d'expiration d'offre ne peut pas être vide ")
      */
     private $dateExpiration;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="le nombre de place ne peut pas être vide ")
+     * @Assert\NotNull(message="le nombre de place ne doit pas être nulle")
      */
     private $nombrePlace;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="l'experience ne peut pas être vide ")
      */
     private $experience;
 
