@@ -36,7 +36,7 @@ class Question
 
     /**
      * @ORM\OneToOne(targetEntity=Reponse::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $rep_just;
 

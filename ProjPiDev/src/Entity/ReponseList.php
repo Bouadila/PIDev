@@ -10,7 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass=ReponseRepository::class)
  */
 class ReponseList
-{
+{    /**
+ * @ORM\Id
+ * @ORM\GeneratedValue
+ * @ORM\Column(type="integer")
+ */
+    private $id;
     private $reponses;
 
     public function __construct()

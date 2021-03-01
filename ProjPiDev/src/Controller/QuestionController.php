@@ -37,17 +37,40 @@ class QuestionController extends AbstractController
         $form->handleRequest($request);
         $quiz = $this->getDoctrine()->getRepository(Quiz::class)->find($request->query->get("id_quiz"));
         $question->setQuizId($quiz);
+        $nb_question = (int) $request->query->get("nb_question");
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($nb_question == -1){
+                $quiz->setNombQuestion($quiz->getNombQuestion()+1);
+
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($question);
             $entityManager->flush();
-            return $this->redirectToRoute('reponse_new', ['id_quiz' => $question->getId()]);
+
+            return $this->redirectToRoute('reponse_new', ['ques_id' => $question->getId(), "nb_question" => $nb_question ]);
+
         }
 
         return $this->render('question/new.html.twig', [
             'question' => $question,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="question_delete", methods={"GET"})
+     */
+    public function delete(Question $question): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $quiz = $question->getQuizId();
+        $quiz->setNombQuestion($quiz->getNombQuestion() -1);
+        $entityManager->remove($question);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('quiz_show', ['id' => $quiz->getId()]);
     }
 
     /**
@@ -66,11 +89,11 @@ class QuestionController extends AbstractController
     public function edit(Request $request, Question $question): Response
     {
         $form = $this->createForm(QuestionType::class, $question);
+        $form->remove("nomb_rep");
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('question_index');
         }
 
@@ -80,17 +103,5 @@ class QuestionController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="question_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Question $question): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$question->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($question);
-            $entityManager->flush();
-        }
 
-        return $this->redirectToRoute('question_index');
-    }
 }
