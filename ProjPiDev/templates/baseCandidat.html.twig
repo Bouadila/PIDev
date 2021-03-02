@@ -45,7 +45,7 @@
                         <li class="active"><a href="{{ path('home') }}">Acceuil</a></li>
                         <li><a href="{{ path('Ajout_demande_emploi') }}">Demande Emploi</a></li>
                         <li><a href="offre.html">Offre d'emploi</a></li>
-                        <li><a href="annonce.html">Annonce Presse</a></li>
+                        <li><a href="{{ path('list_demande_emploi') }}">Listes demande</a></li>
                         <li><a href="{{ path('contact') }}">Contact</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar nav_1 col-sm-3">
@@ -61,6 +61,14 @@
                                 </div>
                             </div>
                         </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar nav_2 col-sm-2">
+                        <div class="login">
+                            <ul class="nav-login">
+                                <li class="tell_main_8"><a href="{{ path ('home') }}" >Deconnexion</a></li>
+                            </ul>
+                        </div>
+                        <!-- //login -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>
@@ -103,7 +111,7 @@
                         <ul>
                             <li><a href="{{ path('home') }}">Acceuil</a></li>
                             <li><a href="#">Offre d'emploi</a></li>
-                            <li><a href="#">Annonce presse</a></li>
+                            <li><a href="{{ path('list_demande_emploi') }}">liste demande</a></li>
                             <li><a href="{{ path('contact') }}">Contact</a></li>
                         </ul>
                     </div>
