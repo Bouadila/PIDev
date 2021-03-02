@@ -1,0 +1,47 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Votre demande{% endblock %}
+
+{% block body %}
+    <section id="services_main">
+        <div class="container">
+            <div class="row">
+                <div class="services_main_1">
+                    <h2>Detail</h2>
+                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Votre demande </a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="choose">
+            <div class="container">
+                <div class="row">
+                    <div class="choose_1">
+                        <h2>{{demande.TitreDemande}}</h2>
+                        <p>{{demande.adresseCand}}<br>{{demande.domaineTravail}}</p>
+                    </div>
+                    <div class="choose_2 clearfix">
+                        <div class="col-sm-6">
+                            <div class="choose_3">
+                                <a href="#"><img src="img/18.jpg" alt="abc" class="img_responsive"></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="choose_4">
+                                <h3><i class="fa fa-comments"></i>{{demande.nomCand}} {{demande.prenomCand}}</h3>
+                                <p>{{demande.adresseCand}}<br> {{demande.numCand}} <br>{{demande.adresseCand}}</p>
+                            </div>
+                            <div class="choose_4">
+                                <h3><i class="fa fa-bolt"></i>We Are Creative</h3>
+                                <p>{{demande.cvCand}}<br> marketplace leaders, business owners and career <br>professionals to be effective in the workplace.</p>
+                            </div>
+                            <div class="choose_4">
+                                <h3><i class="fa fa-users"></i>24/7 Great Support</h3>
+                                <p>We resource, train, speak, mentor and encourage<br> marketplace leaders, business owners and career <br>professionals to be effective in the workplace.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

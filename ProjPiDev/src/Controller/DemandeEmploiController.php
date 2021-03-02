@@ -28,10 +28,20 @@ class DemandeEmploiController extends AbstractController
             if ($form->isSubmitted())
             {
                 var_dump($demande);
+                //$file = $request->files->get('demande')['cvCand'];
+                //$uploads_directory = $this->getParameter('Téléchargements');
+                //$filename = md5(uniqid())  .  '.'  .  $file->guessExtension();
+                //$file->move(
+                  //  $uploads_directory,
+                    //$filename
+                //);
+                $demande = $form->getData();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($demande);
                 $em->flush();
                 return $this->redirectToRoute("list_demande_emploi");
+
+
             }
 
         return $this->render('demande_emploi/Ajout_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
@@ -97,6 +107,20 @@ class DemandeEmploiController extends AbstractController
         }
 
         return $this->render("demande_emploi/Modif_demande_emploi.html.twig",array('formdemande'=>$form->createView()));
+    }
+
+
+    /**
+     * @Route("/list/demande/emploi/detail/{id}", name="list_demande_emploi_detail" , methods={"GET"})
+     */
+    public function listeDet($id): Response
+    {
+
+        $demande=$this->getDoctrine()->getRepository(Demande::class);
+        $demande=$demande->find($id);
+        return $this->render('demande_emploi/aff_demande_detail.html.twig',['demande'=>$demande , ]);
+
+
     }
 
 }

@@ -120,8 +120,10 @@ class DemandeType extends AbstractType
                     'name'=>'name',
                 ]
             ])
-            ->add('cvCand', FileType::class, array('data_class' => null , 'label' => 'Choisissez votre fichier'))
-        ;
+
+           ->add('cvCand', FileType::class, array('data_class' => null , 'label' => 'Choisissez votre fichier'))
+            ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

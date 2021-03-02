@@ -26,7 +26,7 @@
                                     <h3>{{demande.cvCand}}</h3>
                                     <p>{{demande.description}}</p>
                                     <a href="{{ path ('Modif_demande_emploi',{'id':demande.id}) }}" class="button">Modifier</a>
-                                    <a href="=" class="button">Voir details</a>
+                                    <a href="{{ path ('list_demande_emploi_detail',{'id':demande.id}) }}" class="button">Voir details</a>
                                 </div>
                                 <form method="post" action="{{ path ('Supp_demande_emploi',{'id':demande.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
                                     <input type="hidden" name="_method" value="DELETE">
