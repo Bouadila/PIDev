@@ -82,6 +82,18 @@ class Demande
      */
     private $cvCand;
 
+
+   // /**
+     //* @ORM\OneToMany(targetEntity=Candidat::class, inversedBy="demande")
+     //*/
+    //private $candidat;
+
+    //public function __construct()
+   // {
+     //   $this->candidat = new ArrayCollection();
+    //}
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,4 +218,30 @@ class Demande
 
         return $this;
     }
+
+
+//    /**
+  //   * @return Collection|Candidat[]
+    // */
+    //public function getCandidat(): Collection
+    //{
+      //  return $this->employeur;
+    //}
+
+    //public function addCandidat(Candidat $candidat): self
+    //{
+      //  if (!$this->candidat->contains($candidat)) {
+        //    $this->candidat[] = $candidat;
+        //}
+
+        //return $this;
+    //}
+
+   // public function removeCandidat(Candidat $candidat): self
+    //{
+      //  $this->employeur->removeElement($candidat);
+
+        //return $this;
+    //}
+
 }

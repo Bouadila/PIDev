@@ -81,13 +81,17 @@ class Candidat
 
     /**
      * @ORM\ManyToMany(targetEntity=Employeur::class, inversedBy="candidats")
+  // * @ORM\ManyToMany(targetEntity=Candidat::class, mappedBy="demande")
      */
     private $employeur;
+   // private $demandes;
 
     public function __construct()
     {
         $this->employeur = new ArrayCollection();
+       // $this->demandes = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -261,4 +265,34 @@ class Candidat
 
         return $this;
     }
+
+
+   // /**
+    // * @return Collection|Demande[]
+     //*/
+    //public function getDemandes(): Collection
+    //{
+      //  return $this->demandes;
+    //}
+
+    //public function addDemande(Demande $demande): self
+    //{
+      //  if (!$this->demandess->contains($demande)) {
+        //    $this->demandes[] = $demande;
+          //  $demande->addDemande($this);
+        //}
+
+        //return $this;
+    //}
+
+   // public function removeDemande(Demande $demande): self
+    //{
+      //  if ($this->demandes->removeElement($demande)) {
+        //    $demande->removeDemande($this);
+        //}
+
+        //return $this;
+    //}
+
+
 }
