@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Demande;
 use App\Form\DemandeType;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,15 +24,20 @@ class DemandeEmploiController extends AbstractController
         $form=$this->createForm(DemandeType::class,$demande);
         $form->add('Ajouter Demande',SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted() and $form->isValid() )
-        {
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($demande);
-            $em->flush();
-            return $this->redirectToRoute("list_demande_emploi");
-        }
+
+            if ($form->isSubmitted())
+            {
+                var_dump($demande);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($demande);
+                $em->flush();
+                return $this->redirectToRoute("list_demande_emploi");
+            }
 
         return $this->render('demande_emploi/Ajout_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
+
+
+
 
     }
 
@@ -63,7 +69,8 @@ class DemandeEmploiController extends AbstractController
      */
     public function listeSu(Request $request, Demande $demande): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $demande->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $demande->getId(), $request->request->get('_token')))
+        {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($demande);
             $entityManager->flush();

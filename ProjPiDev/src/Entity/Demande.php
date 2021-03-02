@@ -47,7 +47,6 @@ class Demande
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Votre Numéro est vide")
-     * @Assert\Length( min=8 , max=8 , minMessage="Votre numéro doit comporter 8 chiffres" )
      */
     private $numCand;
 
