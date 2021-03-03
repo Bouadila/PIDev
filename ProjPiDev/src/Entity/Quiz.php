@@ -6,6 +6,7 @@ use App\Repository\QuizRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=QuizRepository::class)
@@ -21,11 +22,15 @@ class Quiz
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="le nom de quiz est obligatoir")
      */
     private $nom_quiz;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="le nombre de questions est obligatoir")
+     * @Assert\GreaterThan(0, message="le nombre de question doit etre positif")
+     * @Assert\LessThan(50, message="le nombre de question doit etre inferieure a 50")
      */
     private $nomb_question;
 

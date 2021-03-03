@@ -24,7 +24,6 @@ class ReponseListType extends AbstractType
                     'entry_type' => ReponseType::class,
                 ]
             );
-
     }
 
 

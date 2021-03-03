@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReponseCondidatRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ReponseCondidatRepository::class)
@@ -26,6 +27,7 @@ class ReponseCondidat
     /**
      * @ORM\ManyToOne(targetEntity=Reponse::class)
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @Assert\NotBlank(message="le  reponse est obligatoir")
      */
     private $reponse;
 

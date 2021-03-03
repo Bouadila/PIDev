@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+    <h1>Quiz</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ quiz.id }}</td>
+        </tr>
+        {% for reponse in quiz.reponses %}
+        <tr>
+            <th>question</th>
+            <td>{{ reponse.question.ContenuQues }}</td>
+
+        </tr>
+        <tr>
+            <th>Reponse condidat </th>
+            {% if  reponse.reponse == reponse.question.repjust %}
+                <td style="background-color:limegreen">{{ reponse.reponse.contenuRep }}</td>
+            {% else %}
+                <td style="background-color:red">{{ reponse.reponse.contenuRep }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+{#        <tr>#}
+{#            <th>Nomb_question</th>#}
+{#            <td>{{ quiz.nombQuestion }}</td>#}
+{#        </tr>#}
+        </tbody>
+    </table>
+
+
+{% endblock %}
