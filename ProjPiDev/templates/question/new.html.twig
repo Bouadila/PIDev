@@ -5,7 +5,6 @@
 {% block body %}
     <h1>Create new Question</h1>
 
-    {{ include('question/_form.html.twig') }}
+    {{ include('question/_form.html.twig', {'button_label': 'Suivant'}) }}
 
-    <a href="{{ path('question_index') }}">back to list</a>
 {% endblock %}

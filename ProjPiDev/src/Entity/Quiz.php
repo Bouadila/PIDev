@@ -31,12 +31,20 @@ class Quiz
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="quiz_id")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $questions;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ListReponsesCondidat::class, mappedBy="quiz", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     */
+    private $listReponsesCondidats;
 
     public function __construct()
     {
         $this->questions = new ArrayCollection();
+        $this->listReponsesCondidats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -101,5 +109,35 @@ class Quiz
     public function __toString()
     {
         return $this->getNomQuiz();
+    }
+
+    /**
+     * @return Collection|ListReponsesCondidat[]
+     */
+    public function getListReponsesCondidats(): Collection
+    {
+        return $this->listReponsesCondidats;
+    }
+
+    public function addListReponsesCondidat(ListReponsesCondidat $listReponsesCondidat): self
+    {
+        if (!$this->listReponsesCondidats->contains($listReponsesCondidat)) {
+            $this->listReponsesCondidats[] = $listReponsesCondidat;
+            $listReponsesCondidat->setQuiz($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListReponsesCondidat(ListReponsesCondidat $listReponsesCondidat): self
+    {
+        if ($this->listReponsesCondidats->removeElement($listReponsesCondidat)) {
+            // set the owning side to null (unless already changed)
+            if ($listReponsesCondidat->getQuiz() === $this) {
+                $listReponsesCondidat->setQuiz(null);
+            }
+        }
+
+        return $this;
     }
 }

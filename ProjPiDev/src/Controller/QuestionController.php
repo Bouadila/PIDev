@@ -94,7 +94,9 @@ class QuestionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('question_index');
+            return $this->render('quiz/showQuiz.html.twig', [
+                'quiz' => $question->getQuizId(),
+            ]);
         }
 
         return $this->render('question/edit.html.twig', [

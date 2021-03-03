@@ -122,7 +122,9 @@ class ReponseController extends AbstractController
                 return $this->redirectToRoute('question_new', ['id_quiz' => $question->getQuizId()->getId(), "nb_question" => $nb_question - 1]);
             else
                 //else we redirect him to another page
-                return $this->redirectToRoute("quiz_index");
+                return $this->render('quiz/showQuiz.html.twig', [
+                    'quiz' => $question->getQuizId(),
+                ]);
 
         }
 
@@ -139,24 +141,21 @@ class ReponseController extends AbstractController
      */
     public function add(Request $request): Response
     {
-
-
         //Get question id from the url
         $question = $this->getDoctrine()->getRepository(Question::class)->find($request->query->get("ques_id"));
 
         $reponse = new Reponse();
 
-        //resopnseListType is a new form which contains a list of field for the responses
         $form = $this->createForm(ReponseType::class, $reponse);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            //increment number of reponse by 1
             $question->setNombRep($question->getNombRep() + 1);
             $reponse->setIdQues($question);
             $entityManager->persist($reponse);
             $entityManager->flush();
-            $nb_question = (int)$request->query->get("nb_question");
 
             return $this->redirectToRoute('quiz_show', ['id' => $question->getQuizId()->getId()]);
 
@@ -201,7 +200,10 @@ class ReponseController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('reponse_index');
+
+            return $this->render('quiz/showQuiz.html.twig', [
+                'quiz' => $reponse->getIdQues()->getQuizId(),
+            ]);
         }
 
         return $this->render('reponse/edit.html.twig', [

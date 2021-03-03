@@ -31,18 +31,19 @@ class Question
 
     /**
      * @ORM\OneToMany(targetEntity=Reponse::class, mappedBy="id_ques", orphanRemoval=true)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $reponses;
 
     /**
      * @ORM\OneToOne(targetEntity=Reponse::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $rep_just;
 
     /**
      * @ORM\ManyToOne(targetEntity=Quiz::class, inversedBy="questions")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $quiz_id;
 

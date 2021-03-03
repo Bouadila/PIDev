@@ -8,6 +8,9 @@ use App\Entity\Reponse;
 use App\Form\QuizType;
 use App\Repository\QuizRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,7 +54,7 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="quiz_show", methods={"GET"})
+     * @Route("/show/{id}", name="quiz_show", methods={"GET"})
      */
     public function show(Quiz $quiz): Response
     {
@@ -74,6 +77,7 @@ class QuizController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{id}/edit", name="quiz_edit", methods={"GET","POST"})
      */
@@ -83,14 +87,13 @@ class QuizController extends AbstractController
         //get the old reponse number
         $nb_quiz = $quiz->getNomQuiz();
         $form = $this->createForm(QuizType::class, $quiz);
+        $form->remove('nomb_question');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            if($nb_quiz == $quiz->getNombQuestion())
-            {
-//                return $this->redirectToRoute('question_new', ['id_quiz' => $quiz->getId(),"id_ques" => $listQuestions[0]->getId(), "nb_quesion" => 0]);
-            }
+                return $this->redirectToRoute('quiz_show', ['id' => $quiz->getId()]);
+
 
         }
 
@@ -101,16 +104,17 @@ class QuizController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="quiz_delete", methods={"DELETE"})
+     * @Route("/{id}", name="quiz_delete", methods={"GET","POST"})
      */
     public function delete(Request $request, Quiz $quiz): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$quiz->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($quiz);
             $entityManager->flush();
-        }
 
-        return $this->redirectToRoute('quiz_index');
+
+        return $this->render('home/index.html.twig');
     }
 }
+
+

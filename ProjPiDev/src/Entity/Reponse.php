@@ -24,7 +24,7 @@ class Reponse
 
     /**
      * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="reponses")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $id_ques;
 

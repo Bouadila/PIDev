@@ -10,17 +10,17 @@
             <tr>
                 <th>Id</th>
                 <td>{{ quiz.id }}</td>
-                <td><a href="{{ path('quiz_delete', {'id': quiz.id}) }}">delete</a></td>
-                <td><a href="{{ path('question_new', {'id_quiz': quiz.id, 'nb_question' : '-1'}) }}">Add new question</a></td>
+                <td><a href="{{ path('quiz_delete', {'id': quiz.id}) }}">Suprimer</a></td>
+                <td><a href="{{ path('question_new', {'id_quiz': quiz.id, 'nb_question' : '-1'}) }}">Ajouter une question</a></td>
             </tr>
             <tr>
-                <th>Nom_quiz</th>
+                <th>Titre de quiz</th>
                 <td>{{ quiz.nomQuiz }}</td>
-                <td><a href="{{ path('quiz_edit', {'id': quiz.id}) }}">edit</a></td>
+                <td><a href="{{ path('quiz_edit', {'id': quiz.id}) }}">Modifier</a></td>
 
             </tr>
             <tr>
-                <th>Nomb_question</th>
+                <th>Nombre de question</th>
                 <td>{{ quiz.nombQuestion }}</td>
             </tr>
             {% for ques in quiz.questions %}
@@ -28,9 +28,9 @@
                 <td></td>
                     <th>Question</th>
                 <td>{{ ques.contenuQues }}</td>
-                <td><a href="{{ path('question_edit', {'id': ques.id}) }}">edit</a></td>
-                <td><a href="{{ path('question_delete', {'id': ques.id}) }}">delete</a></td>
-                <td><a href="{{ path('reponse_add', {'ques_id': ques.id}) }}">Add new reponse</a></td>
+                <td><a href="{{ path('question_edit', {'id': ques.id}) }}">Modifier</a></td>
+                <td><a href="{{ path('question_delete', {'id': ques.id}) }}">Supprimer</a></td>
+                <td><a href="{{ path('reponse_add', {'ques_id': ques.id}) }}">Ajouter une reponse</a></td>
                 {% for reponse in ques.reponses %}
                     <tr>
                         <td></td><td></td>
@@ -41,10 +41,11 @@
                             <td>{{ reponse.contenuRep }}</td>
                         {% endif %}
 
-                        <td><a href="{{ path('reponse_edit', {'id': reponse.id}) }}">edit</a></td>
-                        <td><a href="{{ path('reponse_delete', {'id': reponse.id}) }}">delete</a></td>
-                        <td><a href="{{ path('reponse_correct', {'id': reponse.id}) }}">make the correct reponse</a></td>
-
+                        <td><a href="{{ path('reponse_edit', {'id': reponse.id}) }}">Modifier</a></td>
+                        <td><a href="{{ path('reponse_delete', {'id': reponse.id}) }}">Supprimer</a></td>
+                        {% if not(not(ques.repjust is null) and ques.repjust.id == reponse.id) %}
+                        <td><a href="{{ path('reponse_correct', {'id': reponse.id}) }}">definir la reponse juste</a></td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
                 </tr>
@@ -52,9 +53,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('quiz_index') }}">back to list</a>
 
-    <a href="{{ path('quiz_edit', {'id': quiz.id}) }}">edit</a>
-
-    {{ include('quiz/_delete_form.html.twig') }}
 {% endblock %}
