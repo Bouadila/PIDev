@@ -6,6 +6,13 @@ use App\Repository\EmployeurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraint\Email;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Validator\Constraints\Image ;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=EmployeurRepository::class)
@@ -14,62 +21,76 @@ class Employeur
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre nom")
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre prenom")
      * @ORM\Column(type="string", length=255)
      */
     private $prenom;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre mdp")
+     * @Assert\Length(min=2 , minMessage="votre mdp {{ value }} ne peut pas faire moins de {{ limit }} characters")
      * @ORM\Column(type="string", length=255)
      */
     private $mdp;
 
     /**
+     * @Assert\Email(message = "l adress mail {{ value }}  n'est pas valide .")
+     * @Assert\NotBlank(message="Veuillez saisir votre email")
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir nom de l'entreprise")
      * @ORM\Column(type="string", length=255)
      */
     private $nom_entreprise;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir site de l'entreprise ")
      * @ORM\Column(type="string", length=255)
      */
     private $site_entreprise;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir l'adresse")
      * @ORM\Column(type="string", length=255)
      */
     private $adresse_entreprise;
 
     /**
+     * @Assert\Length(min=8 , max=8, minMessage=" votre numero {{ value }} doit etre {{ limit }} characters")
+     * @Assert\NotBlank(message="Veuillez saisir votre numero de l'entrprise")
      * @ORM\Column(type="string", length=255)
      */
     private $num_employeur;
 
     /**
+     * @Assert\NotBlank(message="Veuillez mettre logo")
      * @ORM\Column(type="string", length=255)
      */
     private $logo;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir description ")
      * @ORM\Column(type="string", length=255)
      */
     private $description;
 
     /**
+     * @Assert\NotBlank(message="Veuillez  choisir le secteur")
      * @ORM\Column(type="string", length=255)
      */
     private $secteur;
@@ -78,6 +99,11 @@ class Employeur
      * @ORM\ManyToMany(targetEntity=Candidat::class, mappedBy="employeur")
      */
     private $candidats;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
 
     public function __construct()
     {
@@ -244,6 +270,18 @@ class Employeur
         if ($this->candidats->removeElement($candidat)) {
             $candidat->removeEmployeur($this);
         }
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }

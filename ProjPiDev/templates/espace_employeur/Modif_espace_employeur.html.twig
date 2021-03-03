@@ -197,84 +197,132 @@
       width: 100%;
       }
       }
+      .msg{
+      color: red;
+      }
     </style>
   </head>
   <body>
     <div class="testbox">
-      <form action="/">
+          <form {{ form_start(form ) }} >
+                    <form {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }} >
+
         <div class="banner">
           <h1>Modifier votre compte entreprise</h1>
         </div>
         <p class="top-info">Veuillez remplir le formulaire </p>
-        <div class="item">
+      <div class="item">
            <p>Nom<span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Nom" required/>
+                {{ form_widget(form.nom) }}
           </div>
-
+{#              <div class="msg">#}
+{#      {{ form_errors(form.nom) }}#}
+{#</div>#}
           <p>Prenom<span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Prenom" required/>
+                {{ form_widget(form.prenom) }}
           </div>
+{#                        <div class="msg">#}
+{#      {{ form_errors(form.prenom) }}#}
+{#</div>#}
+
             <p>Mot de Passe<span class="required">*</span></p>
           <div class="name-item">
-            <input type="password" name="name"  required/>
+                {{ form_widget(form.mdp) }}
           </div>
 
+{#                        <div class="msg">#}
+{#      {{ form_errors(form.mdp) }}#}
+{#</div>#}
           <p>Email<span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name"  required/>
+                {{ form_widget(form.email) }}
+           </div>
+{#                        <div class="msg">#}
+{#      {{ form_errors(form.email) }}#}
+{#</div>#}
           </div>
-          </div>
-        <p>Nom de l'entreprise <span class="required">*</span></p>
+        <p>Nom de l'entreprise<span class="required">*</span> </p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Nom de l'entreprise" required/>
+                {{ form_widget(form.nom_entreprise) }}
           </div>
-
+{#                        <div class="msg">#}
+{#      {{ form_errors(form.nom_entreprise) }}#}
+{#</div>#}
           <p>Site Web de l'entreprise <span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name" required/>
+                {{ form_widget(form.site_entreprise) }}
           </div>
+{#                              <div class="msg">#}
+{#      {{ form_errors(form.site_entreprise) }}#}
+{#</div>#}
 
-            <p>Adresse de l'entreprise <span class="required">*</span></p>
+  <p>Adresse de l'entreprise <span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name" required/>
+                {{ form_widget(form.adresse_entreprise) }}
           </div>
+{#         <div class="msg">#}
+{#      {{ form_errors(form.adresse_entreprise) }}#}
+{#</div>#}
+
 
            <p>Numéro de téléphone de l'entreprise <span class="required">*</span></p>
           <div class="name-item">
-            <input type="text" name="name" required/>
-          </div>
+                {{ form_widget(form.num_employeur) }}
 
+          </div>
+{#            <div class="msg">#}
+{#      {{ form_errors(form.num_employeur) }}#}
+{#</div>#}
 <div class="item">
 
             <p>Logo de l'entreprise <span class="required">*</span></p>
                       <div class="name-item">
-
-              <input type="file" name="file" accept="file/*">
+                {{ form_widget(form.logo) }}
           </div>
+
+{#        <div class="msg">#}
+{#      {{ form_errors(form.logo) }}#}
+{#</div>#}
+
           </div>
 
             <div class="item">
             <p>Description<span class="required">*</span></p>
-            <textarea rows="3" name="name"required/></textarea>
+                       <div class="name-item">
+
+                {{ form_widget(form.description) }} </div>
           </div>
+{#                     <div class="msg">#}
+{#      {{ form_errors(form.description) }}#}
+{#</div>#}
 
 
             <p>Secteur d'activité <span class="required">*</span></p>
-          <select >
+                            {{ form_widget(form.secteur) }}
+{#                              <div class="msg">#}
+{#      {{ form_errors(form.secteur) }}#}
+{#</div>#}
 
-	<option>Science </option>
-	<option>Informatique</option>
-	<option>vente</option> 	<option>Marketing</option> 	<option>Ingenierie</option>
-</select>
+
+{#          <select >#}
+
+{#	<option>Science </option>#}
+{#	<option>Informatique</option>#}
+{#	<option>vente</option> 	<option>Marketing</option> 	<option>Ingenierie</option>#}
+{#</select>#}
+
+{#                                {{ form_widget(form.SignUp) }}#}
 
 
 
         <div class="btn-block">
-          <button type="submit" href="{{ path ('aff_espace_employeur') }}">Enregistrer</button>
+
+                                {{ form_widget(form.SignUp) }}
+
         </div>
-      </form>
+              </form {{ form_end(form) }} >
     </div>
   </body>
 </html>

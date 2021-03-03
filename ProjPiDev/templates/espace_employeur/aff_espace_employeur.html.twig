@@ -14,24 +14,25 @@
         </div>
     </section>
     <section id="history">
+
         <section id="about_inner">
             <div class="about_inner">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="col-sm-6">
-                                <div class="about_inner_1"><img src="img/32.jpg" alt="abc" class="img_responsive"></div>
+                                <a href="#"><img src="/img/logo.jpg" alt="abc" height="300" width="400"></a>
+
+{#                                {{employeur.getLogo() }}#}
                             </div>
                             <div class="col-sm-6">
                                 <div class="about_inner_2">
-                                    <h2 class="text-center"> nom entrep  <a href="{{ path ('Modif_espace_employeur') }}" class="fa fa-pencil" ></a></h2>
-                                    <p class="text-center"> adresse ent  </p>
-                                    <p class="text-center"> site entrep </p>
-                                    <p class="text-center"> num entrep </p>
-                                    <p class="text-center"> secteur entr </p>
-                                    <p class="text-center"> descprip entr </p>
 
-
+                                    <h2 class="text-center">  {{employeur.getNomEntreprise() }}
+                                        <a href="{{ path ('Modif_espace_employeur') }}" class="fa fa-pencil" ></a></h2>
+                                    <p class="text-center">   {{employeur.getAdresseEntreprise() }}</p>
+                                    <p class="text-center">  {{employeur.getSecteur() }}  </p>
+                                    <p class="text-center">  {{employeur.getDescription() }}   </p>
                                 </div>
                             </div>
                         </div>
@@ -39,6 +40,7 @@
                 </div>
             </div>
         </section>
+
         <section id="choose">
             <div class="container">
                 <div class="row">
@@ -46,18 +48,20 @@
 
                         <div class="col-sm-6">
                             <div class="choose_4">
-                                <h3>le compte de cette entreprise gére par : </h3>
-                                <p> nom employ  </p>
-                                <p> pre employ  </p>
-                                <p>mail empl </p>
+                                <h3>le compte de cette entreprise gére par  </h3>
+                                <p>  {{employeur.getNom()}}   </p>
+                                <p>  {{employeur.getPrenom()}} </p>
+                                <p> {{employeur.getEmail()}} </p>
+                                <p> {{employeur.getNumEmployeur()}} </p>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <a href="{{ path ('home') }}" class="button">Supprimer compte</a>
+                <a href="{{ path ('Supp_espace_employeur') }}" class="button">Desactiver compte</a>
 
             </div>
+
         </section>
 
     </section>

@@ -1,12 +1,12 @@
 {% extends 'baseCandidat.html.twig' %}
 
-{% block title %}Modifier compte candidat{% endblock %}
+{% block title %}compte candidat{% endblock %}
 
 {% block body %}
     <!DOCTYPE html>
 <html>
   <head>
-    <title>espace candidat</title>
+    <title>compte candidat</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
@@ -197,108 +197,144 @@
       width: 100%;
       }
       }
+      .msg{
+      color: red;
+      }
     </style>
   </head>
   <body>
     <div class="testbox">
-      <form action="/">
+      <form {{ form_start(form ) }} >
+{#            <form {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }} >#}
+
         <div class="banner">
-          <h1>Modifier votre Compte Candidat</h1>
+          <h1>Modifier votre profil candidat</h1>
         </div>
-       <p class="top-info">Veuillez remplir le formulaire </p>
+        <p class="top-info">Veuillez remplir le formulaire </p>
         <div class="item">
-           <p>Nom<span class="required">*</span></p>
+           <p>Nom</p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Nom" required/>
+                {{ form_widget(form.nom) }}
           </div>
-          <p>Prenom<span class="required">*</span></p>
+<div class="msg">
+      {{ form_errors(form.nom) }}
+</div>
+          <p>Prenom</p>
           <div class="name-item">
-            <input type="text" name="name" placeholder="Prenom" required/>
+                {{ form_widget(form.prenom) }}
           </div>
-          <p>Email<span class="required">*</span></p>
+          <div class="msg">
+      {{ form_errors(form.prenom) }}
+</div>
+          <p>Email</p>
           <div class="name-item">
-            <input type="text" name="name"  required/>
+                {{ form_widget(form.email) }}
           </div>
+          <div class="msg">
+      {{ form_errors(form.email) }}
+</div>
           </div>
 
-            <div class="question">
-          <p>Civilité :</p>
-          <div class="question-answer">
-            <div>
-              <input type="radio" value="none" id="radio_5" name="references" />
-              <label for="radio_5" class="radio"><span>Homme</span></label>
-            </div>
-            <div>
-              <input type="radio" value="none" id="radio_6" name="references" />
-              <label for="radio_6" class="radio"><span>Femme</span></label>
-            </div>
+        <p>Mot de Passe</p>
+          <div class="name-item">
+                          {{ form_widget(form.mdp) }}
           </div>
+          <div class="msg">
+      {{ form_errors(form.mdp) }}
+</div>
+<div class="item">
+          <p>Votre CV</p>
+             <div class="name-item">
+                {{ form_widget(form.cv) }}
+
+        </div>
+              {{ form_errors(form.cv) }}
+
         </div>
 
 
-          <p>Mot de Passe<span class="required">*</span></p>
-          <div class="name-item">
-            <input type="password" name="name"  required/>
-          </div>
 
 
 <div class="item">
 
-            <p>Image<span class="required">*</span></p>
+            <p>Image</p>
                       <div class="name-item">
 
-              <input type="file" name="file" accept="file/*">
+                          {{ form_widget(form.img) }}
           </div>
+          <div class="msg">
+      {{ form_errors(form.img) }}
+</div>
           </div>
 
           <div class="item">
-            <p>Numéro de télephone<span class="required">*</span></p>
+            <p>Numéro de télephone</p>
                                   <div class="name-item">
-            <input type="text" name="name" required/> </div>
+                          {{ form_widget(form.num) }}
           </div>
-           <p>spécialité<span class="required">*</span></p>
+
+                 <p>Diplome </p>
+                   <div class="name-item">
+                                   {{ form_widget(form.diplome) }}
+                                   </div>
+                                   <div class="msg">
+      {{ form_errors(form.diplome) }}
+</div>
+
+          <div class="msg">
+      {{ form_errors(form.num) }}
+</div>
+           <p>spécialité</p>
           <div class="name-item">
-            <input type="text" name="name" required/>
+                                             {{ form_widget(form.special) }}
+
           </div>
-  <p>Diplome :<span class="required">*</span></p>
-<p>
-	Bac : <input type="checkbox" name="name" value="Bac" /><br />
-	Ingénieur: <input type="checkbox" name="name" value="Ingénieur" /><br />
-	Master: <input type="checkbox" name="name" value="Master" /><br />
-	Doctorat: <input type="checkbox" name="name" value="Doctorat" />
-</p>
+          <div class="msg">
+      {{ form_errors(form.special) }}
+</div>
 
-        <div class="item">
-          <p>Votre CV:</p>                      <div class="name-item">
 
-  <input type="file" name="file" accept="file/*">
-        </div>
-        </div>
-
- <div class="item">
-            <p>Description<span class="required">*</span></p>
-            <textarea rows="3" name="name"required/></textarea>
+{#        <p>#}
+{#	       Bac <input type="checkbox" name="name" value="Bac" /><br />#}
+{#	        Ingénieur <input type="checkbox" name="name" value="Ingénieur" /><br />#}
+{#	        Master<input type="checkbox" name="name" value="Master" /><br />#}
+{#	        Doctorat <input type="checkbox" name="name" value="Doctorat" />#}
+{#</p>#}
+          <div class="question">
+          <p>Civilité </p>
+          <div class="question-answer">
+                          {{ form_widget(form.genre) }}
           </div>
+          <div class="msg">
+      {{ form_errors(form.genre) }}
+</div>
+        </div>
+
                   <div class="item">
-            <p>Date de Naissance<span class="required">*</span></p>
+            <p>Date de Naissance</p>
 
-            <input type="date" name="bdate" required/>
+                {{ form_widget(form.date_naisse) }}
             <i class="fas fa-calendar-alt"></i>
           </div>
-            <p>Gouvernorat :<span class="required">*</span></p>
-          <select >
+                {{ form_errors(form.date_naisse) }}
 
-	<option>Ariana </option>
-	<option>Ben Arous</option>
-	<option>Kairouan</option> 	<option>Kébili</option> 	<option>Le Kef</option>
-</select>
+            <p>Gouvernorat </p>
+{#          <select >#}
+                {{ form_widget(form.gover) }}
+
+{#	<option>Ariana </option>#}
+{#	<option>Ben Arous</option>#}
+{#	<option>Kairouan</option> 	<option>Kébili</option> 	<option>Nabeul</option>#}
+{#</select>#}
+                {{ form_errors(form.gover) }}
 
 
 
         <div class="btn-block">
-          <button type="submit" href="{{ path ('aff_espace_candidat') }}">Enregistrer</button>
+                        {{ form_widget(form.gover) }}
+
         </div>
-      </form>
+      </form {{ form_end(form) }} >
     </div>
   </body>
 </html>

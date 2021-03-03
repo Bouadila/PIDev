@@ -196,71 +196,112 @@
       .position-item select {
       width: 100%;
       }
+      .msg{
+      color: red;
+      }
       }
     </style>
   </head>
   <body>
     <div class="testbox">
-      <form {{ form_start(form) }} >
+      <form {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }} >
         <div class="banner">
           <h1>Créer votre profil candidat</h1>
         </div>
         <p class="top-info">Veuillez remplir le formulaire </p>
         <div class="item">
-           <p>Nom<span class="required">*</span></p>
+           <p>Nom</p>
           <div class="name-item">
                 {{ form_widget(form.nom) }}
           </div>
-          <p>Prenom<span class="required">*</span></p>
+           <div class="msg">
+      {{ form_errors(form.nom) }}
+</div>
+          <p>Prenom</p>
           <div class="name-item">
                 {{ form_widget(form.prenom) }}
           </div>
-          <p>Email<span class="required">*</span></p>
+           <div class="msg">
+      {{ form_errors(form.prenom) }}
+</div>
+          <p>Email</p>
           <div class="name-item">
                 {{ form_widget(form.email) }}
           </div>
+           <div class="msg">
+      {{ form_errors(form.email) }}
+</div>
           </div>
 
-        <p>Mot de Passe<span class="required">*</span></p>
+        <p>Mot de Passe</p>
           <div class="name-item">
                           {{ form_widget(form.mdp) }}
           </div>
-            <div class="question">
-          <p>Civilité :</p>
-          <div class="question-answer">
-                          {{ form_widget(form.genre) }}
-            <div>
-{#              <label for="radio_5" class="radio"><span>Homme</span></label>#}
-            </div>
-            <div>
-{#              <label for="radio_6" class="radio"><span>Femme</span></label>#}
-            </div>
-          </div>
-        </div>
+           <div class="msg">
+      {{ form_errors(form.mdp) }}
+</div>
+
 
 
 <div class="item">
 
-            <p>Image<span class="required">*</span></p>
+            <p>Image</p>
                       <div class="name-item">
 
                           {{ form_widget(form.img) }}
           </div>
+           <div class="msg">
+      {{ form_errors(form.img) }}
+</div>
           </div>
 
           <div class="item">
-            <p>Numéro de télephone<span class="required">*</span></p>
+            <p>Numéro de télephone</p>
                                   <div class="name-item">
                           {{ form_widget(form.num) }}
           </div>
-           <p>spécialité<span class="required">*</span></p>
+           <div class="msg">
+      {{ form_errors(form.num) }}
+</div>
+ <div class="item">
+          <p>Votre CV:</p>
+
+             <div class="name-item">
+                {{ form_widget(form.cv) }}
+
+        </div>
+         <div class="msg">
+      {{ form_errors(form.cv) }}
+</div>
+        </div>
+
+         <p>Diplome </p>
+                                           <div class="name-item">
+
+                                   {{ form_widget(form.diplome) }}
+                                   </div>
+                                    <div class="msg">
+      {{ form_errors(form.diplome) }}
+</div>
+           <p>spécialité</p>
           <div class="name-item">
                                              {{ form_widget(form.special) }}
 
           </div>
-         <p>Diplome :<span class="required">*</span></p>
-                                   {{ form_widget(form.diplome) }}
+           <div class="msg">
+      {{ form_errors(form.special) }}
+</div>
 
+           <div class="question">
+          <p>Civilité :</p>
+          <div class="question-answer">
+                          {{ form_widget(form.genre) }}
+
+          </div>
+           <div class="msg">
+      {{ form_errors(form.genre) }}
+</div>
+        </div>
 {#        <p>#}
 {#	       Bac <input type="checkbox" name="name" value="Bac" /><br />#}
 {#	        Ingénieur <input type="checkbox" name="name" value="Ingénieur" /><br />#}
@@ -268,34 +309,29 @@
 {#	        Doctorat <input type="checkbox" name="name" value="Doctorat" />#}
 {#</p>#}
 
-        <div class="item">
-          <p>Votre CV:</p>
-             <div class="name-item">
-                {{ form_widget(form.cv) }}
 
-        </div>
-        </div>
 
 
                   <div class="item">
-            <p>Date de Naissance<span class="required" >*</span></p>
+            <p>Date de Naissance</p>
 
-                {{ form_widget(form.date_naiss) }}
+                {{ form_widget(form.date_naisse) }}
             <i class="fas fa-calendar-alt"></i>
           </div>
+           <div class="msg">
+      {{ form_errors(form.date_naisse) }}
+</div>
             <p>Gouvernorat :<span class="required" name="gvr">*</span></p>
-{#          <select >#}
                 {{ form_widget(form.gover) }}
-
-{#	<option>Ariana </option>#}
-{#	<option>Ben Arous</option>#}
-{#	<option>Kairouan</option> 	<option>Kébili</option> 	<option>Nabeul</option>#}
-{#</select>#}
+         <div class="msg">
+      {{ form_errors(form.gover) }}
+</div>
 
 
 
         <div class="btn-block">
-                {{ form_widget(form.gover) }}
+                        {{ form_widget(form.gover) }}
+
         </div>
       </form {{ form_end(form) }} >
     </div>

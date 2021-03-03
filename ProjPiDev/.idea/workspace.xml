@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="" />
+    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EspaceCandidatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EspaceCandidatController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EspaceEmployeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EspaceEmployeurController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Candidat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Candidat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Employeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Employeur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CandidatType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CandidatType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/EmployeurType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EmployeurType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_candidat/Modif_espace_candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_candidat/Modif_espace_candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_candidat/aff_espace_candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_candidat/aff_espace_candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_candidat/affback_espace_candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_candidat/affback_espace_candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_candidat/ajout_espace_candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_candidat/ajout_espace_candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_employeur/Modif_espace_employeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_employeur/Modif_espace_employeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_employeur/aff_espace_employeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_employeur/aff_espace_employeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_employeur/affback_espace_employeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_employeur/affback_espace_employeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/espace_employeur/ajout_espace_employeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/espace_employeur/ajout_espace_employeur.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +27,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -124,17 +144,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/espace_employeur" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/espace_candidat" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\ProjPiDev\templates\espace_candidat" />
+      <recent name="C:\wamp64\www\ProjPiDev\templates\espace_employeur" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\ProjPiDev\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\ProjPiDev\templates\espace_employeur" />
-      <recent name="C:\wamp64\www\ProjPiDev\templates\espace_candidat" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -152,7 +172,18 @@
       <workItem from="1614418580733" duration="9317000" />
       <workItem from="1614441032338" duration="20966000" />
       <workItem from="1614466470695" duration="4382000" />
-      <workItem from="1614507827731" duration="4368000" />
+      <workItem from="1614507827731" duration="5461000" />
+      <workItem from="1614527079130" duration="2055000" />
+      <workItem from="1614534757976" duration="24484000" />
+      <workItem from="1614591944853" duration="11042000" />
+      <workItem from="1614608469291" duration="15322000" />
+      <workItem from="1614631204989" duration="6812000" />
+      <workItem from="1614643521619" duration="4737000" />
+      <workItem from="1614677645410" duration="22904000" />
+      <workItem from="1614719752794" duration="12717000" />
+      <workItem from="1614791303002" duration="791000" />
+      <workItem from="1614792173026" duration="11313000" />
+      <workItem from="1614809096025" duration="600000" />
     </task>
     <servers />
   </component>
@@ -168,32 +199,29 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="450" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1614344038559" />
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614464185765">
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614682111801">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1614464185765" />
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1614682111801" />
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0" timestamp="1614344353218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0/0.0.1536.824@0.0.1536.824" timestamp="1614344353218" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614467317135">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614601563631">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614467317135" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614601563631" />
     <state width="644" height="446" key="SwitcherDM" timestamp="1614428271070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="644" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1614428271070" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/templates/espace_candidat/aff_espace_candidat.html.twig</url>
-          <line>19</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="0" y="9" width="1045" height="538" key="dock-window-1" timestamp="1614633555358">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="9" width="1045" height="538" key="dock-window-1/0.0.1366.728@0.0.1366.728" timestamp="1614633555358" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1614791547922">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1614791547922" />
   </component>
 </project>

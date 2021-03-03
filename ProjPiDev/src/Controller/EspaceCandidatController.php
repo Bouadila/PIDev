@@ -3,12 +3,22 @@
 namespace App\Controller;
 
 use App\Entity\Candidat;
+use App\Form\CandidatModifType;
 use App\Form\CandidatType;
 use App\Repository\CandidatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
+
 
 class EspaceCandidatController extends AbstractController
 {
@@ -22,125 +32,120 @@ class EspaceCandidatController extends AbstractController
         ]);
     }
 
-//    public function index(CandidatRepository $candidatRepository): Response
-//    {
-//        return $this->render('candidat/index.html.twig', [
-//            'candidats' => $candidatRepository->findAll(),
-//        ]);
-//    }
-
     /**
      *
      * @param  Request $request
      * @Route("/ajout/espace/candidat", name="ajout_espace_candidat")
      */
-    public function Add(Request $request): Response
+    public function Add(Request $request,CandidatRepository $repository): Response
     {
         $candidat = new Candidat();
         $form =$this->createForm(CandidatType::class,$candidat);
         $form->handleRequest($request);
-        if($form->isSubmitted() ){
-            //get the entity manager that exists in doctrine( entity manager and repository)
-            $em=$this->getDoctrine()->getManager();
-            // tell Doctrine you want to (eventually) save the Product (no queries yet)
-            $em->persist($candidat);
-            // actually executes the queries
-            $em->flush();
-            // return to the affiche
-            return $this->redirectToRoute('aff_espace_candidat');
+        $candidatCH = $repository->findOneBy(['email' => $candidat->getEmail()]);
+        if($candidatCH!=null){
+            echo($candidatCH->getEmail());
+        }elseif ($candidatCH==null){
+            if($form->isSubmitted()  ) {
+//                && $form->isValid()
+                $session= new Session();
+                $session->set('email',$candidat->getEmail());
+                $session->set('id',$candidat->getId());
+                $candidat->setEtat('0');
+                //get the entity manager that exists in doctrine( entity manager and repository)
+                $em=$this->getDoctrine()->getManager();
+                // tell Doctrine you want to (eventually) save the Product (no queries yet)
+                $em->persist($candidat);
+                // actually executes the queries
+                $em->flush();
+                // return to the affiche
+                return $this->redirectToRoute('aff_espace_candidat');
+            }
         }
+
         return $this->render('espace_candidat/ajout_espace_candidat.html.twig', [
             'controller_name' => 'EspaceCandidatController',
             'form'=>$form->createView(),
         ]);
-
     }
+
 
     /**
      * @Route("/aff/espace/candidat", name="aff_espace_candidat")
      */
-    public function listeD(): Response
+
+    public function Read(CandidatRepository $repository)
     {
-        return $this->render('espace_candidat/aff_espace_candidat.html.twig', [
-            'controller_name' => 'EspaceCandidatController',
-        ]);
+        //Creer un objet Doctrine
+        $em=$this->getDoctrine();
+//        $candidat=$em->getRepository(Candidat::class)->findAll();
+        $candidat = $repository->findOneBy(['email' => $this->get('session')->get('email')]);
+        if($candidat->getEtat()=='1'){
+            echo("compte desactive");
+        }else {
+            echo($this->get('session')->get('id'));
+            echo($this->get('session')->get('email'));}
+            return $this->render('espace_candidat/aff_espace_candidat.html.twig',
+                ['candidat' => $candidat,
+
+                ]);
     }
 
     /**
      * @Route("/Supp/espace/candidat", name="Supp_espace_candidat")
      */
-    public function listeSu(): Response
+    public function delete(Request $request, CandidatRepository $repository): Response
     {
-        return $this->render('espace_candidat/Supp_espace_candidat.html.twig', [
-            'controller_name' => 'EspaceCandidatController',
-        ]);
+        $candidat = $repository->findOneBy(['email' => $this->get('session')->get('email') ]);
+//        dd($candidat);
+        $candidat->setEtat('1');
+        $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        return $this->redirectToRoute('home');
+
+            return $this->render('espace_candidat/Supp_espace_candidat.html.twig', array(
+            'candidat' => $candidat,)
+        );
     }
 
     /**
+     * @param  Request $request
      * @Route("/Modif/espace/candidat", name="Modif_espace_candidat")
      */
-    public function listeModif(): Response
+
+    public function Update(Request $request, CandidatRepository $repository)
     {
-        return $this->render('espace_candidat/Modif_espace_candidat.html.twig', [
-            'controller_name' => 'EspaceCandidatController',
-        ]);
+        $candidat = $repository->findOneBy(['email' => $this->get('session')->get('email') ]);
+        $form=$this->createForm(CandidatType::class,$candidat);
+//        $form->add('Modifier candidat',SubmitType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted() )
+        {
+//            && $form->isValid()
+            $em=$this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute("aff_espace_candidat");
+        }
+
+        return $this->render('espace_candidat/Modif_espace_candidat.html.twig',array(
+                'form'=>$form->createView() ,
+            )
+
+        );
     }
-
-
-//    /**
-//     * @Route("/{id}", name="candidat_show", methods={"GET"})
-//     */
-//    public function show(Candidat $candidat): Response
-//    {
-//        return $this->render('candidat/show.html.twig', [
-//            'candidat' => $candidat,
-//        ]);
-//    }
-
-//    /**
-//     * @Route("/{id}/edit", name="candidat_edit", methods={"GET","POST"})
-//     */
-//    public function edit(Request $request, Candidat $candidat): Response
-//    {
-//        $form = $this->createForm(Candidat1Type::class, $candidat);
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $this->getDoctrine()->getManager()->flush();
-//
-//            return $this->redirectToRoute('candidat_index');
-//        }
-//
-//        return $this->render('candidat/edit.html.twig', [
-//            'candidat' => $candidat,
-//            'form' => $form->createView(),
-//        ]);
-//    }
-//
-//    /**
-//     * @Route("/{id}", name="candidat_delete", methods={"DELETE"})
-//     */
-//    public function delete(Request $request, Candidat $candidat): Response
-//    {
-//        if ($this->isCsrfTokenValid('delete'.$candidat->getId(), $request->request->get('_token'))) {
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->remove($candidat);
-//            $entityManager->flush();
-//        }
-//
-//        return $this->redirectToRoute('candidat_index');
-//    }
-//}
 
     /**
      * @Route("/affback/espace/candidat", name="affback_espace_candidat")
      */
-    public function listeAB(): Response
+    public function ReadB()
     {
-        return $this->render('espace_candidat/affback_espace_candidat.html.twig', [
-            'controller_name' => 'EspaceCandidatController',
-        ]);
-    }
+        //Creer un objet Doctrine
+        $em=$this->getDoctrine();
+        $candidat=$em->getRepository(Candidat::class)->findAll();
+        return $this->render('espace_candidat/affback_espace_candidat.html.twig',
+            ['candidat'=> $candidat ,
 
+            ]);
+    }
 
 }

@@ -14,21 +14,28 @@
         </div>
     </section>
     <section id="history">
+
         <section id="about_inner">
             <div class="about_inner">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="col-sm-6">
-                                <div class="about_inner_1"><img src="img/32.jpg" alt="abc" class="img_responsive"></div>
+{#                                {{candidat.getImg() }}#}
+
+                                <a href="#"><img src="/img/prof.png" alt="abc" height="300" width="400"></a>
+
+
                             </div>
                             <div class="col-sm-6">
                                 <div class="about_inner_2">
-                                    <h2 class="text-center"> nom prenom  <a href="{{ path ('Modif_espace_candidat') }}" class="fa fa-pencil" ></a></h2>
-                                    <p class="text-center"> date naiss </p>
-                                    <p class="text-center"> Gouvernorat : </p>
-                                    <p class="text-center"> email </p>
-                                    <p class="text-center"> num </p>
+
+                                            <h2 class="text-center"> {{candidat.getNom()}} {{candidat.getPrenom()}}
+                                                <a href="{{ path ('Modif_espace_candidat') }}" class="fa fa-pencil" ></a></h2>
+                                            <p class="text-center">  {{candidat.getDateNaisse()|date('Y-m-d')}}</p>
+                                            <p class="text-center">  {{candidat.getGover()}}  </p>
+                                            <p class="text-center"> {{candidat.getEmail()}}   </p>
+                                            <p class="text-center"> {{candidat.getNum()}}   </p>
 
                                 </div>
                             </div>
@@ -43,24 +50,25 @@
                     <div class="choose_2 clearfix">
                         <div class="col-sm-6">
                             <div class="choose_3">
-                                <a href="#"><img src="img/18.jpg" alt="abc" class="img_responsive"></a>
+{#                                {{candidat.getCv()}}#}
+
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="choose_4">
-                                <h3>Spécialité</h3>
-                                <p> les speci </p>
+                                <h3>Specialite </h3>
+                                <p>                              {{candidat.getSpecial()}}
+                                    </p>
                             </div>
                             <div class="choose_4">
                                 <h3>Diplome </h3>
-                                <p>bac <br> master <br>doctorat</p>
+                             {{candidat.getDiplome()}}
                             </div>
-                            <p> Description : bla bl abla </p>
 
                         </div>
                     </div>
                 </div>
-                <a href="{{ path ('home') }}" class="button">Supprimer compte</a>
+                <a href="{{ path ('Supp_espace_candidat') }}" class="button">Desactiver compte</a>
 
             </div>
         </section>

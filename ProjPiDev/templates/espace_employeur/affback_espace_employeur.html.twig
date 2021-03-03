@@ -17,6 +17,7 @@
                         <th>Email</th>
                         <th>Nom entrep</th>
                         <th>Site entrep</th>
+                        <th>Etat</th>
                         <th>Adresse</th>
                         <th>Num</th>
                         <th>logo </th>
@@ -25,78 +26,28 @@
 
                     </tr>
                     </thead>
+                    {% for employeur in employeur  %}
                     <tbody>
                     <tr>
-                        <td>Jacob</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Photoshop</td>
-                        <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-danger">Pending</label>
-                        </td>
-                        <td>Messsy</td>
-                    </tr>
-                    <tr>
-                        <td>Messsy</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-
-                        <td>cob</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-warning">In progress</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Premier</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-info">Fixed</label>
-                        </td>
-                        <td>Ja</td>
-                    </tr>
-                    <tr>
-                        <td>Peter</td>
-                        <td>After effects</td>
-                        <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-success">Completed</label>
-                        </td>
-                        <td>John</td>
-                        <td>Premier</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Jacob</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>Jacob</td>
-
-
+                        <td>{{employeur.nom}}</td>
+                        <td>{{employeur.prenom}}</td>
+                        <td>{{employeur.email}}</td>
+                        <td>{{employeur.NomEntreprise}}</td>
+                        <td>{{employeur.SiteEntreprise}}</td>
+                        <td>{{employeur.mdp}}</td>
+                        {% if employeur.etat == "0" %}
+                            <td>compte activé</td>
+                        {% else %}
+                            <td>compte déactivé</td>
+                        {% endif %}
+                        <td>{{employeur.AdresseEntreprise}}</td>
+                        <td>{{employeur.NumEmployeur}}</td>
+                        <td>{{employeur.logo}}</td>
+                        <td>{{employeur.description}}</td>
+                        <td>{{employeur.secteur}}</td>
                     </tr>
 
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

@@ -10,6 +10,7 @@
                 <h4 class="card-title">Les comptes des candidats</h4>
                 <table class="table table-hover">
                     <thead>
+
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
@@ -17,89 +18,43 @@
                         <th>sexe</th>
                         <th>Date nais</th>
                         <th>mdp</th>
-                        <th>ville</th>
+                        <th>Etat</th>
+                        <th>Ville</th>
                         <th>Img</th>
                         <th>Num </th>
-                        <th>spécialité</th>
+                        <th>Spécialité</th>
                         <th>Diplome</th>
-                        <th>cv</th>
+                        <th>Cv</th>
 
                     </tr>
                     </thead>
+                    {% for candidat in candidat  %}
+
                     <tbody>
                     <tr>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Photoshop</td>
-                        <td class="text-danger"> 28.76% <i class="mdi mdi-arrow-down"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-danger">Pending</label>
-                        </td>
-                        <td>Messsy</td>
+                        <td>{{candidat.nom}}</td>
+                        <td>{{candidat.prenom}}</td>
+                        <td>{{candidat.email}}</td>
+                        <td>{{candidat.genre}}</td>
+                        <td>{{candidat.DateNaisse|date('Y-m-d')}}</td>
+                        <td>{{candidat.mdp}}</td>
+                       {% if candidat.etat == "0" %}
+                        <td>compte activé</td>
+                        {% else %}
+                        <td>compte déactivé</td>
+                        {% endif %}
+                        <td>{{candidat.gover}}</td>
+                        <td>{{candidat.img}}</td>
+                        <td>{{candidat.num}}</td>
+                        <td>{{candidat.special}}</td>
+                        <td>{{candidat.diplome}}</td>
+                        <td>{{candidat.cv}}</td>
                     </tr>
-                    <tr>
-                        <td>Messsy</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-warning">In progress</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Premier</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-info">Fixed</label>
-                        </td>
-                        <td>Ja</td>
-                    </tr>
-                    <tr>
-                        <td>Peter</td>
-                        <td>After effects</td>
-                        <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i>
-                        </td>
-                        <td>
-                            <label class="badge badge-success">Completed</label>
-                        </td>
-                        <td>John</td>
-                        <td>Premier</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>cob</td>
-                        <td>cob</td>
-                        <td>Jacob</td>
-                        <td>Jacob</td>
-                        <td>Ja</td>
-                        <td>Jacob</td>
 
-
-                    </tr>
+                    {% endfor %}
 
                     </tbody>
+
                 </table>
             </div>
         </div>
