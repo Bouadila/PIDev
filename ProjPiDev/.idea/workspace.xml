@@ -20,25 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ContratController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/OffreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ContratType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/OffreType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contrat/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contrat/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contrat/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contrat/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contrat/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contrat/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210303175958.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210303195354.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210303203401.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210303210708.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210303215738.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/addoffre.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/offreEmploi/offreEmploi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Contrat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Contrat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Offre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ContratType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ContratType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/OffreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OffreType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseBack.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contrat/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contrat/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contrat/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contrat/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contrat/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contrat/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +57,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -158,15 +174,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1oyfRGrdr6HxRDudt9wenipjh4W" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -179,6 +199,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\brahm\Desktop\3A27\Semestre2\PIDev\ProjPiDev\public\images\offreEmploi" />
       <recent name="C:\wamp64\www\ProjPiDev\public" />
       <recent name="C:\wamp64\www\ProjPiDev\public\fonts" />
       <recent name="C:\wamp64\www\ProjPiDev\public\js" />
@@ -199,7 +220,9 @@
       <workItem from="1614505918404" duration="915000" />
       <workItem from="1614507015597" duration="1271000" />
       <workItem from="1614515994989" duration="10543000" />
-      <workItem from="1614590451637" duration="7355000" />
+      <workItem from="1614590451637" duration="15798000" />
+      <workItem from="1614684280036" duration="1264000" />
+      <workItem from="1614706458402" duration="37009000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;creation des entités contrat et offre&quot;">
       <created>1614535342210</created>
@@ -215,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614535824333</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="&quot;validation et crud des entités contrat et offre&quot;">
+      <created>1614603644573</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614603644573</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,8 +264,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="&quot;creation des entités contrat et offre&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;creation des entités contrat et offre&quot;" />
+    <MESSAGE value="&quot;validation et crud des entités contrat et offre&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;validation et crud des entités contrat et offre&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="428" y="193" key="#Notifications" timestamp="1614597244113">
@@ -250,18 +283,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0/0.0.1536.824@0.0.1536.824" timestamp="1614344353218" />
-    <state x="302" y="0" key="CommitChangelistDialog2" timestamp="1614535821134">
+    <state x="302" y="0" key="CommitChangelistDialog2" timestamp="1614603639868">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="302" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614535821134" />
+    <state x="302" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614603639868" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1614506857024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614506857024" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1614535826973">
+    <state width="498" height="446" key="SwitcherDM" timestamp="1614811757067">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614535826973" />
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1614811757067" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1614603646817">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614603646817" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1614447133153">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

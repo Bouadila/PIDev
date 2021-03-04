@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\OffreRepository;
+use DateTime;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -29,6 +32,7 @@ class Offre
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="le salaire d'offre ne peut pas être vide ")
      * @Assert\NotNull(message="le salaire ne doit pas être nulle")
+     * @Assert\GreaterThan(0, message="salaire doit être positif")
      */
     private $salaire;
 
@@ -48,20 +52,49 @@ class Offre
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="le nombre de place ne peut pas être vide ")
      * @Assert\NotNull(message="le nombre de place ne doit pas être nulle")
+     * @Assert\GreaterThan(0, message="nombre de place doit être positif")
      */
     private $nombrePlace;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="l'experience ne peut pas être vide ")
+     * @Assert\GreaterThan(0, message="salaire doit être positif")
      */
     private $experience;
-
     /**
-     * @ORM\ManyToOne(targetEntity=Contrat::class, inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=Contrat::class, inversedBy="offres")
+     * @Assert\NotBlank(message="le contrat ne peut pas être vide ")
      */
     private $contrat;
+   /**
+     * @ORM\Column(type="boolean")
+     */
+    private $etat;
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="la post ne peut pas être vide ")
+     */
+    private $post;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message=" objectif  ne peut pas être vide ")
+     */
+    private $objectif;
+
+    /**
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="les competences ne peuvent pas être vide ")
+     */
+    private $competences ;
+
+    public function __construct()
+    {
+        $this->dateDepo = new DateTime();
+        $this->etat=true;
+    }
 
     public function getId(): ?int
     {
@@ -148,6 +181,55 @@ class Offre
     public function setContrat(?Contrat $contrat): self
     {
         $this->contrat = $contrat;
+
+        return $this;
+    }
+
+
+    public function getEtat(): ?bool
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(bool $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getPost(): ?string
+    {
+        return $this->post;
+    }
+
+    public function setPost(string $post): self
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    public function getObjectif(): ?string
+    {
+        return $this->objectif;
+    }
+
+    public function setObjectif(string $objectif): self
+    {
+        $this->objectif = $objectif;
+
+        return $this;
+    }
+
+    public function getCompetences(): ?string
+    {
+        return $this->competences;
+    }
+
+    public function setCompetences(string $competences): self
+    {
+        $this->competences = $competences;
 
         return $this;
     }

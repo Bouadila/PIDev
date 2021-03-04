@@ -3,11 +3,21 @@
 {% block title %}Edit Offre{% endblock %}
 
 {% block body %}
-    <h1>Edit Offre</h1>
+    <div class="container">
+        <div class=" text-center mt-5 ">
+            <h1>Modifir Offre d'emploi </h1>
+        </div>
+        {{ include('offre/_form.html.twig', {'button_label': 'Update'}) }}
+        <br>
+        <br>
+        <div class="col-md-6">
+            <a href="{{ path('offre_index') }}" class="btn btn-info backBtn btn-lg pull-left">
+                <i class="fa fa-backward" aria-hidden="true"></i> Retourner à la list
+            </a>
+        </div>
+        <div class="col-md-6">
+            {{ include('offre/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    {{ include('offre/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('offre_index') }}">back to list</a>
-
-    {{ include('offre/_delete_form.html.twig') }}
 {% endblock %}

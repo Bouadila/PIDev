@@ -2,8 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Contrat;
 use App\Entity\Offre;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,11 +16,13 @@ class OffreType extends AbstractType
         $builder
             ->add('description')
             ->add('salaire')
-            ->add('dateDepo')
             ->add('dateExpiration')
             ->add('nombrePlace')
             ->add('experience')
-            ->add('contrat')
+            ->add('contrat',EntityType::class, ['class' => Contrat::class,'choice_label' => 'type' , 'expanded'=>true, 'multiple'=>false])
+            ->add('post')
+            ->add('objectif')
+            ->add('competences')
         ;
     }
 

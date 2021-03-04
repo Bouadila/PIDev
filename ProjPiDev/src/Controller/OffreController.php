@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Competence;
 use App\Entity\Offre;
+use App\Form\CompetenceType;
 use App\Form\OffreType;
 use App\Repository\OffreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,8 +36,8 @@ class OffreController extends AbstractController
         $offre = new Offre();
         $form = $this->createForm(OffreType::class, $offre);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            //dd($offre);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($offre);
             $entityManager->flush();

@@ -3,43 +3,52 @@
 {% block title %}Offre index{% endblock %}
 
 {% block body %}
-    <h1>Offre index</h1>
+<div class="container">
+    <div class=" text-center mt-5 ">
+        <h2>Offres d'emploi</h2>
+    </div>
+    <div class="col-md-6">
+        <a class="btn btn-info" href="{{ path('offre_new') }}">
+            <i class="fa fa-plus" aria-hidden="true"></i> Ajouter contrat
+        </a>
+    </div>
 
+</div>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Salaire</th>
-                <th>DateDepo</th>
-                <th>DateExpiration</th>
-                <th>NombrePlace</th>
-                <th>Experience</th>
-                <th>actions</th>
+                <th scope="col">Post</th>
+                <th scope="col">Salaire</th>
+                <th scope="col">Date Depot</th>
+                <th scope="col">Date Expiration</th>
+                <th scope="col">Nombre Place</th>
+                <th scope="col">Experience</th>
+                <th scope="col">Contrat</th>
+                <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
         {% for offre in offres %}
-            <tr>
-                <td>{{ offre.id }}</td>
-                <td>{{ offre.description }}</td>
-                <td>{{ offre.salaire }}</td>
+            {% if offre.etat == true %}
+            <tr scope="row">
+                <td>{{ offre.post }}</td>
+                <td>{{ offre.salaire }} DT</td>
                 <td>{{ offre.dateDepo ? offre.dateDepo|date('Y-m-d') : '' }}</td>
                 <td>{{ offre.dateExpiration ? offre.dateExpiration|date('Y-m-d') : '' }}</td>
                 <td>{{ offre.nombrePlace }}</td>
-                <td>{{ offre.experience }}</td>
+                <td>{{ offre.experience }} ans</td>
+                <td>{{ offre.contrat.type }}</td>
                 <td>
-                    <a href="{{ path('offre_show', {'id': offre.id}) }}">show</a>
-                    <a href="{{ path('offre_edit', {'id': offre.id}) }}">edit</a>
+                    <a href="{{ path('offre_show', {'id': offre.id}) }}" class="btn btn-info col-md-8" >
+                        <i class="fa fa-caret-down" aria-hidden="true"></i> Détails
+                    </a>
+                    <a href="{{ path('offre_edit', {'id': offre.id}) }}"  class="btn btn-info col-md-8">
+                        <i class="fa fa-pencil" aria-hidden="true"></i> Modifir
+                    </a>
                 </td>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('offre_new') }}">Create new</a>
 {% endblock %}

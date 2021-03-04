@@ -3,35 +3,42 @@
 {% block title %}Contrat index{% endblock %}
 
 {% block body %}
-    <h1>Contrat index</h1>
+    <div class="container">
+        <div class=" text-center mt-5 ">
+            <h2>les Contrats disponibles</h2>
+        </div>
+        <div class="col-md-6"> <a class="btn btn-info" href="{{ path('contrat_new') }}"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter contrat</a></div>
+        <table class="table">
+            <thead>
+            <tr>
+                {#<th>Id</th>#}
+                <th scope="col">Description</th>
+                <th scope="col">Type</th>
+                <th scope="col">actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contrat in contrats %}
+                <tr scope="row">
+                    {#<td>{{ contrat.id }}</td>#}
+                    <td>{{ contrat.description }}</td>
+                    <td>{{ contrat.type }}</td>
+                    <td>
+                        <a href="{{ path('contrat_show', {'id': contrat.id}) }}" class="btn btn-info ">
+                            <i class="fa fa-caret-down" aria-hidden="true"></i> Détails
+                        </a>
+                        <a href="{{ path('contrat_edit', {'id': contrat.id}) }}" class="btn btn-info">
+                            <i class="fa fa-pencil" aria-hidden="true"></i> Modifir
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contrat in contrats %}
-            <tr>
-                <td>{{ contrat.id }}</td>
-                <td>{{ contrat.description }}</td>
-                <td>{{ contrat.type }}</td>
-                <td>
-                    <a href="{{ path('contrat_show', {'id': contrat.id}) }}">show</a>
-                    <a href="{{ path('contrat_edit', {'id': contrat.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('contrat_new') }}">Create new</a>
 {% endblock %}

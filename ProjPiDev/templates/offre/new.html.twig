@@ -3,9 +3,17 @@
 {% block title %}New Offre{% endblock %}
 
 {% block body %}
-    <h1>Create new Offre</h1>
-
+<div class="container">
+    <div class=" text-center mt-5 ">
+        <h2>Ajouter offre d'emploi</h2>
+    </div>
     {{ include('offre/_form.html.twig') }}
-
-    <a href="{{ path('offre_index') }}">back to list</a>
+    <br>
+    <br>
+    <div class="col-md-6">
+        <a href="{{ path('offre_index') }}" class="btn btn-info backBtn btn-lg pull-left">
+            <i class="fa fa-backward" aria-hidden="true"></i>
+            Retourner à la list</a>
+    </div>
+</div>
 {% endblock %}
