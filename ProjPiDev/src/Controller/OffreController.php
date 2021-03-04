@@ -27,6 +27,15 @@ class OffreController extends AbstractController
             'offres' => $offreRepository->findAll(),
         ]);
     }
+    /**
+     * @Route("/candidat", name="index_candidat", methods={"GET"})
+     */
+    public function indexCandidat(OffreRepository $offreRepository): Response
+    {
+        return $this->render('offre/indexcandidat.html.twig', [
+            'offres' => $offreRepository->findAll(),
+        ]);
+    }
 
     /**
      * @Route("/new", name="offre_new", methods={"GET","POST"})
@@ -60,6 +69,15 @@ class OffreController extends AbstractController
             'offre' => $offre,
         ]);
     }
+    /**
+     * @Route("/condidat/{id}", name="offre_showcandidat", methods={"GET"})
+     */
+    public function showoffre(Offre $offre): Response
+    {
+        return $this->render('offre/showcandidat.html.twig', [
+            'offre' => $offre,
+        ]);
+    }
 
     /**
      * @Route("/{id}/edit", name="offre_edit", methods={"GET","POST"})
@@ -88,7 +106,8 @@ class OffreController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$offre->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($offre);
+            //$entityManager->remove($offre);
+            $offre->setEtat(false);
             $entityManager->flush();
         }
 
