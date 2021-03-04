@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReclamationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ReclamationRepository::class)
@@ -19,6 +20,7 @@ class Reclamation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Titre est vide")
      */
     private $title;
 
@@ -29,11 +31,13 @@ class Reclamation
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Votre Description est vide")
      */
     private $description_Reclamation;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Vous n'avez pas choisi un type")
      */
     private $type;
 
