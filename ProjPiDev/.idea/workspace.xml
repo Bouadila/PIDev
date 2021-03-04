@@ -20,8 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="crud terminer">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/ajoutReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/ajoutReclamation.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +177,7 @@
       <workItem from="1614518600367" duration="22000" />
       <workItem from="1614766097891" duration="12438000" />
       <workItem from="1614846036362" duration="933000" />
+      <workItem from="1614847698897" duration="355000" />
     </task>
     <task id="LOCAL-00001" summary="crud terminer &#10;rest template tableau">
       <created>1614775508855</created>
