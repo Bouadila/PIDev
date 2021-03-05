@@ -20,24 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210303203556.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210304005248.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210304011054.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210304012747.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/offre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/indexcandidat.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/offre/showcandidat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contrat/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contrat/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Offre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/offre/indexcandidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offre/indexcandidat.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +201,9 @@
       <workItem from="1614515994989" duration="10543000" />
       <workItem from="1614590451637" duration="15798000" />
       <workItem from="1614684280036" duration="1264000" />
-      <workItem from="1614706458402" duration="44887000" />
+      <workItem from="1614706458402" duration="44967000" />
+      <workItem from="1614838478877" duration="4802000" />
+      <workItem from="1614973765907" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;creation des entités contrat et offre&quot;">
       <created>1614535342210</created>
@@ -246,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614818262114</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="&quot;page d'affichage pour le candidat&quot;">
+      <created>1614825948474</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614825948474</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +264,8 @@
     <MESSAGE value="&quot;creation des entités contrat et offre&quot;" />
     <MESSAGE value="&quot;validation et crud des entités contrat et offre&quot;" />
     <MESSAGE value="&quot;integration de template sur l'interface offre d'emploi&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;integration de template sur l'interface offre d'emploi&quot;" />
+    <MESSAGE value="&quot;page d'affichage pour le candidat&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;page d'affichage pour le candidat&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="428" y="193" key="#Notifications" timestamp="1614597244113">
@@ -289,10 +284,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0/0.0.1536.824@0.0.1536.824" timestamp="1614344353218" />
-    <state x="302" y="0" key="CommitChangelistDialog2" timestamp="1614818255332">
+    <state x="302" y="0" key="CommitChangelistDialog2" timestamp="1614825945860">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="302" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614818255332" />
+    <state x="302" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614825945860" />
     <state x="436" y="89" key="RollbackChangesDialog" timestamp="1614822954518">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -305,10 +300,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1614811757067" />
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1614825900928">
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2" timestamp="1614825949436">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614825900928" />
+    <state x="275" y="102" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614825949436" />
     <state x="390" y="102" width="585" height="534" key="find.popup" timestamp="1614821627693">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

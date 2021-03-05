@@ -45,6 +45,10 @@ class Offre
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank(message="la date d'expiration d'offre ne peut pas être vide ")
+     * @Assert\GreaterThanOrEqual(
+     *      value = "today",
+     *      message = "date d'expiration invalide"
+     * )
      */
     private $dateExpiration;
 
