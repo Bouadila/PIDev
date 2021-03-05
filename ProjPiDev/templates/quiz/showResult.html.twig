@@ -20,9 +20,9 @@
         <tr>
             <th>Reponse condidat </th>
             {% if  reponse.reponse == reponse.question.repjust %}
-                <td style="background-color:limegreen">{{ reponse.reponse.contenuRep }}</td>
+                <td >{{ reponse.reponse.contenuRep }}<i style="font-size: 150%; color:limegreen" class="fa fa-check-circle-o" aria-hidden="true"></i></td>
             {% else %}
-                <td style="background-color:red">{{ reponse.reponse.contenuRep }}</td>
+                <td >{{ reponse.reponse.contenuRep }}<i style="font-size: 150%; color:red" class="fa fa-times-circle-o"S aria-hidden="true"></i></td>
             {% endif %}
         </tr>
         {% endfor %}
