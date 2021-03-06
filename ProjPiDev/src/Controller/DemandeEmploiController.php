@@ -25,24 +25,24 @@ class DemandeEmploiController extends AbstractController
         $form->add('Ajouter Demande',SubmitType::class);
         $form->handleRequest($request);
 
-            if ($form->isSubmitted())
-            {
-                var_dump($demande);
-                //$file = $request->files->get('demande')['cvCand'];
-                //$uploads_directory = $this->getParameter('Téléchargements');
-                //$filename = md5(uniqid())  .  '.'  .  $file->guessExtension();
-                //$file->move(
-                  //  $uploads_directory,
+            if ($form->isSubmitted()){
+
+                    var_dump($demande);
+                    //$file = $request->files->get('demande')['cvCand'];
+                    //$uploads_directory = $this->getParameter('Téléchargements');
+                    //$filename = md5(uniqid())  .  '.'  .  $file->guessExtension();
+                    //$file->move(
+                    //  $uploads_directory,
                     //$filename
-                //);
-                $demande = $form->getData();
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($demande);
-                $em->flush();
-                return $this->redirectToRoute("list_demande_emploi");
+                    //);
+                    $demande = $form->getData();
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($demande);
+                    $em->flush();
+                    return $this->redirectToRoute("list_demande_emploi");
 
 
-            }
+                }
 
         return $this->render('demande_emploi/Ajout_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
 
