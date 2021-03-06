@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block body %}
+    <h1>Quiz</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ quiz.id }}</td>
+                <td><a class="btn btn-info" href="{{ path('quiz_delete', {'id': quiz.id}) }}"><i class="fa fa-minus-circle" aria-hidden="true"></i>Suprimer</a></td>
+                <td><a class="btn btn-info" href="{{ path('question_new', {'id_quiz': quiz.id, 'nb_question' : '-1'}) }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une question</a></td>
+            </tr>
+            <tr>
+                <th>Titre de quiz</th>
+                <td>{{ quiz.nomQuiz }}</td>
+                <td><a class="btn btn-info" href="{{ path('quiz_edit', {'id': quiz.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>Modifier</a></td>
+
+            </tr>
+            <tr>
+                <th>Nombre de question</th>
+                <td>{{ quiz.nombQuestion }}</td>
+            </tr>
+            {% for ques in quiz.questions %}
+                <tr>
+                <td></td>
+                    <th>Question</th>
+                <td>{{ ques.contenuQues }}</td>
+                <td><a class="btn btn-info" href="{{ path('question_edit', {'id': ques.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>Modifier</a></td>
+                <td><a class="btn btn-info" href="{{ path('question_delete', {'id': ques.id}) }}"><i class="fa fa-minus-circle" aria-hidden="true"></i>Supprimer</a></td>
+                <td><a class="btn btn-info" href="{{ path('reponse_add', {'ques_id': ques.id}) }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une reponse</a></td>
+                {% for reponse in ques.reponses %}
+                    <tr>
+                        <td></td><td></td>
+                        <th>Reponse</th>
+                        {% if not(ques.repjust is null) and ques.repjust.id == reponse.id %}
+                        <td >{{ reponse.contenuRep }} <i style="font-size: 150%; color:limegreen" class="fa fa-check-circle-o" aria-hidden="true"></i></td>
+                        {% else %}
+                            <td>{{ reponse.contenuRep }}</td>
+                        {% endif %}
+
+                        <td><a class="btn btn-info" href="{{ path('reponse_edit', {'id': reponse.id}) }}"><i class="fa fa-pencil" aria-hidden="true"></i>Modifier</a></td>
+                        <td><a class="btn btn-info" href="{{ path('reponse_delete', {'id': reponse.id}) }}"><i class="fa fa-minus-circle" aria-hidden="true"></i>Supprimer</a></td>
+                        {% if not(not(ques.repjust is null) and ques.repjust.id == reponse.id) %}
+                        <td><a class="btn btn-info" href="{{ path('reponse_correct', {'id': reponse.id}) }}">definir la reponse juste</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
