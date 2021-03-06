@@ -1,176 +1,123 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
+
 <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> {% block title %} recruitini {% endblock %} </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
+    <title>{% block title %} Recruitini {% endblock %} </title>
     {% block css%}
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/global.css')}}" rel="stylesheet">
-        <link href="{{asset('css/index.css')}}" rel="stylesheet">
-        <link href="{{asset('css/ken-burns.css')}}" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{asset('css/services.css')}}" rel="stylesheet">
-        <link href="{{asset('css/contact.css')}}" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="{{asset('css/animate.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}" />
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-    {% endblock %}
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    {% block js %}
-        <script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
     {% endblock %}
 
 </head>
 
+<body>
 
-    <section id="header">
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container1">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header col-sm-2">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ path('home') }}">RECRUITINI</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="col-sm-10">
-                    <div class="collapse navbar-collapse" id="navbar-collapse-2">
-                        <ul class="nav navbar-nav navbar col-sm-7">
-                            <li class="active"><a href="{{ path('home') }}">Acceuil</a></li>
-                            <li><a href="details.html">A propos</a></li>
-                            <li><a href="offre.html">Offre d'emploi</a></li>
-                            <li><a href="annonce.html">Annonce Presse</a></li>
-                            <li><a href="{{ path('contact') }}">Contact</a></li>
-                        </ul>
 
-                        <ul class="nav navbar-nav navbar nav_1 col-sm-3">
-                            <li>
-                                <div id="custom-search-input">
-                                    <div class="input-group">
-                                        <input type="text" class="  search-query form-control" placeholder="Recherche">
-                                        <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar nav_2 col-sm-2">
-                            <div class="login">
-                                <ul class="nav-login">
-                                    <li class="tell_main_8"><a href="{{ path ('espace_candidat') }}" >Espace Candidat</a></li>
-                                    <li class="tell_main_9"><a href="{{ path ('espace_employeur') }}"  >Espace Employeur</a></li>
-                                </ul>
-                            </div>
-                            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content modal-info">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                        </div>
-                                        <div class="modal-body modal-spa">
-                                            <div class="login-grids">
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
 
-                                                <div class="login-right">
-                                                    <form action="#" method="post">
-                                                        <h3> Connexion compte </h3>
-                                                        <input type="text" value="Entrer votre Email" name=" Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your mobile number or Email';}" required="">
-                                                        <input type="password" value="Mot de passe" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-                                                        <h4><a href="#">Mot de passe oublier</a> / <a href="#">Changer mot de passe</a></h4>
-                                                        <input type="submit" value="Connexion">
-                                                    </form>
-                                                </div>
 
-                                                <p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- //login -->
-                            <!-- signup -->
-                            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content modal-info">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                        </div>
-                                        <div class="modal-body modal-spa">
-                                            <div class="login-grids">
-                                                <div class="login-right">
-                                                    <form action="#" method="post">
-                                                        <h3>Création compte</h3>
-                                                        <input type="text" value="Nom" name="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                                                        <input type="text" value="Numéro téléphone" name="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
-                                                        <input type="text" value="Email" name="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">
-                                                        <input type="password" value="Mot de passe" name="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-                                                        <input type="submit" value="Création compte">
-                                                    </form>
-                                                </div>
-                                                <p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
-
-                    </div><!-- /.navbar-collapse -->
-                </div>
-            </div><!-- /.container -->
-        </nav>
-
-    </section>
-
-{% block body %}
-
-{% endblock %}
-
-    <section id="footer">
+<!-- Header -->
+<header class="">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-3">
-                        <div class="footer_1">
-                            <h2>Details</h2>
-                            <p>Recruitini, le portail tunisien de l’emploi, accompagne les candidats comme les recruteurs pour un avenir meilleur !</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="footer_2">
-                            <h3>Pour nous contacter</h3>
-                            <ul>
-                                <li><a href="#">Recuitini@gmail.com</a></li>
-                                <li><a href="#">123 4567 89 90</a></li>
-                                <li>Lundi-Vendredi: 9h-17h </li>
-                                <li>Samedi: 9h-13h </li>
+            <a class="navbar-brand" href="#"><h2>Agence <em>Recruitini</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('home') }}">Acceuil
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
 
-                            </ul>
+
+                    <li class="nav-item"><a class="nav-link" href="#">Offre D'emploi</a></li>
+
+                    <!--<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    -->
+
+
+                    <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Espace candidat</a>
+                            <a class="dropdown-item" href="#">Espace Entreprise</a>
                         </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="footer_2">
-                            <h3>Index</h3>
-                            <ul>
-                                <li><a href="{{ path('home') }}">Acceuil</a></li>
-                                <li><a href="#">A propos</a></li>
-                                <li><a href="#">Offre d'emploi</a></li>
-                                <li><a href="#">Annonce presse</a></li>
-                                <li><a href="{{ path('contact') }}">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Page Content -->
+<div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Lorem ipsum dolor</h4>
+                    <h2>Contact Us</h2>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+<!-- Banner Ends Here -->
+{% block body %}
+{% endblock %}
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% block js %}
+<!-- Bootstrap core JavaScript -->
+<script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
+<script src={{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+
+
+<!-- Additional Scripts -->
+<script src={{ asset('assets/js/custom.js') }}></script>
+<script src={{ asset('assets/js/owl.js') }}></script>
+{% endblock %}
+</body>
 </html>
