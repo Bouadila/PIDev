@@ -48,7 +48,7 @@ class ReclamationController extends AbstractController
     /**
      * @Route("/reclamation/affiche", name="afficheReclamation")
      */
-    public function Affiche(Request $request): Response
+    public function Affiche(): Response
     {
         $em = $this->getDoctrine()->getRepository(Reclamation::class);
         $list = $em->findAll();
