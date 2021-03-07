@@ -65,7 +65,6 @@ class Candidat
     private $gover;
 
     /**
-     * @Assert\NotBlank(message="Veuillez saisir votre img")
      * @ORM\Column(type="string", length=255)
      */
     private $img;
@@ -195,12 +194,12 @@ class Candidat
         return $this;
     }
 
-    public function getImg(): ?string
+    public function getImg()
     {
         return $this->img;
     }
 
-    public function setImg(string $img): self
+    public function setImg( $img)
     {
         $this->img = $img;
 

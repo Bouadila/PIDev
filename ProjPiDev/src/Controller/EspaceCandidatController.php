@@ -46,12 +46,16 @@ class EspaceCandidatController extends AbstractController
         if($candidatCH!=null){
             echo($candidatCH->getEmail());
         }elseif ($candidatCH==null){
-            if($form->isSubmitted()  ) {
+            if($form->isSubmitted()   ) {
 //                && $form->isValid()
                 $session= new Session();
                 $session->set('email',$candidat->getEmail());
                 $session->set('id',$candidat->getId());
                 $candidat->setEtat('0');
+                $uploadedFile = $form['image']->getData();
+                $filename = md5(uniqid()).'.'.$uploadedFile->guessExtension();
+                $uploadedFile->move($this->getParameter('upload_directory'),$filename);
+                $candidat->setImg($filename);
                 //get the entity manager that exists in doctrine( entity manager and repository)
                 $em=$this->getDoctrine()->getManager();
                 // tell Doctrine you want to (eventually) save the Product (no queries yet)

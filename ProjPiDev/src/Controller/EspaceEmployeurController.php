@@ -40,7 +40,7 @@ class EspaceEmployeurController extends AbstractController
         if($employeurCH!=null){
             echo($employeurCH->getEmail());
         }elseif ($employeurCH==null){
-            if($form->isSubmitted() ) {
+            if($form->isSubmitted() and $form->isValid()) {
  // && $form->isValid()
 
                 $session= new Session();

@@ -78,7 +78,6 @@ class Employeur
     private $num_employeur;
 
     /**
-     * @Assert\NotBlank(message="Veuillez mettre logo")
      * @ORM\Column(type="string", length=255)
      */
     private $logo;
