@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CandidatureRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CandidatureRepository::class)
@@ -23,12 +24,19 @@ class Candidature
     private $id_candidat;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $id_employeur;
+
+    /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom est requis")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le prenom est requis")
      */
     private $prenom;
 
@@ -39,6 +47,8 @@ class Candidature
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
      */
     private $email;
 
@@ -49,6 +59,7 @@ class Candidature
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Le numéro est requis")
      */
     private $num;
 
@@ -68,11 +79,7 @@ class Candidature
      */
     private $cv;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_employeur;
-
+    
     public function getId(): ?int
     {
         return $this->id;
