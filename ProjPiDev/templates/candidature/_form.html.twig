@@ -5,88 +5,34 @@
                     <div class="card-body">
                         <div class="card-header mb-3">Postuler maintenant!</div>
                         {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                {{ form_label(form.nom) }}
+                        
+                                {{ form_label(form.nom, "Nom:") }}
                                 {{ form_widget(form.nom) }}
-                                {{ form_errors(form.nom) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                {{ form_label(form.prenom) }}
+                                
+                                {{ form_label(form.prenom, "Prenom:") }}
                                 {{ form_widget(form.prenom) }}
-                                {{ form_errors(form.prenom) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                {{ form_label(form.sexe) }}
+                                
+                                {{ form_label(form.sexe, "Votre sexe:") }}
                                 {{ form_widget(form.sexe) }}
-                                {{ form_errors(form.sexe) }}
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                 {{ form_label(form.email) }}
-                                {{ form_widget(form.email) }}
-                                {{ form_errors(form.email) }}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                {{ form_label(form.num) }}
-                                {{ form_widget(form.num) }}
-                                {{ form_errors(form.num) }}
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                {{ form_label(form.date_naiss) }}
-                                 {{ form_widget(form.date_naiss) }}
-                                 {{ form_errors(form.date_naiss) }}
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                 {{ form_label(form.diplome) }}
-                                 {{ form_widget(form.diplome) }}
-                                 {{ form_errors(form.diplome) }}
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                 {{ form_label(form.status) }}
-                                 {{ form_widget(form.status) }}
-                                 {{ form_errors(form.status) }}
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <div>
-                                 {{ form_label(form.cv) }}
-                                 {{ form_widget(form.cv) }}
-                                 {{ form_errors(form.cv) }}
-                                 </div>
-                            </div>
-                        </div>
 
+                                {{ form_label(form.email, "Email:") }}
+                                {{ form_widget(form.email) }} 
+
+                                {{ form_label(form.num, "Numéro de téléphone:") }}
+                                {{ form_widget(form.num) }}
+
+                                {{ form_label(form.date_naiss, "Date de naissance:") }}
+                                {{ form_widget(form.date_naiss) }}
+
+                                {{ form_label(form.diplome, "Choisir votre diplome:") }}
+                                {{ form_widget(form.diplome) }}
+
+                                {{ form_label(form.status, "Choisir votre position:") }}
+                                {{ form_widget(form.status) }}
+
+                                {{ form_label(form.cv, "Télécharger votre CV (PDF file):") }}
+                                {{ form_widget(form.cv) }}
+                                
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
                                 <button type="submit" class="btn btn-primary">

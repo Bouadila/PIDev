@@ -26,27 +26,6 @@ class CandidatureController extends AbstractController
     }
 
     /**
-     * @Route("/candidat", name="candidature_candidat_index", methods={"GET"})
-     */
-    public function indexCandidat(CandidatureRepository $candidatureRepository): Response
-    {
-        return $this->render('candidature/index.html.twig', [
-            'candidatures' => $candidatureRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/employeur", name="candidature_employeur_index", methods={"GET"})
-     */
-    public function indexEmployeur(CandidatureRepository $candidatureRepository): Response
-    {
-        return $this->render('candidature/index.html.twig', [
-            'candidatures' => $candidatureRepository->findAll(),
-        ]);
-    }
-
-
-    /**
      * @Route("/new", name="candidature_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response

@@ -18,15 +18,6 @@ class Candidature
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_candidat;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_employeur;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -54,6 +45,7 @@ class Candidature
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $date_naiss;
 
@@ -75,9 +67,19 @@ class Candidature
     private $diplome;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string")
      */
     private $cv;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $id_candidat;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $id_offer;
 
     
     public function getId(): ?int
@@ -85,17 +87,7 @@ class Candidature
         return $this->id;
     }
 
-    public function getIdCandidat(): ?int
-    {
-        return $this->id_candidat;
-    }
-
-    public function setIdCandidat(int $id_candidat): self
-    {
-        $this->id_candidat = $id_candidat;
-
-        return $this;
-    }
+    
 
     public function getNom(): ?string
     {
@@ -155,6 +147,7 @@ class Candidature
         $this->date_naiss = $date_naiss;
 
         return $this;
+    
     }
 
     public function getNum(): ?int
@@ -206,15 +199,29 @@ class Candidature
         return $this;
     }
 
-    public function getIdEmployeur(): ?int
+    public function getIdCandidat(): ?int
     {
-        return $this->id_employeur;
+        return $this->id_candidat;
     }
 
-    public function setIdEmployeur(int $id_employeur): self
+    public function setIdCandidat(?int $id_candidat): self
     {
-        $this->id_employeur = $id_employeur;
+        $this->id_candidat = $id_candidat;
 
         return $this;
     }
+
+    public function getIdOffer(): ?int
+    {
+        return $this->id_offer;
+    }
+
+    public function setIdOffer(?int $id_offer): self
+    {
+        $this->id_offer = $id_offer;
+
+        return $this;
+    }
+
+   
 }
