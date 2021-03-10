@@ -3,47 +3,50 @@
 {% block title %}Votre demande{% endblock %}
 
 {% block body %}
-
-    <section id="services_main">
-        <div class="container">
-            <div class="row">
-                <div class="services_main_1">
-                    <h2>Detail</h2>
-                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Votre demande </a></p>
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Votre demande  {{ demande.TitreDemande }} </h4>
+                        <p class="card-description">
+                            voir details
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Titre</th>
+                                    <th>Domaine</th>
+                                    <th>Statut</th>
+                                    <th>Description</th>
+                                    <th>CV</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="py-1">
+                                        <img src="{{ asset('../../images/faces/face1.jpg') }}" alt="image"/>
+                                    </td>
+                                    <td>
+                                        {{ demande.TitreDemande }}
+                                    </td>
+                                    <td>
+                                        {{ demande.domaineTravail }}
+                                    </td>
+                                    <td>
+                                        {{ demande.statutCand }}
+                                    </td>
+                                    <td>
+                                        {{ demande.description }}
+                                    </td>
+                                    <td>
+                                        {{ demande.cvCand }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-        <section id="choose">
-            <div class="container">
-                <div class="row">
-                    <div class="choose_1">
-                        <h2>{{demande.TitreDemande}}</h2>
-                        <p>{{demande.adresseCand}}<br>{{demande.domaineTravail}}</p>
-                    </div>
-                    <div class="choose_2 clearfix">
-                        <div class="col-sm-6">
-                            <div class="choose_3">
-                                <a href="#"><img src={{ asset('img/18.jpg') }} alt="abc" class="img_responsive"></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="choose_4">
-                                <h3><i class="fa fa-comments"></i>{{demande.nomCand}} {{demande.prenomCand}}</h3>
-                                <p>{{demande.adresseCand}}<br> {{demande.numCand}} <br>{{demande.adresseCand}}</p>
-                            </div>
-                            <div class="choose_4">
-                                <h3><i class="fa fa-bolt"></i>We Are Creative</h3>
-                                <p>{{demande.cvCand}}<br> marketplace leaders, business owners and career <br>professionals to be effective in the workplace.</p>
-                            </div>
-                            <div class="choose_4">
-                                <h3><i class="fa fa-users"></i>24/7 Great Support</h3>
-                                <p>We resource, train, speak, mentor and encourage<br> marketplace leaders, business owners and career <br>professionals to be effective in the workplace.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 {% endblock %}

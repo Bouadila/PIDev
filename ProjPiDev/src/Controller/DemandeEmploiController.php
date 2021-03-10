@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Demande;
 use App\Form\DemandeType;
 
+use App\Repository\DemandeRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -122,15 +123,11 @@ class DemandeEmploiController extends AbstractController
     /**
      * @Route("/searchDemande ", name="searchDemande")
      */
-    public function searchDemande(Request $request,NormalizerInterface $Normalizer)
+    public function searchDemande(DemandeRepository $repository , Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository(Demande::class);
-        $requestString=$request->get('searchValue');
-        $demandes = $repository->findDemandeByStatut($requestString);
-        $jsonContent = $Normalizer->normalize($demandes, 'json',['groups'=>'demandes']);
-        $retour=json_encode($jsonContent);
-        return new Response($retour);
-
+    $data=$request->get('searchDemande');
+    $demande=$repository->searchStatut($data);
+        return $this->render('demande_emploi/liste_demande_emploi.html.twig',['list_demande_emploi_detail'=>$demande , ]);
     }
 
 
