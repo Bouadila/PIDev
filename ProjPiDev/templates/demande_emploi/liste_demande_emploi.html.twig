@@ -34,13 +34,12 @@
 
                         <h6>{{demande.statutCand}}</h6>
 
-                        <h4><small><i class="fa fa-briefcase"></i> domaine <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+                        <h4><small><i class="fa fa-briefcase"></i> {{ demande.domaineTravail }} <br> </small></h4>
 
                         <small>
-                            <strong title="Posted on"><i class="fa fa-calendar"></i> nom</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                            <strong title="Type"><i class="fa fa-file"></i> email</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                            <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                            <strong title="Posted on"><i class="fa fa-calendar"></i> {{ demande.description }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                         </small>
+
                     </div>
                 </div>
                 <div class="contact-form">
@@ -48,13 +47,14 @@
                         <a href="{{ path('list_demande_emploi_detail', {'id': demande.id}) }}" class="filled-button">Voir</a>
                         <a href="{{ path('Modif_demande_emploi', {'id': demande.id}) }}" class="filled-button">Modifier</a>
                         <a href="{{ path('Supp_demande_emploi', {'id': demande.id}) }}" class="filled-button">Supprimer</a>
-
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                //paster  file
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <a class="btn btn-success" href="{{ path('listdem') }}">Create pdf</a>
+                </div>
             </div>
 
         </div>

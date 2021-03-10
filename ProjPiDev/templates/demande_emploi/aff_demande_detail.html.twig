@@ -40,13 +40,14 @@
                                         {{ demande.description }}
                                     </td>
                                     <td>
-                                        {{ demande.cvCand }}
+                                        <a class="btn btn-success" href="{{ path('listdem') }}">Voir cv</a>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <a class="btn btn-success" href="{{ path('list_demande_emploi') }}">Retour</a>
                 </div>
             </div>
 {% endblock %}

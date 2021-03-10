@@ -19,6 +19,12 @@
                         <th>Statut</th>
                         <th>Description</th>
                         <th>CV</th>
+                        <div class="search-box">
+                            <form method="post" action="{{ path('tri') }}">
+                                <label>Trier Reclamation</label>
+                                <input type="submit" value="Tri">
+                            </form>
+                        </div>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,6 +38,7 @@
                         <td>{{demande.statutCand}}</td>
                         <td>{{demande.description}}</td>
                         <td>{{demande.cvCand}}</td>
+
                     </tr>
     {% endfor %}
                     </tbody>

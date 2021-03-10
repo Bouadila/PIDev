@@ -57,7 +57,7 @@ class DemandeRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function OrderByDateQB()
+    public function OrderByStatut()
     {
         return $this->createQueryBuilder('demande')
             ->orderBy('demande.statutCand','ASC')
