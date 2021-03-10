@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 
 
@@ -16,9 +17,7 @@ class CandidatureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-          //  ->add('id_candidat')
-          //  ->add('id_offer')
+        $builder    
             ->add('nom')
             ->add('prenom')
             ->add('sexe', ChoiceType::class,[
@@ -28,7 +27,10 @@ class CandidatureType extends AbstractType
                 ],
             ])
             ->add('email')
-            ->add('date_naiss')
+            ->add('date_naiss',DateType::class, [
+                'years' => range(1950,2020)
+    
+            ])
             ->add('num')
             ->add('status', ChoiceType::class,[
                 'choices'  => [

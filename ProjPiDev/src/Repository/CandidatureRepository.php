@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Candidature;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method Candidature|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,22 @@ class CandidatureRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findCandidatureByNom($nom){
+        return $this->createQueryBuilder('candidature')
+            ->where('candidature.nom LIKE :nom')
+            ->setParameter('nom', '%'.$nom.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findCandidatureById($id){
+        return $this->createQueryBuilder('candidature')
+            ->where('candidature.id LIKE :id')
+            ->setParameter('id', '%'.$id.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
+
 }

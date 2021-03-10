@@ -1,13 +1,14 @@
-{% extends 'baseBack.html.twig' %}
+{% extends 'baseCandidat.html.twig' %}
 
-{% block title %}Edit Candidature{% endblock %}
-
+{% block title %}Modifier candidature{% endblock %}
+{% block titre %}Modifier candidature{% endblock %}
 {% block body %}
-    <h1>Edit Candidature</h1>
 
-    {{ include('candidature/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('candidature/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <center>{{ include('candidature/_delete_form.html.twig') }}
+    <a href="{{ path('candidature_index') }}" class="filled-button">Retour à la liste</a> </center>
+      
+    
 
-    <a href="{{ path('candidature_index') }}">back to list</a>
-
-    {{ include('candidature/_delete_form.html.twig') }}
+    
 {% endblock %}

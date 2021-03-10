@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CandidatureRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CandidatureRepository::class)
@@ -15,6 +16,7 @@ class Candidature
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
@@ -22,17 +24,20 @@ class Candidature
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le nom est requis")
+     * @Groups("post:read")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le prenom est requis")
+     * @Groups("post:read")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $sexe;
 
@@ -40,46 +45,78 @@ class Candidature
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Email is required")
      * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
+     * @Groups("post:read")
      */
     private $email;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank
+     * @Groups("post:read")
      */
     private $date_naiss;
 
     /**
      * @ORM\Column(type="integer")
+     * * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Votre numéro doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Votre numéro ne peut pas dépasser  {{ limit }} caractères"
+     * )
      * @Assert\NotBlank(message="Le numéro est requis")
+     * @Groups("post:read")
      */
     private $num;
 
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $status;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
     private $diplome;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
+     * @Groups("post:read")
      */
     private $cv;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
      */
     private $id_candidat;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
      */
     private $id_offer;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Quiz::class, cascade={"persist", "remove"})
+     * @Groups("post:read")
+     */
+    private $id_quiz;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
+     */
+    private $id_rdv;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @Groups("post:read")
+     */
+    private $date_candidature;
 
     
     public function getId(): ?int
@@ -219,6 +256,42 @@ class Candidature
     public function setIdOffer(?int $id_offer): self
     {
         $this->id_offer = $id_offer;
+
+        return $this;
+    }
+
+    public function getIdQuiz(): ?Quiz
+    {
+        return $this->id_quiz;
+    }
+
+    public function setIdQuiz(?Quiz $id_quiz): self
+    {
+        $this->id_quiz = $id_quiz;
+
+        return $this;
+    }
+
+    public function getIdRdv(): ?int
+    {
+        return $this->id_rdv;
+    }
+
+    public function setIdRdv(?int $id_rdv): self
+    {
+        $this->id_rdv = $id_rdv;
+
+        return $this;
+    }
+
+    public function getDateCandidature(): ?\DateTimeInterface
+    {
+        return $this->date_candidature;
+    }
+
+    public function setDateCandidature(\DateTimeInterface $date_candidature): self
+    {
+        $this->date_candidature = $date_candidature;
 
         return $this;
     }
