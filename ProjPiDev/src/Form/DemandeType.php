@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -20,42 +21,17 @@ class DemandeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('TitreDemande' , TextType::class,[
-        'attr'=>[
-            'placeholder'=>'Titre',
-            'name'=>'name',
-        ]
-    ])
-            ->add('nomCand', TextType::class,[
+
+
+
+            ->add('TitreDemande', TextType::class,[
                 'attr'=>[
-                    'placeholder'=>'Nom',
+                    'placeholder'=>'Titre',
                     'name'=>'name',
+                    // 'id'=>'id_Nom',
                 ]
             ])
-            ->add('prenomCand', TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'Prénom',
-                    'name'=>'name',
-                ]
-            ])
-            ->add('emailCand',TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'Email',
-                    'name'=>'name',
-                ]
-            ])
-            ->add('numCand', TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'Numéro',
-                    'name'=>'name',
-                ]
-            ])
-            ->add('adresseCand', TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'Adresse',
-                    'name'=>'name',
-                ]
-            ])
+
             ->add('domaineTravail', ChoiceType::class,[
                 'choices'  => [
                     'Aéronautique Et Espace' => 'Aéronautique Et Espace',
@@ -105,23 +81,18 @@ class DemandeType extends AbstractType
                 ],
             ])
 
-            ->add('statutCand', ChoiceType::class,[
-                'choices'  => [
-                    'Bac' => 'Bac',
-                    'Licence' => 'Licence',
-                    'Master' => 'Master',
-                    'Doctorat' => 'Doctorat',
+            ->add('statutCand', ChoiceType::class,
+                [
+                    'choices'  => [
+                        'Bac' => 'Bac',
+                        'Licence' => 'Licence',
+                        'Master' => 'Master',
+                        'Doctorat' => 'Doctorat',
+                    ],
+                ])
+            ->add('description', TextareaType::class)
 
-                ],
-            ])
-            ->add('description', TextType::class,[
-                'attr'=>[
-                    'placeholder'=>'Description',
-                    'name'=>'name',
-                ]
-            ])
-
-           ->add('cvCand', FileType::class, array('data_class' => null , 'label' => 'Choisissez votre fichier'))
+           ->add('cvCand', FileType::class, array('data_class' => null ))
             ;
 
     }

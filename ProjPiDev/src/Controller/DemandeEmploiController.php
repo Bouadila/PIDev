@@ -20,30 +20,30 @@ class DemandeEmploiController extends AbstractController
     public function Ajout(Request $request): Response
     {
 
-        $demande=new demande();
-        $form=$this->createForm(DemandeType::class,$demande);
-        $form->add('Ajouter Demande',SubmitType::class);
+        $demande = new demande();
+        $form = $this->createForm(DemandeType::class, $demande);
         $form->handleRequest($request);
 
-            if ($form->isSubmitted()){
+        if ($form->isSubmitted()) {
 
-                    var_dump($demande);
-                    //$file = $request->files->get('demande')['cvCand'];
-                    //$uploads_directory = $this->getParameter('Téléchargements');
-                    //$filename = md5(uniqid())  .  '.'  .  $file->guessExtension();
-                    //$file->move(
-                    //  $uploads_directory,
-                    //$filename
-                    //);
-                    $demande = $form->getData();
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($demande);
-                    $em->flush();
-                    return $this->redirectToRoute("list_demande_emploi");
+            $demande->setIdCand($this->getUser());
+            //var_dump($demande);
+            //$file = $request->files->get('demande')['cvCand'];
+            //$uploads_directory = $this->getParameter('Téléchargements');
+            //$filename = md5(uniqid())  .  '.'  .  $file->guessExtension();
+            //$file->move(
+            //  $uploads_directory,
+            //$filename
+            //);
+            $demande = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($demande);
+            $em->flush();
+            return $this->redirectToRoute("list_demande_emploi");
 
 
-                }
 
+    }
         return $this->render('demande_emploi/Ajout_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
 
 
@@ -56,7 +56,6 @@ class DemandeEmploiController extends AbstractController
      */
     public function listeD(): Response
     {
-
         $demande=$this->getDoctrine()->getRepository(Demande::class);
         $demandes=$demande->findAll();
         return $this->render('demande_emploi/liste_demande_emploi.html.twig',['demandes'=>$demandes , ]);
@@ -74,6 +73,8 @@ class DemandeEmploiController extends AbstractController
 
     }
 
+
+
     /**
      * @Route("/Supp/demande/emploi/{id}", name="Supp_demande_emploi" , methods={"DELETE"})
      */
@@ -89,7 +90,8 @@ class DemandeEmploiController extends AbstractController
     }
 
 
-        /**
+
+    /**
      * @Route("/Modif/demande/emploi/{id}", name="Modif_demande_emploi" , methods={"GET","POST"})
      */
     public function listeModif(Request $request, $id): Response
@@ -97,7 +99,7 @@ class DemandeEmploiController extends AbstractController
 
         $demande=$this->getDoctrine()->getRepository(Demande::class)->find($id);
         $form=$this->createForm(DemandeType::class,$demande);
-        $form->add('Modifier Demande',SubmitType::class);
+       // $form->add('Modifier Demande',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted())
         {
@@ -121,6 +123,29 @@ class DemandeEmploiController extends AbstractController
         return $this->render('demande_emploi/aff_demande_detail.html.twig',['demande'=>$demande , ]);
 
 
+    }
+
+    /**
+     * @Route("/search/demande/emploi/{id}", name="search" , methods={"GET"})
+     */
+    public function searchDemande(Request $request): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('domaineTravail');
+        $demande = $em->getRepository(Demande::class)->findEntitiesByString($requestString);
+        if(! $demande) {
+            $result['demande']['error'] = "demande not found ";
+        } else {
+            $result['demande'] = $this->getRealEntities($demande);
+        }
+        return new Response(json_encode($result));
+    }
+
+    public function getRealEntities($demande){
+        foreach ($demande as $demande){
+            $realEntities[$demande->getId()] = [$demande->getTitreDemande() , $demande->getCvCand() ];
+        }
+        return $realEntities;
     }
 
 }

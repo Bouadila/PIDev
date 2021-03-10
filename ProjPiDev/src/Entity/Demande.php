@@ -24,74 +24,46 @@ class Demande
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Votre Titre est vide")
+     * @Assert\NotBlank
      */
     private $TitreDemande;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Votre Nom est vide")
+     * @Assert\NotBlank
      */
-    private $nomCand;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Votre Prénom est vide")
-     */
-    private $prenomCand;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Votre Adresse mail est vide")
-     */
-    private $emailCand;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Votre Numéro est vide")
-     */
-    private $numCand;
-
-    /**
-     * @ORM\Column(type="text", length=255)
-     * @Assert\NotBlank(message="Votre Adresse est vide")
-     */
-    private $adresseCand;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez selectioner votre domaine")
-     */
     private $domaineTravail;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez selectioner votre statut")
+     * @Assert\NotBlank
      */
     private $statutCand;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Vous devez faire une description")
+     * @Assert\NotBlank
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="Veuillez mettre votre cv")
+     * @Assert\NotBlank
      */
     private $cvCand;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="demandes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idCand;
 
-   // /**
-     //* @ORM\OneToMany(targetEntity=Candidat::class, inversedBy="demande")
-     //*/
-    //private $candidat;
+    public function __construct()
+    {
+        $this->id_cand = new ArrayCollection();
+    }
 
-    //public function __construct()
-   // {
-     //   $this->candidat = new ArrayCollection();
-    //}
 
 
     public function getId(): ?int
@@ -107,66 +79,6 @@ class Demande
     public function setTitreDemande(string $TitreDemande): self
     {
         $this->TitreDemande = $TitreDemande;
-
-        return $this;
-    }
-
-    public function getNomCand(): ?string
-    {
-        return $this->nomCand;
-    }
-
-    public function setNomCand(string $nomCand): self
-    {
-        $this->nomCand = $nomCand;
-
-        return $this;
-    }
-
-    public function getPrenomCand(): ?string
-    {
-        return $this->prenomCand;
-    }
-
-    public function setPrenomCand(string $prenomCand): self
-    {
-        $this->prenomCand = $prenomCand;
-
-        return $this;
-    }
-
-    public function getEmailCand(): ?string
-    {
-        return $this->emailCand;
-    }
-
-    public function setEmailCand(string $emailCand): self
-    {
-        $this->emailCand = $emailCand;
-
-        return $this;
-    }
-
-    public function getNumCand(): ?string
-    {
-        return $this->numCand;
-    }
-
-    public function setNumCand(string $numCand): self
-    {
-        $this->numCand = $numCand;
-
-        return $this;
-    }
-
-    public function getAdresseCand(): ?string
-    {
-        return $this->adresseCand;
-    }
-
-    public function setAdresseCand(string $adresseCand): self
-    {
-        $this->adresseCand = $adresseCand;
 
         return $this;
     }
@@ -219,29 +131,41 @@ class Demande
         return $this;
     }
 
+    /**
+     * @return Collection|User[]
+     */
+    public function getIdCand(): Collection
+    {
+        return $this->id_cand;
+    }
 
-//    /**
-  //   * @return Collection|Candidat[]
-    // */
-    //public function getCandidat(): Collection
-    //{
-      //  return $this->employeur;
-    //}
+    public function addIdCand(User $idCand): self
+    {
+        if (!$this->id_cand->contains($idCand)) {
+            $this->id_cand[] = $idCand;
+            $idCand->setDemande($this);
+        }
 
-    //public function addCandidat(Candidat $candidat): self
-    //{
-      //  if (!$this->candidat->contains($candidat)) {
-        //    $this->candidat[] = $candidat;
-        //}
+        return $this;
+    }
 
-        //return $this;
-    //}
+    public function removeIdCand(User $idCand): self
+    {
+        if ($this->id_cand->removeElement($idCand)) {
+            // set the owning side to null (unless already changed)
+            if ($idCand->getDemande() === $this) {
+                $idCand->setDemande(null);
+            }
+        }
 
-   // public function removeCandidat(Candidat $candidat): self
-    //{
-      //  $this->employeur->removeElement($candidat);
+        return $this;
+    }
 
-        //return $this;
-    //}
+    public function setIdCand(?User $idCand): self
+    {
+        $this->idCand = $idCand;
+
+        return $this;
+    }
 
 }

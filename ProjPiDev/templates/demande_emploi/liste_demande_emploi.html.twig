@@ -3,42 +3,60 @@
 {% block title %}Liste demande d'emploi{% endblock %}
 
 {% block body %}
-    <section id="services_main">
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
         <div class="container">
             <div class="row">
-                <div class="services_main_1">
-                    <h2>SERVICES</h2>
-                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    {% for demande in demandes %}
-    <section id="history">
-        <div class="container">
-            <div class="row">
-                <div class="history_1 clearfix">
-                    <div class="col-sm-8">
-                        <div class="history_2 clearfix">
-                            <div class="col-sm-6">
-                                <div class="history_3">
-                                    <h3>{{demande.TitreDemande}}</h3>
-                                    <h3>{{demande.cvCand}}</h3>
-                                    <p>{{demande.description}}</p>
-                                    <a href="{{ path ('Modif_demande_emploi',{'id':demande.id}) }}" class="button">Modifier</a>
-                                    <a href="{{ path ('list_demande_emploi_detail',{'id':demande.id}) }}" class="button">Voir details</a>
-                                </div>
-                                <form method="post" action="{{ path ('Supp_demande_emploi',{'id':demande.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ demande.id) }}">
-                                    <button class="button">Supprimer</button>
-                                </form>
-                            </div>
-                        </div>
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Demande</h4>
+                        <h2>Vos demandes</h2>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    {% for demande in demandes %}
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Votre demande</h2>
+                    <a href="#">view more <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-item">
+                    <a href="#"><img src="{{ asset('assets/images/product-1-370x270.jpg')}}" alt="CV"></a>
+
+                    <div class="down-content">
+                        <a href="#"><h4>{{demande.TitreDemande}}</h4></a>
+
+                        <h6>{{demande.statutCand}}</h6>
+
+                        <h4><small><i class="fa fa-briefcase"></i> domaine <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+
+                        <small>
+                            <strong title="Posted on"><i class="fa fa-calendar"></i> nom</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Type"><i class="fa fa-file"></i> email</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                        </small>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="col-lg-12">
+                        <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Modifier') }}</button>
+                        <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('delete') }}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                //paster  file
+            </div>
+
+        </div>
+    </div>
+</div>
     {% endfor %}
 {% endblock %}
