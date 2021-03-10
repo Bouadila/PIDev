@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce Presse{% endblock %}
+
+{% block body %}
+    <div class="send-message">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Ajouter une Annonce</h2>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <form {{ form_start(form) }}
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <fieldset>
+                                        {{ form_widget(form.nom) }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <fieldset>
+                                        {{ form_widget(form.origine) }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <fieldset>
+                                        {{ form_widget(form.img) }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        {{ form_widget(form.Submit) }}
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form {{ form_end(form) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="assets/images/team_01.jpg" class="img-fluid" alt="">
+
+                    <h5 class="text-center" style="margin-top: 15px;">John Doe</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

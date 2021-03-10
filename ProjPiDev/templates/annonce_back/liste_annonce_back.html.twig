@@ -24,10 +24,10 @@
                         {% for i in list %}
                         <div class="col-md-6">
                             <div class="service-item">
-                                <img src="{{ asset('picture/' ~ i.img) }}" height="400" width="300" class="img-fluid" alt="">
+                                <a href="{{ path('modifyAnnonce',{'id':i.id}) }}" class="services-item-image"><img src="{{ asset('picture/' ~ i.img) }}" height="400" width="300" class="img-fluid" alt=""></a>
 
                                 <div class="down-content">
-                                    <h4>{{ i.nom }}</h4>
+                                    <h4><a href="{{ path('modifyAnnonce',{'id':i.id}) }}">{{ i.nom }}</a></h4>
 
                                     <p style="margin: 0;">{{ i.origine }} </p>
                                 </div>
