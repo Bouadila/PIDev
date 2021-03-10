@@ -81,7 +81,6 @@ class EspaceCandidatController extends AbstractController
                 $session->set('id',$candidat->getId());
                 $candidat->setEtat('0');
                 $uploadedFile = $form['image']->getData();
-                $filename = md5(uniqid()).'.'.$uploadedFile->guessExtension();
                 $uploadedFile->move($this->getParameter('upload_directory'),$filename);
                 $candidat->setImg($filename);
                 //get the entity manager that exists in doctrine( entity manager and repository)
