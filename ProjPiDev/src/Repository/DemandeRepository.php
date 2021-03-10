@@ -48,18 +48,20 @@ class DemandeRepository extends ServiceEntityRepository
     }
     */
 
-    public function searchStatut($data)
-    {
+    public function findDemandeByData($data){
         return $this->createQueryBuilder('demande')
-            ->where('demande.statutCand LIKE :data')->where('demande.domaineTravail LIKE :data')
-            ->setParameter('data', '%'.$data.'%')
-            ->getQuery()->getResult();
+            ->Where('demande.domaineTravail LIKE :domaineTravail')
+            //->orWhere('reclamation.date = CURRENT_DATE()')
+            ->setParameter('domaineTravail', '%'.$data.'%')
+            ->getQuery()
+            ->getResult();
     }
 
-    public function orderTitle()
+    public function OrderByDateQB()
     {
-        return $this->getEntityManager()
-            ->createQuery('SELECT TitreDomaine FROM demande d ORDER BY d.titleDomaine ASC')
+        return $this->createQueryBuilder('demande')
+            ->orderBy('demande.statutCand','ASC')
+            ->getQuery()
             ->getResult();
     }
 

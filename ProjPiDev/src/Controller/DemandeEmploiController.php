@@ -120,14 +120,30 @@ class DemandeEmploiController extends AbstractController
 
     }
 
+
     /**
-     * @Route("/searchDemande ", name="searchDemande")
+     * @Route("/search ", name="search")
      */
-    public function searchDemande(DemandeRepository $repository , Request $request)
+    public function search(Request $request,DemandeRepository $repository)
     {
-    $data=$request->get('searchDemande');
-    $demande=$repository->searchStatut($data);
-        return $this->render('demande_emploi/liste_demande_emploi.html.twig',['list_demande_emploi_detail'=>$demande , ]);
+        $data=$request->get('search');
+        $demande=$repository->findDemandeByData($data);
+        return $this->render('demande_emploi/list_demande_back', [
+            'demande' => $demande,
+        ]);
+
+    }
+
+    /**
+     * @param DemandeRepository $repository
+     * @Route("/tri", name="tri")
+     */
+    public function tri(DemandeRepository $repository,Request $request)
+    {
+        $demande= $repository->OrderByStatut();
+        return $this->render('demande_emploi/list_demande_back', [
+            'demande' => $demande,
+        ]);
     }
 
 
