@@ -3,15 +3,25 @@
 {% block title %}Edit Contrat{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class=" text-center mt-5 ">
-        <h1>Modifir contrat</h1>
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2>Modifir contrat d'emploi</h2>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+    <!-- Banner Ends Here -->
         {{ include('contrat/_form.html.twig', {'button_label': 'Modifir'}) }}
         <br>
         <br>
         <div class="col-md-6">
-            <a href="{{ path('contrat_index') }}" class="btn btn-info backBtn btn-lg pull-left">
+            <a href="{{ path('contrat_index') }}" id="form-submit" class="filled-button " >
                 <i class="fa fa-backward" aria-hidden="true"></i> Retourner à la list
             </a>
         </div>

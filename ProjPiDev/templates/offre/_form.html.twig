@@ -1,122 +1,81 @@
-{# {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}#}
-<div class="row ">
-    <div class="col-lg-7 mx-auto">
-        <div class="card mt-2 mx-auto p-4 bg-light">
-            <div class="card-body bg-light">
-                <div class="container">
-                    {{ form_start(form ,{attr: {novalidate: 'novalidate'}}) }}
-                    <div class="controls">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.post) }}
-                                    </label>
-                                    {{ form_widget(form.post) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.objectif) }}
-                                    </label>
-                                    {{ form_widget(form.objectif) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.description) }}
-                                    </label>
-                                    {{ form_widget(form.description) }}
-                                </div>
-                                <div class="form-error">
-                                    {{ form_errors(form.description) }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.competences) }}
-                                    </label>
-                                    {{ form_widget(form.competences) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.experience) }}
-                                    </label>
-                                    {{ form_widget(form.experience) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.salaire) }}
-                                    </label>
-                                    {{ form_widget(form.salaire) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.nombrePlace) }}
-                                    </label>
-                                    {{ form_widget(form.nombrePlace) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.contrat) }}
-                                    </label>
-                                    {{ form_widget(form.contrat) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label>
-                                        {{ form_label(form.dateExpiration) }}
-                                    </label>
-                                    {{ form_widget(form.dateExpiration) }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button class="btn btn-info btn-send pt-2 btn-block ">
-                                    <i class="fa fa-check" aria-hidden="true"></i>
-                                    {{ button_label|default('Enregistrer')}}
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        </div> <!-- /.8 -->
-    </div> <!-- /.row-->
-</div>
-</div>
+ {#
+ {{ form_start(form) }}
+{{ form_widget(form) }}
+<button id="form-submit" class="filled-button">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+ #}
+ <div class="container">
+     <div class="row">
+         <div class="col-md-12">
+             <div class="section-heading">
+             </div>
+         </div>
+         <div class="col-md-8">
+             <div class="contact-form">
+                 {{ form_start(form ,{attr: {novalidate: 'novalidate'}}) }}
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.post, {'attr': {'class': 'form-control','placeholder': "Post de travail"}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.domaine)}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.objectif, {'attr': {'class': 'form-control','placeholder': "Objectif de travail"}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.description, {'attr': {'class': 'form-control','placeholder': "Description"}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.competences, {'attr': {'class': 'form-control','placeholder': "Post de travail"}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.experienceMin, {'attr': {'class': 'form-control'}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.experienceMax, {'attr': {'class': 'form-control'}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.salaire, {'attr': {'class': 'form-control'}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.nombrePlace, {'attr': {'class': 'form-control'}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.contrat)}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.dateExpiration)}}
+                     </fieldset>
+                 </div>
+                 <div class="row">
+                         <button id="form-submit" class="filled-button " style="margin: auto;width: 50%;border: 3px solid;padding: 10px;">
+                             <i class="fa fa-check" aria-hidden="true"></i>
+                             {{ button_label|default('Enregistrer')}}
+                         </button>
+                 </div>
+                 {{ form_end(form) }}
+             </div>
+         </div>
+     </div>
+ </div>

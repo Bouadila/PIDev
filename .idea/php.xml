@@ -107,6 +107,9 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

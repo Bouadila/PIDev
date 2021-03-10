@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offre d'emploi{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2>offre d'emploi</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+    <div class="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-8">
+                    <p class="lead">
+                        <i class="fa fa-map-marker"></i> Tunis &nbsp;&nbsp;
+                        <i class="fa fa-calendar"></i> {{ offre.dateDepo ? offre.dateDepo|date('Y-m-d') : '' }} &nbsp;&nbsp;
+                        <i class="fa fa-file"></i> {{ offre.contrat.type }}
+                    </p>
+
+                    <br>
+                    <br>
+
+                    <div class="form-group">
+                        <h5>{{ offre.post }}.</h5>
+                    </div>
+
+                    <table class="table">
+                        <tbody>
+                        <tr scope="row">
+                            <th scope="col">Domaine</th>
+                            <td scope="col">{{ offre.domaine }}</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Objectif</th>
+                            <td scope="col">{{ offre.objectif }}</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Description</th>
+                            <td scope="col">{{ offre.description }}</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Experience Minimale</th>
+                            <td scope="col">{{ offre.experienceMin }} ans</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Experience Maximale</th>
+                            <td scope="col">{{ offre.experienceMax }} ans</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Salaire</th>
+                            <td scope="col">{{ offre.salaire }} DT</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Nombre de Place</th>
+                            <td scope="col">{{ offre.nombrePlace }} Personnes</td>
+                        </tr>
+                        <tr scope="row">
+                            <th scope="col">Date Expiration</th>
+                            <td scope="col">{{ offre.dateExpiration ? offre.dateExpiration|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                </div>
+
+                <div class="col-md-3 col-sm-4">
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <button type="submit" class="filled-button btn-block">Apply for this job</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <img src="{{ asset('assets/images/product-1-370x270.jpg') }}" alt="" class="img-fluid wc-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

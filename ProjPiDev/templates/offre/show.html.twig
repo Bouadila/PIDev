@@ -3,15 +3,33 @@
 {% block title %}Offre{% endblock %}
 
 {% block body %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2> Détail d'offre d'emploi </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
 <div class="container">
     <div class=" text-center mt-5 ">
-        <h2>Offre {{ offre.post }}</h2>
+        <h2>{{ offre.post }}</h2>
     </div>
     <table class="table">
         <tbody>
         <tr scope="row">
             <th scope="col">Post</th>
             <td scope="col">{{ offre.post }}</td>
+        </tr>
+        <tr scope="row">
+            <th scope="col">Domaine</th>
+            <td scope="col">{{ offre.domaine }}</td>
         </tr>
         <tr scope="row">
             <th scope="col">Objectif</th>
@@ -22,8 +40,12 @@
             <td scope="col">{{ offre.description }}</td>
         </tr>
         <tr scope="row">
-            <th scope="col">Experience</th>
-            <td scope="col">{{ offre.experience }} ans</td>
+            <th scope="col">Experience Minimale</th>
+            <td scope="col">{{ offre.experienceMin }} ans</td>
+        </tr>
+        <tr scope="row">
+            <th scope="col">Experience Maximale</th>
+            <td scope="col">{{ offre.experienceMax }} ans</td>
         </tr>
         <tr scope="row">
             <th scope="col">Salaire</th>
@@ -45,24 +67,25 @@
             <th scope="col">Date Expiration</th>
             <td scope="col">{{ offre.dateExpiration ? offre.dateExpiration|date('Y-m-d') : '' }}</td>
         </tr>
+        <tr scope="row">
+            <td scope="col"><a href="{{ path('offre_index') }}" class="btn btn-danger backBtn btn-lg pull-left">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Retourner à la list
+                </a>
+            </td>
+            <td scope="col">
+                <a href="{{ path('offre_edit', {'id': offre.id}) }}" class="btn btn-danger backBtn btn-lg pull-left">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Modifir
+                </a>
+            </td>
+        </tr>
+        <tr scope="row">
+            <td scope="col">
+                {{ include('offre/_delete_form.html.twig') }}
+            </td>
+        </tr>
         </tbody>
     </table>
-    <div class="col-md-6">
-        <a href="{{ path('offre_index') }}" class="btn btn-info backBtn btn-lg pull-left">
-            <i class="fa fa-backward" aria-hidden="true"></i>
-            Retourner à la list
-        </a>
-    </div>
-    <div class="col-md-6">
-        <a href="{{ path('offre_edit', {'id': offre.id}) }}" class="btn btn-info backBtn btn-lg pull-left">
-            <i class="fa fa-pencil" aria-hidden="true"></i> Modifir
-        </a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="col-md-6">
-        {{ include('offre/_delete_form.html.twig') }}
-    </div>
+
 </div>
 {% endblock %}

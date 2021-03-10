@@ -22,10 +22,6 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
 
     /**
      * @ORM\Column(type="json")
@@ -37,6 +33,45 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $gover;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $img;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $special;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_naiss;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom_entre;
 
 
     public function getId(): ?int
@@ -119,14 +154,136 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-    public function getName(): ?string
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getPrenom()
     {
-        return $this->name;
+        return $this->prenom;
     }
 
-    public function setName(string $name): self
+    /**
+     * @param mixed $prenom
+     */
+    public function setPrenom($prenom): void
     {
-        $this->name = $name;
-        return $this;
+        $this->prenom = $prenom;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getGover()
+    {
+        return $this->gover;
+    }
+
+    /**
+     * @param mixed $gover
+     */
+    public function setGover($gover): void
+    {
+        $this->gover = $gover;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param mixed $img
+     */
+    public function setImg($img): void
+    {
+        $this->img = $img;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpecial()
+    {
+        return $this->special;
+    }
+
+    /**
+     * @param mixed $special
+     */
+    public function setSpecial($special): void
+    {
+        $this->special = $special;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param mixed $etat
+     */
+    public function setEtat($etat): void
+    {
+        $this->etat = $etat;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateNaiss()
+    {
+        return $this->date_naiss;
+    }
+
+    /**
+     * @param mixed $date_naiss
+     */
+    public function setDateNaiss($date_naiss): void
+    {
+        $this->date_naiss = $date_naiss;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNomEntre()
+    {
+        return $this->nom_entre;
+    }
+
+    /**
+     * @param mixed $nom_entre
+     */
+    public function setNomEntre($nom_entre): void
+    {
+        $this->nom_entre = $nom_entre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setNom($nom): void
+    {
+        $this->nom = $nom;
+    }
+
+
 }

@@ -7,6 +7,7 @@ use App\Entity\Offre;
 use App\Form\CompetenceType;
 use App\Form\OffreType;
 use App\Repository\OffreRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,22 +22,36 @@ class OffreController extends AbstractController
     /**
      * @Route("/", name="offre_index", methods={"GET"})
      */
-    public function index(OffreRepository $offreRepository): Response
+    public function index(OffreRepository $offreRepository,Request $request, PaginatorInterface $paginator): Response
     {
+        $donnees =$offreRepository->findAll();
+        $offres = $paginator->paginate(
+            $donnees, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+             3// Nombre de résultats par page
+        );
         return $this->render('offre/index.html.twig', [
+            'offres' => $offres,
+        ]);
+    }
+    /**
+     * @Route("/offreCandidat", name="offreCandidat", methods={"GET"})
+     */
+    public function offreCandidat(OffreRepository $offreRepository){
+        //dd($offreRepository->findAll());
+        return $this->render('offre/jobs.html.twig', [
             'offres' => $offreRepository->findAll(),
         ]);
     }
     /**
-     * @Route("/candidat", name="index_candidat", methods={"GET"})
+     * @Route("/offreCandidat/{id}", name="offreCandidatshow", methods={"GET"})
      */
-    public function indexCandidat(OffreRepository $offreRepository): Response
+    public function showoffreCandidat(Offre $offre): Response
     {
-        return $this->render('offre/indexcandidat.html.twig', [
-            'offres' => $offreRepository->findAll(),
+        return $this->render('offre/jobDetails.html.twig', [
+            'offre' => $offre,
         ]);
     }
-
     /**
      * @Route("/new", name="offre_new", methods={"GET","POST"})
      */
@@ -66,15 +81,6 @@ class OffreController extends AbstractController
     public function show(Offre $offre): Response
     {
         return $this->render('offre/show.html.twig', [
-            'offre' => $offre,
-        ]);
-    }
-    /**
-     * @Route("/condidat/{id}", name="offre_showcandidat", methods={"GET"})
-     */
-    public function showoffre(Offre $offre): Response
-    {
-        return $this->render('offre/showcandidat.html.twig', [
             'offre' => $offre,
         ]);
     }

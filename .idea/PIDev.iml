@@ -25,6 +25,8 @@
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/friendsofphp/proxy-manager-lts" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/jms/metadata" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/laminas/laminas-code" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/laminas/laminas-eventmanager" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/laminas/laminas-zendframework-bridge" />
@@ -38,6 +40,7 @@
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/link" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/asset" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/cache" />

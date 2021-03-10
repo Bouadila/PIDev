@@ -60,22 +60,14 @@ class Offre
      */
     private $nombrePlace;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @Assert\NotBlank(message="l'experience ne peut pas être vide ")
-     * @Assert\GreaterThan(0, message="salaire doit être positif")
-     */
-    private $experience;
+
     /**
      * @ORM\JoinColumn(nullable=false)
      * @ORM\ManyToOne(targetEntity=Contrat::class, inversedBy="offres")
      * @Assert\NotBlank(message="le contrat ne peut pas être vide ")
      */
     private $contrat;
-   /**
-     * @ORM\Column(type="boolean")
-     */
-    private $etat;
+
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="la post ne peut pas être vide ")
@@ -94,10 +86,41 @@ class Offre
      */
     private $competences ;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="le domaine ne peut pas être vide ")
+     */
+    private $domaine;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="l'experience ne peut pas être vide ")
+     * @Assert\GreaterThan(0, message="experience doit être positif")
+     */
+    private $experienceMin;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Assert\GreaterThan(0, message="experience doit être positif")
+     */
+    private $experienceMax;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $flagSupprimer;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $flagExpirer;
+
     public function __construct()
     {
         $this->dateDepo = new DateTime();
-        $this->etat=true;
+        $this->flagExpirer= false;
+        $this->flagSupprimer= false;
+
     }
 
     public function getId(): ?int
@@ -165,18 +188,6 @@ class Offre
         return $this;
     }
 
-    public function getExperience(): ?int
-    {
-        return $this->experience;
-    }
-
-    public function setExperience(int $experience): self
-    {
-        $this->experience = $experience;
-
-        return $this;
-    }
-
     public function getContrat(): ?Contrat
     {
         return $this->contrat;
@@ -234,6 +245,66 @@ class Offre
     public function setCompetences(string $competences): self
     {
         $this->competences = $competences;
+
+        return $this;
+    }
+
+    public function getDomaine(): ?string
+    {
+        return $this->domaine;
+    }
+
+    public function setDomaine(string $domaine): self
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    public function getExperienceMin(): ?int
+    {
+        return $this->experienceMin;
+    }
+
+    public function setExperienceMin(int $experienceMin): self
+    {
+        $this->experienceMin = $experienceMin;
+
+        return $this;
+    }
+
+    public function getExperienceMax(): ?int
+    {
+        return $this->experienceMax;
+    }
+
+    public function setExperienceMax(int $experienceMax): self
+    {
+        $this->experienceMax = $experienceMax;
+
+        return $this;
+    }
+
+    public function getFlagSupprimer(): ?bool
+    {
+        return $this->flagSupprimer;
+    }
+
+    public function setFlagSupprimer(?bool $flagSupprimer): self
+    {
+        $this->flagSupprimer = $flagSupprimer;
+
+        return $this;
+    }
+
+    public function getFlagExpirer(): ?bool
+    {
+        return $this->flagExpirer;
+    }
+
+    public function setFlagExpirer(?bool $flagExpirer): self
+    {
+        $this->flagExpirer = $flagExpirer;
 
         return $this;
     }
