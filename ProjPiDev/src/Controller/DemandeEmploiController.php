@@ -56,8 +56,10 @@ class DemandeEmploiController extends AbstractController
      */
     public function listeD(): Response
     {
+        $userId = $this->getUser()->getId();
+        $id = array('idCand' => $userId);
         $demande=$this->getDoctrine()->getRepository(Demande::class);
-        $demandes=$demande->findAll();
+        $demandes=$demande->findby($id);
         return $this->render('demande_emploi/liste_demande_emploi.html.twig',['demandes'=>$demandes , ]);
     }
 
@@ -108,7 +110,7 @@ class DemandeEmploiController extends AbstractController
             return $this->redirectToRoute("list_demande_emploi");
         }
 
-        return $this->render("demande_emploi/Modif_demande_emploi.html.twig",array('formdemande'=>$form->createView()));
+        return $this->render("demande_emploi/Modif_demande_emploi.html.twig",array('formdemandeMod'=>$form->createView()));
     }
 
 
