@@ -125,16 +125,25 @@ class DemandeEmploiController extends AbstractController
 
 
     /**
-     * @Route("/search ", name="search")
+     * @Route("/search" , name="search")
      */
-    public function search(Request $request,DemandeRepository $repository)
+    public function search(Request $request): Response
     {
-        $data=$request->get('search');
-        $demande=$repository->findDemandeByData($data);
+        $query = $request->query->get('query');
+        $orderBy = $request->query->get('order');
+
+        $result = $this->getDoctrine()->getRepository(Demande::class)
+            ->search($query, $orderBy);
+
+
         return $this->render('demande_emploi/search.html.twig', [
-            'demande' => $demande,
+            'results' => $result,
+            'query' => $query,
+            'order' => $orderBy
         ]);
     }
+
+
 
     /**
      * @param DemandeRepository $repository
