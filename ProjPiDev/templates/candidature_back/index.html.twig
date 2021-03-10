@@ -8,6 +8,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Id_candidat</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Sexe</th>
@@ -24,6 +25,7 @@
         <tbody>
         {% for candidature in candidatures %}
             <tr>
+                <td>{{ candidature.idCandidat }}</td>
                 <td>{{ candidature.nom }}</td>
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.sexe }}</td>
