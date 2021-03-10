@@ -115,6 +115,10 @@ class QuizController extends AbstractController
 
         return $this->render('home/index.html.twig');
     }
+
+
+
+
 }
 
 

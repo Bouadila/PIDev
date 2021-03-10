@@ -56,7 +56,13 @@ class TakeQuizController extends AbstractController
                 $list[$reponse->getContenuRep()] = $reponse->getId();
             }
             // add the list of reponse to the form then do the same for the next question
-            $formBuilder->add('reponses'.$i, ChoiceType::class, ['choices' => $list,'label' =>'  ', 'data' => reset($list) ,'multiple'=>false, 'expanded' => true]);
+            $formBuilder->add('reponses'.$i, ChoiceType::class,
+                [
+                    'choices' => $list,
+                    'label' =>'  ',
+                    'multiple'=>false,
+                    'expanded' => true,
+                    ]);
             $quiz->addQuestion($question);
 
         }
@@ -74,6 +80,7 @@ class TakeQuizController extends AbstractController
                 if($data instanceof Question){
                     //create new instance of reponseCondidat when the instance is client
                     $reponseCondidat = new ReponseCondidat();
+                    $reponseCondidat->setListReponsesCondidat($reponseList);
                     //set its question to the data we got
                     $reponseCondidat->setQuestion($data);
                     //add this reponseCondidat to our list
@@ -82,16 +89,18 @@ class TakeQuizController extends AbstractController
                 }
                 // else if our data is not a question than its a reponse
                 else {
-                    $reponse = $this->getDoctrine()->getRepository(Reponse::class)->find($data);
-                    // loop our reponsesCondidat list
-                    foreach($list as $rep){
-                        //if our reponseCondidat's reponse is null than will affect to it this reponse
-                        if($rep->getReponse() == null){
-                            $rep->setReponse($reponse);
-                            //than will add this reponseCondidat to our table which contains the list of reponseCondidat
-                            $rep->setListReponsesCondidat($reponseList);
-                            $reponseList->addReponse($rep);
-                            break;
+                    if($data != null){
+                        $reponse = $this->getDoctrine()->getRepository(Reponse::class)->find($data);
+                        // loop our reponsesCondidat list
+                        foreach($list as $rep){
+                            //if our reponseCondidat's reponse is null than will affect to it this reponse
+                            if($rep->getReponse() == null  && $reponse->getIdQues() == $rep->getQuestion()){
+                                $rep->setReponse($reponse);
+                                //than will add this reponseCondidat to our table which contains the list of reponseCondidat
+                                $rep->setListReponsesCondidat($reponseList);
+                                $reponseList->addReponse($rep);
+                                break;
+                            }
                         }
                     }
 
@@ -102,7 +111,7 @@ class TakeQuizController extends AbstractController
                 //presist the reonsesCondidat one by one to our database
                 $em->persist($rep);
                 //calculate the number of correct answers
-                if($rep->getReponse()->getId() == $rep->getQuestion()->getRepJust()->getId())
+                if($rep->getReponse() != null && $rep->getReponse()->getId() == $rep->getQuestion()->getRepJust()->getId())
                     $i++;
             }
             //persist the list of reponsesCondidat
@@ -114,7 +123,7 @@ class TakeQuizController extends AbstractController
 
         }
 
-        return $this->render('quiz/takeQuiz.html.twig', [ "nom_quiz" => $quiz->getNomQuiz(),
+        return $this->render('quiz/takeQuiz.html.twig', [ "quiz" => $quiz,
             'form' => $form->createView(),
         ]);
 //        return $this->render('quiz/takeQuiz.html.twig', [

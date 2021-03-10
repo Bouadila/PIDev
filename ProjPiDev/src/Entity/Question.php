@@ -35,7 +35,7 @@ class Question
     private $nomb_rep;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reponse::class, mappedBy="id_ques", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Reponse::class, mappedBy="id_ques", orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
      */
     private $reponses;
@@ -139,4 +139,20 @@ class Question
 
         return $this;
     }
+
+    public function addTag(Reponse $tag): void
+    {
+
+
+        // for a many-to-one association:
+        $tag->setIdQues($this);
+
+        $this->reponses->add($tag);
+    }
+
+    public function removeTag(Question $tag): void
+    {
+        // ...
+    }
+
 }

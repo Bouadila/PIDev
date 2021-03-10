@@ -40,16 +40,25 @@ class QuestionController extends AbstractController
         $nb_question = (int) $request->query->get("nb_question");
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if($nb_question == -1){
-                $quiz->setNombQuestion($quiz->getNombQuestion()+1);
-
-            }
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($question);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('reponse_new', ['ques_id' => $question->getId(), "nb_question" => $nb_question ]);
+//            if($nb_question == -1){
+//                $quiz->setNombQuestion($quiz->getNombQuestion()+1);
+//
+//            }
+//
+//            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($question);
+//            $entityManager->flush();
+//            if ($nb_question > 1)
+//
+//                //if we have to add more question we redirect the user to a form for new question
+//                return $this->redirectToRoute('question_new', ['id_quiz' => $question->getQuizId()->getId(), "nb_question" => $nb_question - 1]);
+//            else
+//                //else we redirect him to another page
+//                return $this->render('quiz/showQuiz.html.twig', [
+//                    'quiz' => $question->getQuizId(),
+//                ]);
+//
+//            return $this->redirectToRoute('reponse_new', ['ques_id' => $question->getId(), "nb_question" => $nb_question ]);
 
         }
 

@@ -19,17 +19,20 @@
         </tr>
         <tr>
             <th>Reponse condidat </th>
-            {% if  reponse.reponse == reponse.question.repjust %}
+            {% if reponse.reponse is null %}
+                <td >majawebsh<i style="font-size: 150%; color:red" class="fa fa-times-circle-o"S aria-hidden="true"></i></td>
+
+            {% elseif  reponse.reponse == reponse.question.repjust %}
                 <td >{{ reponse.reponse.contenuRep }}<i style="font-size: 150%; color:limegreen" class="fa fa-check-circle-o" aria-hidden="true"></i></td>
             {% else %}
                 <td >{{ reponse.reponse.contenuRep }}<i style="font-size: 150%; color:red" class="fa fa-times-circle-o"S aria-hidden="true"></i></td>
             {% endif %}
         </tr>
         {% endfor %}
-{#        <tr>#}
-{#            <th>Nomb_question</th>#}
-{#            <td>{{ quiz.nombQuestion }}</td>#}
-{#        </tr>#}
+        <tr>
+            <th>Score</th>
+            <td></td>
+        </tr>
         </tbody>
     </table>
 
