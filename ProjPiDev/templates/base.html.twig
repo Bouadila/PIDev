@@ -48,7 +48,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <div class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ path('home') }}">Acceuil
                             <span class="sr-only">(current)</span>
@@ -64,12 +64,24 @@
 
                     <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+                    {% if app.user %}
+                    <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
+                    <li> <a  class="nav-link"  href="{{ path('app_logout') }}">Déconnexion</a></li>
+
+                    {% else %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Espace candidat</a>
-                            <a class="dropdown-item" href="#">Espace Entreprise</a>
+
+                        <a class="dropdown-item" href="{{ path ('app_login') }}"> Connexion</a>
+                        <a class="dropdown-item" href="{{ path ('ajout_espace_candidat') }}">SignUp candidat</a>
+                        <a class="dropdown-item" href="{{ path ('ajout_espace_employeur') }}">SignUp Entreprise</a>
+                        <a class="dropdown-item" href="{{ path ('registration') }}">SignUp candidat2</a>
+                        <a class="dropdown-item" href="{{ path ('registration') }}">SignUp employeur2</a>
+
+                    {% endif %}
+                </div>
                         </div>
                     </li>
                 </ul>

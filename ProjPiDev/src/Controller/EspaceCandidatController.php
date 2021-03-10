@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Candidat;
+use App\Entity\User;
 use App\Form\CandidatModifType;
 use App\Form\CandidatType;
+use App\Form\RegistrationType;
 use App\Repository\CandidatRepository;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,6 +25,30 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EspaceCandidatController extends AbstractController
 {
+
+    /**
+     * @Route("/inscription", name="security_registration" , methods={"GET"})
+     */
+    public function registration(Request $request,ObjectManager $manager , UserPasswordEncoderInterface $encoder){
+        $user = new User();
+        $form = $this->createForm(RegistrationType::class, $user);
+        $form->handleRequest($request);
+        if($form->isSubmitted() and $form->isValid()) {
+            $hash=$encoder->encodePassword($user,$user->getPassword());
+            $user->setPassword($hash);
+            // tell Doctrine you want to (eventually) save the Product (no queries yet)
+            $manager->persist($user);
+            // actually executes the queries
+            $manager->flush();
+            return $this->redirectToRoute('security_login');
+        }
+        return $this->render('security/registration.html.twig', [
+            'form' => $form->createView()
+        ]);
+
+    }
+
+
     /**
      * @Route("espace/candidat", name="espace_candidat" , methods={"GET"})
      */
@@ -31,6 +58,7 @@ class EspaceCandidatController extends AbstractController
             'controller_name' => 'EspaceCandidatController',
         ]);
     }
+
 
     /**
      *
@@ -53,7 +81,7 @@ class EspaceCandidatController extends AbstractController
                 $session->set('id',$candidat->getId());
                 $candidat->setEtat('0');
                 $uploadedFile = $form['image']->getData();
-             ////
+                $filename = md5(uniqid()).'.'.$uploadedFile->guessExtension();
                 $uploadedFile->move($this->getParameter('upload_directory'),$filename);
                 $candidat->setImg($filename);
                 //get the entity manager that exists in doctrine( entity manager and repository)
@@ -86,7 +114,7 @@ class EspaceCandidatController extends AbstractController
         $candidat = $repository->findOneBy(['email' => $this->get('session')->get('email')]);
         if($candidat->getEtat()=='1'){
             echo("compte desactive");
-        }else {
+        } else {
             echo($this->get('session')->get('id'));
             echo($this->get('session')->get('email'));}
             return $this->render('espace_candidat/aff_espace_candidat.html.twig',

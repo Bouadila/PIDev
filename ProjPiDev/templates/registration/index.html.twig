@@ -1,4 +1,4 @@
-{# templates/registration/index.html.twig #} {% extends 'basetest.html.twig' %} {%
+{# templates/registration/index.html.twig #} {% extends 'base.html.twig' %} {%
     block body %}
     <div class="container">
         <div class="row">
@@ -6,10 +6,13 @@
                 <div class="card bg-light mb-3 mt-5" style="width: 800px">
                     <div class="card-body">
                         <div class="card-header mb-3">Registration Form</div>
-                        {{ form_start(form) }}
+                        <form {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
                         <div class="form_group">
                             <div class="col-md-12 mb-3">
                                 {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <div class="msg">
+                                {{ form_errors(form.name) }}
                             </div>
                         </div>
                         <div class="form_group">
@@ -29,13 +32,21 @@
                                     'form-control'}}) }}
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
-                                </button>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="control-label">votre image <small>svp ajouter votre image.</small></label>
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-preview thumbnail"></div>
+                                    <br>
+                                    <span class="btn btn-default btn-file">
+                                                    <span class="fileupload-new">Select Image  </span>
+                                                     {{ form_widget(form.image) }}
+                                                </span>
+                                    <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload"><i class="fa fa-close"></i></a>
+                                </div>
                             </div>
                         </div>
+
                         {{ form_end(form) }}
                     </div>
                 </div>

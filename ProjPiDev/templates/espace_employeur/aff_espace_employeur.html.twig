@@ -1,4 +1,4 @@
-{% extends 'baseEmployeur.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}compte employeur{% endblock %}
 
@@ -12,56 +12,56 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section id="history">
+    </section>  <div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Featured Jobs</h2>
+                    <a href="#">view more <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-item">
+                    <a href="#"><img src="/img/logo.jpg" alt="abc" height="300" width="400"></a>
+                    <div class="down-content">
+                        <h2 class="text-center">  {{user.getNomEntreprise() }}
+                            <a href="{{ path ('Modif_espace_employeur') }}" class="fa fa-pencil" ></a></h2>
 
-        <section id="about_inner">
-            <div class="about_inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-                                <a href="#"><img src="/img/logo.jpg" alt="abc" height="300" width="400"></a>
+                        <h4><small><i class="fa fa-briefcase"></i> {{user.getSecteur() }} <br> </small></h4>
 
-{#                                {{employeur.getLogo() }}#}
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="about_inner_2">
+                        <small>
+                            <strong title="Location"><i class="fa fa-map-marker"></i>  {{user.getAdresseEntreprise() }}</strong>
 
-                                    <h2 class="text-center">  {{employeur.getNomEntreprise() }}
-                                        <a href="{{ path ('Modif_espace_employeur') }}" class="fa fa-pencil" ></a></h2>
-                                    <p class="text-center">   {{employeur.getAdresseEntreprise() }}</p>
-                                    <p class="text-center">  {{employeur.getSecteur() }}  </p>
-                                    <p class="text-center">  {{employeur.getDescription() }}   </p>
-                                </div>
-                            </div>
-                        </div>
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-item">
+                    <div class="down-content">
+                        <h4>le compte de cette entreprise gére par  </h4>
+
+
+                        <h6>{{user.getName()}}  {{user.getPrenom()}}</h6>
+
+
+                        <small>
+                            <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Type"><i class="fa fa-file"></i> {{employeur.getEmail()}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                        </small>
                     </div>
                 </div>
             </div>
-        </section>
+            <a href="{{ path ('Supp_espace_employeur') }}" class="button">Desactiver compte</a>
 
-        <section id="choose">
-            <div class="container">
-                <div class="row">
-                    <div class="choose_2 clearfix">
-
-                        <div class="col-sm-6">
-                            <div class="choose_4">
-                                <h3>le compte de cette entreprise gére par  </h3>
-                                <p>  {{employeur.getNom()}}   </p>
-                                <p>  {{employeur.getPrenom()}} </p>
-                                <p> {{employeur.getEmail()}} </p>
-                                <p> {{employeur.getNumEmployeur()}} </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <a href="{{ path ('Supp_espace_employeur') }}" class="button">Desactiver compte</a>
 
             </div>
-
+    </div>
+</div>
         </section>
 
     </section>

@@ -244,13 +244,13 @@
 
 <div class="row">
     <div class="col-md-12 col-sm-12">
-        <label class="control-label">Company Logo <small>Please add a your company image.</small></label>
+        <label class="control-label">votre image <small>svp ajouter votre image.</small></label>
         <div class="fileupload fileupload-new" data-provides="fileupload">
             <div class="fileupload-preview thumbnail"></div>
             <br>
             <span class="btn btn-default btn-file">
-                                                    <span class="fileupload-new">Select Logo</span>
-                                                    <span class="fileupload-exists">Change</span>
+                                                    <span class="fileupload-new">Select Image</span>
+                                                    <span class="fileupload-exists">Changer</span>
                                                      {{ form_widget(form.image) }}
                                                 </span>
             <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload"><i class="fa fa-close"></i></a>
@@ -259,9 +259,9 @@
 </div><!-- end row -->
 
           <div class="item">
-            <p>Numéro de télephone</p>
+{#            <p>Numéro de télephone</p>#}
                                   <div class="name-item">
-                          {{ form_widget(form.num) }}
+{#                          {{ form_widget(form.num) }}#}
           </div>
            <div class="msg">
       {{ form_errors(form.num) }}

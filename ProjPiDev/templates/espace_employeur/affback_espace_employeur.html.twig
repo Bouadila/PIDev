@@ -16,12 +16,9 @@
                         <th>Mdp</th>
                         <th>Email</th>
                         <th>Nom entrep</th>
-                        <th>Site entrep</th>
                         <th>Etat</th>
                         <th>Adresse</th>
-                        <th>Num</th>
                         <th>logo </th>
-                        <th>Déscription</th>
                         <th>Sécteur</th>
 
                     </tr>
@@ -33,7 +30,6 @@
                         <td>{{employeur.prenom}}</td>
                         <td>{{employeur.email}}</td>
                         <td>{{employeur.NomEntreprise}}</td>
-                        <td>{{employeur.SiteEntreprise}}</td>
                         <td>{{employeur.mdp}}</td>
                         {% if employeur.etat == "0" %}
                             <td>compte activé</td>
@@ -41,9 +37,7 @@
                             <td>compte déactivé</td>
                         {% endif %}
                         <td>{{employeur.AdresseEntreprise}}</td>
-                        <td>{{employeur.NumEmployeur}}</td>
                         <td>{{employeur.logo}}</td>
-                        <td>{{employeur.description}}</td>
                         <td>{{employeur.secteur}}</td>
                     </tr>
 

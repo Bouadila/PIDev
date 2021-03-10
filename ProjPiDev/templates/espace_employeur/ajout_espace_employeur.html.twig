@@ -1,4 +1,4 @@
-{% extends 'baseEmployeur.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}compte employeur{% endblock %}
 
@@ -248,13 +248,13 @@
                         <div class="msg">
       {{ form_errors(form.nom_entreprise) }}
 </div>
-          <p>Site Web de l'entreprise </p>
-          <div class="name-item">
-                {{ form_widget(form.site_entreprise) }}
-          </div>
-                              <div class="msg">
-      {{ form_errors(form.site_entreprise) }}
-</div>
+{#          <p>Site Web de l'entreprise </p>#}
+{#          <div class="name-item">#}
+{#                {{ form_widget(form.site_entreprise) }}#}
+{#          </div>#}
+{#                              <div class="msg">#}
+{#      {{ form_errors(form.site_entreprise) }}#}
+{#</div>#}
 
   <p>Adresse de l'entreprise </p>
           <div class="name-item">
@@ -265,14 +265,14 @@
 </div>
 
 
-           <p>Numéro de téléphone de l'entreprise </p>
-          <div class="name-item">
-                {{ form_widget(form.num_employeur) }}
+{#           <p>Numéro de téléphone de l'entreprise </p>#}
+{#          <div class="name-item">#}
+{#                {{ form_widget(form.num_employeur) }}#}
 
-          </div>
-            <div class="msg">
-      {{ form_errors(form.num_employeur) }}
-</div>
+{#          </div>#}
+{#            <div class="msg">#}
+{#      {{ form_errors(form.num_employeur) }}#}
+{#</div>#}
 <div class="item">
 
             <p>Logo de l'entreprise </p>
@@ -286,15 +286,15 @@
 
           </div>
 
-            <div class="item">
-            <p>Description</p>
-                       <div class="name-item">
+{#            <div class="item">#}
+{#            <p>Description</p>#}
+{#                       <div class="name-item">#}
 
-                {{ form_widget(form.description) }} </div>
-          </div>
-                     <div class="msg">
-      {{ form_errors(form.description) }}
-</div>
+{#                {{ form_widget(form.description) }} </div>#}
+{#          </div>#}
+{#                     <div class="msg">#}
+{#      {{ form_errors(form.description) }}#}
+{#</div>#}
 
 
             <p>Secteur d'activité </p>
