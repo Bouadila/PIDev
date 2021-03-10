@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact" {{ form_start(formdemandeMod, {'attr':{'novalidate':'novalidate'}}) }}>
+                        <form id="contact" {{ form_start(formdemandeMod ,{'attr':{'novalidate':'novalidate'}}) }}>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     {{ form_errors(formdemandeMod.TitreDemande) }}
@@ -53,7 +53,7 @@
                                     {{ form_widget(formdemandeMod.cvCand) }}
                                 </div>
                                 <div class="col-lg-12">
-                                    <button type="submit" id="form-submit" class="filled-button">{{ include('demande_emploi/formDemande.html.twig', {'button_label': 'Modifier'}) }}</button>
+                                    <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Enregistrer')}}</button>
                                 </div>
                             </div>
                         </form {{ form_end(formdemande) }} >

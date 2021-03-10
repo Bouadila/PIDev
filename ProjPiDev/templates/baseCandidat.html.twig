@@ -36,6 +36,8 @@
         <div></div>
     </div>
 </div>
+
+
 <!-- ***** Preloader End ***** -->
 
 
@@ -50,7 +52,8 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search" id="search">
+                        <div id="result"></div>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ path('home') }}">Profile
@@ -66,7 +69,6 @@
 
 
                     <li class="nav-item"><a class="nav-link" href="#">Candidature</a></li>
-                    <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Demande</a>
 
@@ -102,6 +104,8 @@
     </div>
 </footer>
 
+
+
 {% block js %}
     <!-- Bootstrap core JavaScript -->
     <script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
@@ -112,5 +116,8 @@
     <script src={{ asset('assets/js/custom.js') }}></script>
     <script src={{ asset('assets/js/owl.js') }}></script>
 {% endblock %}
+
+
+
 </body>
 </html>

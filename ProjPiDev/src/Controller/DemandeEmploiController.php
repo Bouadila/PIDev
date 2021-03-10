@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class DemandeEmploiController extends AbstractController
 {
@@ -27,14 +28,6 @@ class DemandeEmploiController extends AbstractController
         if ($form->isSubmitted()) {
 
             $demande->setIdCand($this->getUser());
-            //var_dump($demande);
-            //$file = $request->files->get('demande')['cvCand'];
-            //$uploads_directory = $this->getParameter('Téléchargements');
-            //$filename = md5(uniqid())  .  '.'  .  $file->guessExtension();
-            //$file->move(
-            //  $uploads_directory,
-            //$filename
-            //);
             $demande = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $em->persist($demande);
@@ -101,7 +94,6 @@ class DemandeEmploiController extends AbstractController
 
         $demande=$this->getDoctrine()->getRepository(Demande::class)->find($id);
         $form=$this->createForm(DemandeType::class,$demande);
-       // $form->add('Modifier Demande',SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted())
         {
@@ -128,27 +120,21 @@ class DemandeEmploiController extends AbstractController
     }
 
     /**
-     * @Route("/search/demande/emploi/{id}", name="search" , methods={"GET"})
+     * @Route("/searchDemande ", name="searchDemande")
      */
-    public function searchDemande(Request $request): Response
+    public function searchDemande(Request $request,NormalizerInterface $Normalizer)
     {
-        $em = $this->getDoctrine()->getManager();
-        $requestString = $request->get('domaineTravail');
-        $demande = $em->getRepository(Demande::class)->findEntitiesByString($requestString);
-        if(! $demande) {
-            $result['demande']['error'] = "demande not found ";
-        } else {
-            $result['demande'] = $this->getRealEntities($demande);
-        }
-        return new Response(json_encode($result));
+        $repository = $this->getDoctrine()->getRepository(Demande::class);
+        $requestString=$request->get('searchValue');
+        $demandes = $repository->findDemandeByStatut($requestString);
+        $jsonContent = $Normalizer->normalize($demandes, 'json',['groups'=>'demandes']);
+        $retour=json_encode($jsonContent);
+        return new Response($retour);
+
     }
 
-    public function getRealEntities($demande){
-        foreach ($demande as $demande){
-            $realEntities[$demande->getId()] = [$demande->getTitreDemande() , $demande->getCvCand() ];
-        }
-        return $realEntities;
-    }
+
+
 
 }
 

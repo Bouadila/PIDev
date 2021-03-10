@@ -47,4 +47,33 @@ class DemandeRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findDemandeByStatut($statutCand){
+        return $this->createQueryBuilder('demande')
+            ->where('demande.statutCand LIKE :statutCand')
+            ->setParameter('statutCand', '%'.$statutCand.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function orderTitle()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT TitreDomaine FROM demande d ORDER BY d.titleDomaine ASC')
+            ->getResult();
+    }
+
+
+    public function findEntitiesByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT domaineTravail
+                FROM demande d
+                WHERE d.domaineTravail LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
+
+
 }
