@@ -9,8 +9,7 @@
 
     <h3>Reponses</h3>
     <ul class="reponses" data-prototype="{{ form_widget(form.reponses.vars.prototype)|e('html_attr') }}"></ul>
-    <button type="button" class="add_item_link" data-collection-holder-class="reponses">Add a Reponse</button>
-
+    <td><a  data-collection-holder-class="reponses" class="btn btn-info add_item_link" ><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une reponse</a></td><br/>
 
     {% for rep in form.reponses %}
         <li>{{ form_row(rep.contenu_rep) }}</li>
@@ -51,7 +50,8 @@
 
         }
         function addTagFormDeleteLink($tagFormLi) {
-            var $removeFormButton = $('<button type="button">Delete this tag</button>');
+
+            var $removeFormButton = $('<td><a class="btn btn-info" ><i class="fa fa-minus-circle" aria-hidden="true"></i>Suprimer cette reponse</a></td>\n');
             $tagFormLi.append($removeFormButton);
 
             $removeFormButton.on('click', function(e) {

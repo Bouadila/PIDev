@@ -32,7 +32,7 @@ class TakeQuizController extends AbstractController
     /**
      * @Route("/take/{id}", name="quiz_take", methods={"GET", "POST"})
      */
-    public function take(Request $request, Quiz $quiz): Response
+    public function take(Request $request, Quiz $quiz, \Swift_Mailer $mailer): Response
     {
         //create a new list of questions
         $reponseList = new ListReponsesCondidat();
@@ -114,11 +114,22 @@ class TakeQuizController extends AbstractController
                 if($rep->getReponse() != null && $rep->getReponse()->getId() == $rep->getQuestion()->getRepJust()->getId())
                     $i++;
             }
-            //persist the list of reponsesCondidat
+            $score = ($i * 100) / count($list);
+//            persist the list of reponsesCondidat
             $em->persist($reponseList);
             $em->flush();
             //alert contains the condidat's result
-            echo "<script> alert(".$i.") </script>";
+//            echo "<script> alert(".$i.") </script>";
+            $message = (new \Swift_Message('Resultat de quiz'))
+                ->setFrom('Bou3dilafiras@gmail.com')
+                ->setTo('firas.bouadila@esprit.tn')
+                ->setBody(
+                    $this->renderView(
+                        'email/showResult.html.twig', ['quiz' => $reponseList, 'score' => $score]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
             return $this->redirectToRoute('quiz_result', ['id' => $reponseList->getId()]);
 
         }
