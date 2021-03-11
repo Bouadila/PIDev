@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rendezvous index{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2>Rendez-vous</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+    <br>
+    <br>
+    <br>
+    <div class="col-lg-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Table des Rendez-vous</h4>
+                <div class="col-md-6 card-description">
+                    <a id="form-submit" class="filled-button" href="{{ path('rendezvous_new') }}">
+                        <i class="fa fa-plus" aria-hidden="true"></i> Ajouter Rendez-vous
+                    </a>
+                </div>
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr class="table-danger">
+                            <th scope="col">Titre</th>
+                            <th scope="col">Start</th>
+                            <th scope="col">End</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">All day</th>
+                            <th scope="col">Background color</th>
+                            <th scope="col">Border color</th>
+                            <th scope="col">Text color</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for rendezvou in rendezvouses %}
+                            <tr >
+                                <td>{{ rendezvou.titre }}</td>
+                                <td>{{ rendezvou.start ? rendezvou.start|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ rendezvou.end ? rendezvou.end|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ rendezvou.description }}</td>
+                                <td>{{ rendezvou.allDay ? 'Yes' : 'No' }}</td>
+                                <td>{{ rendezvou.backgroundColor }}</td>
+                                <td>{{ rendezvou.borderColor }}</td>
+                                <td>{{ rendezvou.textColor }}</td>
+                                <td>
+                                    <a href="{{ path('rendezvous_show', {'id': rendezvou.id}) }}" class="text-danger">
+                                        <i class="fa fa-caret-down" aria-hidden="true"></i> Plus
+                                    </a>
+                                    <br>
+                                    <a href="{{ path('rendezvous_edit', {'id': rendezvou.id}) }}" class="text-danger">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i> Modifir
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

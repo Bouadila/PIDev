@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contrat index{% endblock %}
+{% block title %}Contrats{% endblock %}
 
 {% block body %}
     <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
@@ -22,7 +22,7 @@
     <div class="col-lg-12 stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Table des offre d'emploi</h4>
+                <h4 class="card-title">Table des cantrats d'emploi</h4>
                 <div class="col-md-6 card-description">
                     <a id="form-submit" class="filled-button" href="{{ path('contrat_new') }}">
                         <i class="fa fa-plus" aria-hidden="true"></i> Ajouter contrat
@@ -43,10 +43,10 @@
                                 <td>{{ contrat.description }}</td>
                                 <td>{{ contrat.type }}</td>
                                 <td>
-                                    <a href="{{ path('contrat_show', {'id': contrat.id}) }}">
-                                        <i class="fa fa-caret-down" aria-hidden="true"></i> Détails
+                                    <a href="{{ path('contrat_show', {'id': contrat.id}) }}" class="text-danger">
+                                        <i class="fa fa-caret-down" aria-hidden="true"></i> Plus
                                     </a>
-                                    <a href="{{ path('contrat_edit', {'id': contrat.id}) }}">
+                                    <a href="{{ path('contrat_edit', {'id': contrat.id}) }}" class="text-danger">
                                         <i class="fa fa-pencil" aria-hidden="true"></i> Modifir
                                     </a>
                                 </td>

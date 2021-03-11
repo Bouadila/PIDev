@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.1/main.min.css" integrity="sha256-LOn2s1oZo044zPt6G3x2mGJnhtfXp6ZE1skHztfqnA8=" crossorigin="anonymous">
     <title>{% block title %} Recruitini {% endblock %} </title>
     {% block css%}
     <!-- Bootstrap core CSS -->
@@ -56,20 +56,19 @@
 
                     <li class="nav-item"><a class="nav-link" href="{{ path('offreCandidat') }}">Offre D'emploi</a></li>
 
-                    <!--<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-                    -->
-
 
                     <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
-
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Espace candidat</a>
                             <a class="dropdown-item" href="#">Espace Entreprise</a>
                         </div>
                     </li>
+                    {% if app.user %}
+                    <li class="nav-item"><a class="nav-link" href="{{ path('app_logout') }}">Logout</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -102,6 +101,7 @@
 <!-- Additional Scripts -->
 <script src={{ asset('assets/js/custom.js') }}></script>
 <script src={{ asset('assets/js/owl.js') }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.1/main.min.js" integrity="sha256-9puLsDK3mkUV8FSsGLlSRT+uJogUINfaCq56mzSUP/w=" crossorigin="anonymous"></script>
 {% endblock %}
 </body>
 </html>

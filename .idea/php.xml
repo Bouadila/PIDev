@@ -110,6 +110,8 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

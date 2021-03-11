@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifir Offre{% endblock %}
+{% block title %}Edit Rendezvous{% endblock %}
 
 {% block body %}
     <!-- Page Content -->
@@ -10,24 +10,24 @@
                 <div class="col-md-12">
                     <div class="text-content">
                         <h4>Recrutini</h4>
-                        <h2>Modifir Offre d'emploi</h2>
+                        <h2>Modifir Rendez-Vous</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Banner Ends Here -->
-        {{ include('offre/_form.html.twig', {'button_label': 'Modifir'}) }}
-        <br>
-        <br>
+    {{ include('rendezvous/_form.html.twig', {'button_label': 'Modifir'}) }}
+    <br>
+    <br>
     <table class="table">
         <tr scope="row">
-            <td scope="col"><a href="{{ path('offre_index') }}" class="btn btn-danger backBtn btn-lg pull-left">
+            <td scope="col"><a href="{{ path('rendezvous_index') }}" class="btn btn-danger backBtn btn-lg pull-left">
                     <i class="fa fa-backward" aria-hidden="true"></i> Retourner à la list
                 </a>
             </td>
             <td scope="col">
-                {{ include('offre/_delete_form.html.twig') }}
+                { include('rendezvous/_delete_form.html.twig') }}
             </td>
         </tr>
     </table>

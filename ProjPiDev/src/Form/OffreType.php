@@ -7,6 +7,7 @@ use App\Entity\Offre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use function Sodium\add;
@@ -18,7 +19,9 @@ class OffreType extends AbstractType
         $builder
             ->add('description')
             ->add('salaire')
-            ->add('dateExpiration')
+            ->add('dateExpiration',DateTimeType::class, [
+                'date_widget' => 'single_text'
+            ])
             ->add('nombrePlace')
             ->add('experienceMin')
             ->add('experienceMax')

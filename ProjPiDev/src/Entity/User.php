@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -72,6 +74,17 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nom_entre;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="candidat", orphanRemoval=true)
+     */
+    private $candidatures;
+
+    public function __construct()
+    {
+        $this->offres = new ArrayCollection();
+        $this->candidatures = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -154,8 +167,6 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
-
 
     /**
      * @return mixed
@@ -285,5 +296,34 @@ class User implements UserInterface
         $this->nom = $nom;
     }
 
+    /**
+     * @return Collection|Candidature[]
+     */
+    public function getCandidatures(): Collection
+    {
+        return $this->candidatures;
+    }
+
+    public function addCandidature(Candidature $candidature): self
+    {
+        if (!$this->candidatures->contains($candidature)) {
+            $this->candidatures[] = $candidature;
+            $candidature->setCandidat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidature(Candidature $candidature): self
+    {
+        if ($this->candidatures->removeElement($candidature)) {
+            // set the owning side to null (unless already changed)
+            if ($candidature->getCandidat() === $this) {
+                $candidature->setCandidat(null);
+            }
+        }
+
+        return $this;
+    }
 
 }
