@@ -49,18 +49,34 @@ class CandidatureRepository extends ServiceEntityRepository
     }
     */
 
-    public function findCandidatureByNom($nom){
-        return $this->createQueryBuilder('candidature')
-            ->where('candidature.nom LIKE :nom')
-            ->setParameter('nom', '%'.$nom.'%')
-            ->getQuery()
-            ->getResult();
+    public function search(string $query, string $order): array
+    {
+   return $this->createQueryBuilder('c')  
+     ->where('c.nom LIKE :query')
+     ->orWhere('c.prenom LIKE :query')
+     ->orWhere('c.email LIKE :query')
+     ->orderBy('c.date_candidature', $order === 'newer' ? 'DESC' : 'ASC' )
+     ->setParameter('query', '%'.$query.'%')
+     ->getQuery()
+     ->getResult();
     }
 
-    public function findCandidatureById($id){
-        return $this->createQueryBuilder('candidature')
-            ->where('candidature.id LIKE :id')
-            ->setParameter('id', '%'.$id.'%')
+    public function searchback(string $query, string $order): array{
+   return $this->createQueryBuilder('c')
+     ->where('c.nom LIKE :query')
+     ->orWhere('c.prenom LIKE :query')
+     ->orWhere('c.email LIKE :query')
+     ->orderBy('c.date_candidature', $order === 'newer' ? 'DESC' : 'ASC' )
+     ->setParameter('query', '%'.$query.'%')
+     ->getQuery()
+     ->getResult();
+    }
+
+    public function findCandidatureByName($query){
+        return $this->createQueryBuilder('c')
+            ->orWhere('c.prenom LIKE :query')
+            ->orWhere('c.nom LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
             ->getQuery()
             ->getResult();
     }

@@ -100,4 +100,20 @@ class CandidatureBackController extends AbstractController
 
         return $this->redirectToRoute('candidatureback_index');
     }
+
+    /**
+     * @Route("/searchCandidaturex ", name="searchCandidaturex")
+     */
+    public function searchCandidaturex(Request $request, NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Candidature::class);
+        $requestString=$request->get('searchValue');
+        $$candidatures = $repository->findCandidatureById($requestString);
+        $jsonContent = $Normalizer->normalize($candidatures, 'json',['groups'=>'candidatures']);
+        $retour=json_encode($jsonContent);
+        return new Response($retour);
+      
+    }
+
+
 }

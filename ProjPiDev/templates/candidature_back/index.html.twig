@@ -3,6 +3,16 @@
 {% block title %}Candidature index{% endblock %}
 
 {% block body %}
+
+    <form method="GET" action="/searchback">
+    
+        <select name="order">
+            <option>newer</option>
+            <option>older</option>
+        </select>
+        <input type="text" name="query" placeholder="Search"/>
+    </form>
+
     <h1>Candidature index</h1>
 
     <table class="table">
@@ -18,7 +28,6 @@
                 <th>Status</th>
                 <th>Diplome</th>
                 <th>Date_cand</th>
-                <th>Cv</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -35,7 +44,6 @@
                 <td>{{ candidature.status }}</td>
                 <td>{{ candidature.diplome }}</td>
                 <td>{{ candidature.DateCandidature ? candidature.DateCandidature|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ candidature.cv }}</td>
                 <td>
                 <a href="{{ path('candidatureback_show', {'id': candidature.id}) }}">show</a>
                 <a href="{{ path('candidatureback_edit', {'id': candidature.id}) }}">edit</a>
@@ -53,4 +61,6 @@
     <a href="{{ path('candidatureback_new') }}">Create new</a>
 
 {% endblock %}
+
+
 

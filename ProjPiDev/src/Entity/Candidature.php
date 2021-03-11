@@ -84,6 +84,8 @@ class Candidature
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * Assert\Blank(message:"Télécharger votre cv svp")
+     * Assert\File(mimeTypes={ "application/pdf" })
      * @Groups("post:read")
      */
     private $cv;

@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 
 
+
 class CandidatureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -48,17 +49,8 @@ class CandidatureType extends AbstractType
 
                 ],
             ])
-            ->add('cv', FileType::class,[
-                'constraints' => [
-                    new File([
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf',
-                        ],
-                        'mimeTypesMessage' => 'Svp mettre un fichier pdf ',
-                    ])],
-            ]         )
             
+            ->add('cv', FileType::class, array('label' => 'Télécharger votre CV (PDF file)'))
         ;
     }
 

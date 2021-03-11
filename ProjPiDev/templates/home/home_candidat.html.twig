@@ -1,6 +1,7 @@
 {% extends 'baseCandidat.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Home{% endblock %}
+{% block titre %}BONJOUR{% endblock %}
 
 {% block body %}
 
@@ -14,11 +15,14 @@
                         <a href="#">view more <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
+
+
                 <div class="col-md-4">
                     <div class="product-item">
                         <a href="#"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
                         <div class="down-content">
                             <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
+
 
                             <h6>$60 000</h6>
 
@@ -29,7 +33,7 @@
                                 <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
                             </small>
-                            <center><a href="#" class="filled-button">Postuler maintenant!</a></center>
+                            <center><a href="{{ path('candidature_new') }}" class="filled-button">Postuler maintenant!</a></center>
                         </div>
                     </div>
                 </div>
@@ -49,7 +53,7 @@
                                 <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
                             </small>
-                            <center><a href="#" class="filled-button">Postuler maintenant!</a></center>
+                            <center><a href="{{ path('candidature_new') }}" class="filled-button">Postuler maintenant!</a></center>
                         </div>
                     </div>
                 </div>
@@ -69,7 +73,7 @@
                                 <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
                             </small>
-                            <center><a href="#" class="filled-button">Postuler maintenant!</a></center>
+                            <center><a href="{{ path('candidature_new') }}" class="filled-button">Postuler maintenant!</a></center>
                         </div>
                     </div>
                 </div>
@@ -85,6 +89,7 @@
                         <h2>About Us</h2>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="left-content">
                         <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Explicabo, esse consequatur alias repellat in excepturi inventore ad <a href="#">asperiores</a> tempora ipsa. Accusantium tenetur voluptate labore aperiam molestiae rerum excepturi minus in pariatur praesentium, corporis, aliquid dicta.</p>

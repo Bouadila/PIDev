@@ -1,0 +1,55 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Search{% endblock %}
+{% block titre %}Search{% endblock %}
+
+{% block body %}
+
+<h6>Search: </h6>
+<form method="GET" action="/search">
+  <select name="order">
+    <option {{ order is same as('newer') ? 'selected' : '' }}>newer</option>
+    <option {{ order is same as('older') ? 'selected' : '' }}>older</option>
+  </select>
+
+  <input type="text" name="query" value="{{ query }}"  placeholder="Search"/>
+</form>
+
+
+<ul>
+{% for result in results %}
+
+
+<div class="col-md-4">
+                    <div class="product-item">
+                        <div class="down-content">
+                            <a href="#"><h4>{{ result.nom }} &nbsp; {{ result.prenom }}</h4></a>
+                            
+
+                            <h6>Crud Master (lien vers l'offre)</h6>
+                            <h4><small> {{ result.num }} <br> <strong> {{ result.email }}</strong></small></h4>
+                            <h4><small><i class="fa fa-briefcase"></i> {{ result.diplome }} <br> <strong><i class="fa fa-building"></i> {{ result.status }}</strong></small></h4>
+
+                            <small>
+                                <strong title="Posted on"><i class="fa fa-calendar"></i> {{ result.DateCandidature ? result.DateCandidature|date('Y-m-d') : '' }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong title="Type"><i class="fa fa-file"></i> Recruitini </strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
+                            </small>
+                            <br>
+                            <a href="{{ path('candidature_show', {'id': result.id}) }}" class="filled-button">Voir</a>
+                            <a href="{{ path('candidature_edit', {'id': result.id}) }}" class="filled-button">Modifier</a>
+                            <a href="#" class="filled-button">Voir CV</a>
+
+                        </div>
+                    </div>
+                </div>
+                &nbsp;
+
+            
+        {% else %}
+            
+                Aucun candidature trouvé
+            
+        {% endfor %}
+
+{% endblock %}
