@@ -52,6 +52,11 @@ class Question
      */
     private $quiz_id;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $duree;
+
     public function __construct()
     {
         $this->reponses = new ArrayCollection();
@@ -153,6 +158,18 @@ class Question
     public function removeTag(Question $tag): void
     {
         // ...
+    }
+
+    public function getDuree(): ?int
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(?int $duree): self
+    {
+        $this->duree = $duree;
+
+        return $this;
     }
 
 }

@@ -11,6 +11,7 @@ use App\Entity\ReponseList;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,6 +27,81 @@ class TakeQuizController extends AbstractController
         return $this->render('take_quiz/index.html.twig', [
             'controller_name' => 'TakeQuizController',
         ]);
+    }
+
+    /**
+     * @Route("/quiz/take/{id}", name="take_quiz", methods={"GET", "POST"})
+     */
+    public function takeQuiz (Request $request, Quiz $quiz): Response{
+        $em = $this->getDoctrine()->getManager();
+
+        if($request->query->get("answer")){
+            $reponseList = $this->getDoctrine()->getRepository(ListReponsesCondidat::class)->find($request->query->get("rl"));
+        }
+        else{
+            $reponseList = new ListReponsesCondidat();
+            $reponseList->setQuiz($quiz);
+            $em->persist($reponseList);
+        }
+        if(count($quiz->getQuestions()) < ((int) $request->query->get("answer"))+1) {
+            return $this->redirectToRoute('quiz_result', ['id' => $reponseList->getId()]);
+
+        }
+
+        if($request->query->get("answer")) $i=$request->query->get("answer"); else $i = 0;
+
+
+        $list =[];
+            $question = $quiz->getQuestions()[$i];
+        foreach( $question->getReponses() as $reponse){
+            $question->addReponse($reponse);
+            //add every reponse to the list
+            $list[$reponse->getContenuRep()] = $reponse->getId();
+        }
+
+        $form = $this->createFormBuilder()
+        ->add("Questions", TextType::class, [ 'data' => $question->getContenuQues(),'label' =>' Question '.$i, 'disabled' => true])->getForm();
+        if(count($question->getReponses())>1) {
+            $form->add('reponses', ChoiceType::class,
+                [
+                    'choices' => $list,
+                    'label' => '  ',
+                    'multiple' => false,
+                    'expanded' => true,
+                ]);
+        }
+        else {
+            $form->add('reponses', TextareaType::class);
+        }
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() ) {
+            $reponseCondidat = new ReponseCondidat();
+            $reponseCondidat->setListReponsesCondidat($reponseList);
+            $reponseCondidat->setQuestion($question);
+            if($form->getData()['reponses'])
+                $reponseCondidat->setReponse($this->getDoctrine()->getRepository(Reponse::class)->find($form->getData()['reponses']));
+            
+            $reponseList->addReponse($reponseCondidat);
+            $em->persist($reponseCondidat);
+            $em->flush();
+            return $this->redirectToRoute('take_quiz', ["id" => $quiz->getId(),
+                "quiz" => $quiz,
+                "answer" => $i + 1,
+                "rl"=> $reponseList->getId(),
+                "question" => $question,
+                "form" => $form->createView()
+                ]);
+
+        }
+
+
+        return $this->render('quiz/takeQuiz.html.twig', [
+            'quiz' => $quiz,
+            "question" => $question,
+            'form' => $form->createView()
+        ]);
+
     }
 
 
@@ -129,7 +205,7 @@ class TakeQuizController extends AbstractController
                     ),
                     'text/html'
                 );
-            $mailer->send($message);
+//            $mailer->send($message);
             return $this->redirectToRoute('quiz_result', ['id' => $reponseList->getId()]);
 
         }
@@ -150,7 +226,6 @@ class TakeQuizController extends AbstractController
                 return $this->render('quiz/showResult.html.twig', [
             'quiz' => $quiz,
         ]);
-        return $this->redirectToRoute('quiz_show', ['id' => $quiz->getQuizId()->getId()]);
 
     }
 

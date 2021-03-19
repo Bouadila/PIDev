@@ -46,10 +46,6 @@ class Quiz
      */
     private $listReponsesCondidats;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $duree;
 
     public function __construct()
     {
@@ -151,15 +147,4 @@ class Quiz
         return $this;
     }
 
-    public function getDuree(): ?int
-    {
-        return $this->duree;
-    }
-
-    public function setDuree(int $duree): self
-    {
-        $this->duree = $duree;
-
-        return $this;
-    }
 }

@@ -13,7 +13,6 @@ class QuizType extends AbstractType
     {
         $builder
             ->add('nom_quiz')
-            ->add("duree")
             ->add('nomb_question')
         ;
     }
