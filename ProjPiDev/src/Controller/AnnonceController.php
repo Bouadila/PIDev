@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Annonce;
+use App\Form\AnnonceType;
+use App\Repository\AnnonceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,6 +24,13 @@ class AnnonceController extends AbstractController
             'list'=>$list,
         ]);
     }
-
+    /**
+     * @Route ("/annonce/affiche/{id}" , name="afficheAnnonce")
+     */
+    public function Affiche ( $id, AnnonceRepository $annonceRepository)
+    {
+        $annonceRepository->find($id);
+        return $this->render('annonce/affiche_annonce.html.twig');
+    }
 
 }
