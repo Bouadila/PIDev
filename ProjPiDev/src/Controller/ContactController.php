@@ -19,4 +19,15 @@ class ContactController extends AbstractController
             'controller_name' => 'ContactController',
         ]);
     }
+
+
+    /**
+     * @Route("/map", name="map" )
+     */
+    public function mappAction(): Response
+    {
+
+        return $this->render('contact/map.html.twig');
+
+    }
 }

@@ -13,34 +13,28 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Id candidat</th>
                         <th>Titre</th>
                         <th>Domaine</th>
                         <th>Statut</th>
                         <th>Description</th>
                         <th>CV</th>
-                        <div class="search-box">
-                            <form method="post" action="{{ path('tri') }}">
-                                <label>Trier Reclamation</label>
-                                <input type="submit" value="Tri">
-                            </form>
-                        </div>
                     </tr>
                     </thead>
                     <tbody>
+
     {% for demande in demandes %}
 
                     <tr>
-                        <td>{{demande.id}}</td>
                         <td>{{demande.id}}</td>
                         <td>{{demande.TitreDemande}}</td>
                         <td>{{demande.domaineTravail}}</td>
                         <td>{{demande.statutCand}}</td>
                         <td>{{demande.description}}</td>
-                        <td>{{demande.cvCand}}</td>
-
+                        <td><a class="btn btn-success" href="{{ path('listdem' , {'id': demande.id}) }}" download >Voir cv</a></td>
                     </tr>
+
     {% endfor %}
+
                     </tbody>
 
 

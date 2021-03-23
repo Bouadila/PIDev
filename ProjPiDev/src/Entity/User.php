@@ -50,9 +50,21 @@ class User implements UserInterface
      */
     private $demandes;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="id_cand")
+     */
+    private $yes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="user")
+     */
+    private $likes;
+
     public function __construct()
     {
         $this->demandes = new ArrayCollection();
+        $this->yes = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
 
@@ -184,6 +196,66 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($demande->getIdCand() === $this) {
                 $demande->setIdCand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Video[]
+     */
+    public function getYes(): Collection
+    {
+        return $this->yes;
+    }
+
+    public function addYe(Video $ye): self
+    {
+        if (!$this->yes->contains($ye)) {
+            $this->yes[] = $ye;
+            $ye->setIdCand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeYe(Video $ye): self
+    {
+        if ($this->yes->removeElement($ye)) {
+            // set the owning side to null (unless already changed)
+            if ($ye->getIdCand() === $this) {
+                $ye->setIdCand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PostLike[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(PostLike $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(PostLike $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getUser() === $this) {
+                $like->setUser(null);
             }
         }
 

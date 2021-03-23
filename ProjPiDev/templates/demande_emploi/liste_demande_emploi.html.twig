@@ -8,17 +8,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-
-                        <form method="GET" action="/search">
-                            <select name="order">
-                                <option>Bac</option>
-                                <option>Licence</option>
-                                <option>Doctorat</option>
-                            </select>
-
-                            <input type="text" name="query" class="form-control" placeholder="Recherche" aria-label="search" aria-describedby="search"/>
-                        </form>
-
                         <h2>Vos demandes</h2>
                     </div>
                 </div>
@@ -26,52 +15,49 @@
         </div>
     </div>
     {% for demande in demandes %}
-<div class="latest-products">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h2>Votre demande</h2>
-                    <a href="#">view more <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a href="#"><img src="{{ asset('assets/images/product-1-370x270.jpg')}}" alt="CV"></a>
-
-                    <div class="down-content">
-                        <a href="#"><h4>{{demande.TitreDemande}}</h4></a>
-
-                        <h6>{{demande.statutCand}}</h6>
-
-                        <h4><small><i class="fa fa-briefcase"></i> {{ demande.domaineTravail }} <br> </small></h4>
-
-                        <small>
-                            <strong title="Posted on"><i class="fa fa-calendar"></i> {{ demande.description }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                        </small>
-
+        <div class="best-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>Vos demandes</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <div class="col-lg-12">
-                        <a href="{{ path('list_demande_emploi_detail', {'id': demande.id}) }}" class="filled-button">Voir</a>
-                        <a href="{{ path('Modif_demande_emploi', {'id': demande.id}) }}" class="filled-button">Modifier</a>
-                        <a href="{{ path('Supp_demande_emploi', {'id': demande.id}) }}" class="filled-button">Supprimer</a>
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <p> {{ demande.description }} </p>
+                            <ul class="featured-list">
+                                <li><a>{{demande.TitreDemande}}</a></li>
+                                <li><a>{{demande.statutCand}}</a></li>
+                                <li><a>{{ demande.domaineTravail }}</a></li>
+                            </ul>
+                            <a href="{{ path('list_demande_emploi_detail', {'id': demande.id}) }}" class="filled-button">Voir</a>
+                            <a href="{{ path('Modif_demande_emploi', {'id': demande.id}) }}" class="filled-button">Modifier</a>
+                            <a href="{{ path('Supp_demande_emploi', {'id': demande.id}) }}" class="filled-button">Supprimer</a>
+                            <a class="btn btn-success" href="{{ path('listdem' , {'id': demande.id}) }}" download>Create pdf</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <a class="btn btn-success" href="{{ path('listdem') }}">Create pdf</a>
+                    <div class="col-md-6">
+                        <div class="right-image">
+                            <img src="{{ asset('assets/images/about-1-570x350.jpg') }} "alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
     {% endfor %}
-
+    {{ knp_pagination_render(
+        demandes,
+        '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+        {
+            'queryParam1': 'param1 value',
+            'queryParam2': 'param2 value'
+        },
+        {
+            'viewParam1': 'param1 value',
+            'viewParam2': 'param2 value'
+        },
+    ) }}
     {% endblock %}
 
 

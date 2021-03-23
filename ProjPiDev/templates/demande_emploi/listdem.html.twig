@@ -1,31 +1,43 @@
 {% block body %}
-    <div class="content">
-    <div class="container-fluid">
-    <div class="row">
-    <div class="col-md-12">
-    <div class="card">
-    <div class="card-header card-header-primary">
-        <h1 align="center">Votre cv</h1>
-        <h4 align="center"> cv </h4>
-    </div>
-    <div class="card-body">
-    <div class="table-responsive">
-    <table class="table" border="3">
-        <thead class=" text-primary">
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <h1>
+        Monsieur/madame
+    </h1>
+
+    <h2>Votre CV</h2>
+    <h2>Voici votre cv</h2>
+
+    <hr>
+    <table>
+
         <tr>
             <th>Id</th>
             <th>titre</th>
             <th>statut</th>
         </tr>
-        </thead>
-        <tbody>
-        {% for demande in demandes %}
+
             <tr>
                 <td>{{ demande.id }}</td>
                 <td>{{ demande.TitreDemande }}</td>
                 <td>{{ demande.statutCand }}</td>
             </tr>
-        {% endfor %}
-        </tbody>
+
     </table>
+    <hr>
+
 {% endblock %}

@@ -48,7 +48,7 @@ class DemandeRepository extends ServiceEntityRepository
     }
     */
 
-    public function search(string $query, string $order): array
+   /* public function search(string $query, string $order): array
     {
         return $this->createQueryBuilder('c')
             ->where('c.TitreDemande LIKE :query')
@@ -59,7 +59,7 @@ class DemandeRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
+*/
 
     public function OrderByStatut()
     {
@@ -70,6 +70,38 @@ class DemandeRepository extends ServiceEntityRepository
     }
 
 
+    public function countNbDemande(){
+        return $this->createQueryBuilder('d')
 
+
+            ->Select('COUNT(d.id)')
+
+
+            // ->andWhere('e.NomProjet= :val')
+            //->setParameter('val', $id)
+
+            ->getQuery()
+
+            ->getSingleScalarResult();
+    }
+
+
+    public function findDemandePardomaineTravail($domaineTravail){
+        return $this->createQueryBuilder('demande')
+            ->where('demande.domaineTravail LIKE :domaineTravail')
+            ->setParameter('domaineTravail', '%'.$domaineTravail.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findStatutCand($statutCand){
+        return $this->createQueryBuilder('demande')
+            ->where('demande.statutCand = :statutCand')
+            ->setParameter('statutCand',$statutCand)
+            ->getQuery()
+            ->getResult();
+
+
+    }
 
 }

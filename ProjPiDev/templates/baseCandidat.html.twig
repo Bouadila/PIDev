@@ -52,6 +52,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
 
+                    <form method="GET" action="/searchDemande">
+                        <input type="text" name="query" class="form-control" placeholder="Recherche" aria-label="search" aria-describedby="search" id="search"/>
+                    </form>
+
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ path('home') }}">Profile
                             <span class="sr-only">(current)</span>
@@ -65,13 +69,15 @@
                     -->
 
 
-                    <li class="nav-item"><a class="nav-link" href="#">Candidature</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('list_video') }}>Formations</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Demande</a>
 
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href={{ path('Ajout_demande_emploi') }}>Ajouter demande</a>
                             <a class="dropdown-item" href={{ path('list_demande_emploi') }}>Vos demande</a>
+                            <a class="dropdown-item" href={{ path('Addvideo') }}>Formations</a>
+                            <a class="dropdown-item" href={{ path('Viewvideo') }}>Vos formations</a>
                         </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href={{ path('app_logout') }}>Deconnexion</a></li>
@@ -112,6 +118,9 @@
     <!-- Additional Scripts -->
     <script src={{ asset('assets/js/custom.js') }}></script>
     <script src={{ asset('assets/js/owl.js') }}></script>
+
+
+
 {% endblock %}
 
 

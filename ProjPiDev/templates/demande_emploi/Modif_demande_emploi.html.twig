@@ -15,56 +15,57 @@
             </div>
         </div>
     </div>
-
     <div class="send-message">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Ajouter votre CV</h2>
+                        <h2>Votre demande</h2>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact" {{ form_start(formdemandeMod ,{'attr':{'novalidate':'novalidate'}}) }}>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    {{ form_errors(formdemandeMod.TitreDemande) }}
-                                    {{ form_widget(formdemandeMod.TitreDemande) }}
+                        <form id="contact" {{ form_start(formdemandeMod, {'attr':{'novalidate':'novalidate'}}) }}
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12"> Titre
+                                {{ form_errors(formdemandeMod.TitreDemande) }}
+                                {{ form_widget(formdemandeMod.TitreDemande) }}
 
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    {{ form_errors(formdemandeMod.domaineTravail) }}
-                                    {{ form_widget(formdemandeMod.domaineTravail) }}
-
-                                </div>
-                                <div class="col-lg-12">
-                                    {{ form_errors(formdemandeMod.statutCand) }}
-                                    {{ form_widget(formdemandeMod.statutCand) }}
-
-                                </div>
-                                <div class="col-lg-12">
-                                    {{ form_errors(formdemandeMod.description) }}
-                                    {{ form_widget(formdemandeMod.description) }}
-
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    {{ form_errors(formdemandeMod.cvCand) }}
-                                    {{ form_widget(formdemandeMod.cvCand) }}
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Enregistrer')}}</button>
-                                </div>
                             </div>
-                        </form {{ form_end(formdemandeMod) }} >
+                            <div class="col-lg-12 col-md-12 col-sm-12"> Votre domaine
+                                {{ form_errors(formdemandeMod.domaineTravail) }}
+                                {{ form_widget(formdemandeMod.domaineTravail) }}
+
+                            </div>
+                            <div class="col-lg-12"> Votre Statut
+                                {{ form_errors(formdemandeMod.statutCand) }}
+                                {{ form_widget(formdemandeMod.statutCand) }}
+
+                            </div>
+                            <div class="col-lg-12"> Description
+                                {{ form_errors(formdemandeMod.description) }}
+                                {{ form_widget(formdemandeMod.description) }}
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"> CV
+                                {{ form_errors(formdemandeMod.cvCand) }}
+                                {{ form_widget(formdemandeMod.cvCand) }}
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Enregistrer')}}</button>
+                            </div>
+                        </div>
+                        </form {{ form_end(formdemandeMod) }}
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/team_01.jpg" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/images/team_01.jpg') }}" class="img-fluid" alt="">
                     <h5 class="text-center" style="margin-top: 15px;">bonjour</h5>
                 </div>
             </div>
         </div>
     </div>
+
+
 {% endblock %}
 

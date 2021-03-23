@@ -26,29 +26,29 @@
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact" {{ form_start(formdemande, {'attr':{'novalidate':'novalidate'}}) }}>
+                        <form id="contact" {{ form_start(formdemande, {'attr':{'novalidate':'novalidate'}}) }}
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12"> Titre
                                     {{ form_errors(formdemande.TitreDemande) }}
                                         {{ form_widget(formdemande.TitreDemande) }}
 
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12"> Votre domaine
                                     {{ form_errors(formdemande.domaineTravail) }}
                                         {{ form_widget(formdemande.domaineTravail) }}
 
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-12"> Votre Statut
                                     {{ form_errors(formdemande.statutCand) }}
                                     {{ form_widget(formdemande.statutCand) }}
 
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-12"> Description
                                     {{ form_errors(formdemande.description) }}
                                     {{ form_widget(formdemande.description) }}
 
                                 </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12"> CV
                                     {{ form_errors(formdemande.cvCand) }}
                                                 {{ form_widget(formdemande.cvCand) }}
                                 </div>
@@ -56,11 +56,11 @@
                                         <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Poster') }}</button>
                                 </div>
                             </div>
-                        </form {{ form_end(formdemande) }} >
+                        </form {{ form_end(formdemande) }}
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/team_01.jpg" class="img-fluid" alt="">
+                    <img src="{{ asset('assets/images/team_01.jpg') }}" class="img-fluid" alt="">
                     <h5 class="text-center" style="margin-top: 15px;">bonjour</h5>
                 </div>
             </div>

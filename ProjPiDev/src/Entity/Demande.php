@@ -21,21 +21,21 @@ class Demande
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("post:read")
+     * @Groups("demande")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups("post:read")
+     * @Groups("demande")
      */
     private $TitreDemande;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups("post:read")
+     * @Groups("demande")
      */
 
     private $domaineTravail;
@@ -43,28 +43,28 @@ class Demande
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups("post:read")
+     * @Groups("demande")
      */
     private $statutCand;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups("post:read")
+     * @Groups("demande")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Groups("post:read")
+     * @Groups("demande")
      */
     private $cvCand;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="demandes")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("post:read")
+     * @Groups("demande")
      */
     private $idCand;
 

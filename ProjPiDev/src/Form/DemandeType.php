@@ -28,7 +28,6 @@ class DemandeType extends AbstractType
                 'attr'=>[
                     'placeholder'=>'Titre',
                     'name'=>'name',
-                    // 'id'=>'id_Nom',
                 ]
             ])
 
@@ -90,7 +89,12 @@ class DemandeType extends AbstractType
                         'Doctorat' => 'Doctorat',
                     ],
                 ])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class,[
+                'attr'=>[
+                    'placeholder'=>'Description',
+                    'name'=>'name',
+                ]
+            ])
 
            ->add('cvCand', FileType::class, array('data_class' => null ))
             ;
