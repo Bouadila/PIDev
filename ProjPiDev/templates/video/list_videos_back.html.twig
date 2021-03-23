@@ -1,0 +1,42 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Liste Formations{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste des formations</h4>
+                <div class="table-responsive">
+                    <table id="t" class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre</th>
+                            <th>Date publication</th>
+                            <th>Likes</th>
+                            <th>Video</th>
+                        </tr>
+                        </thead>
+                        <tbody id="all" >
+                        {% for video in videos %}
+
+                            <tr>
+                                <td>{{video.id}}</td>
+                                <td>{{video.title}}</td>
+                                <td>{{video.publishDate|date('Y-m-d H:i:s') }}</td>
+                                <td>{{ video.likes | length}}</td>
+                                <td>{{video.url}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tbody id="search">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
