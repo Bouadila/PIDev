@@ -24,7 +24,7 @@ class ReclamationController extends AbstractController
     /**
      * @Route("/reclamation/ajout", name="ajoutReclamation")
      */
-    public function Ajout(Request $request): Response
+    public function Ajout(Request $request, \Swift_Mailer $mailer): Response
     {
         $reclamation = new Reclamation();
         $form = $this->createForm(ReclamationType::class,$reclamation);
@@ -37,6 +37,16 @@ class ReclamationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
+            $message = (new \Swift_Message('Nouvelle Réclamation'))
+                ->setFrom('pidevtestad@gmail.com')
+                ->setTo('khalil.azizi@esprit.tn')
+                ->setBody(
+                    $this->renderView(
+                        'email/emailReclamation.html.twig' , ["reclamation"=>$reclamation]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
             return $this->redirectToRoute('afficheReclamation');
         }
         return $this->render('reclamation/ajoutReclamation.html.twig', [

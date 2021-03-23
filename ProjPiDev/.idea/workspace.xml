@@ -20,14 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="added new entity and data base for annonce_entity">
-      <change afterPath="$PROJECT_DIR$/templates/annonce/affiche_annonce.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/picture/b0cf04fbcd0a6ca490c7dcb46b89e295.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/email/emailReclamation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AnnonceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnonceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce/liste_annonce.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/liste_annonce.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce_back/ajout_annonce.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce_back/ajout_annonce.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce_back/liste_annonce_back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce_back/liste_annonce_back.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annonce_back/modif_annonce_back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce_back/modif_annonce_back.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/ajoutReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/ajoutReclamation.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/modifyReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/modifyReclamation.html.twig" afterDir="false" />
@@ -40,6 +46,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -151,7 +164,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
-      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1oyfRGrdr6HxRDudt9wenipjh4W" />
@@ -164,6 +178,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/annonce" />
@@ -172,17 +187,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Djap_ii\Documents\GitHub\PIDev\ProjPiDev\templates\annonce" />
-      <recent name="C:\Users\Djap_ii\Documents\GitHub\PIDev\ProjPiDev\templates\annonce_back" />
-      <recent name="C:\Users\Bou3dila\Documents\Esprit\ProjPiDev\ProjPiDev\templates\quiz" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Djap_ii\Documents\GitHub\PIDev\ProjPiDev\templates\email" />
       <recent name="C:\Users\Djap_ii\Documents\GitHub\PIDev\ProjPiDev\templates\annonce_back" />
       <recent name="C:\wamp64\www\ProjPiDev\public" />
       <recent name="C:\wamp64\www\ProjPiDev\public\fonts" />
       <recent name="C:\wamp64\www\ProjPiDev\public\js" />
-      <recent name="C:\wamp64\www\ProjPiDev\public\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Djap_ii\Documents\GitHub\PIDev\ProjPiDev\templates\annonce" />
+      <recent name="C:\Users\Djap_ii\Documents\GitHub\PIDev\ProjPiDev\templates\annonce_back" />
+      <recent name="C:\Users\Bou3dila\Documents\Esprit\ProjPiDev\ProjPiDev\templates\quiz" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -207,6 +222,7 @@
       <workItem from="1616069621764" duration="788000" />
       <workItem from="1616070441624" duration="1253000" />
       <workItem from="1616402308155" duration="1114000" />
+      <workItem from="1616522022865" duration="4233000" />
     </task>
     <task id="LOCAL-00007" summary="crud terminer">
       <created>1614846379142</created>
@@ -287,10 +303,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="309" y="42" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1614383405692" />
-    <state x="424" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614434410522">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="467" y="175" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616524497619">
+      <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="424" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1614434410522" />
+    <state x="467" y="175" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1304.768@62.0.1304.768" timestamp="1616524497619" />
     <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1614437253179">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -318,10 +335,10 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1615452559560" />
-    <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614768512295">
+    <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616407021722">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1304.768@62.0.1304.768" timestamp="1614768512295" />
+    <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1304.768@62.0.1304.768" timestamp="1616407021722" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1614447133153">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
