@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 
 class VideoController extends AbstractController
 {
@@ -365,6 +366,32 @@ class VideoController extends AbstractController
 
 
     }
+
+
+
+    /**
+     * @Route("/statistiques",name="statistiques")
+     */
+    public function statistiques(): Response
+    {
+        $video=$this->getDoctrine()->getRepository(Video::class);
+        $nbs = $video->getNb();
+        $data = [['video', 'Nombre de likes']];
+        foreach($nbs as $nb)
+        {
+            $data[] = array($nb['video'], $nb['likes']);
+        }
+        $bar = new barchart();
+        $bar->getData()->setArrayToDataTable(
+            $data
+        );
+        $bar->getOptions()->setTitle('Nombre de like par video');
+        $bar->getOptions()->getTitleTextStyle()->setColor('#07600');
+        $bar->getOptions()->getTitleTextStyle()->setFontSize(25);
+        return $this->render('video/statistique.html.twig', array('barchart' => $bar,'nbs' => $nbs));
+
+    }
+
 
 
 }

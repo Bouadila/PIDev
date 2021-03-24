@@ -22,6 +22,8 @@ class DemandeEmploiController extends AbstractController
 {
     /**
      * @Route("/Ajout/demande/emploi", name="Ajout_demande_emploi" , methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function Ajout(Request $request): Response
     {
@@ -30,7 +32,9 @@ class DemandeEmploiController extends AbstractController
         $form = $this->createForm(DemandeType::class, $demande);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+
+
+        if ($form->isSubmitted() and $form->isValid() ) {
 
             $demande->setIdCand($this->getUser());
             $demande = $form->getData();
@@ -50,6 +54,9 @@ class DemandeEmploiController extends AbstractController
 
     /**
      * @Route("/list/demande/emploi", name="list_demande_emploi" , methods={"GET"})
+     * @param PaginatorInterface $paginator
+     * @param Request $request
+     * @return Response
      */
     public function listeD(PaginatorInterface $paginator, Request $request): Response
     {
@@ -83,9 +90,11 @@ class DemandeEmploiController extends AbstractController
     }
 
 
-
     /**
      * @Route("/Supp/demande/emploi/{id}", name="Supp_demande_emploi" , methods={"DELETE"})
+     * @param Request $request
+     * @param Demande $demande
+     * @return Response
      */
     public function listeSu(Request $request, Demande $demande): Response
     {
@@ -99,9 +108,11 @@ class DemandeEmploiController extends AbstractController
     }
 
 
-
     /**
      * @Route("/Modif/demande/emploi/{id}", name="Modif_demande_emploi" , methods={"GET","POST"})
+     * @param Request $request
+     * @param $id
+     * @return Response
      */
     public function listeModif(Request $request, $id): Response
     {
@@ -122,6 +133,8 @@ class DemandeEmploiController extends AbstractController
 
     /**
      * @Route("/list/demande/emploi/detail/{id}", name="list_demande_emploi_detail" , methods={"GET"})
+     * @param $id
+     * @return Response
      */
     public function listeDet($id): Response
     {
@@ -134,13 +147,11 @@ class DemandeEmploiController extends AbstractController
     }
 
 
-
-
-
     /**
      * @param DemandeRepository $repository
-     * @Route("/tri", name="tri")
+     * @param Request $request
      * @return Response
+     * @Route("/tri", name="tri")
      */
     public function tri(DemandeRepository $repository,Request $request)
     {
@@ -153,6 +164,9 @@ class DemandeEmploiController extends AbstractController
 
     /**
      * @Route("/listdem/{id}", name="listdem", methods={"GET"})
+     * @param DemandeRepository $demandeRepository
+     * @param $id
+     * @return Response
      */
     public function listdem(DemandeRepository $demandeRepository,$id): Response
     {
@@ -186,6 +200,10 @@ class DemandeEmploiController extends AbstractController
 
     /**
      * @Route("/searchDemande ", name="searchDemande")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
      */
     public function searchDemande(Request $request,NormalizerInterface $Normalizer)
     {
@@ -201,7 +219,10 @@ class DemandeEmploiController extends AbstractController
 
     /**
      * @Route("/filtreDemande/{statutCand} ", name="filtreDemande")
+     * @param NormalizerInterface $Normalizer
      * @param $statutCand
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
      */
     public function filtreDemande(NormalizerInterface $Normalizer, $statutCand)
     {

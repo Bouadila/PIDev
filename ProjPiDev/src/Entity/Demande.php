@@ -27,14 +27,14 @@ class Demande
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank()
      * @Groups("demande")
      */
     private $TitreDemande;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank()
      * @Groups("demande")
      */
 
@@ -42,21 +42,20 @@ class Demande
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank()
      * @Groups("demande")
      */
     private $statutCand;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank()
      * @Groups("demande")
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Groups("demande")
      */
     private $cvCand;

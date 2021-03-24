@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=VideoRepository::class)
@@ -24,18 +25,21 @@ class Video
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups ("video")
+     * @Assert\NotBlank()
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups ("video")
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @ORM\Column(type="datetime")
      * @Groups ("video")
+     * @Assert\NotBlank()
      */
     private $publishDate;
 
@@ -55,6 +59,7 @@ class Video
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="yes")
      * @ORM\JoinColumn(nullable=false)
      * @Groups ("video")
+     * @Assert\NotBlank()
      */
     private $id_cand;
 

@@ -49,6 +49,19 @@ class VideoRepository extends ServiceEntityRepository
     */
 
 
+    public function getNB()
+    {
+
+        $qb = $this->createQueryBuilder('v')
+            ->select('COUNT(v.id) AS likes, (v.id) AS video')
+            ->groupBy('video');
+
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
+
     public function findVideoParTitre($title){
         return $this->createQueryBuilder('video')
             ->where('video.title LIKE :title')
