@@ -376,16 +376,16 @@ class VideoController extends AbstractController
     {
         $video=$this->getDoctrine()->getRepository(Video::class);
         $nbs = $video->getNb();
-        $data = [['video', 'Nombre de likes']];
+        $data = [['Date', 'Video']];
         foreach($nbs as $nb)
         {
-            $data[] = array($nb['video'], $nb['likes']);
+            $data[] = array($nb['date'], $nb['vid']);
         }
         $bar = new barchart();
         $bar->getData()->setArrayToDataTable(
             $data
         );
-        $bar->getOptions()->setTitle('Nombre de like par video');
+
         $bar->getOptions()->getTitleTextStyle()->setColor('#07600');
         $bar->getOptions()->getTitleTextStyle()->setFontSize(25);
         return $this->render('video/statistique.html.twig', array('barchart' => $bar,'nbs' => $nbs));

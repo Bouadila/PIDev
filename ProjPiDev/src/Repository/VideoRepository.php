@@ -53,13 +53,14 @@ class VideoRepository extends ServiceEntityRepository
     {
 
         $qb = $this->createQueryBuilder('v')
-            ->select('COUNT(v.id) AS likes, (v.id) AS video')
-            ->groupBy('video');
-
-
-        return $qb->getQuery()
+            ->select('COUNT(v.id) AS vid, SUBSTRING(v.publishDate, 1, 10) AS date')
+            ->groupBy('date');
+            return $qb->getQuery()
             ->getResult();
+
     }
+
+
 
 
     public function findVideoParTitre($title){

@@ -71,6 +71,7 @@ class Video
 
     /**
      * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="post")
+     * @Groups("video")
      */
     private $likes;
 
