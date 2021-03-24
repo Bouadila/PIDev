@@ -71,4 +71,23 @@ class VideoRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+    public function TriVidParDate(){
+
+        return $this->createQueryBuilder('video')
+            ->orderBy('video.publishDate','ASC')
+            ->getQuery()
+            ->getResult();
+
+    }
+    public function filtreVidParDomaine($domaine){
+
+        return $this->createQueryBuilder('video')
+            ->where('video.domaine LIKE :domaine')
+            ->setParameter('domaine', '%'.$domaine.'%')
+            ->getQuery()
+            ->getResult();
+
+    }
+
 }

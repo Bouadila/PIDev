@@ -21,8 +21,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
+use Symfony\Component\Serializer\Serializer;
 
 class VideoController extends AbstractController
 {
@@ -288,10 +290,17 @@ class VideoController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Video::class);
         $requestString=$request->get('searchValue');
         $video = $repository->findVideoParTitre($requestString);
-        $jsonContent = $Normalizer->normalize($video, 'json',['groups'=>'video']);
-        $retour=json_encode($jsonContent);
-        var_dump($video);
-        return new Response($retour);
+        $serializer = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
+        $data=array();
+
+        foreach ($video as $v)
+        {
+            array_push($data,array("id"=>$v->getId(),"title"=>$v->getTitle(),
+                "publishDate"=>$serializer->normalize($v->getPublishDate()),"votes"=>count($v->getLikes()),"url"=>$v->getUrl()));
+        }
+
+
+        return new JsonResponse($data);
     }
 
     /**
@@ -390,6 +399,33 @@ class VideoController extends AbstractController
         $bar->getOptions()->getTitleTextStyle()->setFontSize(25);
         return $this->render('video/statistique.html.twig', array('barchart' => $bar,'nbs' => $nbs));
 
+    }
+
+
+
+
+    /**
+     * @Route("/filtreVideo", name="filtreVideo")
+     */
+    public function filtreVid(Request $request,NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Video::class);
+        $requestString=$request->get('filtreValue');
+        $video = $repository->filtreVidParDomaine($requestString);
+
+        $serializer = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
+        $data=array();
+
+        foreach ($video as $v)
+        {
+            array_push($data,array("id"=>$v->getId(),"title"=>$v->getTitle(),
+                "publishDate"=>$serializer->normalize($v->getPublishDate()),"votes"=>count($v->getLikes()),
+                "url"=>$v->getUrl(),"domaine"=>$v->getDomaine(),"description"=>$v->getDescription()));
+        }
+
+
+
+        return new JsonResponse($data);
     }
 
 
