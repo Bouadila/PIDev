@@ -32,6 +32,11 @@
                                 {{ form_widget(f.title) }}
 
                             </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                {{ form_errors(f.domaine) }}
+                                {{ form_widget(f.domaine) }}
+
+                            </div>
                             <div class="col-lg-12 col-md-12 col-sm-12"> Votre URL
                                 {{ form_errors(f.url) }}
                                 {{ form_widget(f.url) }}
