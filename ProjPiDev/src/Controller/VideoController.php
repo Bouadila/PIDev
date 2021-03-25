@@ -303,6 +303,8 @@ class VideoController extends AbstractController
         return new JsonResponse($data);
     }
 
+
+
     /**
      * Permet de liker ou unliker une video
      *

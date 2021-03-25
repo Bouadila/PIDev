@@ -57,14 +57,14 @@
 
 
 
-                        </div>
+                          </div>
                         <div>
-
                             <input id="search" type="text" class="form-control" name="query" placeholder="Search now" aria-label="search" aria-describedby="search">
-
-
-                        </div>
+                           </div>
                     </div>
+
+
+
 
                 </li>
             </ul>
@@ -245,12 +245,7 @@
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a> from Bootstrapdash.com</span>
-                </div>
-            </footer>
+
             <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -270,58 +265,6 @@
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-
-
-    <script>
-        $( document ).ready(function() {
-            $("#search").keyup(function(e){
-                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
-                var value = $(this).val();
-                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
-                $.ajax({
-                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
-                    url : "{{ path('searchVideo') }}",
-                    /* La méthode utilisée pour transférer les données est GET */
-                    method : 'GET',
-                    dataType: "JSON",
-                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
-                    data: {
-                        'searchValue' : value
-                    },
-                    async : true,
-                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
-                    success : function(retour){
-                        if(retour){
-                            $('#t tbody#search').empty();
-                            $(retour).each( function(video, obj) {
-                                $('#t tbody#all').hide();
-                                $('#t tbody#search').append(
-                                        '<tr>'+
-                                            '<td>'+ obj.id +'</td>' +
-                                            '<td>'+ obj.title +'</td>' +
-                                            '<td>'+ obj.publishDate +'</td>' +
-                                            '<td>'+ obj.votes +'</td>' +
-                                            '<td>'+ obj.url +'</td>' +
-                                        '</tr>'
-                                    );
-                            });
-                        }
-                        else
-                        {
-                            $('#t tbody#all').show();
-                            $('#t tbody#search').empty();
-                            $('#t tbody#search').fadeIn('fast');
-                        }
-                    },
-                });
-                 return false;
-            });
-        });
-    </script>
-
-
-
-
 
 
 {% endblock %}
