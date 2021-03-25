@@ -20,6 +20,7 @@ class RendezvousController extends AbstractController
      */
     public function index(RendezvousRepository $rendezvousRepository): Response
     {
+        //dd($rendezvousRepository->findAll());
         return $this->render('rendezvous/index.html.twig', [
             'rendezvouses' => $rendezvousRepository->findAll(),
         ]);

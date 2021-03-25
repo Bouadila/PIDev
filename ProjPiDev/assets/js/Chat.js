@@ -61,7 +61,7 @@ const Chat = () => {
     return(
         <div className="container">
             <div className={"col-md-12"}>
-                <h1 className="text-title">Symfony React Video Chat</h1>
+                <h1 className="text-title"> Recrutini Video Chat</h1>
             </div>
 
             <div className="col-md-6">
