@@ -296,7 +296,7 @@ class VideoController extends AbstractController
         foreach ($video as $v)
         {
             array_push($data,array("id"=>$v->getId(),"title"=>$v->getTitle(),
-                "publishDate"=>$serializer->normalize($v->getPublishDate()),"votes"=>count($v->getLikes()),"url"=>$v->getUrl()));
+                "publishDate"=>$serializer->normalize($v->getPublishDate()),"votes"=>count($v->getLikes()),"url"=>$v->getUrl(),"domaine"=>$v->getDomaine()));
         }
 
 
