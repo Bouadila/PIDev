@@ -73,7 +73,7 @@ class ReclamationController extends AbstractController
      * @param Request $request
      * @Route ("/reclamation/modify/{id}" , name="modifyReclamation")
      */
-    public function Modify (Request $request, $id)
+    public function Modify (Request $request, $id , \Swift_Mailer $mailer)
     {
         $em=$this->getDoctrine()->getManager();
         $reclamation =$em->getRepository(Reclamation::class)->find($id);
@@ -83,6 +83,16 @@ class ReclamationController extends AbstractController
         if ($form->isSubmitted()){
 
             $em->flush();
+            $message = (new \Swift_Message('Modification sur une Réclamation'))
+                ->setFrom('pidevtestad@gmail.com')
+                ->setTo('khalil.azizi@esprit.tn')
+                ->setBody(
+                    $this->renderView(
+                        'email/emailReclamation.html.twig' , ["reclamation"=>$reclamation]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
             return $this->redirectToRoute("afficheReclamation");
         }
         return $this->render('reclamation/modifyReclamation.html.twig', ['form' => $form->createView()]);
