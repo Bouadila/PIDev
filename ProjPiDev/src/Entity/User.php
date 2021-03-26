@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
@@ -86,6 +87,45 @@ class User implements UserInterface
         $this->candidatures = new ArrayCollection();
     }
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $gover;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $img;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $special;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_naiss;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom_entre;
 
     public function getId(): ?int
     {
@@ -168,143 +208,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * @param mixed $prenom
-     */
-    public function setPrenom($prenom): void
-    {
-        $this->prenom = $prenom;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getGover()
-    {
-        return $this->gover;
-    }
-
-    /**
-     * @param mixed $gover
-     */
-    public function setGover($gover): void
-    {
-        $this->gover = $gover;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getImg()
-    {
-        return $this->img;
-    }
-
-    /**
-     * @param mixed $img
-     */
-    public function setImg($img): void
-    {
-        $this->img = $img;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSpecial()
-    {
-        return $this->special;
-    }
-
-    /**
-     * @param mixed $special
-     */
-    public function setSpecial($special): void
-    {
-        $this->special = $special;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
-
-    /**
-     * @param mixed $etat
-     */
-    public function setEtat($etat): void
-    {
-        $this->etat = $etat;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateNaiss()
-    {
-        return $this->date_naiss;
-    }
-
-    /**
-     * @param mixed $date_naiss
-     */
-    public function setDateNaiss($date_naiss): void
-    {
-        $this->date_naiss = $date_naiss;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNomEntre()
-    {
-        return $this->nom_entre;
-    }
-
-    /**
-     * @param mixed $nom_entre
-     */
-    public function setNomEntre($nom_entre): void
-    {
-        $this->nom_entre = $nom_entre;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * @param mixed $nom
-     */
-    public function setNom($nom): void
-    {
-        $this->nom = $nom;
-    }
-
-    /**
-     * @return Collection|Candidature[]
-     */
-    public function getCandidatures(): Collection
-    {
-        return $this->candidatures;
-    }
-
-    public function addCandidature(Candidature $candidature): self
+    public function getName(): ?string
     {
         if (!$this->candidatures->contains($candidature)) {
             $this->candidatures[] = $candidature;
@@ -326,4 +230,87 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getGover(): ?string
+    {
+        return $this->gover;
+    }
+
+    public function setGover(string $gover): self
+    {
+        $this->gover = $gover;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): self
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    public function getSpecial(): ?string
+    {
+        return $this->special;
+    }
+
+    public function setSpecial(string $special): self
+    {
+        $this->special = $special;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getDateNaiss(): ?\DateTimeInterface
+    {
+        return $this->date_naiss;
+    }
+
+    public function setDateNaiss(?\DateTimeInterface $date_naiss): self
+    {
+        $this->date_naiss = $date_naiss;
+
+        return $this;
+    }
+
+    public function getNomEntre(): ?string
+    {
+        return $this->nom_entre;
+    }
+
+    public function setNomEntre(?string $nom_entre): self
+    {
+        $this->nom_entre = $nom_entre;
+
+        return $this;
+    }
 }

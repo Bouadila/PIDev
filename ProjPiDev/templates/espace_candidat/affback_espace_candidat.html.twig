@@ -1,0 +1,58 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Les comptes des candidats {% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Table des utilisateurs </h4>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>mail</th>
+                        <th>Date nais</th>
+{#                        <th>mdp</th>#}
+                        <th>Etat</th>
+                        <th>Ville</th>
+{#                        <th>Num </th>#}
+                        <th>Spécialité</th>
+{#                        <th>Diplome</th>#}
+
+                    </tr>
+                    </thead>
+                    {% for candidat in candidat  %}
+
+                    <tbody>
+                    <tr>
+                        <td>{{candidat.nom}}</td>
+                        <td>{{candidat.prenom}}</td>
+                        <td>{{candidat.email}}</td>
+                        <td>{{candidat.DateNaisse|date('Y-m-d')}}</td>
+{#                        <td>{{candidat.mdp}}</td>#}
+                       {% if candidat.etat == "0" %}
+                        <td>compte activé</td>
+                        {% else %}
+                        <td>compte déactivé</td>
+                        {% endif %}
+                        <td>{{candidat.gover}}</td>
+{#                        <td>{{candidat.num}}</td>#}
+                        <td>{{candidat.special}}</td>
+{#                        <td>{{candidat.diplome}}</td>#}
+                    </tr>
+
+
+
+                                    </tbody>
+                    {% endfor %}
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

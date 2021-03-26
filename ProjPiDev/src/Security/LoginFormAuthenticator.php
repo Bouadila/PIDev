@@ -45,6 +45,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             && $request->isMethod('POST');
     }
 
+
+
     public function getCredentials(Request $request)
     {
         $credentials = [
@@ -90,14 +92,31 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         return $credentials['password'];
     }
 
-    // src/Security/LoginFormAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
+        $credentials = $this->getCredentials($request);
+        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
-        return new RedirectResponse($this->urlGenerator->generate('home'));
+//        dd($user->getRoles()[0]);
+        if($user->getRoles()[0]=="Employeur")
+        {
+            return new RedirectResponse($this->urlGenerator->generate('espace_employeur'));
+            
+        }elseif ($user->getRoles()[0]=="Candidat")
+        {
+            return new RedirectResponse($this->urlGenerator->generate('espace_candidat'));
+
+        }
+        else
+            return new RedirectResponse($this->urlGenerator->generate('back'));
+
+
+
+        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
+        //return new RedirectResponse($this->urlGenerator->generate('aff_user'));
     }
 
     protected function getLoginUrl()

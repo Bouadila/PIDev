@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d5e11c26-e7c2-4a60-b2e3-8041c609c262" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/pidev.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/dev/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/test/swiftmailer.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210227162441.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210227163023.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210301153952.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210301162003.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210307193628.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210309004408.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/img/cv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/img/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/img/prof.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/img/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/0a99d71577e2f945b2fd851b2d40990a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/11e9e707c6b17872d51e10462eabaaf2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/1757e9c2588662f2e1167df227e7be9b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/2b74a6595b9a25a8f84a32bc4f2f38e6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/2c6ba06644cf5295050e41a9f30afd5a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/2e2a017e1d6ae1d93392afab33a78fa6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/319964e761a8c410df88f8eb96de8331.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/33722dc2f21e3cd74d685032318f417f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/395557b25026a5d0ffa9a46717c7afbf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/3da330d8db219032c3b4e56ebe67776b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/443c3b7a7a4119e2bbeda62ace74cbc6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/54f43932d26675d777fecd0e38c6afb8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/594296427bb4c8ad8c7656f776258778.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/645dc1b7c7981a4697c2cdd2ecbcc55a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/67e07f7e7ebed9516aecd0cd0f4192a2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/76293b25d60bd2eb15309392946c8fdb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/79a37a244a92f4ab842a60f558d59337.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/90940b99f4ff54ca3c6605ebd28d3e67.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/97f48dcba4052fcc8abe9000b379bf98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/a32ebf14010c1fb9844630d86170adf4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/ab7e53577949c32b52f0e401eb9ef6ac.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/c36af66ea8e241c3b61137838787e167.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/c600e673decec6c9453e34d4e0b68290.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/d37bed2fc1c902c46fbf323226c0707d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/e07c3d3ef1ce5b56e44c4c300a76d88c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/uploads/image/e28a2e3aa45dab9ba16f87ca00714d7a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/EspaceCandidatController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/EspaceEmployeurController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Candidat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Employeur.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/CandidatModifType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/CandidatType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/EmployeurType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/EntrepriseType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/CandidatRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/EmployeurRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/back/listo.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseEmployeur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseEspaceCandidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseEspaceEmployeur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/Modif_espace_candidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/Supp_espace_candidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/aff_espace_candidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/affback_espace_candidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/ajout_espace_candidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/Supp_espace_employeur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/aff_espace_employeur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/affback_espace_employeur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/ajout_espace_employeur.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/registration/indexEntreprise.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/test/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.env" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210227102123.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210227102123.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210302103228.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210302103228.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210302183529.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210302183529.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210302184606.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210302184606.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210306090145.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210306090145.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210309191237.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210309191237.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210310213355.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210310213355.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/AnnonceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/BackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/BackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/DemandeEmploiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/DemandeEmploiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/annonce/liste_annonce.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseCandidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseCandidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Ajout_demande_emploi.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/Modif_espace_employeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Supp_demande_emploi.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Supp_demande_emploi.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/liste_demande_back.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/registration/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/registration/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/security/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/security/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/security/login.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/ProjPiDev/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/web-server-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/proxy-manager-bridge" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1pGWTluqFJG1qQbzrTMWWhyuFvK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/wamp64/www/ProjPiDev" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d5e11c26-e7c2-4a60-b2e3-8041c609c262" name="Default Changelist" comment="" />
+      <created>1614809918280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614809918280</updated>
+      <workItem from="1614809919462" duration="411000" />
+      <workItem from="1614846165100" duration="2000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614810082483">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614810082483" />
+  </component>
+</project>

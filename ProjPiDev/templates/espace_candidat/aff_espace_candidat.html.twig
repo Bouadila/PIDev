@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}compte candidat{% endblock %}
+
+{% block body %}
+    <section id="services_main">
+        <div class="container">
+            <div class="row">
+                <div class="services_main_1">
+                    <h2>SERVICES</h2>
+                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="latest-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>                    {{user.getName()}} {{user.getPrenom()}}
+                        </h2>
+                        <a href="{{ path ('Modif_user') }}" class="fa fa-pencil" >Modifier le compte</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="#"><img src="{{ asset('uploads/image/' ~ user.img) }}" alt="abc" height="300" width="400"></a>
+                        <div class="down-content">
+
+
+                            <small>
+                                <strong title="Posted on"><i class="fa fa-calendar"></i>  {{user.getDateNaiss()|date('Y-m-d')}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong title="Type"><i class="fa fa-file"></i> {{user.getGover()}}</strong>
+                                <strong title="Location"><i class="fa fa-map-marker"></i>  {{user.getGover()}}</strong>
+                            </small>
+                        </div>
+                    </div>
+                    <a href="{{ path ('Supp_user') }}" class="button">Desactiver compte</a>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="down-content">
+                            <h3>Specialite </h3>
+                            <p>                              {{user.getSpecial()}}
+                            </p>
+{#                            <h3>Diplome </h3>#}
+{#                            {{candidat.getDiplome()}}#}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+{% endblock %}

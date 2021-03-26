@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>{% block title %} Recruitini {% endblock %} </title>
+    {% block css%}
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
+    {% endblock %}
+
+</head>
+
+<body>
+
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+
+<!-- Header -->
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#"><h2>Agence <em>Recruitini</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('home') }}">Acceuil
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item"><a class="nav-link" href="#">Offre D'emploi</a></li>
+
+                    <!--<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    -->
+
+
+                    <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace candidat</a>
+
+                        <div class="dropdown-menu">
+                            {% if not app.user %}
+{#                  <a class="dropdown-item" href="{{ path ('security_login') }}" data-toggle="modal" data-target="#myModal1">Login candidat</a>#}
+                     <a class="dropdown-item" href="{{ path ('ajout_espace_candidat') }}" class="button">SignUp candidat</a>
+{% else %}
+{#                    <a  class="dropdown-item" class="nav-link" href="{{ path('security_logout') }}">Déconnexion</a>#}
+
+{% endif %}
+            </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Page Content -->
+<div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Lorem ipsum dolor</h4>
+                    <h2>Contact Us</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Ends Here -->
+{% block body %}
+{% endblock %}
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% block js %}
+    <!-- Bootstrap core JavaScript -->
+    <script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
+    <script src={{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+
+
+    <!-- Additional Scripts -->
+    <script src={{ asset('assets/js/custom.js') }}></script>
+    <script src={{ asset('assets/js/owl.js') }}></script>
+{% endblock %}
+</body>
+</html>
