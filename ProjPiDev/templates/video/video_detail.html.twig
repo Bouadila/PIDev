@@ -16,8 +16,9 @@
                         <tr>
                             <th>Titre</th>
                             <th>Date publication</th>
+                            <th>Domaine</th>
                             <th>Likes</th>
-                            <th>Video</th>
+                            <th>Lien</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,9 @@
                             </td>
                             <td>
                                 {{video.publishDate|date('Y-m-d H:i:s') }}
+                            </td>
+                            <td>
+                                {{ video.domaine }}
                             </td>
                             <td>
                                 {{ video.likes | length}}

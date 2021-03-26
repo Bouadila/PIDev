@@ -299,6 +299,7 @@ class VideoController extends AbstractController
     {
         $video = $this->getDoctrine()->getRepository(video::class);
         $videos=$video->findAll();
+        $video->getIdCand($this->getUser());
         return $this->render("video/list_videos_back.html.twig",["videos"=>$videos,]);
     }
 

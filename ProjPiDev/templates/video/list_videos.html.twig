@@ -49,14 +49,11 @@
                                 <iframe width="560" height="315" src="{{ asset(video.url) }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <br>
-                            <p> {{video.title}} </p>
+                            <p> {{ video.description }} </p>
                             <ul class="featured-list">
-                                <li><a>{{ video.description }}</a></li>
                                 <li><strong title="Posted on"><i class="fa fa-calendar"></i> {{ video.publishDate|date('Y-m-d H:i:s') }}</strong></li>
                                 <li><strong title="Posted on"><i class="fa fa-file"></i> {{ video.domaine }}</strong></li>
                             </ul>
-
-
                             <a href="{{ path('list_video_detail', {'id': video.id}) }}" class="filled-button">Voir</a>
                             <a href="{{ path('Updatevideo', {'id': video.id}) }}" class="filled-button">Modifier</a>
                             <a href="{{ path('DeleteVideo', {'id': video.id}) }}" class="filled-button">Supprimer</a>
