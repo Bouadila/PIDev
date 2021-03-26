@@ -16,12 +16,12 @@
                     </div>
                 </div>
 
-
+                {% for offer in offers %}
                 <div class="col-md-4">
                     <div class="product-item">
                         <a href="#"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
                         <div class="down-content">
-                            <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
+                            <a href="#"><h4>{{ offer.id }}</h4></a>
 
 
                             <h6>$60 000</h6>
@@ -33,50 +33,14 @@
                                 <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
                             </small>
-                            <center><a href="{{ path('candidature_new') }}" class="filled-button">Postuler maintenant!</a></center>
+                            <center><a href="{{ path('candidature_new', {'id': offer.id}) }}" class="filled-button">Postuler maintenant!</a></center>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="assets/images/product-2-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
 
-                            <h6>$60 000</h6>
 
-                            <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                            <small>
-                                <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
-                            </small>
-                            <center><a href="{{ path('candidature_new') }}" class="filled-button">Postuler maintenant!</a></center>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="assets/images/product-3-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                            <h6>$60 000</h6>
-
-                            <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                            <small>
-                                <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
-                            </small>
-                            <center><a href="{{ path('candidature_new') }}" class="filled-button">Postuler maintenant!</a></center>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

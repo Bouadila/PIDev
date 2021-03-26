@@ -5,15 +5,21 @@
 
 {% block body %}
 
-<h6>Search: </h6>
-<form method="GET" action="/search">
-  <select name="order">
-    <option {{ order is same as('newer') ? 'selected' : '' }}>newer</option>
-    <option {{ order is same as('older') ? 'selected' : '' }}>older</option>
-  </select>
+    <h3>Recherche entre deux date</h3>
+    <br>
+    <form method="GET"  action="{{ path('search_date') }}">
 
-  <input type="text" name="query" value="{{ query }}"  placeholder="Search"/>
-</form>
+
+        <select name="order">
+            <option>plus récent</option>
+            <option>plus âgée</option>
+        </select>
+
+        <input type="date" id="date1" name="date1">
+        <input type="date" id="date2" name="date2">
+        <button action="{{ path('search_date') }} class="filled-button">Search</button>
+    </form>
+    <br>
 
 
 <ul>
@@ -38,7 +44,7 @@
                             <br>
                             <a href="{{ path('candidature_show', {'id': result.id}) }}" class="filled-button">Voir</a>
                             <a href="{{ path('candidature_edit', {'id': result.id}) }}" class="filled-button">Modifier</a>
-                            <a href="#" class="filled-button">Voir CV</a>
+                            <a href="{{ asset('uploads/' ~ result.cv) }}" class="filled-button">Télécharger CV</a>
 
                         </div>
                     </div>
@@ -51,5 +57,9 @@
                 Aucun candidature trouvé
             
         {% endfor %}
+
+    <div class="navigation">
+        {{ knp_pagination_render(results) }}
+    </div>
 
 {% endblock %}
