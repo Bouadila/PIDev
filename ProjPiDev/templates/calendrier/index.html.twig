@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendrier{% endblock %}
+{% block body %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2>Planification rendez vous</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+<div class="best-features about-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                             hello
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="calendrier">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        window.onload = ()=>{
+            let calendarEl = document.querySelector("#calendrier")
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                themeSystem: 'bootstrap',
+                initialView: 'timeGridWeek',
+                locale: 'fr',
+                timeZone: 'Europe/Berlin',
+                headerToolbar: {
+                    start: 'prev,next today',
+                    center: 'title',
+                    end: 'dayGridMonth,timeGridWeek'
+                },
+                events: {{ data|raw }},
+                editable: true,
+                eventResizableFromStart: true
+            });
+            calendar.on('eventChange', (e) => {
+                let url = `/api/${e.event.id}/edit`
+                let donnees = {
+                    "titre": e.event.title,
+                    "description": e.event.extendedProps.description,
+                    "start": e.event.start,
+                    "end": e.event.end,
+                    "backgroundColor": e.event.backgroundColor,
+                    "borderColor": e.event.borderColor,
+                    "textColor": e.event.textColor,
+                    "allDay": e.event.allDay
+                }
+
+                let xhr = new XMLHttpRequest
+                xhr.open("PUT", url)
+                xhr.send(JSON.stringify(donnees))
+            })
+            calendar.render();
+
+        }
+    </script>
+{% endblock %}

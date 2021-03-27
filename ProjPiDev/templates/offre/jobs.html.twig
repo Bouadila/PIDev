@@ -1,0 +1,214 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offres Disponible{% endblock %}
+{% block body %}
+<!-- Page Content -->
+<div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h4>Recrutini</h4>
+                    <h2> Offre d'emploi </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Ends Here -->
+    <!-- side bar-->
+    <div class="products">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="contact-form">
+                        <form action="#">
+                            <h5 style="margin-bottom: 15px">Type</h5>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Contract (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Full time (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Internship (5)</small>
+                                </label>
+                            </div>
+
+                            <br>
+
+                            <h5 style="margin-bottom: 15px">Category</h5>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Accounting / Finance / Insurance Jobs (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Accounting / Finance / Insurance Jobs (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Accounting / Finance / Insurance Jobs (5)</small>
+                                </label>
+                            </div>
+
+                            <br>
+
+                            <h5 style="margin-bottom: 15px">Career levels</h5>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Entry Level (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Entry Level (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Entry Level (5)</small>
+                                </label>
+                            </div>
+
+                            <br>
+
+                            <h5 style="margin-bottom: 15px">Education levels</h5>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Associate Degree (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Associate Degree (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>Associate Degree (5)</small>
+                                </label>
+                            </div>
+
+                            <br>
+
+
+                            <h5 style="margin-bottom: 15px">Years of experience</h5>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>&lt; 1 (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>&lt; 1 (5)</small>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <input type="checkbox">
+
+                                    <small>&lt; 1 (5)</small>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+<!--end-->
+                <div class="col-md-9">
+                    <div class="row">
+                    {% for offre in offres %}
+                        <div class="col-md-6">
+                            <div class="product-item">
+                                <a href="{{ path('offre_show', {'id': offre.id}) }}"><img src="{{  asset('uploads/image/' ~ offre.entreprise.img) }}" alt=""></a>
+                                <div class="down-content">
+                                    <a href="{{ path('offre_show', {'id': offre.id}) }}"><h4>{{ offre.post }}</h4></a>
+
+                                    <h6>{{ offre.salaire }} DT</h6>
+
+                                    <h4><small><i class="fa fa-briefcase"></i> {{ offre.domaine }} <br> <strong><i class="fa fa-users"></i> {{ offre.nombrePlace }} Personnes</strong></small></h4>
+
+                                    <small>
+                                        <strong title="Posted on"><i class="fa fa-calendar"></i> {{ offre.dateExpiration ? offre.dateExpiration|date('Y-m-d') : '' }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <strong title="Type"><i class="fa fa-file"></i> {{ offre.contrat.type }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <strong title="Location"><i class="fa fa-map-marker"></i> Tunis</strong>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+                </div>
+                {#
+                <div class="col-md-12" style=" justify-content: center ; display: flex">
+                {{ knp_pagination_render(
+                    offres,
+                    '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+                    {
+                        'queryParam1': 'param1 value',
+                        'queryParam2': 'param2 value'
+                    },
+                    {
+                        'viewParam1': 'param1 value',
+                        'viewParam2': 'param2 value'
+                    },
+                ) }}
+            </div>
+                #}
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

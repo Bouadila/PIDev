@@ -3,8 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -22,10 +25,6 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $name;
 
     /**
      * @ORM\Column(type="json")
@@ -37,6 +36,61 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $gover;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $img;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $special;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_naiss;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom_entre;
+    /**
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="candidat", orphanRemoval=true)
+     */
+    private $candidatures;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Offre::class, mappedBy="entreprise")
+     */
+    private $offres;
+
+    public function __construct()
+    {
+        $this->offres = new ArrayCollection();
+        $this->candidatures = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -119,6 +173,7 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
     public function getName(): ?string
     {
         return $this->name;
@@ -129,4 +184,131 @@ class User implements UserInterface
         $this->name = $name;
         return $this;
     }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getGover(): ?string
+    {
+        return $this->gover;
+    }
+
+    public function setGover(string $gover): self
+    {
+        $this->gover = $gover;
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): self
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    public function getSpecial(): ?string
+    {
+        return $this->special;
+    }
+
+    public function setSpecial(string $special): self
+    {
+        $this->special = $special;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getDateNaiss(): ?\DateTimeInterface
+    {
+        return $this->date_naiss;
+    }
+
+    public function setDateNaiss(?\DateTimeInterface $date_naiss): self
+    {
+        $this->date_naiss = $date_naiss;
+
+        return $this;
+    }
+
+    public function getNomEntre(): ?string
+    {
+        return $this->nom_entre;
+    }
+
+    public function setNomEntre(?string $nom_entre): self
+    {
+        $this->nom_entre = $nom_entre;
+
+        return $this;
+    }
+    public function removeCandidature(Candidature $candidature): self
+    {
+        if ($this->candidatures->removeElement($candidature)) {
+            // set the owning side to null (unless already changed)
+            if ($candidature->getCandidat() === $this) {
+                $candidature->setCandidat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Offre[]
+     */
+    public function getOffres(): Collection
+    {
+        return $this->offres;
+    }
+
+    public function addOffre(Offre $offre): self
+    {
+        if (!$this->offres->contains($offre)) {
+            $this->offres[] = $offre;
+            $offre->setEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffre(Offre $offre): self
+    {
+        if ($this->offres->removeElement($offre)) {
+            // set the owning side to null (unless already changed)
+            if ($offre->getEntreprise() === $this) {
+                $offre->setEntreprise(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

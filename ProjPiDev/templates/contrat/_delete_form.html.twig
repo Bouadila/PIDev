@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('contrat_delete', {'id': contrat.id}) }}" onsubmit="return confirm('vous êtes sûr que vous voulez archiver cette offre ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contrat.id) }}">
+    <button class="btn btn-danger backBtn btn-lg pull-left" > <i class="fa fa-minus-circle" aria-hidden="true"></i> Archiver</button>
+</form>

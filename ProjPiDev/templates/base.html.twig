@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.1/main.min.css" integrity="sha256-LOn2s1oZo044zPt6G3x2mGJnhtfXp6ZE1skHztfqnA8=" crossorigin="anonymous">
     <title>{% block title %} Recruitini {% endblock %} </title>
     {% block css%}
     <!-- Bootstrap core CSS -->
@@ -27,6 +27,7 @@
 
 <body>
 
+
 <!-- ***** Preloader Start ***** -->
 <div id="preloader">
     <div class="jumper">
@@ -37,6 +38,7 @@
 </div>
 <!-- ***** Preloader End ***** -->
 
+
 <!-- Header -->
 <header class="">
     <nav class="navbar navbar-expand-lg">
@@ -46,15 +48,15 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                <div class="navbar-nav ml-auto">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path('home') }}">Acceuil
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
 
-                    <li class="nav-item"><a class="nav-link" href="#">Offre D'emploi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('offre_index') }}">Offre D'emploi</a></li>
 
                     <!--<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
                     -->
@@ -62,33 +64,31 @@
 
                     <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+                    {% if app.user %}
+                    <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
+                    <li> <a  class="nav-link"  href="{{ path('app_logout') }}">Déconnexion</a></li>
+
+                    {% else %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Espace candidat</a>
-                            <a class="dropdown-item" href="#">Espace Entreprise</a>
+
+                            <a class="dropdown-item" href="{{ path ('app_login') }}"> Connexion</a>
+                            <a class="dropdown-item" href="{{ path ('ajout_espace_candidat') }}">SignUp candidat</a>
+                            <a class="dropdown-item" href="{{ path ('ajout_espace_employeur') }}">SignUp Entreprise</a>
+                            <a class="dropdown-item" href="{{ path ('registration') }}">SignUp candidat2</a>
+                            <a class="dropdown-item" href="{{ path ('registration') }}">SignUp employeur2</a>
+
+                            {% endif %}
                         </div>
-                    </li>
+                </div>
+                </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<!-- Page Content -->
-<div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-content">
-                    <h4>Lorem ipsum dolor</h4>
-                    <h2>Contact Us</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Banner Ends Here -->
 {% block body %}
 {% endblock %}
 
@@ -116,6 +116,7 @@
 <!-- Additional Scripts -->
 <script src={{ asset('assets/js/custom.js') }}></script>
 <script src={{ asset('assets/js/owl.js') }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.1/main.min.js" integrity="sha256-9puLsDK3mkUV8FSsGLlSRT+uJogUINfaCq56mzSUP/w=" crossorigin="anonymous"></script>
 {% endblock %}
 </body>
 </html>

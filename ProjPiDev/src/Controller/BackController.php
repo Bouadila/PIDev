@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Repository\CandidatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
 class BackController extends AbstractController
 {
     /**
@@ -17,4 +19,6 @@ class BackController extends AbstractController
             'controller_name' => 'BackController',
         ]);
     }
+
+
 }

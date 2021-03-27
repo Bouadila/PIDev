@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Contrat{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2>Ajouter contrat d'emploi</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    {{ include('contrat/_form.html.twig') }}
+        <br>
+        <br>
+        <div class="col-md-6">
+            <a href="{{ path('contrat_index') }}" id="form-submit" class="filled-button">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+                Retourner à la list
+            </a>
+        </div>
+    </div>
+{% endblock %}

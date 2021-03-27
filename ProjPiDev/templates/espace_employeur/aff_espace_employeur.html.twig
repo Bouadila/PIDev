@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}compte employeur{% endblock %}
+
+{% block body %}
+    <section id="services_main">
+        <div class="container">
+            <div class="row">
+                <div class="services_main_1">
+                    <h2>SERVICES</h2>
+                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
+                </div>
+            </div>
+        </div>
+    </section>  <div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Featured Jobs</h2>
+                    <a href="#">view more <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-item">
+                    <a href="#"><img src="/img/logo.jpg" alt="abc" height="300" width="400"></a>
+                    <div class="down-content">
+                        <h2 class="text-center">  {{user.getNomEntreprise() }}
+                            <a href="{{ path ('Modif_espace_employeur') }}" class="fa fa-pencil" ></a></h2>
+
+                        <h4><small><i class="fa fa-briefcase"></i> {{user.getSecteur() }} <br> </small></h4>
+
+                        <small>
+                            <strong title="Location"><i class="fa fa-map-marker"></i>  {{user.getAdresseEntreprise() }}</strong>
+
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="product-item">
+                    <div class="down-content">
+                        <h4>le compte de cette entreprise gére par  </h4>
+
+
+                        <h6>{{user.getName()}}  {{user.getPrenom()}}</h6>
+
+
+                        <small>
+                            <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Type"><i class="fa fa-file"></i> {{employeur.getEmail()}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ path ('Supp_espace_employeur') }}" class="button">Desactiver compte</a>
+
+
+            </div>
+    </div>
+</div>
+        </section>
+
+    </section>
+{% endblock %}
