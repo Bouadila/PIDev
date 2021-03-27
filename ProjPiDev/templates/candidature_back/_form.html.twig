@@ -29,16 +29,16 @@
 
                                 {{ form_label(form.status, "Choisir votre position:") }}
                                 {{ form_widget(form.status) }}
-<br>
-                                {{ form_row(form.cv) }}
-                                
+
+                                {{ form_label(form.cv, "Télécharger votre CV (PDF file):") }}
+                                {{ form_widget(form.cv) }}
                                 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4" style="margin-top:5px;">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i>
                                     {{ button_label|default('Enregistrer') }}
-
+                                </button>
                             </div>
                         </div>
                         {{ form_end(form) }}

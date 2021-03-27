@@ -1,34 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseCandidat.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Home{% endblock %}
+{% block titre %}BONJOUR{% endblock %}
 
 {% block body %}
 
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    <div class="banner header-text">
-        <div class="owl-banner owl-carousel">
-            <div class="banner-item-01">
-                <div class="text-content">
-                    <h4>Find your car today!</h4>
-                    <h2>Lorem ipsum dolor sit amet</h2>
-                </div>
-            </div>
-            <div class="banner-item-02">
-                <div class="text-content">
-                    <h4>Fugiat Aspernatur</h4>
-                    <h2>Laboriosam reprehenderit ducimus</h2>
-                </div>
-            </div>
-            <div class="banner-item-03">
-                <div class="text-content">
-                    <h4>Saepe Omnis</h4>
-                    <h2>Quaerat suscipit unde minus dicta</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner Ends Here -->
 
     <div class="latest-products">
         <div class="container">
@@ -39,11 +15,14 @@
                         <a href="#">view more <i class="fa fa-angle-right"></i></a>
                     </div>
                 </div>
+
+                {% for offer in offers %}
                 <div class="col-md-4">
                     <div class="product-item">
                         <a href="#"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
                         <div class="down-content">
-                            <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
+                            <a href="#"><h4>{{ offer.id }}</h4></a>
+
 
                             <h6>$60 000</h6>
 
@@ -54,50 +33,14 @@
                                 <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
                             </small>
-                            
+                            <center><a href="{{ path('candidature_new', {'id': offer.id}) }}" class="filled-button">Postuler maintenant!</a></center>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
 
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="assets/images/product-2-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
 
-                            <h6>$60 000</h6>
 
-                            <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                            <small>
-                                <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
-                            </small>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="assets/images/product-3-370x270.jpg" alt=""></a>
-                        <div class="down-content">
-                            <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                            <h6>$60 000</h6>
-
-                            <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                            <small>
-                                <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
-                            </small>
-                            
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -110,6 +53,7 @@
                         <h2>About Us</h2>
                     </div>
                 </div>
+
                 <div class="col-md-6">
                     <div class="left-content">
                         <p>Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipisicing elit. Explicabo, esse consequatur alias repellat in excepturi inventore ad <a href="#">asperiores</a> tempora ipsa. Accusantium tenetur voluptate labore aperiam molestiae rerum excepturi minus in pariatur praesentium, corporis, aliquid dicta.</p>

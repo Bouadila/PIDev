@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidature index{% endblock %}
+{% block titre %}Candidatures{% endblock %}
+{% block body %}
+
+
+    <h3>Recherche par</h3>
+    <br>
+    <h6>Nom/Prenom/Email: </h6>
+    <form method="GET"  action="{{ path('search_indexEnt') }}">
+
+        <select name="order">
+            <option>plus récent</option>
+            <option>plus âgée</option>
+        </select>
+        <input type="text" name="query" placeholder="Recherche par Nom/Prenom/Email"/>
+        <button action="{{ path('search_indexEnt') }} class="filled-button">Search</button>
+    </form>
+    <br>
+    <h6>Entre deux date: </h6>
+    <form method="GET"  action="{{ path('search_dateEnt') }}">
+
+        <select name="order">
+            <option>plus récent</option>
+            <option>plus âgée</option>
+        </select>
+
+        <input type="date" id="date1" name="date1">
+        <input type="date" id="date2" name="date2">
+        <button action="{{ path('search_date') }} class="filled-button">Search</button>
+    </form>
+
+
+
+
+
+
+
+    {% for candidature in candidatures %}
+        <div class="col-md-4">
+            <div class="product-item">
+                <div class="down-content">
+                    <a href="#"><h4>{{ candidature.nom }} &nbsp; {{ candidature.prenom }}</h4></a>
+
+
+                    <h6>Crud Master (lien vers l'offre)</h6>
+                    <h4><small> {{ candidature.num }} <br> <strong> {{ candidature.email }}</strong></small></h4>
+                    <h4><small><i class="fa fa-briefcase"></i> {{ candidature.diplome }} <br> <strong><i class="fa fa-building"></i> {{ candidature.status }}</strong></small></h4>
+
+                    <small>
+                        <strong title="Posted on"><i class="fa fa-calendar"></i> {{ candidature.DateCandidature ? candidature.DateCandidature|date('Y-m-d') : '' }}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong title="Type"><i class="fa fa-file"></i> Recruitini </strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong title="Location"><i class="fa fa-map-marker"></i> Tunisie</strong>
+                    </small>
+                    <br>
+                    <a href="{{ path('candidature_show', {'id': candidature.id}) }}" class="filled-button">Voir</a>
+                    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="filled-button">Modifier</a>
+                    <a href="{{ asset('uploads/' ~ candidature.cv) }}" class="filled-button">Télécharger CV</a>
+                </div>
+            </div>
+        </div>
+        &nbsp;
+
+
+    {% else %}
+
+        Aucun candidature trouvé
+
+    {% endfor %}
+    <div style="text-align: center;">
+        <div class="navigation">
+            {{ knp_pagination_render(candidatures) }}
+        </div>
+    </div>
+
+
+{% endblock %}
+

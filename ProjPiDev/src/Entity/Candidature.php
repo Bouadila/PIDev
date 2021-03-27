@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CandidatureRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CandidatureRepository::class)
@@ -14,120 +16,287 @@ class Candidature
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom est requis")
+     * @Groups("post:read")
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le prenom est requis")
+     * @Groups("post:read")
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
+     */
+    private $sexe;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
+     * @Groups("post:read")
+     */
+    private $email;
+
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
+     * @Groups("post:read")
      */
-    private $datePostuler;
+    private $date_naiss;
 
     /**
      * @ORM\Column(type="integer")
+     * * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "Votre numéro doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Votre numéro ne peut pas dépasser  {{ limit }} caractères"
+     * )
+     * @Assert\NotBlank(message="Le numéro est requis")
+     * @Groups("post:read")
      */
-    private $noteQuiz;
+    private $num;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="candidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
-    private $candidat;
+    private $status;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Offre::class, inversedBy="candidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
+     * @Groups("post:read")
      */
-    private $offre;
+    private $diplome;
 
     /**
-     * @ORM\OneToOne(targetEntity=Rendezvous::class, mappedBy="candidature", cascade={"persist", "remove"})
+     * @ORM\Column(type="string", nullable=true)
+     * Assert\Blank(message:"Télécharger votre cv svp")
+     * Assert\File(mimeTypes={ "application/pdf" })
+     * @Groups("post:read")
      */
-    private $rendezvous;
+    private $cv;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
      */
-    private $titre;
+    private $id_candidat;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
+     */
+    private $id_offer;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Quiz::class, cascade={"persist", "remove"})
+     * @Groups("post:read")
+     */
+    private $id_quiz;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups("post:read")
+     */
+    private $id_rdv;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @Groups("post:read")
+     */
+    private $date_candidature;
+
+    
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDatePostuler(): ?\DateTimeInterface
+    
+
+    public function getNom(): ?string
     {
-        return $this->datePostuler;
+        return $this->nom;
     }
 
-    public function setDatePostuler(\DateTimeInterface $datePostuler): self
+    public function setNom(string $nom): self
     {
-        $this->datePostuler = $datePostuler;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getNoteQuiz(): ?int
+    public function getPrenom(): ?string
     {
-        return $this->noteQuiz;
+        return $this->prenom;
     }
 
-    public function setNoteQuiz(int $noteQuiz): self
+    public function setPrenom(string $prenom): self
     {
-        $this->noteQuiz = $noteQuiz;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
-    public function getCandidat(): ?User
+    public function getSexe(): ?string
     {
-        return $this->candidat;
+        return $this->sexe;
     }
 
-    public function setCandidat(?User $candidat): self
+    public function setSexe(string $sexe): self
     {
-        $this->candidat = $candidat;
+        $this->sexe = $sexe;
 
         return $this;
     }
 
-    public function getOffre(): ?Offre
+    public function getEmail(): ?string
     {
-        return $this->offre;
+        return $this->email;
     }
 
-    public function setOffre(?Offre $offre): self
+    public function setEmail(string $email): self
     {
-        $this->offre = $offre;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getRendezvous(): ?Rendezvous
+    public function getDateNaiss(): ?\DateTimeInterface
     {
-        return $this->rendezvous;
+        return $this->date_naiss;
     }
 
-    public function setRendezvous(Rendezvous $rendezvous): self
+    public function setDateNaiss(\DateTimeInterface $date_naiss): self
     {
-        // set the owning side of the relation if necessary
-        if ($rendezvous->getCandidature() !== $this) {
-            $rendezvous->setCandidature($this);
-        }
+        $this->date_naiss = $date_naiss;
 
-        $this->rendezvous = $rendezvous;
+        return $this;
+    
+    }
+
+    public function getNum(): ?int
+    {
+        return $this->num;
+    }
+
+    public function setNum(int $num): self
+    {
+        $this->num = $num;
 
         return $this;
     }
 
-    public function getTitre(): ?string
+
+    public function getStatus(): ?string
     {
-        return $this->titre;
+        return $this->status;
     }
 
-    public function setTitre(string $titre): self
+    public function setStatus(string $status): self
     {
-        $this->titre = $titre;
+        $this->status = $status;
 
         return $this;
     }
+
+    public function getDiplome(): ?string
+    {
+        return $this->diplome;
+    }
+
+    public function setDiplome(string $diplome): self
+    {
+        $this->diplome = $diplome;
+
+        return $this;
+    }
+
+    public function getCv()
+    {
+        return $this->cv;
+    }
+
+    public function setCv($cv): self
+    {
+        $this->cv = $cv;
+
+        return $this;
+    }
+
+    public function getIdCandidat(): ?int
+    {
+        return $this->id_candidat;
+    }
+
+    public function setIdCandidat(?int $id_candidat): self
+    {
+        $this->id_candidat = $id_candidat;
+
+        return $this;
+    }
+
+    public function getIdOffer(): ?int
+    {
+        return $this->id_offer;
+    }
+
+    public function setIdOffer(?int $id_offer): self
+    {
+        $this->id_offer = $id_offer;
+
+        return $this;
+    }
+
+    public function getIdQuiz(): ?Quiz
+    {
+        return $this->id_quiz;
+    }
+
+    public function setIdQuiz(?Quiz $id_quiz): self
+    {
+        $this->id_quiz = $id_quiz;
+
+        return $this;
+    }
+
+    public function getIdRdv(): ?int
+    {
+        return $this->id_rdv;
+    }
+
+    public function setIdRdv(?int $id_rdv): self
+    {
+        $this->id_rdv = $id_rdv;
+
+        return $this;
+    }
+
+    public function getDateCandidature(): ?\DateTimeInterface
+    {
+        return $this->date_candidature;
+    }
+
+    public function setDateCandidature(\DateTimeInterface $date_candidature): self
+    {
+        $this->date_candidature = $date_candidature;
+
+        return $this;
+    }
+
+   
 }

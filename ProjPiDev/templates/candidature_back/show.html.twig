@@ -1,14 +1,35 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseBack.html.twig' %}
 
 {% block title %}Candidature{% endblock %}
-{% block titre %}Candidature{% endblock %}
+
 {% block body %}
+    <h1>Candidature</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Date de candidature</th>
-                <td>{{ candidature.DateCandidature ? candidature.DateCandidature|date('Y-m-d') : '' }}</td>
+                <th>Id</th>
+                <td>{{ candidature.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_candidat</th>
+                <td>{{ candidature.idCandidat }}</td>
+            </tr>
+            <tr>
+                <th>Id_offer</th>
+                <td>{{ candidature.idOffer }}</td>
+            </tr>
+            <tr>
+                <th>Id_quiz</th>
+                <td>{{ candidature.idQuiz }}</td>
+            </tr>
+            <tr>
+                <th>Id_rdv</th>
+                <td>{{ candidature.idRdv }}</td>
+            </tr>
+            <tr>
+                <th>Date_candidature</th>
+                <td>{{ candidature.DateCandidature ? candidature.DateCandidature|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>Nom</th>
@@ -27,11 +48,11 @@
                 <td>{{ candidature.email }}</td>
             </tr>
             <tr>
-                <th>Date de naissance</th>
+                <th>Date_naiss</th>
                 <td>{{ candidature.dateNaiss ? candidature.dateNaiss|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>Numéro de téléphone</th>
+                <th>Num</th>
                 <td>{{ candidature.num }}</td>
             </tr>
             <tr>
@@ -44,15 +65,14 @@
             </tr>
             <tr>
                 <th>Cv</th>
-                <td>
-                <a href="{{ asset('uploads/' ~ candidature.cv) }}" class="filled-button">Voir CV</a>
-                </td>
+                <td>{{ candidature.cv }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('candidature_index') }}" class="filled-button">Retour à la liste</a>
-    <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="filled-button">Modifier</a>
+    <a href="{{ path('candidatureback_index') }}">back to list</a>
 
-    {{ include('candidature/_delete_form.html.twig') }}
+    <a href="{{ path('candidatureback_edit', {'id': candidature.id}) }}">edit</a>
+
+    {{ include('candidature_back/_delete_form.html.twig') }}
 {% endblock %}

@@ -106,10 +106,10 @@
         "version": "v1.0.3"
     },
     "jms/metadata": {
-        "version": "2.4.0"
+        "version": "2.5.0"
     },
     "knplabs/knp-components": {
-        "version": "v3.0.1"
+        "version": "v3.0.2"
     },
     "knplabs/knp-paginator-bundle": {
         "version": "v5.4.2"
@@ -490,7 +490,7 @@
         "version": "v4.4.19"
     },
     "symfony/string": {
-        "version": "v5.2.3"
+        "version": "v5.2.4"
     },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",

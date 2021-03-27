@@ -1,0 +1,130 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Candidature index{% endblock %}
+
+{% block body %}
+    <h1>List des candidatures par id d'offer:</h1>
+    <a href="{{ path('stats') }}">Pour voir les statistique</a>
+    <br>
+    <br>
+    <input id="search" type="text" class="form-control" name="query" placeholder="Search par Nom/Prenom/Email" aria-label="search" aria-describedby="search">
+    <br>
+
+    <table id="t" class="table" style="overflow-x:scroll">
+        <thead>
+            <tr>
+                <th>Id_offer</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Sexe</th>
+                <th>Email</th>
+                <th>Date_naiss</th>
+                <th>Num</th>
+                <th>Status</th>
+                <th>Diplome</th>
+                <th>CV</th>
+                <th>Date postulation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="all" >
+        {% for candidature in candidatures %}
+            <tr>
+                <td>{{ candidature.idCandidat }}</td>
+                <td>{{ candidature.nom }}</td>
+                <td>{{ candidature.prenom }}</td>
+                <td>{{ candidature.sexe }}</td>
+                <td>{{ candidature.email }}</td>
+
+                <td>{{ candidature.dateNaiss|date('Y-m-d') }}</td>
+                <td>{{ candidature.num }}</td>
+                <td>{{ candidature.status }}</td>
+                <td>{{ candidature.diplome }}</td>
+                <td><a href="{{ asset('uploads/' ~ candidature.cv) }}" class="filled-button">voir</a></td>
+                <td>{{ candidature.DateCandidature|date('Y-m-d H:i:s') }}</td>
+                <td>
+                <a href="{{ path('candidatureback_show', {'id': candidature.id}) }}">voir</a>
+                <a href="{{ path('candidatureback_edit', {'id': candidature.id}) }}">modifier</a>
+                </td>
+            </tr>
+            
+        {% else %}
+            <tr>
+                <td colspan="12">Aucun candidature trouvé</td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+        <tbody id="search">
+        </tbody>
+    </table>
+
+    <a href="{{ path('candidatureback_new') }}">Create new</a>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $( document ).ready(function() {
+            $("#search").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('searchCandidatureback') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    method : 'GET',
+                    dataType: "JSON",
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    async : true,
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#search').empty();
+                            $(retour).each( function(candidature, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#search').append(
+                                    '<tr>'+
+                                    '<td>'+ obj.id_offer +'</td>' +
+                                    '<td>'+ obj.nom +'</td>' +
+                                    '<td>'+ obj.prenom +'</td>' +
+                                    '<td>'+ obj.sexe +'</td>' +
+                                    '<td>'+ obj.email +'</td>' +
+                                    '<td>'+ obj.date_naiss +'</td>' +
+                                    '<td>'+ obj.num +'</td>' +
+                                    '<td>'+ obj.status +'</td>' +
+                                    '<td>'+ obj.diplome +'</td>' +
+                                    '<td>'+ obj.cv +'</td>' +
+                                    '<td>'+ obj.date_candidature +'</td>' +
+                                    '<td></td></tr>'
+                                );
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#search').empty();
+                            $('#t tbody#search').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+    <div style="text-align: center;">
+        <div class="navigation">
+            {{ knp_pagination_render(candidatures) }}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
