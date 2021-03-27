@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formation{% endblock %}
+{% block title %}Demande d'emploi{% endblock %}
 
 {% block body %}
     <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
@@ -8,56 +8,55 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-content">
-                        <h4>Formation</h4>
-                        <h2>Modifier votre formation</h2>
+                        <h4>Demande</h4>
+                        <h2>Ajouter votre demande de recherche</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="send-message">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>Votre formation</h2>
+                        <h2>Ajouter votre CV</h2>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="contact-form">
-                        <form id="contact" {{ form_start(f, {'attr':{'novalidate':'novalidate'}}) }}
+                        <form id="contact" {{ form_start(formdemande, {'attr':{'novalidate':'novalidate'}}) }}
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12"> Titre
-                                {{ form_errors(f.title) }}
-                                {{ form_widget(f.title) }}
+                                {{ form_errors(formdemande.TitreDemande) }}
+                                {{ form_widget(formdemande.TitreDemande) }}
 
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                {{ form_errors(f.domaine) }}
-                                {{ form_widget(f.domaine) }}
+                            <div class="col-lg-12 col-md-12 col-sm-12"> Votre domaine
+                                {{ form_errors(formdemande.domaineTravail) }}
+                                {{ form_widget(formdemande.domaineTravail) }}
 
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12"> Votre URL
-                                {{ form_errors(f.url) }}
-                                {{ form_widget(f.url) }}
-
-                            </div>
-                            <div class="col-lg-12" hidden >
-                                {{ form_errors(f.publishDate) }}
-                                {{ form_widget(f.publishDate) }}
+                            <div class="col-lg-12"> Votre Statut
+                                {{ form_errors(formdemande.statutCand) }}
+                                {{ form_widget(formdemande.statutCand) }}
 
                             </div>
                             <div class="col-lg-12"> Description
-                                {{ form_errors(f.description) }}
-                                {{ form_widget(f.description) }}
+                                {{ form_errors(formdemande.description) }}
+                                {{ form_widget(formdemande.description) }}
 
                             </div>
-
+                            <div class="col-lg-12 col-md-12 col-sm-12"> CV
+                                {{ form_errors(formdemande.cvCand) }}
+                                {{ form_widget(formdemande.cvCand) }}
+                            </div>
                             <div class="col-lg-12">
-                                <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Modifier') }}</button>
+                                <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Poster') }}</button>
                             </div>
                         </div>
-                        </form {{ form_end(f) }}
+                        </form {{ form_end(formdemande) }}
                     </div>
                 </div>
                 <div class="col-md-4">
