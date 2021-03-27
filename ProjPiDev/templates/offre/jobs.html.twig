@@ -170,9 +170,9 @@
                     {% for offre in offres %}
                         <div class="col-md-6">
                             <div class="product-item">
-                                <a href="{{ path('offreCandidatshow', {'id': offre.id}) }}"><img src="{{ asset('assets/images/product-4-370x270.jpg') }}" alt=""></a>
+                                <a href="{{ path('offre_show', {'id': offre.id}) }}"><img src="{{  asset('uploads/image/' ~ offre.entreprise.img) }}" alt=""></a>
                                 <div class="down-content">
-                                    <a href="{{ path('offreCandidatshow', {'id': offre.id}) }}"><h4>{{ offre.post }}</h4></a>
+                                    <a href="{{ path('offre_show', {'id': offre.id}) }}"><h4>{{ offre.post }}</h4></a>
 
                                     <h6>{{ offre.salaire }} DT</h6>
 
@@ -187,16 +187,22 @@
                             </div>
                         </div>
                     {% endfor %}
+
                 </div>
                 </div>
-                <div class="col-md-12">
-                    <ul class="pages">
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                    </ul>
+                <div class="col-md-12" style=" justify-content: center ; display: flex">
+                    {{ knp_pagination_render(
+                        offres,
+                        '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+                        {
+                            'queryParam1': 'param1 value',
+                            'queryParam2': 'param2 value'
+                        },
+                        {
+                            'viewParam1': 'param1 value',
+                            'viewParam2': 'param2 value'
+                        },
+                    ) }}
                 </div>
             </div>
         </div>

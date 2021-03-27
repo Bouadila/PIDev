@@ -112,6 +112,10 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

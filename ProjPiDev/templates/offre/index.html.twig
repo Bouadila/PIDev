@@ -64,13 +64,22 @@
                             </td>
                         </tr>
                         {% endfor %}
-                        <tfoot>
-                        <tr>
-                            <td colspan = "8" class="text-danger">{{ knp_pagination_render(offres) }}</td>
-                        </tr>
-                        </tfoot>
                         </tbody>
                     </table>
+                    <div class="col-md-12 text-danger" style=" justify-content: center ; display: flex">
+                        {{ knp_pagination_render(
+                            offres,
+                            '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+                            {
+                                'queryParam1': 'param1 value',
+                                'queryParam2': 'param2 value'
+                            },
+                            {
+                                'viewParam1': 'param1 value',
+                                'viewParam2': 'param2 value'
+                            },
+                        ) }}
+                    </div>
                 </div>
             </div>
         </div>

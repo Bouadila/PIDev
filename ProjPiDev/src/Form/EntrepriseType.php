@@ -34,15 +34,12 @@ class EntrepriseType extends AbstractType
                     'name'=>'name',
                 ]
             ])
-
-
-
-
             ->add('gover', ChoiceType::class,
                 [
                     'choices'  => [
                         'choisir votre gouvernora' => null,
                         'Ariana' => 'Ariana',
+                        'Tunis'=>'Tunis',
                         'Ben Arous' => 'Ben Arous',
                         'Kairouan' => 'Kairouan',
                         'Kébili' => 'Kébili',
@@ -66,13 +63,13 @@ class EntrepriseType extends AbstractType
 
                     ],
                 ])
-//            ->add('nom_entre', TextType::class,[
-//                'attr'=>[
-//                    'label'=> 'nom entreprise',
-//                    'required'   => true,
-//                    'name'=>'name',
-//                ]
-//            ])
+            ->add('nom_entre', TextType::class,[
+               'attr'=>[
+                    'label'=> 'nom entreprise',
+                    'required'   => true,
+                   'name'=>'name',
+                ]
+           ])
             ->add('SignUp', SubmitType::class,[
 
             ])

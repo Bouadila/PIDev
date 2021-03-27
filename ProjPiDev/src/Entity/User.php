@@ -36,56 +36,6 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $prenom;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $gover;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $img;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $special;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $etat;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $date_naiss;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $nom_entre;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="candidat", orphanRemoval=true)
-     */
-    private $candidatures;
-
-    public function __construct()
-    {
-        $this->offres = new ArrayCollection();
-        $this->candidatures = new ArrayCollection();
-    }
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -126,6 +76,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nom_entre;
+    /**
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="candidat", orphanRemoval=true)
+     */
+    private $candidatures;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Offre::class, mappedBy="entreprise")
+     */
+    private $offres;
+
+    public function __construct()
+    {
+        $this->offres = new ArrayCollection();
+        $this->candidatures = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -210,23 +176,12 @@ class User implements UserInterface
 
     public function getName(): ?string
     {
-        if (!$this->candidatures->contains($candidature)) {
-            $this->candidatures[] = $candidature;
-            $candidature->setCandidat($this);
-        }
-
-        return $this;
+        return $this->name;
     }
 
-    public function removeCandidature(Candidature $candidature): self
+    public function setName(string $name): self
     {
-        if ($this->candidatures->removeElement($candidature)) {
-            // set the owning side to null (unless already changed)
-            if ($candidature->getCandidat() === $this) {
-                $candidature->setCandidat(null);
-            }
-        }
-
+        $this->name = $name;
         return $this;
     }
 
@@ -313,4 +268,47 @@ class User implements UserInterface
 
         return $this;
     }
+    public function removeCandidature(Candidature $candidature): self
+    {
+        if ($this->candidatures->removeElement($candidature)) {
+            // set the owning side to null (unless already changed)
+            if ($candidature->getCandidat() === $this) {
+                $candidature->setCandidat(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Offre[]
+     */
+    public function getOffres(): Collection
+    {
+        return $this->offres;
+    }
+
+    public function addOffre(Offre $offre): self
+    {
+        if (!$this->offres->contains($offre)) {
+            $this->offres[] = $offre;
+            $offre->setEntreprise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffre(Offre $offre): self
+    {
+        if ($this->offres->removeElement($offre)) {
+            // set the owning side to null (unless already changed)
+            if ($offre->getEntreprise() === $this) {
+                $offre->setEntreprise(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

@@ -120,6 +120,11 @@ class Offre
      */
     private $candidatures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="offres")
+     */
+    private $entreprise;
+
 
 
     public function __construct()
@@ -343,6 +348,18 @@ class Offre
                 $candidature->setOffre(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEntreprise(): ?User
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?User $entreprise): self
+    {
+        $this->entreprise = $entreprise;
 
         return $this;
     }
