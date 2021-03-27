@@ -4,7 +4,6 @@
     <include_path>
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/swiftmailer-bundle" />
-      <path value="$PROJECT_DIR$/ProjPiDev/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/yaml" />
@@ -72,7 +71,6 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/config" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/cache" />
-      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/asset" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/sensio/framework-extra-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/log" />
@@ -106,6 +104,18 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/composer" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/twilio/sdk" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
