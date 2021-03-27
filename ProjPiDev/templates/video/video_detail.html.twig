@@ -1,0 +1,49 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Votre Formation{% endblock %}
+
+{% block body %}
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Votre formation  {{ video.title }} </h4>
+                <p class="card-description">
+                    voir details
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Date publication</th>
+                            <th>Domaine</th>
+                            <th>Likes</th>
+                            <th>Lien</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ video.title }}
+                            </td>
+                            <td>
+                                {{video.publishDate|date('Y-m-d H:i:s') }}
+                            </td>
+                            <td>
+                                {{ video.domaine }}
+                            </td>
+                            <td>
+                                {{ video.likes | length}}
+                            </td>
+                            <td>
+                                {{ video.url }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a class="btn btn-success" href={{ path('list_video') }}>Retour</a>
+        </div>
+    </div>
+{% endblock %}

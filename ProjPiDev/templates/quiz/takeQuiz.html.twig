@@ -3,6 +3,7 @@
 {% block title %}New Quiz{% endblock %}
 
 {% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <h2>{{ quiz.nomquiz }} </h2><br/>
     <h3 id="box_header">50</h3>
     <h4>Choisir la reponse correct</h4><br/>
@@ -49,6 +50,7 @@
         {{ form_widget(form) }}
     <button id="btn" class="btn">{{ button_label|default('Terminer') }}</button>
     {{ form_end(form) }}
+
 
     <script>
 

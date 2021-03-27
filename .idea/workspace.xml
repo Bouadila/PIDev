@@ -20,17 +20,108 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f31c4d1-a347-4808-82f6-333b3808096d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjPiDev.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/.idea/shelf/Uncommitted_changes_before_Update_at_01_03_2021_08_58_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/.idea/shelf/Uncommitted_changes_before_Update_at_01_03_2021_08_58__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/assets/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/Recruitini_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/header-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/project-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/project-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/project-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/reference-image-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/public/images/reference-image-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/VideoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/homeCandidatController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Demande.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/PostLike.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Video.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/DemandeType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/DemandeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/PostLikeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/VideoRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/contact/map.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/aff_demande_detail.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/listdem.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/search.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/searchBack.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/home/homeCandidat.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/add_video.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/email.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/list_video.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/list_videos.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/list_videos_back.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/statistique.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/update_video.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/video/video_detail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.env" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210308200035.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210316131334.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210327005532.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210327030859.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/dev/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/dev/swiftmailer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/sensio_framework_extra.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/sensio_framework_extra.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/swiftmailer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/test/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/test/swiftmailer.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210327142234.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/DemandeEmploiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/DemandeEmploiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/ListController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/QuestionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/QuestionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/QuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/QuizController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/TakeQuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/TakeQuizController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Reponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Reponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Form/QuestionType.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/QuestionType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/QuestionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/QuestionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/QuizRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/QuizRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseCandidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseCandidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseEmployeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseEmployeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseEspaceCandidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseEspaceCandidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseEspaceEmployeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseEspaceEmployeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/basetest.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/basetest.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/contact/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/contact/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Modif_demande_emploi.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Modif_demande_emploi.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Supp_demande_emploi.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/Supp_demande_emploi.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/liste_demande_back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/liste_demande_back.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/liste_demande_emploi.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/demande_emploi/liste_demande_emploi.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/Modif_espace_employeur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_employeur/Modif_espace_employeur.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/question/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/question/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/quiz/showResult.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/quiz/showResult.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/quiz/takeQuiz.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/quiz/takeQuiz.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/security/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/security/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +251,12 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/sabberworm/php-css-parser" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pzsjP7WBbg8tBAz6rkP3G97avT" />
@@ -186,7 +283,7 @@
       <workItem from="1616337252176" duration="408000" />
       <workItem from="1616522503815" duration="1759000" />
       <workItem from="1616792424378" duration="757000" />
-      <workItem from="1616852023374" duration="2387000" />
+      <workItem from="1616852023374" duration="7434000" />
     </task>
     <servers />
   </component>
@@ -203,5 +300,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1616858219734">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1616858219734" />
+    <state x="0" y="0" width="585" height="728" key="find.popup" timestamp="1616858200440">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1616858200440" />
   </component>
 </project>

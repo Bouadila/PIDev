@@ -3,48 +3,63 @@
 {% block title %}Liste demande d'emploi{% endblock %}
 
 {% block body %}
-    <section id="services_main">
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
         <div class="container">
             <div class="row">
-                <div class="services_main_1">
-                    <h2>SERVICES</h2>
-                    <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h2>Vos demandes</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section id="history">
-        <div class="container">
-            <div class="row">
-                <div class="history_1 clearfix">
-                    <div class="col-sm-8">
-                        <div class="history_2 clearfix">
-                            <div class="col-sm-6">
-                                <div class="history_3">
-                                    <a href="#"><img src="public/img/35.jpg" alt="abc" class="img_responsive"></a>
-                                    <h3>Agent</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odionec odio.
-                                        Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-                                        Praesent mauris.</p>
-                                    <a href="{{ path ('Modif_demande_emploi') }}" class="button">Modifier</a>
-                                    <a href="{{ path ('Supp_demande_emploi') }}" class="button">Supprimer</a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="history_3">
-                                    <a href="#"><img src="img/36.jpg" alt="abc" class="img_responsive"></a>
-                                    <h3>Semper Porta</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odionec odio.
-                                        Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-                                        Praesent mauris.</p>
-                                    <a href="{{ path ('Modif_demande_emploi') }}" class="button">Modifier</a>
-                                    <a href="{{ path ('Supp_demande_emploi') }}" class="button">Supprimer</a>
-                                </div>
-                            </div>
+    </div>
+    {% for demande in demandes %}
+        <div class="best-features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h2>Vos demandes</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <p> {{ demande.description }} </p>
+                            <ul class="featured-list">
+                                <li><a>{{demande.TitreDemande}}</a></li>
+                                <li><a>{{demande.statutCand}}</a></li>
+                                <li><a>{{ demande.domaineTravail }}</a></li>
+                            </ul>
+                            <a href="{{ path('list_demande_emploi_detail', {'id': demande.id}) }}" class="filled-button">Voir</a>
+                            <a href="{{ path('Modif_demande_emploi', {'id': demande.id}) }}" class="filled-button">Modifier</a>
+                            <a href="{{ path('Supp_demande_emploi', {'id': demande.id}) }}" class="filled-button">Supprimer</a>
+                            <a class="btn btn-success" href="{{ path('listdem' , {'id': demande.id}) }}" download>Create pdf</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right-image">
+                            <img src="{{ asset('assets/images/about-1-570x350.jpg') }} "alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-{% endblock %}
+    {% endfor %}
+    {{ knp_pagination_render(
+        demandes,
+        '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+        {
+            'queryParam1': 'param1 value',
+            'queryParam2': 'param2 value'
+        },
+        {
+            'viewParam1': 'param1 value',
+            'viewParam2': 'param2 value'
+        },
+    ) }}
+    {% endblock %}
+
+
+
+

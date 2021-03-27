@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
+
+
     {% endblock %}
 
 </head>
@@ -48,8 +50,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <div class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto">
+
                     <li class="nav-item">
+                            <input type="text" class="form-control" placeholder="Search now" aria-label="search" aria-describedby="search" id="search">
+                    </li>
+
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ path('home') }}">Acceuil
                             <span class="sr-only">(current)</span>
                         </a>
@@ -58,13 +65,21 @@
 
                     <li class="nav-item"><a class="nav-link" href="{{ path('offre_index') }}">Offre D'emploi</a></li>
 
-                    <!--<li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-                    -->
-
-
-                    <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('list_video') }}>Formations</a></li>
                     <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+
                     {% if app.user %}
+                    <li class="nav-item"><a class="nav-link" href={{ path('list_video') }}>Formations</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Activiter</a>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href={{ path('Ajout_demande_emploi') }}>Ajouter demande</a>
+                            <a class="dropdown-item" href={{ path('list_demande_emploi') }}>Vos demandes</a>
+                            <a class="dropdown-item" href={{ path('Addvideo') }}>Ajouter formation</a>
+                            <a class="dropdown-item" href={{ path('Viewvideo') }}>Vos formations</a>
+                        </div>
+                    </li>
                     <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
                     <li> <a  class="nav-link"  href="{{ path('app_logout') }}">Déconnexion</a></li>
 
@@ -89,23 +104,17 @@
         </div>
     </nav>
 </header>
+<!-- Page Content -->
+
+<!-- Banner Ends Here -->
 {% block body %}
 {% endblock %}
+
 
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="inner-content">
-                    <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
 
 {% block js %}
 <!-- Bootstrap core JavaScript -->
@@ -117,6 +126,8 @@
 <script src={{ asset('assets/js/custom.js') }}></script>
 <script src={{ asset('assets/js/owl.js') }}></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.1/main.min.js" integrity="sha256-9puLsDK3mkUV8FSsGLlSRT+uJogUINfaCq56mzSUP/w=" crossorigin="anonymous"></script>
+    <script src={{ asset('assets/js/index.js') }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 {% endblock %}
 </body>
 </html>

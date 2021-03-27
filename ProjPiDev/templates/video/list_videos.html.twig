@@ -1,0 +1,93 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+<div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2>Vos formations</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div style="text-align: center; align-content: center; align-items: center;align-self: center">
+
+    <div class=" ">
+
+        <div class="">
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<div class="best-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Tous vos formations</h2>
+                </div>
+            </div>
+            <div id="list" class="row">
+                {% for video in videos %}
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <br>
+                            <h1 class="align-content-center"> {{video.title}} </h1>
+                            <div class="right-image">
+                                <br>
+                                <br>
+                                <iframe width="560" height="315" src="{{ asset(video.url) }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <br>
+                            <p> {{ video.description }} </p>
+                            <ul class="featured-list">
+                                <li><strong title="Posted on"><i class="fa fa-calendar"></i> {{ video.publishDate|date('Y-m-d H:i:s') }}</strong></li>
+                                <li><strong title="Posted on"><i class="fa fa-file"></i> {{ video.domaine }}</strong></li>
+                            </ul>
+                            <a href="{{ path('list_video_detail', {'id': video.id}) }}" class="filled-button">Voir</a>
+                            <a href="{{ path('Updatevideo', {'id': video.id}) }}" class="filled-button">Modifier</a>
+                            <a href="{{ path('DeleteVideo', {'id': video.id}) }}" class="filled-button">Supprimer</a>
+                            </a>
+
+                        </div>
+                    </div>
+
+
+                {% endfor %}
+            </div>
+            <div id="filtre" class="row">
+
+            </div>
+
+        </div>
+        <div>
+
+            {{ knp_pagination_render(
+                videos,
+                '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+                {
+                    'queryParam1': 'param1 value',
+                    'queryParam2': 'param2 value'
+                },
+                {
+                    'viewParam1': 'param1 value',
+                    'viewParam2': 'param2 value'
+                },
+            ) }}
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

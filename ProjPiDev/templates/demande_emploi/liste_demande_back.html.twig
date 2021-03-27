@@ -1,0 +1,54 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Liste demande d'emploi{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste des demandes</h4>
+                <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titre</th>
+                        <th>Domaine</th>
+                        <th>Statut</th>
+                        <th>Description</th>
+                        <th>CV</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+    {% for demande in demandes %}
+
+                    <tr>
+                        <td>{{demande.id}}</td>
+                        <td>{{demande.TitreDemande}}</td>
+                        <td>{{demande.domaineTravail}}</td>
+                        <td>{{demande.statutCand}}</td>
+                        <td>{{demande.description}}</td>
+                        <td><a class="btn btn-success" href="{{ path('listdem' , {'id': demande.id}) }}" download >Voir cv</a></td>
+                    </tr>
+
+    {% endfor %}
+
+                    </tbody>
+
+
+                </table>
+            </div>
+         </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,261 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h2>Nos formations</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div style="text-align: center; align-content: center; align-items: center;align-self: center">
+
+        <div class=" ">
+
+        <div class="">
+                <label for="domaines">Filtre domaine</label>
+            <select id="domaines" class="" style="width: 50%">
+                <option></option>
+                <option>Aéronautique Et Espace</option>
+                <option>Agriculture - Agroalimentaire</option>
+                <option>Artisanat</option>
+                <option>Audiovisuel, Cinéma</option>
+                <option>Audit, Comptabilité, Gestion</option>
+                <option>Automobile</option>
+                <option>Banque, Assurance</option>
+                <option>Bâtiment, Travaux Publics</option>
+                <option>Biologie, Chimie, Pharmacie</option>
+                <option>Commerce, Distribution</option>
+                <option>Communication</option>
+                <option>Création, Métiers art</option>
+                <option>Culture, Patrimoine</option>
+                <option>Défense, Sécurité, Armée</option>
+                <option>Documentation, Bibliothèque</option>
+                <option>Droit</option>
+                <option>Edition, Livre</option>
+                <option>Enseignement</option>
+                <option>Environnement</option>
+                <option>Ferroviaire</option>
+                <option>Foires, Salons Et Congrès</option>
+                <option>Fonction Publique</option>
+                <option>Hôtellerie, Restauration</option>
+                <option>Humanitaire</option>
+                <option>Immobilier</option>
+                <option>Industrie</option>
+                <option>Informatique, Télécoms, Web</option>
+                <option>Jeu Vidéo</option>
+                <option>Journalisme</option>
+                <option>Langues</option>
+                <option>Marketing, Publicité</option>
+                <option>Médical</option>
+                <option>Mode-Textile</option>
+                <option>Paramédical</option>
+                <option>Propreté Et Services Associés</option>
+                <option>Psychologie</option>
+                <option>Ressources Humaines</option>
+                <option>Sciences Humaines Et Sociales</option>
+                <option>Secrétariat</option>
+                <option>Social</option>
+                <option>Spectacle - Métiers De La Scène</option>
+                <option>Sport</option>
+                <option>Tourisme</option>
+                <option>Transport-Logistique</option>
+            </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="best-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Tous nos formations</h2>
+                    </div>
+                </div>
+    <div id="list" class="row">
+    {% for video in videos %}
+                    <div class="col-md-6">
+                        <div class="left-content">
+                            <br>
+                            <h1 class="align-content-center"> {{video.title}} </h1>
+                            <div class="right-image">
+                                <br>
+                                <br>
+                                <iframe width="560" height="315" src="{{ asset(video.url) }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <br>
+                            <p>Description : {{ video.description }} </p>
+                            <ul class="featured-list">
+                                <li><strong title="Posted on"><i class="fa fa-calendar"></i> {{ video.publishDate|date('Y-m-d H:i:s') }}</strong></li>
+                                <li><strong title="Posted on"><i class="fa fa-file"></i> {{ video.domaine }}</strong></li>
+                            </ul>
+
+
+                            <a href="{{ path('list_video_detail', {'id': video.id}) }}" class="filled-button">Details</a>
+                            <a href="{{ path('post_like',{'id':video.id}) }}" class="btn btn-link js-like">
+                                {% if app.user and video.isLikedByUser(app.user) %}
+                                    <i class="fa fa-thumbs-up"></i>
+                                {% else %}
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                {% endif %}
+                                <span class="js-likes">{{ video.likes | length}}</span>
+                                <span class="js-label">J'aimes</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+    {% endfor %}
+    </div>
+
+                <div id="filtre" class="row">
+
+                </div>
+                {{ knp_pagination_render(
+                    videos,
+                    '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig',
+                    {
+                        'queryParam1': 'param1 value',
+                        'queryParam2': 'param2 value'
+                    },
+                    {
+                        'viewParam1': 'param1 value',
+                        'viewParam2': 'param2 value'
+                    },
+                ) }}
+            </div>
+            </div>
+            <div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function onClickBtnLike(event){
+            event.preventDefault();
+            const url = this.href;
+            const spanCount = this.querySelector('span.js-likes');
+            const icone = this.querySelector('i');
+
+            axios.get(url).then(function (response){
+                console.log(response);
+                spanCount.textContent = response.data.likes;
+
+                if(icone.classList.contains('fa-thumbs-up')) {
+                    icone.classList.replace('fa-thumbs-up','fa-thumbs-o-up' );
+                }
+                else {
+                    icone.classList.replace('fa-thumbs-o-up','fa-thumbs-up');
+                }
+            }).catch(function (error){
+                if(error.respond.status===403){
+                    window.alert("vous ne pouvez pas liker un article")
+                }
+                else
+                {
+                    window.alert("une error est produit")
+                }
+            });
+        }
+
+        document.querySelectorAll('a.js-like').forEach(function (link){
+            link.addEventListener('click',onClickBtnLike);
+
+        })
+
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $("#domaines").on('change',function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).children("option:selected").val();
+
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('filtreVideo') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    method : 'GET',
+                    dataType: "JSON",
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'filtreValue' : value
+                    },
+                    async : true,
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            //$('#list').empty();
+
+                            $('#filtre').empty();
+                            $(retour).each( function(video, obj) {
+                                $('#list').hide();
+                                $('#filtre').append(
+                                    '<div class="col-md-6">'+
+                                        '<div class="left-content">'+
+                                   '<br>'+
+                                        '<h1 class="align-content-center">'+ obj.title + '</h1>'+
+                                        '<div class="right-image">'+
+                                            '<br>'+
+                                                '<br>'+
+                                    '<iframe width="560" height="315" src="'+ obj.url +'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'+
+                                    '</div>'+
+                                            '<p>'+ obj.title +'</p>'+
+                                            '<ul class="featured-list">'+
+                                                '<li><a>'+ obj.description +'</a></li>'+
+                                                '<li><strong title="Posted on"><i class="fa fa-calendar"></i>'+ obj.publishDate +'</strong></li>'+
+                                                '<li><strong title="Posted on"><i class="fa fa-file"></i>'+ obj.domaine +'</strong></li>'+
+                                            '</ul>'+
+
+                                            '<a href="/list/video/detail/'+ obj.id +'" class="filled-button">Voir</a>'+
+
+                                            '<a href="/video/'+ obj.id +'/like" class="btn btn-link js-like">'+
+
+                                                '<span class="js-likes">'+ obj.votes +'</span>'+
+                                                '<span class="js-label"> J\'aimes</span>'+
+                                            '</a>'+
+                                        '</div>'+
+
+                                    '</div>'
+                                );
+                            });
+                        }
+                        else
+                        {
+                            $('#list').show();
+                            $('#filtre').empty();
+                            $('#filtre').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+
+    <form method="post" action="{{ path('search') }}">
+        <option {{ order is same as('Bac') ? 'selected' : '' }}>Bac</option>
+        <option {{ order is same as('Licence') ? 'selected' : '' }}>Licence</option>
+        <option {{ order is same as('Doctorat') ? 'selected' : '' }}>Doctorat</option>
+        </select>
+        <input type="text" name="query" value="{{ query }}" />
+    </form>
+
+    <ul>
+        {% for result in results %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Titre</th>
+                        <th>Domaine</th>
+                        <th>Statut</th>
+                        <th>Description</th>
+                        <th>CV</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="py-1">
+                            <img src="{{ asset('../../images/faces/face1.jpg') }}" alt="image"/>
+                        </td>
+                        <td>
+                            {{ result.TitreDemande }}
+                        </td>
+                        <td>
+                            {{ result.domaineTravail }}
+                        </td>
+                        <td>
+                            {{ result.statutCand }}
+                        </td>
+                        <td>
+                            {{ result.description }}
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="{{ path('listdem') }}">Voir cv</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <li>no results found!</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

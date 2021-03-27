@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:NourBranch" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
+
     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="">
 
       <change afterPath="$PROJECT_DIR$/public/assets/css/fontawesome.css" afterDir="false" />
@@ -308,6 +333,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/link" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
@@ -319,6 +345,12 @@
   </component>
   <component name="ProjectId" id="1oyfRGrdr6HxRDudt9wenipjh4W" />
 >>>>>>> origin/yasminBranch
+=======
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+>>>>>>> origin/NourBranch
 =======
 <<<<<<< HEAD
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
@@ -360,6 +392,10 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/quiz" />
 >>>>>>> origin/quiz
     <property name="nodejs_package_manager_path" value="npm" />
+<<<<<<< HEAD
+=======
+    <property name="settings.editor.selected.configurable" value="discord-application" />
+>>>>>>> origin/NourBranch
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -420,6 +456,7 @@
       <workItem from="1614505918404" duration="915000" />
       <workItem from="1614507015597" duration="1271000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1614515994989" duration="10543000" />
       <workItem from="1614590451637" duration="15798000" />
       <workItem from="1614684280036" duration="1264000" />
@@ -462,11 +499,87 @@
       <option name="project" value="LOCAL" />
       <updated>1614825948474</updated>
 =======
+      <workItem from="1614588898443" duration="163000" />
+      <workItem from="1614589087630" duration="7204000" />
+      <workItem from="1614596982483" duration="35570000" />
+      <workItem from="1614673414785" duration="15270000" />
+      <workItem from="1614708295046" duration="4842000" />
+      <workItem from="1614843999473" duration="5815000" />
+      <workItem from="1615024740772" duration="1622000" />
+    </task>
+    <task id="LOCAL-00001" summary="Nour changes">
+      <created>1614587694067</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614587694067</updated>
+    </task>
+    <task id="LOCAL-00002" summary="workspace's commit">
+      <created>1614589829286</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614589829286</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Nour changes">
+      <created>1614618714156</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614618714156</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Nour changes">
+      <created>1614627954871</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614627954871</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Nour changes">
+      <created>1614684664918</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614684664918</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Nour changes">
+      <created>1614706658021</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614706658021</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Nour crud">
+      <created>1614708568263</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614708568263</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Nour crud">
+      <created>1614710006028</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614710006029</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Nour crud">
+      <created>1614718893974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1614718893974</updated>
+>>>>>>> origin/NourBranch
+=======
       <workItem from="1614839885449" duration="1582000" />
       <workItem from="1614845044260" duration="598000" />
 >>>>>>> origin/quiz
     </task>
+<<<<<<< HEAD
     <option name="localTasksCounter" value="6" />
+=======
+    <option name="localTasksCounter" value="10" />
+>>>>>>> origin/NourBranch
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +599,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="NourBranch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -495,6 +620,7 @@
 <<<<<<< HEAD
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="&quot;creation des entités contrat et offre&quot;" />
@@ -515,12 +641,19 @@
     <state x="450" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614344038559">
       <screen x="0" y="0" width="1536" height="824" />
 =======
+    <MESSAGE value="workspace's commit" />
+    <MESSAGE value="Nour changes" />
+    <MESSAGE value="Nour crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nour crud" />
+>>>>>>> origin/NourBranch
+=======
 <<<<<<< HEAD
 =======
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
 >>>>>>> templatebranche
+>>>>>>> origin/quiz
   </component>
   <component name="WindowStateProjectService">
     <state x="309" y="42" key="#Inspections" timestamp="1614383405692">
@@ -542,10 +675,17 @@
     <state x="400" y="72" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1614435413447" />
     <state x="450" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1614344038559" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614682111801">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1614682111801" />
+=======
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614595716135">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614595716135" />
+>>>>>>> origin/NourBranch
 =======
     <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614593150367">
       <screen x="1366" y="0" width="1366" height="728" />
@@ -557,6 +697,7 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0/0.0.1536.824@0.0.1536.824" timestamp="1614344353218" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <state x="302" y="0" key="CommitChangelistDialog2" timestamp="1614825945860">
       <screen x="0" y="0" width="1366" height="738" />
@@ -582,6 +723,28 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="390" y="102" width="585" height="534" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1614821627693" />
+=======
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1614587770772">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1614587770772" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1614597206937">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614597206937" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1614706680047">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614706680047" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614613292445">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1614613292445" />
+    <state x="478" y="11" width="579" height="801" key="find.popup" timestamp="1614590107875">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1614590107875" />
+>>>>>>> origin/NourBranch
     <state x="425" y="187" key="run.anything.popup" timestamp="1614447133153">
       <screen x="0" y="0" width="1536" height="824" />
 =======
@@ -601,6 +764,14 @@
       <screen x="0" y="0" width="1366" height="728" />
 >>>>>>> origin/yasminBranch
     </state>
+<<<<<<< HEAD
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1614791547922" />
+=======
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614447133153" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614683486988">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614683486988" />
+>>>>>>> origin/NourBranch
   </component>
 </project>

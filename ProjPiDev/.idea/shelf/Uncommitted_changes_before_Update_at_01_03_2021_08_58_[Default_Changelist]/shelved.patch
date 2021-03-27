@@ -1,0 +1,375 @@
+Index: templates/demande_emploi/Ajout_demande_emploi.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'baseCandidat.html.twig' %}\r\n\r\n{% block title %}Demande d'emploi{% endblock %}\r\n\r\n{% block body %}\r\n    <!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Demande d'emploi</title>\r\n    <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700\" rel=\"stylesheet\">\r\n    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\" crossorigin=\"anonymous\">\r\n    <style>\r\n      html, body {\r\n      min-height: 100%;\r\n      }\r\n      body, div, form, input, select, p {\r\n      padding: 0;\r\n      margin: 0;\r\n      outline: none;\r\n      font-family: Roboto, Arial, sans-serif;\r\n      font-size: 14px;\r\n      color: #666;\r\n      line-height: 22px;\r\n      }\r\n      h1 {\r\n      position: absolute;\r\n      margin: 0;\r\n      font-size: 38px;\r\n      color: #fff;\r\n      z-index: 2;\r\n      }\r\n      p.top-info {\r\n      margin: 10px 0;\r\n      }\r\n      .testbox {\r\n      display: flex;\r\n      justify-content: center;\r\n      align-items: center;\r\n      height: inherit;\r\n      padding: 20px;\r\n      }\r\n      textarea {\r\n      width: calc(100% - 12px);\r\n      padding: 5px;\r\n\r\n      }\r\n      form {\r\n      width: 100%;\r\n      padding: 20px;\r\n      border-radius: 6px;\r\n      background: #fff;\r\n      box-shadow: 0 0 25px 0 #1c87c9;\r\n      }\r\n     .banner {\r\n      position: relative;\r\n      height: 210px;\r\n      background-image: url(\"/uploads/media/default/0001/02/fb57ab781c34da322c884532bfec751e843e36fc.jpeg\");\r\n      background-size: cover;\r\n      display: flex;\r\n      justify-content: center;\r\n      align-items: center;\r\n      text-align: center;\r\n      }\r\n      .banner::after {\r\n      content: \"\";\r\n      background-color: rgba(0, 0, 0, 0.6);\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      }\r\n      input, select, textarea {\r\n      margin-bottom: 10px;\r\n      border: 1px solid #ccc;\r\n      border-radius: 3px;\r\n      }\r\n      input {\r\n      width: calc(100% - 10px);\r\n      padding: 5px;\r\n      }\r\n      input[type=\"date\"] {\r\n      padding: 4px 5px;\r\n      }\r\n      select {\r\n      width: 100%;\r\n      padding: 7px 0;\r\n      background: transparent;\r\n      }\r\n      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {\r\n      color: #1c87c9;\r\n      }\r\n      .item input:hover, .item select:hover {\r\n      border: 1px solid transparent;\r\n      box-shadow: 0 0 6px 0 #1c87c9;\r\n      color: #1c87c9;\r\n      }\r\n      .item {\r\n      position: relative;\r\n      margin: 10px 0;\r\n      }\r\n      input[type=\"date\"]::-webkit-inner-spin-button {\r\n      display: none;\r\n      }\r\n      .item i, input[type=\"date\"]::-webkit-calendar-picker-indicator {\r\n      position: absolute;\r\n      font-size: 20px;\r\n      color: #a9a9a9;\r\n      }\r\n      .item i {\r\n      right: 2%;\r\n      top: 30px;\r\n      z-index: 1;\r\n      }\r\n      [type=\"date\"]::-webkit-calendar-picker-indicator {\r\n      right: 1%;\r\n      z-index: 2;\r\n      opacity: 0;\r\n      cursor: pointer;\r\n      }\r\n      input[type=radio]  {\r\n      display: none;\r\n      }\r\n      label.radio {\r\n      position: relative;\r\n      display: inline-block;\r\n      margin: 5px 20px 10px 0;\r\n      cursor: pointer;\r\n      }\r\n      .question span {\r\n      margin-left: 30px;\r\n      }\r\n      span.required {\r\n      margin-left: 0;\r\n      color: red;\r\n      }\r\n      label.radio:before {\r\n      content: \"\";\r\n      position: absolute;\r\n      left: 0;\r\n      width: 17px;\r\n      height: 17px;\r\n      border-radius: 50%;\r\n      border: 2px solid #ccc;\r\n      }\r\n      input[type=radio]:checked + label:before, label.radio:hover:before {\r\n      border: 2px solid #1c87c9;\r\n      }\r\n      label.radio:after {\r\n      content: \"\";\r\n      position: absolute;\r\n      top: 6px;\r\n      left: 5px;\r\n      width: 8px;\r\n      height: 4px;\r\n      border: 3px solid #1c87c9;\r\n      border-top: none;\r\n      border-right: none;\r\n      transform: rotate(-45deg);\r\n      opacity: 0;\r\n      }\r\n      input[type=radio]:checked + label:after {\r\n      opacity: 1;\r\n      }\r\n      .btn-block {\r\n      margin-top: 10px;\r\n      text-align: center;\r\n      }\r\n      button {\r\n      width: auto;\r\n      padding: 10px;\r\n      border: none;\r\n      border-radius: 5px;\r\n      background: #1c87c9;\r\n      font-size: 16px;\r\n      font-weight: 700;\r\n      color: #fff;\r\n      cursor: pointer;\r\n      }\r\n      button:hover {\r\n      background: #1e6fa0;\r\n      }\r\n      @media (min-width: 568px) {\r\n      .name-item, .contact-item, .position-item {\r\n      display: flex;\r\n      flex-wrap: wrap;\r\n      justify-content: space-between;\r\n      }\r\n      .name-item input {\r\n      width: calc(50% - 20px);\r\n      }\r\n      .contact-item .item, .position-item .item {\r\n      width: calc(50% - 8px);\r\n      }\r\n      .contact-item input, .position-item input {\r\n      width: calc(100% - 12px);\r\n      }\r\n      .position-item select {\r\n      width: 100%;\r\n      }\r\n      }\r\n    </style>\r\n  </head>\r\n  <body>\r\n    <div class=\"testbox\">\r\n      <form action=\"/\">\r\n        <div class=\"banner\">\r\n          <h1>Demande d'emploi</h1>\r\n        </div>\r\n        <p class=\"top-info\">Veuillez remplir le formulaire de demande</p>\r\n        <div class=\"item\">\r\n          <p>Nom<span class=\"required\">*</span></p>\r\n          <div class=\"name-item\">\r\n            <input type=\"text\" name=\"name\" placeholder=\"Prenom\" required/>\r\n            <input type=\"text\" name=\"name\" placeholder=\"Nom\" required/>\r\n          </div>\r\n        </div>\r\n        <div class=\"contact-item\">\r\n          <div class=\"item\">\r\n            <p>Email<span class=\"required\">*</span></p>\r\n            <input type=\"text\" name=\"name\" required/>\r\n          </div>\r\n          <div class=\"item\">\r\n            <p>Phone<span class=\"required\">*</span></p>\r\n            <input type=\"text\" name=\"name\" required/>\r\n          </div>\r\n          <div class=\"item\">\r\n            <p>Description<span class=\"required\">*</span></p>\r\n            <textarea rows=\"3\" name=\"name\"required/></textarea>\r\n          </div>\r\n        </div>\r\n        <div class=\"position-item\">\r\n          <div class=\"item\">\r\n            <p>Veuillez choisir type de travail<span class=\"required\">*</span></p>\r\n            <select required>\r\n              <option value=\"1\">Engenieur</option>\r\n              <option value=\"2\">Docteur</option>\r\n              <option value=\"3\">Avocat</option>\r\n              <option value=\"4\">technicien</option>\r\n              <option value=\"5\">Professeur</option>\r\n            </select>\r\n          </div>\r\n          <div class=\"item\">\r\n            <p>Available start date<span class=\"required\">*</span></p>\r\n            <input type=\"date\" name=\"bdate\" required/>\r\n            <i class=\"fas fa-calendar-alt\"></i>\r\n          </div>\r\n        </div>\r\n        <div class=\"question\">\r\n          <p>What is your current employment status?<span class=\"required\">*</span></p>\r\n          <div class=\"question-answer\">\r\n            <div>\r\n              <input type=\"radio\" value=\"none\" id=\"radio_1\" name=\"status\" required/>\r\n              <label for=\"radio_1\" class=\"radio\"><span>Employed</span></label>\r\n            </div>\r\n            <div>\r\n              <input type=\"radio\" value=\"none\" id=\"radio_2\" name=\"status\" required/>\r\n              <label for=\"radio_2\" class=\"radio\"><span>Self-Employed</span></label>\r\n            </div>\r\n            <div>\r\n              <input type=\"radio\" value=\"none\" id=\"radio_3\" name=\"status\" required/>\r\n              <label for=\"radio_3\" class=\"radio\"><span>Unemployed</span></label>\r\n            </div>\r\n            <div>\r\n              <input type=\"radio\" value=\"none\" id=\"radio_4\" name=\"status\" required/>\r\n              <label for=\"radio_4\" class=\"radio\"><span>Student</span></label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"item\">\r\n          <p>Submit your resume by providing your resume URL or attach file:</p>\r\n          <input type=\"text\" name=\"providing\"/>\r\n  <input type=\"file\" name=\"file\" accept=\"file/*\">\r\n        </div>\r\n        <div class=\"question\">\r\n          <p>Would you like to list references</p>\r\n          <div class=\"question-answer\">\r\n            <div>\r\n              <input type=\"radio\" value=\"none\" id=\"radio_5\" name=\"references\" />\r\n              <label for=\"radio_5\" class=\"radio\"><span>Yes</span></label>\r\n            </div>\r\n            <div>\r\n              <input type=\"radio\" value=\"none\" id=\"radio_6\" name=\"references\" />\r\n              <label for=\"radio_6\" class=\"radio\"><span>No</span></label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"btn-block\">\r\n          <button type=\"submit\" href=\"{{ path('list_demande_emploi') }}\">Publier</button>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </body>\r\n</html>\r\n{% endblock %}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/demande_emploi/Ajout_demande_emploi.html.twig	(revision eea417e4e834272b2324d1919e2c7ee1e75d90e1)
++++ templates/demande_emploi/Ajout_demande_emploi.html.twig	(date 1614532816211)
+@@ -209,22 +209,26 @@
+         <div class="item">
+           <p>Nom<span class="required">*</span></p>
+           <div class="name-item">
+-            <input type="text" name="name" placeholder="Prenom" required/>
+-            <input type="text" name="name" placeholder="Nom" required/>
++            <input type="text" name="name" placeholder="Prenom" />
++            <input type="text" name="name" placeholder="Nom" />
+           </div>
+         </div>
+         <div class="contact-item">
+           <div class="item">
+             <p>Email<span class="required">*</span></p>
+-            <input type="text" name="name" required/>
++            <input type="text" name="name" />
++          </div>
++          <div class="item">
++            <p>Numéro<span class="required">*</span></p>
++            <input type="text" name="name" />
+           </div>
+-          <div class="item">
+-            <p>Phone<span class="required">*</span></p>
+-            <input type="text" name="name" required/>
++           <div class="item">
++            <p>Adresse<span class="required">*</span></p>
++            <input type="text" name="name" />
+           </div>
+           <div class="item">
+             <p>Description<span class="required">*</span></p>
+-            <textarea rows="3" name="name"required/></textarea>
++            <input type="textarea" rows="3" name="name" />
+           </div>
+         </div>
+         <div class="position-item">
+@@ -239,52 +243,33 @@
+             </select>
+           </div>
+           <div class="item">
+-            <p>Available start date<span class="required">*</span></p>
+-            <input type="date" name="bdate" required/>
+-            <i class="fas fa-calendar-alt"></i>
+-          </div>
++          <p>Votre CV<span class="required">*</span></p>
++           <input type="file" name="file" accept="file/*">
++        </div>
+         </div>
+         <div class="question">
+           <p>What is your current employment status?<span class="required">*</span></p>
+           <div class="question-answer">
+             <div>
+-              <input type="radio" value="none" id="radio_1" name="status" required/>
+-              <label for="radio_1" class="radio"><span>Employed</span></label>
++              <input type="radio" value="none" id="radio_1" name="status" />
++              <label for="radio_1" class="radio"><span>Employe</span></label>
+             </div>
+             <div>
+-              <input type="radio" value="none" id="radio_2" name="status" required/>
++              <input type="radio" value="none" id="radio_2" name="status" />
+               <label for="radio_2" class="radio"><span>Self-Employed</span></label>
+             </div>
+             <div>
+-              <input type="radio" value="none" id="radio_3" name="status" required/>
++              <input type="radio" value="none" id="radio_3" name="status" />
+               <label for="radio_3" class="radio"><span>Unemployed</span></label>
+             </div>
+             <div>
+-              <input type="radio" value="none" id="radio_4" name="status" required/>
++              <input type="radio" value="none" id="radio_4" name="status" />
+               <label for="radio_4" class="radio"><span>Student</span></label>
+             </div>
+           </div>
+         </div>
+-        <div class="item">
+-          <p>Submit your resume by providing your resume URL or attach file:</p>
+-          <input type="text" name="providing"/>
+-  <input type="file" name="file" accept="file/*">
+-        </div>
+-        <div class="question">
+-          <p>Would you like to list references</p>
+-          <div class="question-answer">
+-            <div>
+-              <input type="radio" value="none" id="radio_5" name="references" />
+-              <label for="radio_5" class="radio"><span>Yes</span></label>
+-            </div>
+-            <div>
+-              <input type="radio" value="none" id="radio_6" name="references" />
+-              <label for="radio_6" class="radio"><span>No</span></label>
+-            </div>
+-          </div>
+-        </div>
+         <div class="btn-block">
+-          <button type="submit" href="{{ path('list_demande_emploi') }}">Publier</button>
++          <a type="submit" href="{{ path ('list_demande_emploi') }}" class="button">Publier</a>
+         </div>
+       </form>
+     </div>
+Index: templates/baseBack.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <title> {% block title %} recruitini {% endblock %} </title>\r\n\r\n    {% block css%}\r\n        <link rel=\"stylesheet\" href=\"{{asset('vendors/mdi/css/materialdesignicons.min.css')}}\">\r\n        <link rel=\"stylesheet\" href=\"{{asset('vendors/base/vendor.bundle.base.css')}}\">\r\n        <!-- endinject -->\r\n        <!-- plugin css for this page -->\r\n        <link rel=\"stylesheet\" href=\"{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}\">\r\n        <!-- End plugin css for this page -->\r\n        <!-- inject:css -->\r\n        <link rel=\"stylesheet\" href=\"{{asset('css/style.css')}}\">\r\n        <!-- endinject -->\r\n        <link rel=\"shortcut icon\" href=\"{{ asset('images/favicon.png') }}\" />\r\n\r\n        <!-- plugins:css -->\r\n        <link rel=\"stylesheet\" href=\"{{ asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}\">\r\n        <link rel=\"stylesheet\" href=\"{{ asset('vendors/iconfonts/ionicons/dist/css/ionicons.css') }}\">\r\n        <link rel=\"stylesheet\" href=\"{{ asset('vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}\">\r\n        <link rel=\"stylesheet\" href=\"{{ asset('vendors/css/vendor.bundle.base.css') }}\">\r\n        <link rel=\"stylesheet\" href=\"{{ asset('vendors/css/vendor.bundle.addons.css') }}\">\r\n        <!-- endinject -->\r\n        <!-- plugin css for this page -->\r\n        <!-- End plugin css for this page -->\r\n        <!-- inject:css -->\r\n        <link rel=\"stylesheet\" href=\"{{ asset('css/shared/style.css') }}\">\r\n        <!-- endinject -->\r\n        <!-- Layout styles -->\r\n        <link rel=\"stylesheet\" href=\"{{ asset('css/demo_1/style.css') }}\">\r\n        <!-- End Layout styles -->\r\n        <link rel=\"shortcut icon\" href=\"{{ asset('images/favicon.ico') }}\" />\r\n    {% endblock %}\r\n\r\n    {% block js %}\r\n        <!-- container-scroller -->\r\n        <!-- plugins:js -->\r\n        <script src=\"{{ asset('vendors/js/vendor.bundle.base.js') }}\"></script>\r\n        <script src=\"{{ asset('vendors/js/vendor.bundle.addons.js') }}\"></script>\r\n        <!-- endinject -->\r\n        <!-- Plugin js for this page-->\r\n        <!-- End plugin js for this page-->\r\n        <!-- inject:js -->\r\n        <script src=\"{{ asset('js/shared/off-canvas.js') }}\"></script>\r\n        <script src=\"{{ asset('js/shared/misc.js') }}\"></script>\r\n        <!-- endinject -->\r\n        <!-- Custom js for this page-->\r\n        <script src=\"{{ asset('js/demo_1/dashboard.js') }}\"></script>\r\n        <!-- End custom js for this page-->\r\n        <script src=\"{{ asset('js/shared/jquery.cookie.js') }}\" type=\"text/javascript\"></script>\r\n    {% endblock %}\r\n\r\n</head>\r\n\r\n\r\n<div class=\"container-scroller\">\r\n    <!-- partial:partials/_navbar.html -->\r\n    <nav class=\"navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row\">\r\n        <div class=\"text-center navbar-brand-wrapper d-flex align-items-top justify-content-center\">\r\n            <a class=\"navbar-brand brand-logo\" href=\"{{ path('back') }}\">\r\n                <img src=\"{{ asset('images/logo.svg') }}\" alt=\"logo\" /> </a>\r\n            <a class=\"navbar-brand brand-logo-mini\" href=\"{{ path('back') }}\">\r\n                <img src=\"{{ asset('images/logo-mini.svg') }}\" alt=\"logo\" /> </a>\r\n        </div>\r\n        <div class=\"navbar-menu-wrapper d-flex align-items-center\">\r\n            <ul class=\"navbar-nav\">\r\n                <li class=\"nav-item font-weight-semibold d-none d-lg-block\">Numéro : +050 2992 709</li>\r\n            </ul>\r\n            <form class=\"ml-auto search-form d-none d-md-block\" action=\"#\">\r\n                <div class=\"form-group\">\r\n                    <input type=\"search\" class=\"form-control\" placeholder=\"Recherche\">\r\n                </div>\r\n            </form>\r\n            <ul class=\"navbar-nav ml-auto\">\r\n                <li class=\"nav-item dropdown\">\r\n                    <a class=\"nav-link count-indicator\" id=\"messageDropdown\" href=\"#\" data-toggle=\"dropdown\" aria-expanded=\"false\">\r\n                        <i class=\"mdi mdi-bell-outline\"></i>\r\n                        <span class=\"count\">100</span>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0\" aria-labelledby=\"messageDropdown\">\r\n                        <a class=\"dropdown-item py-3\">\r\n                            <p class=\"mb-0 font-weight-medium float-left\">You have 7 unread mails </p>\r\n                            <span class=\"badge badge-pill badge-primary float-right\">View all</span>\r\n                        </a>\r\n                        <div class=\"dropdown-divider\"></div>\r\n                        <a class=\"dropdown-item preview-item\">\r\n                            <div class=\"preview-thumbnail\">\r\n                                <img src=\"{{ asset('images/faces/face10.jpg') }}\" alt=\"image\" class=\"img-sm profile-pic\">\r\n                            </div>\r\n                            <div class=\"preview-item-content flex-grow py-2\">\r\n                                <p class=\"preview-subject ellipsis font-weight-medium text-dark\">Marian Garner </p>\r\n                                <p class=\"font-weight-light small-text\"> The meeting is cancelled </p>\r\n                            </div>\r\n                        </a>\r\n                        <a class=\"dropdown-item preview-item\">\r\n                            <div class=\"preview-thumbnail\">\r\n                                <img src=\"{{ asset('images/faces/face12.jpg') }}\" alt=\"image\" class=\"img-sm profile-pic\">\r\n                            </div>\r\n                            <div class=\"preview-item-content flex-grow py-2\">\r\n                                <p class=\"preview-subject ellipsis font-weight-medium text-dark\">David Grey </p>\r\n                                <p class=\"font-weight-light small-text\"> The meeting is cancelled </p>\r\n                            </div>\r\n                        </a>\r\n                        <a class=\"dropdown-item preview-item\">\r\n                            <div class=\"preview-thumbnail\">\r\n                                <img src=\"{{ asset('images/faces/face1.jpg') }}\" alt=\"image\" class=\"img-sm profile-pic\">\r\n                            </div>\r\n                            <div class=\"preview-item-content flex-grow py-2\">\r\n                                <p class=\"preview-subject ellipsis font-weight-medium text-dark\">Travis Jenkins </p>\r\n                                <p class=\"font-weight-light small-text\"> The meeting is cancelled </p>\r\n                            </div>\r\n                        </a>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item dropdown\">\r\n                    <a class=\"nav-link count-indicator\" id=\"notificationDropdown\" href=\"#\" data-toggle=\"dropdown\">\r\n                        <i class=\"mdi mdi-email-outline\"></i>\r\n                        <span class=\"count bg-success\">3</span>\r\n                    </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0\" aria-labelledby=\"notificationDropdown\">\r\n                        <a class=\"dropdown-item py-3 border-bottom\">\r\n                            <p class=\"mb-0 font-weight-medium float-left\">You have 4 new notifications </p>\r\n                            <span class=\"badge badge-pill badge-primary float-right\">View all</span>\r\n                        </a>\r\n                        <a class=\"dropdown-item preview-item py-3\">\r\n                            <div class=\"preview-thumbnail\">\r\n                                <i class=\"mdi mdi-alert m-auto text-primary\"></i>\r\n                            </div>\r\n                            <div class=\"preview-item-content\">\r\n                                <h6 class=\"preview-subject font-weight-normal text-dark mb-1\">Application Error</h6>\r\n                                <p class=\"font-weight-light small-text mb-0\"> Just now </p>\r\n                            </div>\r\n                        </a>\r\n                        <a class=\"dropdown-item preview-item py-3\">\r\n                            <div class=\"preview-thumbnail\">\r\n                                <i class=\"mdi mdi-settings m-auto text-primary\"></i>\r\n                            </div>\r\n                            <div class=\"preview-item-content\">\r\n                                <h6 class=\"preview-subject font-weight-normal text-dark mb-1\">Settings</h6>\r\n                                <p class=\"font-weight-light small-text mb-0\"> Private message </p>\r\n                            </div>\r\n                        </a>\r\n                        <a class=\"dropdown-item preview-item py-3\">\r\n                            <div class=\"preview-thumbnail\">\r\n                                <i class=\"mdi mdi-airballoon m-auto text-primary\"></i>\r\n                            </div>\r\n                            <div class=\"preview-item-content\">\r\n                                <h6 class=\"preview-subject font-weight-normal text-dark mb-1\">New user registration</h6>\r\n                                <p class=\"font-weight-light small-text mb-0\"> 2 days ago </p>\r\n                            </div>\r\n                        </a>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item dropdown d-none d-xl-inline-block user-dropdown\">\r\n                    <a class=\"nav-link dropdown-toggle\" id=\"UserDropdown\" href=\"#\" data-toggle=\"dropdown\" aria-expanded=\"false\">\r\n                        <img class=\"img-xs rounded-circle\" src=\"{{ asset('images/faces/face8.jpg') }}\" alt=\"Profile image\"> </a>\r\n                    <div class=\"dropdown-menu dropdown-menu-right navbar-dropdown\" aria-labelledby=\"UserDropdown\">\r\n                        <div class=\"dropdown-header text-center\">\r\n                            <img class=\"img-md rounded-circle\" src=\"{{ asset('images/faces/face8.jpg') }}\" alt=\"Profile image\">\r\n                            <p class=\"mb-1 mt-3 font-weight-semibold\">Allen Moreno</p>\r\n                            <p class=\"font-weight-light text-muted mb-0\">allenmoreno@gmail.com</p>\r\n                        </div>\r\n                        <a class=\"dropdown-item\">Mon Profile <span class=\"badge badge-pill badge-danger\">1</span><i class=\"dropdown-item-icon ti-dashboard\"></i></a>\r\n                        <a class=\"dropdown-item\">Messages<i class=\"dropdown-item-icon ti-comment-alt\"></i></a>\r\n                        <a class=\"dropdown-item\">Sign Out<i class=\"dropdown-item-icon ti-power-off\"></i></a>\r\n                    </div>\r\n                </li>\r\n            </ul>\r\n            <button class=\"navbar-toggler navbar-toggler-right d-lg-none align-self-center\" type=\"button\" data-toggle=\"offcanvas\">\r\n                <span class=\"mdi mdi-menu\"></span>\r\n            </button>\r\n        </div>\r\n    </nav>\r\n    <!-- partial -->\r\n    <div class=\"container-fluid page-body-wrapper\">\r\n        <!-- partial:partials/_sidebar.html -->\r\n        <nav class=\"sidebar sidebar-offcanvas\" id=\"sidebar\">\r\n            <ul class=\"nav\">\r\n                <li class=\"nav-item nav-profile\">\r\n                    <a href=\"#\" class=\"nav-link\">\r\n                        <div class=\"profile-image\">\r\n                            <img class=\"img-xs rounded-circle\" src=\"{{ asset('images/faces/face8.jpg') }}\" alt=\"profile image\">\r\n                            <div class=\"dot-indicator bg-success\"></div>\r\n                        </div>\r\n                    </a>\r\n                </li>\r\n                <li class=\"nav-item nav-category\">Acceuil</li>\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link\" href=\"{{ path('back') }}\">\r\n                        <i class=\"menu-icon typcn typcn-document-text\"></i>\r\n                        <span class=\"menu-title\">Acceuil</span>\r\n                    </a>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#ui-basic\" aria-expanded=\"false\" aria-controls=\"ui-basic\">\r\n                        <i class=\"menu-icon typcn typcn-coffee\"></i>\r\n                        <span class=\"menu-title\">Espace Entreprise</span>\r\n                        <i class=\"menu-arrow\"></i>\r\n                    </a>\r\n                    <div class=\"collapse\" id=\"ui-basic\">\r\n                        <ul class=\"nav flex-column sub-menu\">\r\n                            <li class=\"nav-item\">\r\n                                <a class=\"nav-link\" href=\"pages/ui-features/buttons.html\">Comptes</a>\r\n                            </li>\r\n                            <li class=\"nav-item\">\r\n                                <a class=\"nav-link\" href=\"pages/ui-features/dropdowns.html\">Offres</a>\r\n                            </li>\r\n                            <li class=\"nav-item\">\r\n                                <a class=\"nav-link\" href=\"pages/ui-features/typography.html\">Réclamations</a>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link\" data-toggle=\"collapse\" href=\"#auth\" aria-expanded=\"false\" aria-controls=\"auth\">\r\n                        <i class=\"menu-icon typcn typcn-document-add\"></i>\r\n                        <span class=\"menu-title\">Espace Candidat</span>\r\n                        <i class=\"menu-arrow\"></i>\r\n                    </a>\r\n                    <div class=\"collapse\" id=\"auth\">\r\n                        <ul class=\"nav flex-column sub-menu\">\r\n                            <li class=\"nav-item\">\r\n                                <a class=\"nav-link\" href=\"pages/samples/blank-page.html\"> Comptes </a>\r\n                            </li>\r\n                            <li class=\"nav-item\">\r\n                                <a class=\"nav-link\" href=\"{{path('list_demande_back')}}\"> Demandes </a>\r\n                            </li>\r\n                            <li class=\"nav-item\">\r\n                                <a class=\"nav-link\" href=\"pages/samples/register.html\"> Candidatures </a>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link\" href=\"pages/charts/chartjs.html\">\r\n                        <i class=\"menu-icon typcn typcn-th-large-outline\"></i>\r\n                        <span class=\"menu-title\">Charts</span>\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </nav>\r\n\r\n{% block body %}\r\n\r\n{% endblock %}\r\n\r\n\r\n\r\n\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/baseBack.html.twig	(revision eea417e4e834272b2324d1919e2c7ee1e75d90e1)
++++ templates/baseBack.html.twig	(date 1614516978267)
+@@ -62,9 +62,9 @@
+     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+             <a class="navbar-brand brand-logo" href="{{ path('back') }}">
+-                <img src="{{ asset('images/logo.svg') }}" alt="logo" /> </a>
++                <img src="{{ asset('images/Recruitini_logo.png') }}" alt="logo" /> </a>
+             <a class="navbar-brand brand-logo-mini" href="{{ path('back') }}">
+-                <img src="{{ asset('images/logo-mini.svg') }}" alt="logo" /> </a>
++                <img src="{{ asset('images/Recruitini_logo.png') }}" alt="logo" /> </a>
+         </div>
+         <div class="navbar-menu-wrapper d-flex align-items-center">
+             <ul class="navbar-nav">
+Index: src/Controller/DemandeEmploiController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Controller;\r\n\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\n\r\nclass DemandeEmploiController extends AbstractController\r\n{\r\n    /**\r\n     * @Route(\"/Ajout/demande/emploi\", name=\"Ajout_demande_emploi\")\r\n     */\r\n    public function Ajout(): Response\r\n    {\r\n        return $this->render('demande_emploi/Ajout_demande_emploi.html.twig', [\r\n            'controller_name' => 'DemandeEmploiController',\r\n        ]);\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/list/demande/emploi\", name=\"list_demande_emploi\")\r\n     */\r\n    public function listeD(): Response\r\n    {\r\n        return $this->render('demande_emploi/liste_demande_emploi.html.twig', [\r\n            'controller_name' => 'DemandeEmploiController',\r\n        ]);\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/list/demande/back\", name=\"list_demande_back\")\r\n     */\r\n    public function listeDB(): Response\r\n    {\r\n        return $this->render('demande_emploi/liste_demande_back.html.twig', [\r\n            'controller_name' => 'DemandeEmploiController',\r\n        ]);\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/Supp/demande/emploi\", name=\"Supp_demande_emploi\")\r\n     */\r\n    public function listeSu(): Response\r\n    {\r\n        return $this->render('demande_emploi/Supp_demande_emploi.html.twig', [\r\n            'controller_name' => 'DemandeEmploiController',\r\n        ]);\r\n    }\r\n\r\n    /**\r\n     * @Route(\"/Modif/demande/emploi\", name=\"Modif_demande_emploi\")\r\n     */\r\n    public function listeModif(): Response\r\n    {\r\n        return $this->render('demande_emploi/Modif_demande_emploi.html.twig', [\r\n            'controller_name' => 'DemandeEmploiController',\r\n        ]);\r\n    }\r\n\r\n}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controller/DemandeEmploiController.php	(revision eea417e4e834272b2324d1919e2c7ee1e75d90e1)
++++ src/Controller/DemandeEmploiController.php	(date 1614550583965)
+@@ -2,30 +2,47 @@
+ 
+ namespace App\Controller;
+ 
++use App\Entity\Demande;
++use App\Form\DemandeType;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
++use Symfony\Component\HttpFoundation\Request;
+ use Symfony\Component\HttpFoundation\Response;
+ use Symfony\Component\Routing\Annotation\Route;
+ 
+ class DemandeEmploiController extends AbstractController
+ {
+     /**
++     *  @param  Request $request
+      * @Route("/Ajout/demande/emploi", name="Ajout_demande_emploi")
+      */
+-    public function Ajout(): Response
++    public function Ajout(Request $request): Response
+     {
+-        return $this->render('demande_emploi/Ajout_demande_emploi.html.twig', [
+-            'controller_name' => 'DemandeEmploiController',
+-        ]);
++        $demande = new Demande();
++        $form = $this->createForm(DemandeType::class, $demande);
++        $form->add('Ajouter Demande', SubmitType::class);
++        $form->handleRequest($request);
++        if ($form->isSubmitted()) {
++            $em = $this->getDoctrine()->getManager();
++            $em->persist($demande);
++            $em->flush();
++            return $this->redirectToRoute("list_demande_emploi");
++
++        }
++        return $this->render('demande_emploi/Ajout_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
+     }
++
++
+ 
+     /**
+-     * @Route("/list/demande/emploi", name="list_demande_emploi")
++     * @Route("/list/demande/emploi/{id}", name="list_demande_emploi")
+      */
+-    public function listeD(): Response
++    public function listeD($id): Response
+     {
+-        return $this->render('demande_emploi/liste_demande_emploi.html.twig', [
+-            'controller_name' => 'DemandeEmploiController',
+-        ]);
++
++        $demande=$this->getDoctrine()->getRepository(Demande::class);
++        $demande=$demande->find($id);
++        return $this->render('demande_emploi/liste_demande_emploi.html.twig',['demande'=>$demande , ]);
++        
+     }
+ 
+     /**
+@@ -33,32 +50,48 @@
+      */
+     public function listeDB(): Response
+     {
+-        return $this->render('demande_emploi/liste_demande_back.html.twig', [
+-            'controller_name' => 'DemandeEmploiController',
+-        ]);
++
++        $demande=$this->getDoctrine()->getRepository(Demande::class);
++        $demandes=$demande->findAll();
++        return $this->render('demande_emploi/liste_demande_back.html.twig',['demandes'=>$demandes , ]);
++
+     }
+ 
+     /**
+-     * @Route("/Supp/demande/emploi", name="Supp_demande_emploi")
++     * @Route("/Supp/demande/emploi/{id}", name="Supp_demande_emploi")
+      */
+-    public function listeSu(): Response
++    public function listeSu($id): Response
+     {
+-        return $this->render('demande_emploi/Supp_demande_emploi.html.twig', [
+-            'controller_name' => 'DemandeEmploiController',
+-        ]);
++
++        $demande=$this->getDoctrine()->getRepository(Demande::class)->find($id);
++        $em=$this->getDoctrine()->getManager();
++        $em->remove($demande);
++        $em->flush();
++        return $this->redirectToRoute("list_demande_emploi");
++
+     }
+ 
+     /**
+      * @Route("/Modif/demande/emploi", name="Modif_demande_emploi")
+      */
+-    public function listeModif(): Response
++    public function listeModif(Request $request, $id): Response
+     {
+-        return $this->render('demande_emploi/Modif_demande_emploi.html.twig', [
+-            'controller_name' => 'DemandeEmploiController',
+-        ]);
+-    }
++
++        $demande=$this->getDoctrine()->getRepository(Demande::class)->find($id);
++        $form=$this->createForm(DemandeType::class,$demande);
++        $form->add('Modifier Demande',SubmitType::class);
++        $form->handleRequest($request);
++        if($form->isSubmitted())
++        {
++            $em=$this->getDoctrine()->getManager();
++            $em->flush();
++            return $this->redirectToRoute("list_demande_emploi");
++        }
+ 
+-}
++        return $this->render('demande_emploi/Modif_demande_emploi.html.twig',array('formdemande'=>$form->createView()));
++
++     }
++  }
+ 
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a0cee593-b4e4-4f83-819c-c971ce919264\" name=\"Default Changelist\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-server-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1oyfRGrdr6HxRDudt9wenipjh4W\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.pluginManager\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\wamp64\\www\\ProjPiDev\\public\" />\r\n      <recent name=\"C:\\wamp64\\www\\ProjPiDev\\public\\fonts\" />\r\n      <recent name=\"C:\\wamp64\\www\\ProjPiDev\\public\\js\" />\r\n      <recent name=\"C:\\wamp64\\www\\ProjPiDev\\public\\css\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a0cee593-b4e4-4f83-819c-c971ce919264\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1614263741482</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1614263741482</updated>\r\n      <workItem from=\"1614263742648\" duration=\"22651000\" />\r\n      <workItem from=\"1614340304996\" duration=\"11420000\" />\r\n      <workItem from=\"1614439149053\" duration=\"10806000\" />\r\n      <workItem from=\"1614505918404\" duration=\"915000\" />\r\n      <workItem from=\"1614507015597\" duration=\"1271000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"450\" y=\"82\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog\" timestamp=\"1614344038559\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"450\" y=\"82\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1614344038559\" />\r\n    <state x=\"571\" y=\"276\" key=\"#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0\" timestamp=\"1614344353218\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"571\" y=\"276\" key=\"#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0/0.0.1536.824@0.0.1536.824\" timestamp=\"1614344353218\" />\r\n    <state x=\"277\" y=\"57\" key=\"SettingsEditor\" timestamp=\"1614506857024\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"277\" y=\"57\" key=\"SettingsEditor/0.0.1536.824@0.0.1536.824\" timestamp=\"1614506857024\" />\r\n    <state x=\"425\" y=\"187\" key=\"run.anything.popup\" timestamp=\"1614447133153\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"425\" y=\"187\" key=\"run.anything.popup/0.0.1536.824@0.0.1536.824\" timestamp=\"1614447133153\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision eea417e4e834272b2324d1919e2c7ee1e75d90e1)
++++ .idea/workspace.xml	(date 1614550455400)
+@@ -1,5 +1,23 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="BranchesTreeState">
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
++    <select />
++  </component>
+   <component name="ChangeListManager">
+     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+@@ -117,6 +135,7 @@
+     </include_path>
+   </component>
+   <component name="ProjectId" id="1oyfRGrdr6HxRDudt9wenipjh4W" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -131,6 +150,7 @@
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\User\Documents\pidev\ProjPiDev\public\images" />
+       <recent name="C:\wamp64\www\ProjPiDev\public" />
+       <recent name="C:\wamp64\www\ProjPiDev\public\fonts" />
+       <recent name="C:\wamp64\www\ProjPiDev\public\js" />
+@@ -155,12 +175,19 @@
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="450" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614344038559">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="450" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1614344038559" />
++    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614550278033">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614550278033" />
+     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0" timestamp="1614344353218">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+@@ -169,9 +196,9 @@
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614506857024" />
+-    <state x="425" y="187" key="run.anything.popup" timestamp="1614447133153">
++    <state x="425" y="187" key="run.anything.popup" timestamp="1614537344774">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614447133153" />
++    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1614537344774" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: templates/base.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <title> {% block title %} recruitini {% endblock %} </title>\r\n\r\n    {% block css%}\r\n        <link href=\"{{asset('css/bootstrap.min.css')}}\" rel=\"stylesheet\">\r\n        <link href=\"{{asset('css/global.css')}}\" rel=\"stylesheet\">\r\n        <link href=\"{{asset('css/index.css')}}\" rel=\"stylesheet\">\r\n        <link href=\"{{asset('css/ken-burns.css')}}\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />\r\n        <link href=\"{{asset('css/services.css')}}\" rel=\"stylesheet\">\r\n        <link href=\"{{asset('css/contact.css')}}\" rel=\"stylesheet\">\r\n        <link type=\"text/css\" rel=\"stylesheet\" href=\"{{asset('css/animate.css')}}\">\r\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"{{asset('css/font-awesome.min.css')}}\" />\r\n        <link href=\"https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap\" rel=\"stylesheet\">\r\n    {% endblock %}\r\n\r\n    {% block js %}\r\n        <script src=\"{{asset('js/jquery-2.1.1.min.js')}}\"></script>\r\n        <script src=\"{{asset('js/bootstrap.min.js')}}\"></script>\r\n    {% endblock %}\r\n\r\n</head>\r\n\r\n\r\n    <section id=\"header\">\r\n        <nav class=\"navbar navbar-default navbar-fixed-top\">\r\n            <div class=\"container1\">\r\n                <!-- Brand and toggle get grouped for better mobile display -->\r\n                <div class=\"navbar-header col-sm-2\">\r\n                    <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar-collapse-2\">\r\n                        <span class=\"sr-only\">Toggle navigation</span>\r\n                        <span class=\"icon-bar\"></span>\r\n                        <span class=\"icon-bar\"></span>\r\n                        <span class=\"icon-bar\"></span>\r\n                    </button>\r\n                    <a class=\"navbar-brand\" href=\"{{ path('home') }}\">RECRUITINI</a>\r\n                </div>\r\n                <!-- Collect the nav links, forms, and other content for toggling -->\r\n                <div class=\"col-sm-10\">\r\n                    <div class=\"collapse navbar-collapse\" id=\"navbar-collapse-2\">\r\n                        <ul class=\"nav navbar-nav navbar col-sm-7\">\r\n                            <li class=\"active\"><a href=\"{{ path('home') }}\">Acceuil</a></li>\r\n                            <li><a href=\"details.html\">A propos</a></li>\r\n                            <li><a href=\"offre.html\">Offre d'emploi</a></li>\r\n                            <li><a href=\"annonce.html\">Annonce Presse</a></li>\r\n                            <li><a href=\"{{ path('contact') }}\">Contact</a></li>\r\n                        </ul>\r\n\r\n                        <ul class=\"nav navbar-nav navbar nav_1 col-sm-3\">\r\n                            <li>\r\n                                <div id=\"custom-search-input\">\r\n                                    <div class=\"input-group\">\r\n                                        <input type=\"text\" class=\"  search-query form-control\" placeholder=\"Recherche\">\r\n                                        <span class=\"input-group-btn\">\r\n                                    <button class=\"btn btn-danger\" type=\"button\">\r\n                                        <span class=\" glyphicon glyphicon-search\"></span>\r\n                                    </button>\r\n                                </span>\r\n                                    </div>\r\n                                </div>\r\n                            </li>\r\n                        </ul>\r\n                        <ul class=\"nav navbar-nav navbar nav_2 col-sm-2\">\r\n                            <div class=\"login\">\r\n                                <ul class=\"nav-login\">\r\n                                    <li class=\"tell_main_8\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal1\">Login</a></li>\r\n                                    <li class=\"tell_main_9\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal2\">SignUp</a></li>\r\n                                </ul>\r\n                            </div>\r\n                            <div class=\"modal fade\" id=\"myModal1\" tabindex=\"-1\" role=\"dialog\">\r\n                                <div class=\"modal-dialog\" role=\"document\">\r\n                                    <div class=\"modal-content modal-info\">\r\n                                        <div class=\"modal-header\">\r\n                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\r\n                                        </div>\r\n                                        <div class=\"modal-body modal-spa\">\r\n                                            <div class=\"login-grids\">\r\n\r\n                                                <div class=\"login-right\">\r\n                                                    <form action=\"#\" method=\"post\">\r\n                                                        <h3> Connexion compte </h3>\r\n                                                        <input type=\"text\" value=\"Entrer votre Email\" name=\" Email\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Enter your mobile number or Email';}\" required=\"\">\r\n                                                        <input type=\"password\" value=\"Mot de passe\" name=\"Password\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Password';}\" required=\"\">\r\n                                                        <h4><a href=\"#\">Mot de passe oublier</a> / <a href=\"#\">Changer mot de passe</a></h4>\r\n                                                        <input type=\"submit\" value=\"Connexion\">\r\n                                                    </form>\r\n                                                </div>\r\n\r\n                                                <p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <!-- //login -->\r\n                            <!-- signup -->\r\n                            <div class=\"modal fade\" id=\"myModal2\" tabindex=\"-1\" role=\"dialog\">\r\n                                <div class=\"modal-dialog\" role=\"document\">\r\n                                    <div class=\"modal-content modal-info\">\r\n                                        <div class=\"modal-header\">\r\n                                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>\r\n                                        </div>\r\n                                        <div class=\"modal-body modal-spa\">\r\n                                            <div class=\"login-grids\">\r\n                                                <div class=\"login-right\">\r\n                                                    <form action=\"#\" method=\"post\">\r\n                                                        <h3>Création compte</h3>\r\n                                                        <input type=\"text\" value=\"Nom\" name=\"Name\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Name';}\" required=\"\">\r\n                                                        <input type=\"text\" value=\"Numéro téléphone\" name=\"Mobile number\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Mobile number';}\" required=\"\">\r\n                                                        <input type=\"text\" value=\"Email\" name=\"Email id\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Email id';}\" required=\"\">\r\n                                                        <input type=\"password\" value=\"Mot de passe\" name=\"Password\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Password';}\" required=\"\">\r\n                                                        <input type=\"submit\" value=\"Création compte\">\r\n                                                    </form>\r\n                                                </div>\r\n                                                <p>By logging in you agree to our <span>Terms and Conditions</span> and <span>Privacy Policy</span></p>\r\n                                            </div>\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </ul>\r\n\r\n                    </div><!-- /.navbar-collapse -->\r\n                </div>\r\n            </div><!-- /.container -->\r\n        </nav>\r\n\r\n    </section>\r\n\r\n{% block body %}\r\n\r\n{% endblock %}\r\n\r\n    <section id=\"footer\">\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-sm-12\">\r\n                    <div class=\"col-sm-3\">\r\n                        <div class=\"footer_1\">\r\n                            <h2>Details</h2>\r\n                            <p>Recruitini, le portail tunisien de l’emploi, accompagne les candidats comme les recruteurs pour un avenir meilleur !</p>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-3\">\r\n                        <div class=\"footer_2\">\r\n                            <h3>Pour nous contacter</h3>\r\n                            <ul>\r\n                                <li><a href=\"#\">Recuitini@gmail.com</a></li>\r\n                                <li><a href=\"#\">123 4567 89 90</a></li>\r\n                                <li>Lundi-Vendredi: 9h-17h </li>\r\n                                <li>Samedi: 9h-13h </li>\r\n\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-sm-3\">\r\n                        <div class=\"footer_2\">\r\n                            <h3>Index</h3>\r\n                            <ul>\r\n                                <li><a href=\"{{ path('home') }}\">Acceuil</a></li>\r\n                                <li><a href=\"#\">A propos</a></li>\r\n                                <li><a href=\"#\">Offre d'emploi</a></li>\r\n                                <li><a href=\"#\">Annonce presse</a></li>\r\n                                <li><a href=\"{{ path('contact') }}\">Contact</a></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </section>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/base.html.twig	(revision eea417e4e834272b2324d1919e2c7ee1e75d90e1)
++++ templates/base.html.twig	(date 1614544975033)
+@@ -67,8 +67,8 @@
+                         <ul class="nav navbar-nav navbar nav_2 col-sm-2">
+                             <div class="login">
+                                 <ul class="nav-login">
+-                                    <li class="tell_main_8"><a href="#" data-toggle="modal" data-target="#myModal1">Login</a></li>
+-                                    <li class="tell_main_9"><a href="#" data-toggle="modal" data-target="#myModal2">SignUp</a></li>
++                                    <li class="tell_main_8"><a href="{{ path('espace_candidat') }}" >Espace Candidat</a></li>
++                                    <li class="tell_main_9"><a href="{{ path('espace_employeur') }}"  >Espace Employeur</a></li>
+                                 </ul>
+                             </div>
+                             <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+Index: src/Controller/ContactController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Controller;\r\n\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Response;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\n\r\nclass ContactController extends AbstractController\r\n{\r\n    /**\r\n     * @Route(\"/contact\", name=\"contact\")\r\n     */\r\n    public function index(): Response\r\n    {\r\n        return $this->render('contact/Ajout_demande_emploi.html.twig', [\r\n            'controller_name' => 'ContactController',\r\n        ]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controller/ContactController.php	(revision eea417e4e834272b2324d1919e2c7ee1e75d90e1)
++++ src/Controller/ContactController.php	(date 1614516095821)
+@@ -13,7 +13,7 @@
+      */
+     public function index(): Response
+     {
+-        return $this->render('contact/Ajout_demande_emploi.html.twig', [
++        return $this->render('contact/index.html.twig', [
+             'controller_name' => 'ContactController',
+         ]);
+     }

@@ -1,0 +1,57 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+
+    <form method="post" action="{{ path('search') }}">
+        <option {{ order is same as('Bac') ? 'selected' : '' }}>Bac</option>
+        <option {{ order is same as('Licence') ? 'selected' : '' }}>Licence</option>
+        <option {{ order is same as('Doctorat') ? 'selected' : '' }}>Doctorat</option>
+        </select>
+        <input type="text" name="query" value="{{ query }}" />
+    </form>
+
+    <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+    <h4 class="card-title">Liste des demandes</h4>
+    <div class="table-responsive">
+    <table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Id candidat</th>
+        <th>Titre</th>
+        <th>Domaine</th>
+        <th>Statut</th>
+        <th>Description</th>
+        <th>CV</th>
+        <div class="search-box">
+            <form method="post" action="{{ path('tri') }}">
+                <label>Trier Reclamation</label>
+                <input type="submit" value="Tri">
+            </form>
+        </div>
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in results %}
+        <tr>
+            <td>{{result.id}}</td>
+            <td>{{result.id}}</td>
+            <td>{{result.TitreDemande}}</td>
+            <td>{{result.domaineTravail}}</td>
+            <td>{{result.statutCand}}</td>
+            <td>{{result.description}}</td>
+            <td>{{result.cvCand}}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}

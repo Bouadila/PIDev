@@ -36,6 +36,8 @@
         <div></div>
     </div>
 </div>
+
+
 <!-- ***** Preloader End ***** -->
 
 
@@ -49,12 +51,68 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+
+                    <form method="GET" action="/searchDemande">
+                        <input type="text" name="query" class="form-control" placeholder="Recherche" aria-label="search" aria-describedby="search" id="search"/>
+                    </form>
+
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('home') }}">Acceuil
+                        <a class="nav-link" href="{{ path('home') }}">Profile
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
 
+
+                    <li class="nav-item"><a class="nav-link" href="#">Offres</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('list_video') }}>Formations</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Activiter</a>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href={{ path('Ajout_demande_emploi') }}>Ajouter demande</a>
+                            <a class="dropdown-item" href={{ path('list_demande_emploi') }}>Vos demandes</a>
+                            <a class="dropdown-item" href={{ path('Addvideo') }}>Ajouter formation</a>
+                            <a class="dropdown-item" href={{ path('Viewvideo') }}>Vos formations</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('app_logout') }}>Deconnexion</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- Page Content -->
+<!-- Banner Ends Here -->
+{% block body %}
+{% endblock %}
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+
+
+
+
+
+{% block js %}
+    <!-- Bootstrap core JavaScript -->
+    <script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
+    <script src={{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
+<script src={{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
+
+
+<!-- Additional Scripts -->
+<script src={{ asset('assets/js/custom.js') }}></script>
+<script src={{ asset('assets/js/owl.js') }}></script>
+    <!-- Additional Scripts -->
+    <script src={{ asset('assets/js/custom.js') }}></script>
+    <script src={{ asset('assets/js/owl.js') }}></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% endblock %}
 
                     <li class="nav-item"><a class="nav-link" href="#">Offre D'emploi</a></li>
 
@@ -71,13 +129,6 @@
         </div>
     </nav>
 </header>
-<!-- Page Content -->
-<!-- Banner Ends Here -->
-{% block body %}
-{% endblock %}
-
-<!-- Page Content -->
-<!-- Banner Starts Here -->
 
 <footer>
     <div class="container">
@@ -91,15 +142,6 @@
     </div>
 </footer>
 
-{% block js %}
-    <!-- Bootstrap core JavaScript -->
-    <script src={{ asset('vendor/jquery/jquery.min.js') }}></script>
-    <script src={{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}></script>
 
-
-    <!-- Additional Scripts -->
-    <script src={{ asset('assets/js/custom.js') }}></script>
-    <script src={{ asset('assets/js/owl.js') }}></script>
-{% endblock %}
 </body>
 </html>

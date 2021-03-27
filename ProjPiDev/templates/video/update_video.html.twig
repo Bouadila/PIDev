@@ -1,0 +1,70 @@
+{% extends 'baseCandidat.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Formation</h4>
+                        <h2>Modifier votre formation</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="send-message">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <h2>Votre formation</h2>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <form id="contact" {{ form_start(f, {'attr':{'novalidate':'novalidate'}}) }}
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12"> Titre
+                                {{ form_errors(f.title) }}
+                                {{ form_widget(f.title) }}
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                {{ form_errors(f.domaine) }}
+                                {{ form_widget(f.domaine) }}
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"> Votre URL
+                                {{ form_errors(f.url) }}
+                                {{ form_widget(f.url) }}
+
+                            </div>
+                            <div class="col-lg-12" hidden >
+                                {{ form_errors(f.publishDate) }}
+                                {{ form_widget(f.publishDate) }}
+
+                            </div>
+                            <div class="col-lg-12"> Description
+                                {{ form_errors(f.description) }}
+                                {{ form_widget(f.description) }}
+
+                            </div>
+
+                            <div class="col-lg-12">
+                                <button type="submit" id="form-submit" class="filled-button">{{ button_label|default('Modifier') }}</button>
+                            </div>
+                        </div>
+                        </form {{ form_end(f) }}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ asset('assets/images/team_01.jpg') }}" class="img-fluid" alt="">
+                    <h5 class="text-center" style="margin-top: 15px;">bonjour</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
