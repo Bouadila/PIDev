@@ -54,6 +54,7 @@ class Question
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\GreaterThan(0, message="le nombre de minute doit etre positif")
      */
     private $duree;
 

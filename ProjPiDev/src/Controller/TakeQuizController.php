@@ -71,7 +71,8 @@ class TakeQuizController extends AbstractController
                 ]);
         }
         else {
-            $form->add('reponses', TextareaType::class);
+            $form->add('reponses', TextareaType::class, [ 'attr' => ['readonly'=> true]]);
+            $question->setRepJust($question->getReponses()[0]);
         }
 
         $form->handleRequest($request);
@@ -80,8 +81,21 @@ class TakeQuizController extends AbstractController
             $reponseCondidat->setListReponsesCondidat($reponseList);
             $reponseCondidat->setQuestion($question);
             if($form->getData()['reponses'])
-                $reponseCondidat->setReponse($this->getDoctrine()->getRepository(Reponse::class)->find($form->getData()['reponses']));
-            
+                if(count($question->getReponses())>1) {
+                    $reponseCondidat->setReponse($this->getDoctrine()->getRepository(Reponse::class)->find($form->getData()['reponses']));
+                }
+            else{
+                if(strcmp($form->getData()['reponses'],$question->getReponses()[0]) == 0){
+                    $reponseCondidat->setReponse($question->getReponses()[0]);
+                }
+                else {
+                    $rep = new Reponse();
+                    $rep->setContenuRep($form->getData()['reponses']);
+                    $em->persist($rep);
+                    $reponseCondidat->setReponse($rep);
+                }
+
+            }
             $reponseList->addReponse($reponseCondidat);
             $em->persist($reponseCondidat);
             $em->flush();

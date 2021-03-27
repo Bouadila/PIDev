@@ -3,22 +3,59 @@
 {% block title %}New Quiz{% endblock %}
 
 {% block body %}
-    <h2>{{ quiz.nomquiz }}</h2><br/>
+    <h2>{{ quiz.nomquiz }} </h2><br/>
     <h3 id="box_header">50</h3>
     <h4>Choisir la reponse correct</h4><br/>
 
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form, {'attr':{'novalidate':'novalidate'}}) }}
-    {{ form_widget(form) }}
+    {{ form_row(form.Questions) }}
+    {% if question.reponses|length == 1 %}
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+        </link>
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
+        </script>
+        <textarea id="codejs">
+		function challengeFunction () {
+		return("good");
+		}
+		</textarea>
+        <button style="width:90%" id="run" class="btn btn-primary" type="button">Run</button>
+        {{ form_row(form.reponses, { 'id': 'reponse' }) }}
+        <script>
+            var js = CodeMirror.fromTextArea(document.getElementById("codejs"), {
+                mode:  "javascript",
+                lineNumbers: true,
+                theme: "dracula"
+            });
+
+            $("#run").click(function(){
+
+                $( "#chalfunction" ).remove();
+                var jsx = js.getValue();
+                var s = document.createElement('script');
+                s.setAttribute("id", "chalfunction");
+                s.textContent = jsx;//inne
+                document.body.appendChild(s);
+                $('#reponse').val(challengeFunction());
+
+            });
+
+        </script>
+    {% endif %}
+        {{ form_widget(form) }}
     <button id="btn" class="btn">{{ button_label|default('Terminer') }}</button>
     {{ form_end(form) }}
 
     <script>
 
-        // window.onblur = function(){
-        //     document.getElementById("btn").click();
-        //     window.onblur = '';
-        // }
+        window.onblur = function(){
+            document.getElementById("btn").click();
+            window.onblur = '';
+        }
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
 

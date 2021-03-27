@@ -20,8 +20,8 @@ class QuestionType extends AbstractType
     {
         $builder
             ->add('contenu_ques')
-            ->add("nomb_rep", HiddenType::class, [ 'data' => 0 ])
             ->add('duree')
+            ->add("nomb_rep", HiddenType::class, [ 'data' => 0 ])
             ->add('reponses', CollectionType::class,  [
                 'label' =>' ',
                 'entry_type' => ReponseType::class,

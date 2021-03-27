@@ -6,21 +6,29 @@
     <h1>Create new Question</h1>
     {{ form_start(form) }}
     {{ form_row(form.contenu_ques) }}
-
+    {{ form_row(form.duree) }}
+    <input type="radio" id="radio" name="type"  value="radio">
+    <label for="radio">Radio</label>
+    <input type="radio" id="textArea" name="type" value="area">
+    <label for="textArea">TextArea</label><br>
     <h3>Reponses</h3>
     <ul class="reponses" data-prototype="{{ form_widget(form.reponses.vars.prototype)|e('html_attr') }}"></ul>
-    <td><a  data-collection-holder-class="reponses" class="btn btn-info add_item_link" ><i class="fa fa-plus" aria-hidden="true"></i>Ajouter une reponse</a></td><br/>
-
+    <td><a  data-collection-holder-class="reponses" class="btn btn-info add_item_link" ><i class="fa fa-plus" aria-hidden="true"></i></a></td><br/>
     {% for rep in form.reponses %}
         <li>{{ form_row(rep.contenu_rep) }}</li>
 
         {% endfor %}
     </ul>
+    {{ form_errors(form) }}
 
     <button class="btn">{{ button_label|default('Enregistrer') }}</button>
     {{ form_end(form) }}
     <script>
 
+        $('input[type=radio][name=type]').change(function() {
+            $('.reponses').empty();
+            $('#question_nomb_rep').val(0);
+        });
         jQuery(document).ready(function() {
             $collectionHolder = $('ul.reponses');
             $collectionHolder.find('li').each(function() {
@@ -28,11 +36,15 @@
             });
             var $tagsCollectionHolder = $('ul.reponses');
             $tagsCollectionHolder.data('index', $tagsCollectionHolder.find('input').length);
-            $('body').on('click', '.add_item_link', function(e) {
-                var $collectionHolderClass = $(e.currentTarget).data('collectionHolderClass');
-                addFormToCollection($collectionHolderClass);
-                $('#question_nomb_rep').val($('#question_nomb_rep').val()-1+2);
-            })
+
+                $('body').on('click', '.add_item_link', function (e) {
+                    if($("input[name='type']:checked").val() === "radio" || $('#question_nomb_rep').val() == 0 ) {
+                    var $collectionHolderClass = $(e.currentTarget).data('collectionHolderClass');
+                    addFormToCollection($collectionHolderClass);
+                    $('#question_nomb_rep').val($('#question_nomb_rep').val() - 1 + 2);
+                    }
+                });
+
         });
         function addFormToCollection($collectionHolderClass) {
             var $collectionHolder = $('.' + $collectionHolderClass);
@@ -51,7 +63,7 @@
         }
         function addTagFormDeleteLink($tagFormLi) {
 
-            var $removeFormButton = $('<td><a class="btn btn-info" ><i class="fa fa-minus-circle" aria-hidden="true"></i>Suprimer cette reponse</a></td><br/><br/>\n');
+            var $removeFormButton = $('<td><a class="btn btn-info" ><i class="fa fa-minus-circle" aria-hidden="true"></i></a></td><br/><br/>\n');
             $tagFormLi.append($removeFormButton);
 
             $removeFormButton.on('click', function(e) {
