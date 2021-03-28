@@ -42,10 +42,10 @@
                             <tr >
                                 <td>{{ candidature.datePostuler ? candidature.datePostuler|date('Y-m-d') : '' }}</td>
                                 <td>{{ candidature.noteQuiz }} </td>
-                                <td>{{ candidature.candidat.nom}} {{ candidature.candidat.prenom }}</td>
+                                <td>{{ candidature.candidat.name}} {{ candidature.candidat.prenom }}</td>
                                 <td>{{ candidature.offre.post }}</td>
                                 <td>
-                                    <a href="{{ path('rendezvous_index')}}" class="text-danger">
+                                    <a href="{{ path('rendezvous_new' , {'id': candidature.id})}}" class="text-danger">
                                         <i class="fa fa-plus" aria-hidden="true"></i> planifier rendez vous
                                     </a>
                                 </td>

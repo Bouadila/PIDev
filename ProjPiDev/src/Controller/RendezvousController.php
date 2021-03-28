@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Candidature;
 use App\Entity\Rendezvous;
+use App\Entity\User;
 use App\Form\RendezvousType;
 use App\Repository\RendezvousRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,27 +27,54 @@ class RendezvousController extends AbstractController
         return $this->render('rendezvous/index.html.twig', [
             'rendezvouses' => $rendezvousRepository->findAll(),
         ]);
+
     }
 
     /**
-     * @Route("/new", name="rendezvous_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="rendezvous_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request , \Swift_Mailer $mailer,$id,UserRepository $repository): Response
     {
-        $rendezvou = new Rendezvous();
-        $form = $this->createForm(RendezvousType::class, $rendezvou);
+        $user = new User();
+        $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
+        if ($user== null){
+            return $this->render('home/index.html.twig', [
+                'controller_name' => 'HomeController',
+            ]);
+        }elseif ($user->getRoles()[0]=="Employeur"){
+        $rendezvous = new Rendezvous();
+        $form = $this->createForm(RendezvousType::class, $rendezvous);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($rendezvou);
+            $candidature = $entityManager->getRepository(Candidature::class)->find($id);
+            $rendezvous->setCandidature($candidature);
+            $rendezvous->setAllDay(false);
+            $rendezvous->setBackgroundColor("#ff0000");
+            $rendezvous->setBorderColor("#000000");
+            $rendezvous->setTextColor("#fcfcfc");
+            $rendezvous->setTitre($candidature->getCandidat()->getName());
+            //dd($candidature , $rendezvou);
+            $message = (new \Swift_Message('confirmation rendez vous entretien d\'embauche'))
+                ->setFrom($user->getEmail())
+                ->setTo($rendezvous->getCandidature()->getCandidat()->getEmail())
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'rendezvous/email.html.twig',
+                        ['rendezvous' => $rendezvous]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
+            $entityManager->persist($rendezvous);
             $entityManager->flush();
-
             return $this->redirectToRoute('rendezvous_index');
-        }
-
+        }}
+        else{dd("vous ne pouvez pas ajouter  des rendezvous ");}
         return $this->render('rendezvous/new.html.twig', [
-            'rendezvou' => $rendezvou,
+            'rendezvou' => $rendezvous,
             'form' => $form->createView(),
         ]);
     }
@@ -62,21 +92,45 @@ class RendezvousController extends AbstractController
     /**
      * @Route("/{id}/edit", name="rendezvous_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Rendezvous $rendezvou): Response
+    public function edit(Request $request, Rendezvous $rendezvous , \Swift_Mailer $mailer,UserRepository $repository): Response
     {
-        $form = $this->createForm(RendezvousType::class, $rendezvou);
-        $form->handleRequest($request);
+        $user = new User();
+        $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
+        if ($user== null){
+            return $this->render('home/index.html.twig', [
+                'controller_name' => 'HomeController',
+            ]);
+        }elseif ($user->getRoles()[0]=="Employeur"){
+            $form = $this->createForm(RendezvousType::class, $rendezvous);
+            $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            if ($form->isSubmitted() && $form->isValid()) {
+                //dd($rendezvous->getCandidature()->getCandidat());
+                $message = (new \Swift_Message('confirmation rendez vous entretien d\'embauche'))
+                    ->setFrom($user->getEmail())
+                    ->setTo($rendezvous->getCandidature()->getCandidat()->getEmail())
+                    ->setBody(
+                        $this->renderView(
+                        // templates/emails/registration.html.twig
+                            'rendezvous/email.html.twig',
+                            ['rendezvous' => $rendezvous]
+                        ),
+                        'text/html'
+                    );
+                $mailer->send($message);
+                $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('rendezvous_index');
+                return $this->redirectToRoute('rendezvous_index');
+            }
+
+            return $this->render('rendezvous/edit.html.twig', [
+                'rendezvou' => $rendezvous,
+                'form' => $form->createView(),
+            ]);
+        }else{
+            dd("vous ne pouvez pas modifir  des rendezvous ");
         }
 
-        return $this->render('rendezvous/edit.html.twig', [
-            'rendezvou' => $rendezvou,
-            'form' => $form->createView(),
-        ]);
     }
 
     /**
