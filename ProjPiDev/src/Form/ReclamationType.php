@@ -36,6 +36,14 @@ class ReclamationType extends AbstractType
                     'General' => 'General',
                 ],
             ])
+
+            /*->add('status', ChoiceType::class,[
+                'choices'  => [
+                    'Non Résolu' => 'Non Résolu' ,
+                    'Résolu' => 'Résolu' ,
+                ],
+            ])*/
+
             ->add('Submit', SubmitType::class)
         ;
     }

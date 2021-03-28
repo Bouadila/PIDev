@@ -24,7 +24,7 @@ class ReclamationBackController extends AbstractController
     /**
      * @Route("/back/reclamation/affiche", name="affiche_back_Reclamation")
      */
-    public function Affiche(): Response
+    public function Show(): Response
     {
         $em = $this->getDoctrine()->getRepository(Reclamation::class);
         $list = $em->findAll();
@@ -36,9 +36,9 @@ class ReclamationBackController extends AbstractController
     }
 
     /**
-     * @Route("/back/reclamation/supprimer/{id}", name="delete_back_reclamation")
+     * @Route("/back/reclamation/delete/{id}", name="delete_back_reclamation")
      */
-    public function Supprimer($id)
+    public function Delete($id)
     {
         $em=$this->getDoctrine()->getManager();
         $reclamation=$em->getRepository(Reclamation::class)->find($id);

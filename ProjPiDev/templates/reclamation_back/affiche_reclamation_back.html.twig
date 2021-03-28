@@ -34,7 +34,7 @@
                         {{ i.DescriptionReclamation }} &nbsp;&nbsp;
                         {{ i.Type }} &nbsp;
                         {{ i.DateReclamation }} &nbsp;&nbsp;
-                        <a href="{{ path('deleteReclamation', {'id': i.id}) }}" title="Delete"><i></i>Supprimer</a> &nbsp;
+                        <a href="{{ path('delete_back_reclamation', {'id': i.id}) }}" title="Delete"><i></i>Supprimer</a> &nbsp;
                         <br>
                         <br>
                         {% endfor %}

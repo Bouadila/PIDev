@@ -19,13 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Added Email Notif Reclamation">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ReclamationBackRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/reclamation_back/affiche_reclamation_back.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/reclamation_back/index.html.twig" afterDir="false" />
+    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Added back office for reclamation">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210326112526.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210326115251.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210326145824.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210310114107.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReclamationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation/ajoutReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/ajoutReclamation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reclamation_back/affiche_reclamation_back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation_back/affiche_reclamation_back.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +176,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/reclamation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../PiDev-main" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -213,7 +219,10 @@
       <workItem from="1616070441624" duration="1253000" />
       <workItem from="1616402308155" duration="1114000" />
       <workItem from="1616522022865" duration="4649000" />
-      <workItem from="1616673901758" duration="2162000" />
+      <workItem from="1616673901758" duration="2266000" />
+      <workItem from="1616752285981" duration="5656000" />
+      <workItem from="1616766546616" duration="2393000" />
+      <workItem from="1616926573360" duration="2768000" />
     </task>
     <task id="LOCAL-00007" summary="crud terminer">
       <created>1614846379142</created>
@@ -271,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616526417538</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added back office for reclamation">
+      <created>1616676135865</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1616676135865</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +326,8 @@
     <MESSAGE value="Fixed aff error" />
     <MESSAGE value="added new entity and data base for annonce_entity" />
     <MESSAGE value="Added Email Notif Reclamation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Email Notif Reclamation" />
+    <MESSAGE value="Added back office for reclamation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added back office for reclamation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="309" y="42" key="#Inspections" timestamp="1614383405692">
@@ -341,14 +358,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0/0.0.1536.824@0.0.1536.824" timestamp="1614344353218" />
+    <state x="494" y="139" key="FileChooserDialogImpl" timestamp="1616927102482">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="494" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1616927102482" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1614506857024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614506857024" />
-    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1616526425183">
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1616676140386">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1616526425183" />
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1616676140386" />
     <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616407021722">
       <screen x="62" y="0" width="1304" height="768" />
     </state>

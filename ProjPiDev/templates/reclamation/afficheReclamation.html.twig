@@ -23,6 +23,7 @@
                         Titre &nbsp;&nbsp;
                         Description &nbsp;&nbsp;
                         Type &nbsp;
+{#                        Status &nbsp;#}
                         Date &nbsp;&nbsp;
                         Modification &nbsp;&nbsp;
                         Suppression &nbsp;
@@ -34,6 +35,7 @@
                         {{ i.Title }} &nbsp;&nbsp;
                         {{ i.DescriptionReclamation }} &nbsp;&nbsp;
                         {{ i.Type }} &nbsp;
+{#                        {{ i.Status }} &nbsp;#}
                         {{ i.DateReclamation }} &nbsp;&nbsp;
                         <a href="{{ path('modifyReclamation', {'id': i.id}) }}" title="Modify"><i></i>Modifier</a> &nbsp;&nbsp;
                         <a href="{{ path('deleteReclamation', {'id': i.id}) }}" title="Delete"><i></i>Supprimer</a> &nbsp;
