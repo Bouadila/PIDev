@@ -5,9 +5,11 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
+ * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface
@@ -20,6 +22,8 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\Email(message = "l adress mail'{{ value }}' n'est pas valide .")
+     * @Assert\NotBlank(message="Veuillez saisir votre email")
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -30,22 +34,27 @@ class User implements UserInterface
     private $roles = [];
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre mdp ")
+     * @Assert\Length(min=2 , minMessage="votre mdp {{ value }} ne peut pas faire moins de {{ limit }} characters")
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
 
     /**
+     *  @Assert\NotBlank(message="Veuillez saisir votre nom")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre prenom")
      * @ORM\Column(type="string", length=255)
      */
     private $prenom;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre gover")
      * @ORM\Column(type="string", length=255)
      */
     private $gover;
@@ -56,6 +65,7 @@ class User implements UserInterface
     private $img;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre specialite")
      * @ORM\Column(type="string", length=255)
      */
     private $special;
@@ -69,11 +79,32 @@ class User implements UserInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_naiss;
+protected  $captchaCode;
+    /**
+     * @Assert\NotBlank(message="Veuillez saisir nom de l'entreprise")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom_entre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nom_entre;
+    private $activation_token;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $reset_token;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $color;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
 
     public function getId(): ?int
     {
@@ -247,6 +278,63 @@ class User implements UserInterface
     public function setNomEntre(?string $nom_entre): self
     {
         $this->nom_entre = $nom_entre;
+
+        return $this;
+    }
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+
+    public function setCaptchaCode($captchaCode)
+    {
+        $this->captchaCode = $captchaCode;
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
+
+        return $this;
+    }
+
+    public function getResetToken(): ?string
+    {
+        return $this->reset_token;
+    }
+
+    public function setResetToken(?string $reset_token): self
+    {
+        $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }

@@ -8,6 +8,7 @@ use App\Form\CandidatModifType;
 use App\Form\CandidatType;
 use App\Form\RegistrationType;
 use App\Repository\CandidatRepository;
+use App\Repository\UserRepository;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -58,7 +59,13 @@ class EspaceCandidatController extends AbstractController
             'controller_name' => 'EspaceCandidatController',
         ]);
     }
-
+    /**
+     * @Route("espace/candidat/app_actv", name="app_actv" , methods={"GET"})
+     */
+    public function index1(): Response
+    {
+        return $this->render('espace_candidat/confirm.html.twig');
+    }
 
     /**
      *
@@ -165,18 +172,6 @@ class EspaceCandidatController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/affback/espace/candidat", name="affback_espace_candidat")
-     */
-    public function ReadB()
-    {
-        //Creer un objet Doctrine
-        $em=$this->getDoctrine();
-        $candidat=$em->getRepository(Candidat::class)->findAll();
-        return $this->render('espace_candidat/affback_espace_candidat.html.twig',
-            ['candidat'=> $candidat ,
 
-            ]);
-    }
 
 }

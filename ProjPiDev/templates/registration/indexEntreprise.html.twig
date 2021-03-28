@@ -5,42 +5,107 @@
             <div class="col-md-10 ml-md-auto">
                 <div class="card bg-light mb-3 mt-5" style="width: 800px">
                     <div class="card-body">
-                        <div class="card-header mb-3">Registration Form</div>
-                        <form {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                        <div class="card-header mb-3">Cree Compte entreprise</div>
+                        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+                        <div class="item">
+                            <p>Nom</p>
+                            <div class="name-item">
+                                {{ form_widget(form.name) }}
                             </div>
                             <div class="msg">
                                 {{ form_errors(form.name) }}
                             </div>
-                        </div>
-                        <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                            <p>Prenom</p>
+                            <div class="name-item">
+                                {{ form_widget(form.prenom) }}
+                            </div>
+                            <div class="msg">
+                                {{ form_errors(form.prenom) }}
+                            </div>
+                            <p>Email</p>
+                            <div class="name-item">
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="msg">
+                                {{ form_errors(form.email) }}
                             </div>
                         </div>
+                        </br>
                         <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                {{ form_row(form.password, {'attr': {'class':
-                                    'form-control'}}) }}
+                            <p>mot de passe </p>
+                            <div class="name-item">
+                                {{ form_widget(form.password.first) }}
                             </div>
+                            <div class="msg">
+                                {{ form_errors(form.password.first) }}
+                            </div>
+
+                        </div>
+                        <div class="form_group">
+                            <p> confirmer le mot de passe </p>
+                            <div class="name-item">
+                                {{ form_widget(form.password.second) }}
+                            </div>
+                            <div class="msg">
+                                {{ form_errors(form.password.second) }}
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
-                                <label class="control-label">votre image <small>svp ajouter votre image.</small></label>
                                 <div class="fileupload fileupload-new" data-provides="fileupload">
                                     <div class="fileupload-preview thumbnail"></div>
-                                    <br>
                                     <span class="btn btn-default btn-file">
-                                                    <span class="fileupload-new">Select Image  </span>
+
+                                                    <span class="fileupload-new"> Logo de l'entreprise  </span>
                                                      {{ form_widget(form.image) }}
                                                 </span>
                                     <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload"><i class="fa fa-close"></i></a>
                                 </div>
                             </div>
                         </div>
+                        <p>spécialité</p>
+                        <div class="name-item">
+                            {{ form_widget(form.special) }}
 
+                        </div>
+                        <div class="msg">
+                            {{ form_errors(form.special) }}
+                        </div>
+
+                        <p> governorat </p>
+                        <div class="name-item">
+                            {{ form_widget(form.gover) }}
+                        </div>
+                        <div class="msg">
+                            {{ form_errors(form.gover) }}
+                        </div>
+                        </br>
+                        <p> nom de l'entreprise </p>
+                        <div class="name-item">
+                            {{ form_widget(form.nom_entre) }}
+                        </div>
+                        <div class="msg">
+                            {{ form_errors(form.nom_entre) }}
+                        </div>
+
+                        <div class="name-item">
+                            <label for="exampleFromContrelInput1">captcha</label>
+                            {{ form_widget(form.captchaCode) }}
+
+                        </div>
+                        {% set formErrors = form.vars.errors.form.getErrors(true) %}
+                        {% if formErrors|length %}
+                            <div class="alert alert-danger">
+                                <ul>
+                                    {% for error in formErrors %}
+                                        <li> {{ error.message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {%  endif %}
+                        </br>
                         {{ form_end(form) }}
                     </div>
                 </div>

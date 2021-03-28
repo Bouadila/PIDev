@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
     {% endblock %}
+<style>
+    .imgtop{
+        border-radius: 50%;
+
+    }
+</style>
 
 </head>
 
@@ -65,9 +71,22 @@
                     <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
                     {% if app.user %}
+                    {% if app.user.etat=="1" %}
+                    <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
+                {% else %}
                     <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
                     <li> <a  class="nav-link"  href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="home" role="button"  aria-haspopup="true" aria-expanded="false"><img class="imgtop" src="{{ asset('uploads/image/' ~ app.user.img) }}" alt="abc" height="40" width="45"></a>
 
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path ('aff_user') }}"> voir compte </a>
+                            <a class="dropdown-item" href="{{ path ('Supp_user') }}"> Desactiver compte </a>
+                            <a class="dropdown-item" href="{{ path ('Modif_user') }}">Modifier compte</a>
+                        </div>
+                </div>
+                </li>
+{% endif %}
                     {% else %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
@@ -75,10 +94,8 @@
                         <div class="dropdown-menu">
 
                         <a class="dropdown-item" href="{{ path ('app_login') }}"> Connexion</a>
-                        <a class="dropdown-item" href="{{ path ('ajout_espace_candidat') }}">SignUp candidat</a>
-                        <a class="dropdown-item" href="{{ path ('ajout_espace_employeur') }}">SignUp Entreprise</a>
-                        <a class="dropdown-item" href="{{ path ('registration') }}">SignUp candidat2</a>
-                        <a class="dropdown-item" href="{{ path ('registration') }}">SignUp employeur2</a>
+                        <a class="dropdown-item" href="{{ path ('registration') }}">SignUp candidat</a>
+                        <a class="dropdown-item" href="{{ path ('registrationentrep') }}">SignUp employeur</a>
 
                     {% endif %}
                 </div>
@@ -120,7 +137,19 @@
         </div>
     </div>
 </footer>
-
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/6049396c385de407571ece11/1f0f0gkfg';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 {% block js %}
 <!-- Bootstrap core JavaScript -->
 <script src={{ asset('vendor/jquery/jquery.min.js') }}></script>

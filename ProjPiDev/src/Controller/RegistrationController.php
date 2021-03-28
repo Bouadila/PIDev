@@ -11,7 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-
+use App\Form\RegistrationFormType;
+//use App\Recaptcha\RecaptchaValidator;
+use App\Security\EmailVerifier;
+use DateTime;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Mime\Address;
+use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 class RegistrationController extends AbstractController
 {
     private $passwordEncoder;
@@ -23,17 +30,18 @@ class RegistrationController extends AbstractController
 
     /**
      *
-     * @param  Request $request
      * @Route("registration", name="registration")
+     * @param Request $request
      */
-    public function indexcandidat(Request $request ,UserRepository $repository)
-    {
+    public function indexcandidat(Request $request , UserRepository $repository ,\Swift_Mailer $mailer)
+     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Encode the new users password
+//        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->isSubmitted() ) {
+
             $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
             // Set their role
             $user->setEtat('0');
@@ -42,21 +50,34 @@ class RegistrationController extends AbstractController
             $uploadedFile->move($this->getParameter('upload_directory'),$filename);
             $user->setImg($filename);
             $user->setRoles(['Candidat']);
-//            if($user->getNomEntre()!=null){
-//                $user->setRoles(['Employeur']);
-//            }elseif ($user->getNomEntre()==null){
-//                $user->setRoles(['Candidat']);
-//            }
             //get the entity manager that exists in doctrine( entity manager and repository)
             // Save
+                // On génère un token et on l'enregistre
+                $user->setActivationToken(md5(uniqid()));
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+                // On crée le message
+                $message = (new \Swift_Message('Nouveau compte'))
+                    // On attribue l'expéditeur
+                    ->setFrom('yasmin.hachicha@esprit.tn')
+                    // On attribue le destinataire
+                    ->setTo($user->getEmail())
+                    // On crée le texte avec la vue
+                    ->setBody(
+                        $this->renderView(
+                            'emails/activation.html.twig', ['token' => $user->getActivationToken()]
+                        ),
+                        'text/html'
+                    )
+                ;
+                $mailer->send($message);
 
-//            return $this->redirectToRoute('app_login');
             return $this->redirectToRoute('app_login');
         }
         return $this->render('registration/index.html.twig', [
+
+//        return $this->render('registration/confirm.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -72,8 +93,10 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(EntrepriseType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Encode the new users password
+//        if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->isSubmitted() ) {
+
+                // Encode the new users password
             $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
             // Set their role
             $user->setEtat('0');
@@ -82,13 +105,7 @@ class RegistrationController extends AbstractController
             $uploadedFile->move($this->getParameter('upload_directory'),$filename);
             $user->setImg($filename);
             $user->setRoles(['Employeur']);
-//            if($user->getNomEntre()!=null){
-//                $user->setRoles(['Employeur']);
-//            }elseif ($user->getNomEntre()==null){
-//                $user->setRoles(['Candidat']);
-//            }
-            //get the entity manager that exists in doctrine( entity manager and repository)
-            // Save
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -156,7 +173,7 @@ class RegistrationController extends AbstractController
 
 //        $form->add('Modifier candidat',SubmitType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid() )
+        if($form->isSubmitted() )
         {
             $user->setPassword($this->passwordEncoder->encodePassword($user, $user->getPassword()));
             $user->setRoles(['ROLE_USER']);
@@ -176,6 +193,88 @@ class RegistrationController extends AbstractController
 
         );
     }
+
+    /**
+     * @Route("/affback/user", name="affback_user")
+     */
+    public function ReadB()
+    {
+        //Creer un objet Doctrine
+        $em=$this->getDoctrine();
+        $user=$em->getRepository(User::class)->findAll();
+        return $this->render('espace_candidat/affback_espace_candidat.html.twig',
+            ['user'=> $user ,
+
+            ]);
+    }
+    /**
+     * @Route("/activation/app_actvcompte", name="app_actvcompte" )
+     */
+    public function index12(UserRepository $userRepository): Response
+    {
+        $user = new User();
+        $user = $userRepository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);        $user->setEtat("0");
+        $em=$this->getDoctrine()->getManager();
+        $em->flush();
+        return $this->redirectToRoute('app_logout');
+    }
+    /**
+     * @Route("/activation/{token}", name="activation")
+     */
+    public function activation($token, UserRepository $user)
+    {
+        // On recherche si un utilisateur avec ce token existe dans la base de données
+        $users = $user->findOneBy(['activation_token' => $token]);
+
+        // Si aucun utilisateur n'est associé à ce token
+        if(!$users){
+            // On renvoie une erreur 404
+            throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
+        }
+
+        // On supprime le token
+        $users->setActivationToken(null);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($users);
+        $entityManager->flush();
+
+        // On génère un message
+        $this->addFlash('message', 'Utilisateur activé avec succès');
+
+        // On retourne à l'accueil
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/stats", name="stats")
+     */
+    public function statistiques(UserRepository $userRepository)
+    {
+$users = $userRepository->countByDate();
+//$users1 = $userRepository->countByDate2();
+$dates = [];
+foreach($users as $user){
+$dates[] = $user['count'];
+}
+////
+        $users1 = $userRepository->countByDate2();
+
+        $date = [];
+        $annoncesCounte = [];
+
+        // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
+        foreach($users1 as $userss){
+            $date[] = $userss['dateCompte'];
+            $annoncesCounte[] = $userss['counte'];
+        }
+
+
+return $this->render('espace_candidat/statistic.html.twig', [
+    'dates' => json_encode($dates),
+    'date' => json_encode($date),
+    'annoncesCounte' => json_encode($annoncesCounte),
+]); }
+
 
 }
 

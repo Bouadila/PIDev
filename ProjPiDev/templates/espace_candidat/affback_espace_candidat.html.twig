@@ -18,29 +18,32 @@
 {#                        <th>mdp</th>#}
                         <th>Etat</th>
                         <th>Ville</th>
-{#                        <th>Num </th>#}
+                        <th>nom entreprise </th>
                         <th>Spécialité</th>
 {#                        <th>Diplome</th>#}
 
                     </tr>
                     </thead>
-                    {% for candidat in candidat  %}
+                    {% for user in user  %}
 
                     <tbody>
                     <tr>
-                        <td>{{candidat.nom}}</td>
-                        <td>{{candidat.prenom}}</td>
-                        <td>{{candidat.email}}</td>
-                        <td>{{candidat.DateNaisse|date('Y-m-d')}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.prenom}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.DateNaiss|date('Y-m-d')}}</td>
 {#                        <td>{{candidat.mdp}}</td>#}
-                       {% if candidat.etat == "0" %}
+                       {% if user.etat == "0" %}
                         <td>compte activé</td>
                         {% else %}
                         <td>compte déactivé</td>
                         {% endif %}
-                        <td>{{candidat.gover}}</td>
+                        <td>{{user.gover}}</td>
 {#                        <td>{{candidat.num}}</td>#}
-                        <td>{{candidat.special}}</td>
+{#                        <td>{{user.roles}}</td>#}
+                        <td>{{user.NomEntre}}</td>
+
+                        <td>{{user.special}}</td>
 {#                        <td>{{candidat.diplome}}</td>#}
                     </tr>
 
@@ -49,6 +52,7 @@
                                     </tbody>
                     {% endfor %}
 
+                    <a class="btn btn-success" href="{{ path('listo') }}">Create pdf</a>
 
                 </table>
             </div>
