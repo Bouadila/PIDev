@@ -3,8 +3,53 @@
 {% block title %}New Quiz{% endblock %}
 
 {% block body %}
-    <h1>Create new Quiz</h1>
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2> Creer nouveau quiz </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+     <div class="container">
+     <div class="row">
+         <div class="col-md-12">
+             <div class="section-heading">
+             </div>
+         </div>
+         <div class="col-md-8">
+             <div class="contact-form">
+                 {{ form_start(form ,{attr: {novalidate: 'novalidate'}}) }}
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.nom_quiz, {'attr': {'class': 'form-control','placeholder': "titre de quiz"}})}}
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12">
+                     <fieldset>
+                         {{ form_row(form.nomb_question)}}
+                     </fieldset>
+                 </div>
+                 
+                 <div class="row">
+                         <button id="form-submit" class="filled-button " style="margin: auto;width: 50%;border: 3px solid;padding: 10px;">
+                             <i class="fa fa-check" aria-hidden="true"></i>
+                             {{ button_label|default('Enregistrer')}}
+                         </button>
+                 </div>
+                 {{ form_end(form) }}
+             </div>
+         </div>
+     </div>
+ </div>
 
-    {{ include('quiz/_form.html.twig', {'button_label': 'Suivant'} )}}
+
+    {# {{ include('quiz/_form.html.twig', {'button_label': 'Suivant'} )}} #}
 
 {% endblock %}
