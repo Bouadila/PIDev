@@ -27,15 +27,16 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="{{ asset('uploads/image/' ~ user.img) }}" alt="abc" height="300" width="400"></a>
+                    <div class="product-item" >
+                        <a href="#"><img src="{{ asset('uploads/image/' ~ user.img) }}" alt="abc" height="300" width="400" ></a>
                         <div class="down-content">
 
 
                             <small>
                                 <strong title="Posted on"><i class="fa fa-calendar"></i>  {{user.getDateNaiss()|date('Y-m-d')}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                <strong title="Type"><i class="fa fa-file"></i> {{user.getGover()}}</strong>
                                 <strong title="Location"><i class="fa fa-map-marker"></i>  {{user.getGover()}}</strong>
+                            </br>
+                                <strong title="Type"><i class="fa fa-file"></i> {{user.getEmail()}}</strong>
                             </small>
                         </div>
                     </div>

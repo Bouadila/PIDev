@@ -330,6 +330,20 @@
       {{ form_errors(form.gover) }}
 </div>
 
+  <div class="item">
+            <p>Date de Naissance</p>
+
+                {{ form_widget(form.date_naiss) }}
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+           <div class="msg">
+      {{ form_errors(form.date_naiss) }}
+</div>
+            <p>Gouvernorat :<span class="required" name="gvr">*</span></p>
+                {{ form_widget(form.gover) }}
+         <div class="msg">
+      {{ form_errors(form.gover) }}
+</div>
 
 
         <div class="btn-block">

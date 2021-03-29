@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -20,13 +22,10 @@ class EntrepriseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('email', EmailType::class)
             ->add('name', TextType::class)
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm Password']
-            ])
+
             ->add('prenom', TextType::class,[
                 'attr'=>[
                     'required'   => true,
@@ -34,6 +33,13 @@ class EntrepriseType extends AbstractType
                     'name'=>'name',
                 ]
             ])
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options' => ['label' => 'Password'],
+                'second_options' => ['label' => 'Confirm Password']
+            ])
+
+
             ->add('gover', ChoiceType::class,
                 [
                     'choices'  => [
@@ -63,18 +69,25 @@ class EntrepriseType extends AbstractType
 
                     ],
                 ])
-            ->add('nom_entre', TextType::class,[
-               'attr'=>[
-                    'label'=> 'nom entreprise',
-                    'required'   => true,
-                   'name'=>'name',
-                ]
-           ])
+//            ->add('nom_entre', TextType::class,[
+//                'attr'=>[
+//                    'label'=> 'nom entreprise',
+//                    'required'   => true,
+//                    'name'=>'name',
+//                ]
+//            ])
+
+
+            ->add('nom_entre')
+            ->add("captchaCode",CaptchaType::class,[
+                'captchaConfig'=>'ExampleCaptchaUserRegistration' ,
+                'constraints' =>[ new ValidCaptcha([
+                    'message' =>'invalid captcha , try again'
+                ])]
+            ])
             ->add('SignUp', SubmitType::class,[
 
             ])
-
-            ->add('nom_entre')
         ;
     }
 

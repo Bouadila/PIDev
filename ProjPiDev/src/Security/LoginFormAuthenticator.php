@@ -101,19 +101,31 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
 //        dd($user->getRoles()[0]);
+//        if($user->getEtat()=="1")
+//        {
+//            echo"tu ne peut pas car ton compte est desactiver";
+//            throw new CustomUserMessageAuthenticationException('tu ne peut pas car ton compte est desactiver ');
+
+//            return new RedirectResponse($this->urlGenerator->generate('app_logout'));
+//
+//        }
+
         if($user->getRoles()[0]=="Employeur")
         {
+            if ($user->getEtat()=="0")
             return new RedirectResponse($this->urlGenerator->generate('espace_employeur'));
-            
+            else
+                return new RedirectResponse($this->urlGenerator->generate('app_actv'));
+
         }elseif ($user->getRoles()[0]=="Candidat")
         {
-            return new RedirectResponse($this->urlGenerator->generate('espace_candidat'));
-
+            if ($user->getEtat()=="0")
+                return new RedirectResponse($this->urlGenerator->generate('espace_candidat'));
+            else
+                return new RedirectResponse($this->urlGenerator->generate('app_actv'));
         }
         else
             return new RedirectResponse($this->urlGenerator->generate('back'));
-
-
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
         //return new RedirectResponse($this->urlGenerator->generate('aff_user'));

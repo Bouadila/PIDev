@@ -3,14 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository", repositoryClass=UserRepository::class)
+ * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface
 {
@@ -22,6 +22,8 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\Email(message = "l adress mail'{{ value }}' n'est pas valide .")
+     * @Assert\NotBlank(message="Veuillez saisir votre email")
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -32,22 +34,27 @@ class User implements UserInterface
     private $roles = [];
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre mdp ")
+     * @Assert\Length(min=2 , minMessage="votre mdp {{ value }} ne peut pas faire moins de {{ limit }} characters")
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
 
     /**
+     *  @Assert\NotBlank(message="Veuillez saisir votre nom")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre prenom")
      * @ORM\Column(type="string", length=255)
      */
     private $prenom;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre gover")
      * @ORM\Column(type="string", length=255)
      */
     private $gover;
@@ -58,6 +65,7 @@ class User implements UserInterface
     private $img;
 
     /**
+     * @Assert\NotBlank(message="Veuillez saisir votre specialite")
      * @ORM\Column(type="string", length=255)
      */
     private $special;
@@ -71,27 +79,32 @@ class User implements UserInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_naiss;
+protected  $captchaCode;
+    /**
+     * @Assert\NotBlank(message="Veuillez saisir nom de l'entreprise")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom_entre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $nom_entre;
-    /**
-     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="candidat", orphanRemoval=true)
-     */
-    private $candidatures;
+    private $activation_token;
 
     /**
-     * @ORM\OneToMany(targetEntity=Offre::class, mappedBy="entreprise")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $offres;
+    private $reset_token;
 
-    public function __construct()
-    {
-        $this->offres = new ArrayCollection();
-        $this->candidatures = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $color;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
 
     public function getId(): ?int
     {
@@ -268,47 +281,61 @@ class User implements UserInterface
 
         return $this;
     }
-    public function removeCandidature(Candidature $candidature): self
+    public function getCaptchaCode()
     {
-        if ($this->candidatures->removeElement($candidature)) {
-            // set the owning side to null (unless already changed)
-            if ($candidature->getCandidat() === $this) {
-                $candidature->setCandidat(null);
-            }
-        }
+        return $this->captchaCode;
+    }
+
+    public function setCaptchaCode($captchaCode)
+    {
+        $this->captchaCode = $captchaCode;
+    }
+
+    public function getActivationToken(): ?string
+    {
+        return $this->activation_token;
+    }
+
+    public function setActivationToken(?string $activation_token): self
+    {
+        $this->activation_token = $activation_token;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Offre[]
-     */
-    public function getOffres(): Collection
+    public function getResetToken(): ?string
     {
-        return $this->offres;
+        return $this->reset_token;
     }
 
-    public function addOffre(Offre $offre): self
+    public function setResetToken(?string $reset_token): self
     {
-        if (!$this->offres->contains($offre)) {
-            $this->offres[] = $offre;
-            $offre->setEntreprise($this);
-        }
+        $this->reset_token = $reset_token;
 
         return $this;
     }
 
-    public function removeOffre(Offre $offre): self
+    public function getColor(): ?string
     {
-        if ($this->offres->removeElement($offre)) {
-            // set the owning side to null (unless already changed)
-            if ($offre->getEntreprise() === $this) {
-                $offre->setEntreprise(null);
-            }
-        }
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
 
+    public function setCreatedAt(?\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
 }

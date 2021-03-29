@@ -5,50 +5,56 @@
     <div class="col-md-12">
     <div class="card">
     <div class="card-header card-header-primary">
-        <h1 align="center">candidat</h1>
-        <h4 align="center"> List of candidat </h4>
+      <p>
+          <img src="{{ asset('/public/logo_site.jpg') }}" alt="">
+{#          <a class="fa fa-pencil"></a>#}
+      </p>
+
+        <h1 align="center">Les Utilisateurs</h1>
+        <h4 align="center"> touts les comptes dans le site "Recrutini" </h4>
+
     </div>
     <div class="card-body">
     <div class="table-responsive">
     <table class="table" border="3">
         <thead class=" text-primary">
         <tr>
+
             <th>Nom</th>
             <th>Prénom</th>
             <th>mail</th>
-            <th>sexe</th>
             <th>Date nais</th>
-            <th>mdp</th>
             <th>Etat</th>
             <th>Ville</th>
-            <th>Img</th>
-            <th>Num </th>
+            <th>nom entreprise</th>
             <th>Spécialité</th>
-            <th>Diplome</th>
-            <th>Cv</th>
+            <th>date de creation du compte</th>
 
         </tr>
         </thead>
-        {% for candidat in candidat  %}
+
+        {% for user in user  %}
 
         <tbody>
         <tr>
-            <td>{{candidat.nom}}</td>
-            <td>{{candidat.prenom}}</td>
-            <td>{{candidat.email}}</td>
-            <td>{{candidat.genre}}</td>
-            <td>{{candidat.DateNaisse|date('Y-m-d')}}</td>
-            <td>{{candidat.mdp}}</td>
-            {% if candidat.etat == "0" %}
+            <td>{{user.name}}</td>
+            <td>{{user.prenom}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.DateNaiss|date('Y-m-d')}}</td>
+            {#                        <td>{{candidat.mdp}}</td>#}
+            {% if user.etat == "0" %}
                 <td>compte activé</td>
             {% else %}
                 <td>compte déactivé</td>
             {% endif %}
-            <td>{{candidat.gover}}</td>
-            <td>{{candidat.num}}</td>
-            <td>{{candidat.special}}</td>
-            <td>{{candidat.diplome}}</td>
-            <td>{{candidat.cv}}</td>
+            <td>{{user.gover}}</td>
+            {#                        <td>{{candidat.num}}</td>#}
+            {#                        <td>{{user.roles}}</td>#}
+            <td>{{user.NomEntre}}</td>
+
+            <td>{{user.special}}</td>
+            {#                        <td>{{candidat.diplome}}</td>#}
+            <td>  {{user.CreatedAt|date('Y-m-d')}} </td>
         </tr>
 
         {% endfor %}
