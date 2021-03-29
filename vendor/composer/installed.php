@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'ef55c866708e35052cb4efbeb2d20f53aa81c106',
+    'reference' => '972292d58a22a09308e3715787cfbfad16ae27c2',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,25 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'ef55c866708e35052cb4efbeb2d20f53aa81c106',
+      'reference' => '972292d58a22a09308e3715787cfbfad16ae27c2',
+    ),
+    'captcha-com/captcha' => 
+    array (
+      'pretty_version' => '4.2.5',
+      'version' => '4.2.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4b8b642509bfc63d2f295dccf1c1b4d0e2266a15',
+    ),
+    'captcha-com/symfony-captcha-bundle' => 
+    array (
+      'pretty_version' => '4.2.12',
+      'version' => '4.2.12.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fd071c3f36d646ff87b591ddb3ea531c5f3678c2',
     ),
     'doctrine/lexer' => 
     array (
@@ -108,21 +126,21 @@
     ),
     'symfony/mailer' => 
     array (
-      'pretty_version' => 'v5.2.5',
-      'version' => '5.2.5.0',
+      'pretty_version' => 'v5.2.6',
+      'version' => '5.2.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9cc469d0ca8fe0e7d46089bdb06793259817f2c9',
+      'reference' => '04475b8368b6c7a559581ee8a0650c919ec79274',
     ),
     'symfony/mime' => 
     array (
-      'pretty_version' => 'v5.2.5',
-      'version' => '5.2.5.0',
+      'pretty_version' => 'v5.2.6',
+      'version' => '5.2.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => '554ba128f1955038b45db5e1fa7e93bfc683b139',
+      'reference' => '1b2092244374cbe48ae733673f2ca0818b37197b',
     ),
     'symfony/polyfill-intl-idn' => 
     array (

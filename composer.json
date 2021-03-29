@@ -1,5 +1,6 @@
 {
     "require": {
-        "symfony/mailer": "^5.2"
+        "symfony/mailer": "^5.2",
+        "captcha-com/symfony-captcha-bundle": "^4.2"
     }
 }

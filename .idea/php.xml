@@ -14,7 +14,6 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/validator" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/twig-bundle" />
-      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/twig-bridge" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/stopwatch" />
@@ -63,7 +62,6 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/dom-crawler" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/dependency-injection" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/debug-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/css-selector" />
@@ -116,12 +114,16 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
-      <path value="$PROJECT_DIR$/ProjPiDev/vendor/dompdf/dompdf" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/messenger" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-font-lib" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-svg-lib" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/cmen/google-charts-bundle" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/captcha-com/symfony-captcha-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/captcha-com/captcha" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/twig-bridge" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

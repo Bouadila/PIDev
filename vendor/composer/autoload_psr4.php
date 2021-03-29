@@ -21,4 +21,5 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
+    'Captcha\\Bundle\\CaptchaBundle\\' => array($vendorDir . '/captcha-com/symfony-captcha-bundle'),
 );

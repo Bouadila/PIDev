@@ -43,6 +43,10 @@ class ComposerStaticInite7f9b1b74265116aa185a0d2534bbace
         array (
             'Doctrine\\Common\\Lexer\\' => 22,
         ),
+        'C' => 
+        array (
+            'Captcha\\Bundle\\CaptchaBundle\\' => 29,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -105,6 +109,10 @@ class ComposerStaticInite7f9b1b74265116aa185a0d2534bbace
         'Doctrine\\Common\\Lexer\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
+        'Captcha\\Bundle\\CaptchaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/captcha-com/symfony-captcha-bundle',
         ),
     );
 
