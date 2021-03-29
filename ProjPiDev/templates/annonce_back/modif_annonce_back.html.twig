@@ -44,17 +44,15 @@
                                     {{ form_widget(form.img) }}
                                 </fieldset>
                             </div>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <a class="filled-button">{{ form_widget(form.Submit) }}</a>
-                                </fieldset>
-                            </div>
                             <br>
-                            <div class="col-lg-12">
-                                <fieldset>
-                                    <a class="filled-button" href="{{ path('DeleteAnnonce',{'id':id}) }}">Supprimer</a>
-                                </fieldset>
-                            </div>
+                            <br>
+                            <td>
+                                {{ form_widget(form.Submit) }}
+                            </td>
+                            <br>
+                            <td>
+                                <a class="filled-button" href="{{ path('DeleteAnnonce',{'id':id}) }}">Supprimer</a>
+                            </td>
                         </div>
                         </form {{ form_end(form) }}
                     </div>

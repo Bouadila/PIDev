@@ -38,7 +38,7 @@ class AnnonceType extends AbstractType
             ->add('img', FileType::class,[
                 'mapped'=>false
             ])
-            ->add('Submit', SubmitType::class)
+            ->add('Submit', SubmitType::class , ['attr'=>['class'=>'filled-button']])
         ;
     }
 

@@ -17,11 +17,43 @@
         </div>
     </div>
     <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-    <div class="card-body">
-        <h4 align="center">{{ annonce.nom }} {{ annonce.origine }}</h4>
-        <br>
-        <img src="{{ asset('picture/' ~ annonce.img) }}" alt="image" width="1215" height="1754" />
+        <div class="card">
+            <div class="card-body">
+                <h4 align="center">{{ annonce.nom }} {{ annonce.origine }}</h4>
+                <br>
+                <img src="{{ asset('picture/' ~ annonce.img) }}" alt="image" width="1215" height="1754"/>
+                <br>
+                <br>
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <form {{ form_start(formComm) }}
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset>
+                                    {{ form_widget(formComm.Description) }}
+                                </fieldset>
+                            </div>
+                            <br>
+                            <br>
+                            <td>
+                                {{ form_widget(formComm.Post) }}
+                            </td>
+                        </div>
+                        </form {{ form_end(formComm) }}
+                        {% for i in comments %}
+                            <br>
+                            <h4>{{ i.Description }}</h4>
+                            <p>{{ i.TimeStamp }}</p>
+                            <p>Likes : {{ i.NbrReac }}</p>
+                            <a class="filled-button" href="{{ path('like',{'id':i.id}) }}" >Like</a>
+                            <a class="filled-button" href="{{ path('dislike',{'id':i.id}) }}" >Dislike</a>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     </div>
 {% endblock %}

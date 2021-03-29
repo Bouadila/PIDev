@@ -44,7 +44,7 @@ class ReclamationType extends AbstractType
                 ],
             ])*/
 
-            ->add('Submit', SubmitType::class)
+            ->add('Submit', SubmitType::class,['attr'=>['class'=>'filled-button']])
         ;
     }
 
