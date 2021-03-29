@@ -63,6 +63,16 @@ class Rendezvous
      */
     private $text_color;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $accepte;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $room;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -172,6 +182,30 @@ class Rendezvous
     public function setTextColor(?string $text_color): self
     {
         $this->text_color = $text_color;
+
+        return $this;
+    }
+
+    public function getAccepte(): ?bool
+    {
+        return $this->accepte;
+    }
+
+    public function setAccepte(bool $accepte): self
+    {
+        $this->accepte = $accepte;
+
+        return $this;
+    }
+
+    public function getRoom(): ?string
+    {
+        return $this->room;
+    }
+
+    public function setRoom(string $room): self
+    {
+        $this->room = $room;
 
         return $this;
     }

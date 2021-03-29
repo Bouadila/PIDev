@@ -23,6 +23,7 @@ class RendezvousType extends AbstractType
                 'date_widget' => 'single_text'
             ])
             ->add('description')
+            ->add('room')
            ;
     }
 

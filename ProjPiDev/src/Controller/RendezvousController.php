@@ -146,4 +146,12 @@ class RendezvousController extends AbstractController
 
         return $this->redirectToRoute('rendezvous_index');
     }
+    /**
+     * @Route("/accepter/{id}", name="rendezvous_accepter" , methods={"GET","POST"})
+     */
+    public function accepter(Request $request, Rendezvous $rendezvou): Response
+    {
+        return $this->render('rendezvous/accepter.html.twig', [
+        ]);
+    }
 }

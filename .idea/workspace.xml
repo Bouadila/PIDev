@@ -10,18 +10,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5e11c26-e7c2-4a60-b2e3-8041c609c262" name="Default Changelist" comment="&quot;Ajouter les offres à l'entreprise connecté&quot;">
-      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" afterDir="false" />
+    <list default="true" id="d5e11c26-e7c2-4a60-b2e3-8041c609c262" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/accepter.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/.env" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/RendezvousController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/RendezvousController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Rendezvous.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Rendezvous.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Form/RendezvousType.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/RendezvousType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/calendrier/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/calendrier/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +180,9 @@
       <workItem from="1614809919462" duration="411000" />
       <workItem from="1614846165100" duration="2000" />
       <workItem from="1616792328258" duration="377000" />
-      <workItem from="1616792814371" duration="34880000" />
+      <workItem from="1616792814371" duration="35037000" />
+      <workItem from="1616976709672" duration="5892000" />
+      <workItem from="1617007610875" duration="601000" />
     </task>
     <servers />
   </component>
@@ -214,14 +214,14 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="476" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1616804099728" />
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616915221063">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616980856991">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1616915221063" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1616821423057">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1616980856991" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1616915402916">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1616821423057" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1616915402916" />
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614810082483">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
