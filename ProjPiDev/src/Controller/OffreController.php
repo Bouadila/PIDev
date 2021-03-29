@@ -74,7 +74,11 @@ class OffreController extends AbstractController
             $entityManager->persist($offre);
             $entityManager->flush();
 
-            return $this->redirectToRoute('offre_index');
+        
+            if($form['test']->getData() == "oui")
+                return $this->redirectToRoute('quiz_new',['offre'=> $offre->getId()]);
+            else
+                return $this->redirectToRoute('offre_index');
         }
 
         return $this->render('offre/new.html.twig', [
@@ -116,8 +120,10 @@ class OffreController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('offre_index');
+            if($form['test']->getData() == "oui")
+                return $this->redirectToRoute('quiz_new',['offre'=> $offre->getId()]);
+            else
+                return $this->redirectToRoute('offre_index');
         }
 
         return $this->render('offre/edit.html.twig', [

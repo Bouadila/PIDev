@@ -125,6 +125,11 @@ class Offre
      */
     private $entreprise;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Quiz::class, inversedBy="offre", cascade={"persist", "remove"})
+     */
+    private $quiz;
+
 
 
     public function __construct()
@@ -360,6 +365,18 @@ class Offre
     public function setEntreprise(?User $entreprise): self
     {
         $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+
+    public function setQuiz(?Quiz $quiz): self
+    {
+        $this->quiz = $quiz;
 
         return $this;
     }

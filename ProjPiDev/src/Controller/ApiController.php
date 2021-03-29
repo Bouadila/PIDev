@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Rendezvous;
+use App\Entity\User;
+use App\Repository\UserRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,8 +25,10 @@ class ApiController extends AbstractController
     /**
      * @Route("/api/{id}/edit", name="api_event_edit", methods={"PUT"})
      */
-    public function majEvent(?Rendezvous $rendezvous, Request $request)
+    public function majEvent(?Rendezvous $rendezvous, Request $request , \Swift_Mailer $mailer,UserRepository $repository)
     {
+        $user = new User();
+        $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
         // On récupère les données
         $donnees = json_decode($request->getContent());
         if(
@@ -64,6 +68,18 @@ class ApiController extends AbstractController
             $rendezvous->setCandidature($rendezvous->getCandidature());
 
             $em = $this->getDoctrine()->getManager();
+            $message = (new \Swift_Message('confirmation rendez vous entretien d\'embauche'))
+                ->setFrom($user->getEmail())
+                ->setTo($rendezvous->getCandidature()->getCandidat()->getEmail())
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'rendezvous/email.html.twig',
+                        ['rendezvous' => $rendezvous]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
             $em->persist($rendezvous);
             $em->flush();
 

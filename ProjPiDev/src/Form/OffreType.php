@@ -78,6 +78,14 @@ class OffreType extends AbstractType
                     'Transport-Logistique' => 'Transport-Logistique',
                 ],
             ])
+            ->add('test', ChoiceType::class,[
+                'label' =>'ajouter quiz',
+                'mapped'=> false,
+                'choices'  => [
+                    'non'=>'non',
+                    'oui' => 'oui',
+                ],
+            ])
         ;
     }
 

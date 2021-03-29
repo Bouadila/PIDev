@@ -16,7 +16,6 @@ class RendezvousType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
             ->add('start', DateTimeType::class, [
                 'date_widget' => 'single_text'
              ])
@@ -24,12 +23,8 @@ class RendezvousType extends AbstractType
                 'date_widget' => 'single_text'
             ])
             ->add('description')
-            ->add('all_day')
-            ->add('background_color',ColorType::class)
-            ->add('border_color',ColorType::class)
-            ->add('text_color',ColorType::class)
-            ->add('candidature',EntityType::class, ['class' => Candidature::class,'choice_label' => 'titre' , 'expanded'=>true, 'multiple'=>false])
-        ;
+            ->add('room')
+           ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
