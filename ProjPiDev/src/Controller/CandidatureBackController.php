@@ -15,6 +15,8 @@ use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 /**
  * @Route("/candidatureback")
@@ -109,13 +111,18 @@ class CandidatureBackController extends AbstractController
 
     /**
      * @Route("/searchCandidatureback ", name="searchCandidatureback")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return JsonResponse
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
      */
     public function searchCandback(Request $request,NormalizerInterface $Normalizer)
     {
         $repository = $this->getDoctrine()->getRepository(Candidature::class);
         $requestString=$request->get('searchValue');
         $candidature = $repository->findCandidatureParNom($requestString);
-        //$serializer = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
+        $serializer1 = new Serializer(array(new DateTimeNormalizer('Y-m-d')));
+        $serializer2 = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
         $data=array();
 
         foreach ($candidature as $c)
@@ -125,12 +132,12 @@ class CandidatureBackController extends AbstractController
                 "prenom"=>$c->getPrenom(),
                 "sexe"=>$c->getSexe(),
                 "email"=>$c->getEmail(),
-               // "date_naiss"=>$serializer->normalize($c->getDateNaiss()),
+                "date_naiss"=>$serializer1->normalize($c->getDateNaiss()),
                 "num"=>$c->getNum(),
                 "status"=>$c->getStatus(),
                 "diplome"=>$c->getDiplome(),
                 "cv"=>$c->getCv(),
-               // "date_cand"=>$serializer->normalize($c->getDateCandidature())
+                "date_candidature"=>$serializer2->normalize($c->getDateCandidature())
             ));
         }
 

@@ -219,14 +219,15 @@ class CandidatureController extends AbstractController
      */
     public function search(Request $request, PaginatorInterface $paginator): Response
     {
-        //$userId = $this->getUser()->getId();
-        //$id = array('id_candidat' => $userId);
+        $userId = $this->getUser()->getId();
+        $id = array('id_candidat' => $userId);
         $query = $request->query->get('query');
         $orderBy = $request->query->get('order');
 
+
         $donnee = $this->getDoctrine()->getRepository(Candidature::class)
            // ->findBy($id)
-            ->search($query, $orderBy);
+            ->search($query, $orderBy, $id);
 
 
         $result = $paginator->paginate(
@@ -239,6 +240,7 @@ class CandidatureController extends AbstractController
             'results' => $result,
             'query' => $query,
             'order' => $orderBy,
+            'id' => $id,
         ]);
     }
 
