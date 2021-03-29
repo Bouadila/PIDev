@@ -4,7 +4,8 @@
 
 {% block body %}
 
-    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+    <div class="page-heading contact-heading header-text"
+         style="background-image: url({{ asset('assets/images/heading-4-1920x500.jpg') }});">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -15,38 +16,44 @@
             </div>
         </div>
     </div>
-    <div class="products">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9 col-sm-8">
-                    <p class="lead">
-                        Titre &nbsp;&nbsp;
-                        Description &nbsp;&nbsp;
-                        Type &nbsp;
-{#                        Status &nbsp;#}
-                        Date &nbsp;&nbsp;
-                        Modification &nbsp;&nbsp;
-                        Suppression &nbsp;
-                    </p>
-                    <br>
-                    <br>
-                    <p class="lead">
-                    {% for i in list %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in list %}
+                <tr>
+                    <td>
                         {{ i.Title }} &nbsp;&nbsp;
+                    </td>
+                    <td>
                         {{ i.DescriptionReclamation }} &nbsp;&nbsp;
+                    </td>
+                    <td>
                         {{ i.Type }} &nbsp;
-{#                        {{ i.Status }} &nbsp;#}
+                    </td>
+                    <td>
                         {{ i.DateReclamation }} &nbsp;&nbsp;
-                        <a href="{{ path('modifyReclamation', {'id': i.id}) }}" title="Modify"><i></i>Modifier</a> &nbsp;&nbsp;
-                        <a href="{{ path('deleteReclamation', {'id': i.id}) }}" title="Delete"><i></i>Supprimer</a> &nbsp;
-                        <br>
-                        <br>
-                        {% endfor %}
-                    </p>
-                    <br>
-                    <br>
-                </div>
-            </div>
-        </div>
+                    </td>
+                    <td>
+                        <a href="{{ path('modifyReclamation', {'id': i.id}) }}" title="Modify"><i></i>Modifier</a>
+                        &nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <a href="{{ path('deleteReclamation', {'id': i.id}) }}" title="Delete"><i></i>Supprimer</a>
+                        &nbsp;
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}

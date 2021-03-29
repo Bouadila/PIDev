@@ -29,8 +29,8 @@ class AnnonceController extends AbstractController
      */
     public function Affiche ( $id, AnnonceRepository $annonceRepository)
     {
-        $annonceRepository->find($id);
-        return $this->render('annonce/affiche_annonce.html.twig');
+        $annonce=$annonceRepository->find($id);
+        return $this->render('annonce/affiche_annonce.html.twig',['annonce'=>$annonce]);
     }
 
 }

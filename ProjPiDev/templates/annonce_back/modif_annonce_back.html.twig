@@ -4,7 +4,8 @@
 
 {% block body %}
 
-    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+    <div class="page-heading contact-heading header-text"
+         style="background-image: url({{ asset('assets/images/heading-4-1920x500.jpg') }});">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -45,13 +46,13 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    {{ form_widget(form.Submit) }}
+                                    <a class="filled-button">{{ form_widget(form.Submit) }}</a>
                                 </fieldset>
                             </div>
                             <br>
                             <div class="col-lg-12">
                                 <fieldset>
-                                        <a class="filled-button"  href="{{ path('DeleteAnnonce',{'id':id}) }}">Supprimer</a>
+                                    <a class="filled-button" href="{{ path('DeleteAnnonce',{'id':id}) }}">Supprimer</a>
                                 </fieldset>
                             </div>
                         </div>
