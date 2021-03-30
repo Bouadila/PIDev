@@ -68,6 +68,13 @@ class ReclamationController extends AbstractController
         $em = $this->getDoctrine()->getRepository(Reclamation::class);
         $list = $em->findAll();
 
+        /*$paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $list,
+            $request->query->getInt('page', 1),
+            10
+        );*/
+
         return $this->render('reclamation/afficheReclamation.html.twig', [
             'controller_name' => 'ReclamationController',
             'list'=>$list

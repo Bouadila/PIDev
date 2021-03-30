@@ -43,6 +43,12 @@ class AnnonceBackController extends AbstractController
     {
         $em = $this->getDoctrine()->getRepository(Annonce::class);
         $list = $em->findAll();
+        /*$paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $list,
+            $request->query->getInt('page', 1),
+            10
+        );*/
         return $this->render('annonce_back/liste_annonce_back.html.twig', [
             'controller_name' => 'AnnonceController',
             'list'=>$list,
