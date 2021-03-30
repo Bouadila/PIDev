@@ -46,6 +46,12 @@ class Quiz
      */
     private $listReponsesCondidats;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Offre::class, mappedBy="quiz", cascade={"persist", "remove"})
+     */
+    private $offre;
+
+
 
     public function __construct()
     {
@@ -143,6 +149,28 @@ class Quiz
                 $listReponsesCondidat->setQuiz(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOffre(): ?Offre
+    {
+        return $this->offre;
+    }
+
+    public function setOffre(?Offre $offre): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($offre === null && $this->offre !== null) {
+            $this->offre->setQuiz(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($offre !== null && $offre->getQuiz() !== $this) {
+            $offre->setQuiz($this);
+        }
+
+        $this->offre = $offre;
 
         return $this;
     }

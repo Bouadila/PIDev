@@ -115,15 +115,22 @@ class Offre
      */
     private $flagExpirer;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="offre", orphanRemoval=true)
-     */
-    private $candidatures;
+
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="offres")
      */
     private $entreprise;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Quiz::class, inversedBy="offre", cascade={"persist", "remove"})
+     */
+    private $quiz;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="offre")
+     */
+    private $candidatures;
 
 
 
@@ -322,6 +329,34 @@ class Offre
         return $this;
     }
 
+    
+
+
+
+    public function getEntreprise(): ?User
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?User $entreprise): self
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    public function getQuiz(): ?Quiz
+    {
+        return $this->quiz;
+    }
+
+    public function setQuiz(?Quiz $quiz): self
+    {
+        $this->quiz = $quiz;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Candidature[]
      */
@@ -348,18 +383,6 @@ class Offre
                 $candidature->setOffre(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getEntreprise(): ?User
-    {
-        return $this->entreprise;
-    }
-
-    public function setEntreprise(?User $entreprise): self
-    {
-        $this->entreprise = $entreprise;
 
         return $this;
     }

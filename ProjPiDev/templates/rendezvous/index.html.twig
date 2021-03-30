@@ -24,11 +24,11 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Table des Rendez-vous</h4>
-                <div class="col-md-6 card-description">
+                {# <div class="col-md-6 card-description">
                     <a id="form-submit" class="filled-button" href="{{ path('rendezvous_new') }}">
                         <i class="fa fa-plus" aria-hidden="true"></i> Ajouter Rendez-vous
                     </a>
-                </div>
+                </div> #}
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                         <thead>
@@ -37,7 +37,6 @@
                             <th scope="col">Start</th>
                             <th scope="col">End</th>
                             <th scope="col">Description</th>
-                            <th scope="col">All day</th>
                             <th scope="col">Background color</th>
                             <th scope="col">Border color</th>
                             <th scope="col">Text color</th>
@@ -51,7 +50,6 @@
                                 <td>{{ rendezvou.start ? rendezvou.start|date('Y-m-d H:i:s') : '' }}</td>
                                 <td>{{ rendezvou.end ? rendezvou.end|date('Y-m-d H:i:s') : '' }}</td>
                                 <td>{{ rendezvou.description }}</td>
-                                <td>{{ rendezvou.allDay ? 'Yes' : 'No' }}</td>
                                 <td>{{ rendezvou.backgroundColor }}</td>
                                 <td>{{ rendezvou.borderColor }}</td>
                                 <td>{{ rendezvou.textColor }}</td>

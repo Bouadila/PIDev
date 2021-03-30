@@ -96,29 +96,28 @@ class Candidature
      */
     private $id_candidat;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Groups("post:read")
-     */
-    private $id_offer;
 
     /**
-     * @ORM\OneToOne(targetEntity=Quiz::class, cascade={"persist", "remove"})
-     * @Groups("post:read")
+     * @ORM\OneToOne(targetEntity=Rendezvous::class, mappedBy="candidature", cascade={"persist", "remove"})
      */
-    private $id_quiz;
+    private $rendezvous;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Groups("post:read")
-     */
-    private $id_rdv;
 
     /**
      * @ORM\Column(type="datetime")
      * @Groups("post:read")
      */
     private $date_candidature;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Offre::class, inversedBy="candidatures")
+     */
+    private $offre;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="candidatures")
+     */
+    private $candidat;
 
     
     public function getId(): ?int
@@ -262,17 +261,7 @@ class Candidature
         return $this;
     }
 
-    public function getIdQuiz(): ?Quiz
-    {
-        return $this->id_quiz;
-    }
-
-    public function setIdQuiz(?Quiz $id_quiz): self
-    {
-        $this->id_quiz = $id_quiz;
-
-        return $this;
-    }
+ 
 
     public function getIdRdv(): ?int
     {
@@ -298,5 +287,45 @@ class Candidature
         return $this;
     }
 
-   
+    public function getOffre(): ?Offre
+    {
+        return $this->offre;
+    }
+
+    public function setOffre(?Offre $offre): self
+    {
+        $this->offre = $offre;
+
+        return $this;
+    }
+
+    public function getCandidat(): ?User
+    {
+        return $this->candidat;
+    }
+
+    public function setCandidat(?User $candidat): self
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    public function getRendezvous(): ?Rendezvous
+    {
+        return $this->rendezvous;
+    }
+
+    public function setRendezvous(Rendezvous $rendezvous): self
+    {
+        // set the owning side of the relation if necessary
+        if ($rendezvous->getCandidature() !== $this) {
+            $rendezvous->setCandidature($this);
+        }
+
+        $this->rendezvous = $rendezvous;
+
+        return $this;
+    }
+
 }

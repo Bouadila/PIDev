@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\Reponse;
+use App\Entity\Offre;
 use App\Form\QuizType;
 use App\Repository\QuizRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,8 +34,9 @@ class QuizController extends AbstractController
     /**
      * @Route("/new", name="quiz_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new( Request $request): Response
     {
+        $offre = $this->getDoctrine()->getRepository(Offre::class)->find($request->query->get("offre"));
         $quiz = new Quiz();
         $form = $this->createForm(QuizType::class, $quiz);
         $form->handleRequest($request);
@@ -42,6 +44,7 @@ class QuizController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($quiz);
+            $offre->setQuiz($quiz);
             $entityManager->flush();
 
             return $this->redirectToRoute('question_new', ['id_quiz' => $quiz->getId(), "nb_question" => $quiz->getNombQuestion()]);

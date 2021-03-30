@@ -29,6 +29,16 @@ class ListReponsesCondidat
      */
     private $quiz;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $score;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Candidature::class, cascade={"persist", "remove"})
+     */
+    private $candidature;
+
     public function __construct()
     {
         $this->reponses = new ArrayCollection();
@@ -77,6 +87,32 @@ class ListReponsesCondidat
     public function setQuiz(?Quiz $quiz): self
     {
         $this->quiz = $quiz;
+
+        return $this;
+    }
+
+
+
+    public function getScore(): ?int
+    {
+        return $this->score;
+    }
+
+    public function setScore(int $score): self
+    {
+        $this->score = $score;
+
+        return $this;
+    }
+
+    public function getCandidature(): ?Candidature
+    {
+        return $this->candidature;
+    }
+
+    public function setCandidature(?Candidature $candidature): self
+    {
+        $this->candidature = $candidature;
 
         return $this;
     }

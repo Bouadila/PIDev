@@ -318,6 +318,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/wamp64/www/ProjPiDev" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -355,11 +359,23 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="459" y="281" key="ComposerInitDialogKey" timestamp="1617015918537">
+    <state x="309" y="47" key="#Inspections" timestamp="1616912869929">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="459" y="281" key="ComposerInitDialogKey/0.0.1366.738@0.0.1366.738" timestamp="1617015918537" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1616858219734">
+    <state x="309" y="47" key="#Inspections/0.0.1366.738@0.0.1366.738" timestamp="1616912869929" />
+    <state x="476" y="78" key="#com.intellij.ide.util.MemberChooser" timestamp="1616804099728">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="476" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1616804099728" />
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616980856991">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1616980856991" />
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1616915402916">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1616915402916" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614810082483">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1616858219734" />
