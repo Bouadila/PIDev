@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Candidature;
 use App\Form\CandidatureType;
+use App\Entity\Offre;
+use App\Entity\User;
 use App\Repository\CandidatureRepository;
+use App\Repository\UserRepository;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -76,19 +79,19 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/new/{id}", name="candidature_new", methods={"GET","POST"})
      */
-    public function new(Request $request, $id, \Swift_Mailer $mailer): Response
+    public function new(Request $request, $id, \Swift_Mailer $mailer, UserRepository $repository): Response
     {
 
+        $offre = $this->getDoctrine()->getRepository(Offre::class)->find($id);
         $candidature = new Candidature();
+        $candidature->setOffre($offre);
         $form = $this->createForm(CandidatureType::class, $candidature);
         $form->handleRequest($request);
         $candidature->setDateCandidature(new \DateTime('now'));
-        $candidature->setIdOffer($id);
-
-
         $userId = $this->getUser()->getId();
         $name = $this->getUser()->getName();
-        $candidature->setIdCandidat($userId);
+        $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
+        $candidature->setCandidat($user);
         
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -98,7 +101,7 @@ class CandidatureController extends AbstractController
 
             try {
                 $file->move(
-                    $this->getParameter('cv_directory'),
+                    $this->getParameter('upload_directory'),
                     $fileName
                 );
             } catch (FileException $e) {
@@ -121,12 +124,15 @@ class CandidatureController extends AbstractController
 
             $mailer->send($message);
 
-
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($candidature);
             $entityManager->flush();
 
-            return $this->redirectToRoute('candidature_index');
+            if($offre->getQuiz() == null)
+                return $this->redirectToRoute('candidature_index');
+            else
+                return $this->redirectToRoute('take_quiz',['id'=>$offre->getQuiz()->getId(), 'candidature'=> $candidature->getId()]);
         }
 
         return $this->render('candidature/new.html.twig', [

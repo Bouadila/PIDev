@@ -23,10 +23,10 @@ class RendezvousController extends AbstractController
      */
     public function index(RendezvousRepository $rendezvousRepository): Response
     {
-        //dd($rendezvousRepository->findAll());
-        return $this->render('rendezvous/index.html.twig', [
-            'rendezvouses' => $rendezvousRepository->findAll(),
-        ]);
+        dd($rendezvousRepository->findAll());
+        // return $this->render('rendezvous/index.html.twig', [
+        //     'rendezvouses' => $rendezvousRepository->findAll(),
+        // ]);
 
     }
 
@@ -48,10 +48,11 @@ class RendezvousController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $candidature = $entityManager->getRepository(Candidature::class)->find($id);
+            $candidature = $this->getDoctrine()->getRepository(Candidature::class)->find($id);
             $rendezvous->setCandidature($candidature);
             $rendezvous->setAllDay(false);
             $rendezvous->setBackgroundColor("#ff0000");
+            $rendezvous->setAccepte(false);
             $rendezvous->setBorderColor("#000000");
             $rendezvous->setTextColor("#fcfcfc");
             $rendezvous->setTitre($candidature->getCandidat()->getName());

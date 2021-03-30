@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ListReponsesCondidat;
 use App\Entity\Question;
 use App\Entity\Quiz;
+use App\Entity\Candidature;
 use App\Entity\Reponse;
 use App\Entity\ReponseCondidat;
 use App\Entity\ReponseList;
@@ -34,16 +35,28 @@ class TakeQuizController extends AbstractController
      */
     public function takeQuiz (Request $request, Quiz $quiz): Response{
         $em = $this->getDoctrine()->getManager();
-
         if($request->query->get("answer")){
             $reponseList = $this->getDoctrine()->getRepository(ListReponsesCondidat::class)->find($request->query->get("rl"));
         }
         else{
+        $candidature = $this->getDoctrine()->getRepository(Candidature::class)->find($request->query->get("candidature"));
             $reponseList = new ListReponsesCondidat();
             $reponseList->setQuiz($quiz);
+            // $reponseList->setScore($score);
+            $reponseList->setCandidature($candidature);
             $em->persist($reponseList);
         }
         if(count($quiz->getQuestions()) < ((int) $request->query->get("answer"))+1) {
+            $reponses = $reponseList->getReponses();
+            $score = 0;
+            foreach($reponses as $rep){
+                
+                if( $rep->getReponse() != null && $rep->getReponse()->getId() == $rep->getQuestion()->getRepJust()->getId() )
+                    $score +=1;
+
+            }
+            $reponseList->setScore($score);
+            $em->flush();
             return $this->redirectToRoute('quiz_result', ['id' => $reponseList->getId()]);
 
         }
@@ -205,6 +218,8 @@ class TakeQuizController extends AbstractController
                     $i++;
             }
             $score = ($i * 100) / count($list);
+            
+
 //            persist the list of reponsesCondidat
             $em->persist($reponseList);
             $em->flush();
@@ -215,7 +230,7 @@ class TakeQuizController extends AbstractController
                 ->setTo('firas.bouadila@esprit.tn')
                 ->setBody(
                     $this->renderView(
-                        'email/showResult.html.twig', ['quiz' => $reponseList, 'score' => $score]
+                        'email/showResult.html.twig', ['quiz' => $reponseList]
                     ),
                     'text/html'
                 );
