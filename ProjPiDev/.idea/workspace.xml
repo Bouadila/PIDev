@@ -19,20 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Clean Base">
-      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Status ADDED functional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210329200707.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20210330223644.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ReclamationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReclamationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation_back/affiche_reclamation_back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation_back/affiche_reclamation_back.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,7 +221,7 @@
       <workItem from="1617028711611" duration="1287000" />
       <workItem from="1617043384718" duration="3043000" />
       <workItem from="1617046501522" duration="2936000" />
-      <workItem from="1617140417926" duration="4385000" />
+      <workItem from="1617140417926" duration="5801000" />
     </task>
     <task id="LOCAL-00007" summary="crud terminer">
       <created>1614846379142</created>
@@ -318,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617142012648</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Status ADDED functional">
+      <created>1617145262580</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617145262580</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +357,8 @@
     <MESSAGE value="removed status" />
     <MESSAGE value="ADDED FN &#10;CLEANED CODE" />
     <MESSAGE value="Clean Base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean Base" />
+    <MESSAGE value="Status ADDED functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Status ADDED functional" />
   </component>
   <component name="WindowStateProjectService">
     <state x="309" y="42" key="#Inspections" timestamp="1614383405692">
@@ -400,10 +397,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614506857024" />
-    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1617142025914">
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1617145267060">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1617142025914" />
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1617145267060" />
     <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616407021722">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
