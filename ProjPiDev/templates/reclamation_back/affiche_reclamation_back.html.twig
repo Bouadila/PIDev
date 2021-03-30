@@ -25,6 +25,7 @@
                 <th>Description</th>
                 <th>Type</th>
                 <th>Date</th>
+                <th>Status</th>
                 <th>Suppression</th>
             </tr>
             </thead>
@@ -42,6 +43,11 @@
                     </td>
                     <td>
                         {{ i.DateReclamation }} &nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <a href="{{ path('approve',{'id':i.id}) }}" >Résolu</a>
+                        <a>/</a>
+                        <a href="{{ path('disapprove',{'id':i.id}) }}" >Non Résolu</a>
                     </td>
                     <td>
                         <a href="{{ path('delete_back_reclamation', {'id': i.id}) }}" title="Delete"><i></i>Supprimer</a>

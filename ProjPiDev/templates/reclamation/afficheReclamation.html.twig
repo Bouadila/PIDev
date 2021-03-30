@@ -24,6 +24,7 @@
                 <th>Description</th>
                 <th>Type</th>
                 <th>Date</th>
+                <th>Status</th>
                 <th>Modification</th>
                 <th>Suppression</th>
             </tr>
@@ -42,6 +43,9 @@
                     </td>
                     <td>
                         {{ i.DateReclamation }} &nbsp;&nbsp;
+                    </td>
+                    <td>
+                        {{ i.status }}
                     </td>
                     <td>
                         <a href="{{ path('modifyReclamation', {'id': i.id}) }}" title="Modify"><i></i>Modifier</a>

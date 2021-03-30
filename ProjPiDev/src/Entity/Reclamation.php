@@ -46,10 +46,10 @@ class Reclamation
      */
     private $email;
 
-//    /**
-//     * @ORM\Column(type="string", length=255)
-//     */
-//    private $status;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
 
     public function getId(): ?int
     {
@@ -116,7 +116,7 @@ class Reclamation
         return $this;
     }
 
-    /*public function getStatus(): ?string
+    public function getStatus(): ?string
     {
         return $this->status;
     }
@@ -126,5 +126,5 @@ class Reclamation
         $this->status = $status;
 
         return $this;
-    }*/
+    }
 }

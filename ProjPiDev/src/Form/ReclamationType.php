@@ -37,13 +37,6 @@ class ReclamationType extends AbstractType
                 ],
             ])
 
-            /*->add('status', ChoiceType::class,[
-                'choices'  => [
-                    'Non Résolu' => 'Non Résolu' ,
-                    'Résolu' => 'Résolu' ,
-                ],
-            ])*/
-
             ->add('Submit', SubmitType::class,['attr'=>['class'=>'filled-button']])
         ;
     }

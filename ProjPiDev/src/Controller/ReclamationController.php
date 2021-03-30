@@ -23,6 +23,10 @@ class ReclamationController extends AbstractController
 
     /**
      * @Route("/reclamation/ajout", name="ajoutReclamation")
+     * @param Request $request
+     * @param \Swift_Mailer $mailer
+     * @param $status
+     * @return Response
      */
     public function Ajout(Request $request, \Swift_Mailer $mailer): Response
     {
@@ -34,6 +38,7 @@ class ReclamationController extends AbstractController
             $newDate = new \DateTime('now');
             $reclamation->setEmail('test@email.tn');
             $reclamation->setDateReclamation($newDate->format('Y-m-d H:i:s'));
+            $reclamation->setStatus('Non Résolu');
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
