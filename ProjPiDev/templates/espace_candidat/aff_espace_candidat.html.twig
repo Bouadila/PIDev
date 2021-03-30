@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}compte candidat{% endblock %}
-
+{% block title %}compte employeur{% endblock %}
 {% block body %}
     <section id="services_main">
         <div class="container">
@@ -10,31 +9,40 @@
                     <h2>SERVICES</h2>
                     <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
                 </div>
+
+
             </div>
         </div>
     </section>
-
 
     <div class="latest-products">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>                    {{user.getName()}} {{user.getPrenom()}}
+                        <h2> {{user.getPrenom()}}  {{user.getName()}}
+
                         </h2>
                         <a href="{{ path ('Modif_user') }}" class="fa fa-pencil" >Modifier le compte</a>
                     </div>
+
+
+
+                    {#                    <input type="text" name="note" id="note" value={{ user.color }}>#}
+                    {#                        <button type="submit">Valider</button>#}
+
                 </div>
+
                 <div class="col-md-4">
                     <div class="product-item" >
                         <a href="#"><img src="{{ asset('uploads/image/' ~ user.img) }}" alt="abc" height="300" width="400" ></a>
                         <div class="down-content">
 
-
                             <small>
-                                <strong title="Posted on"><i class="fa fa-calendar"></i>  {{user.getDateNaiss()|date('Y-m-d')}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i>  {{user.getGover()}}</strong>
-                            </br>
+                                <strong title="Location"><i class="fa fa-file"></i> {{user.DateNaiss|date('Y-m-d')}}</strong>
+
+                                </br>
                                 <strong title="Type"><i class="fa fa-file"></i> {{user.getEmail()}}</strong>
                             </small>
                         </div>
@@ -49,16 +57,77 @@
                             <h3>Specialite </h3>
                             <p>                              {{user.getSpecial()}}
                             </p>
-{#                            <h3>Diplome </h3>#}
-{#                            {{candidat.getDiplome()}}#}
+                            {#                            <h3>Diplome </h3>#}
+                            {#                            {{candidat.getDiplome()}}#}
 
                         </div>
                     </div>
 
                 </div>
+
+
             </div>
         </div>
     </div>
 
     </section>
+
+    <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script>
+        var ratedIndex = -1, uID = 0;
+        $(document).ready(function () {
+            resetStarColors();
+
+            if (localStorage.getItem('ratedIndex') != null) {
+                setStars(parseInt(localStorage.getItem('ratedIndex')));
+                uID = localStorage.getItem('uID');
+            }
+
+            $('.fa-star').on('click', function () {
+                ratedIndex = parseInt($(this).data('index'));
+                localStorage.setItem('ratedIndex', ratedIndex);
+                saveToTheDB();
+            });
+
+            $('.fa-star').mouseover(function () {
+                resetStarColors();
+                var currentIndex = parseInt($(this).data('index'));
+                setStars(currentIndex);
+            });
+
+            $('.fa-star').mouseleave(function () {
+                resetStarColors();
+
+                if (ratedIndex != -1)
+                    setStars(ratedIndex);
+            });
+        });
+
+        function saveToTheDB() {
+            $.ajax({
+                url : "{{ path('aff_user') }}",
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    save: 1,
+                    uID: uID,
+                    ratedIndex: ratedIndex
+                }, success: function (r) {
+                    uID = r.id;
+                    localStorage.setItem('uID', uID);
+                }
+            });
+        }
+
+        function setStars(max) {
+            for (var i=0; i <= max; i++)
+                $('.fa-star:eq('+i+')').css('color', 'red');
+        }
+
+        function resetStarColors() {
+            $('.fa-star').css('color', 'black');
+        }
+    </script>
+
+
 {% endblock %}

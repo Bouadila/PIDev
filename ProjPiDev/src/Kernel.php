@@ -24,6 +24,7 @@ class Kernel extends BaseKernel
             }
 
         }
+
     }
 
     public function getProjectDir(): string

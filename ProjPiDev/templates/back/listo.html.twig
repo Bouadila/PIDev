@@ -6,23 +6,23 @@
     <div class="card">
     <div class="card-header card-header-primary">
       <p>
-          <img src="{{ asset('/public/logo_site.jpg') }}" alt="">
+{#          <img src="{{ asset('/public/logo_site.jpg') }}" alt="">#}
 {#          <a class="fa fa-pencil"></a>#}
       </p>
 
-        <h1 align="center">Les Utilisateurs</h1>
-        <h4 align="center"> touts les comptes dans le site "Recrutini" </h4>
+        <h1 align="center" style="color: #a01a1f">Les Comptes des Utilisateurs pour le statut juridique</h1>
+        <h3 align="center"> touts les comptes dans le site <div style=" color: #0c5460 ">Recrutini</div> </h3>
 
     </div>
     <div class="card-body">
     <div class="table-responsive">
     <table class="table" border="3">
         <thead class=" text-primary">
-        <tr>
+        <tr style="color: darkcyan">
 
             <th>Nom</th>
             <th>Prénom</th>
-            <th>mail</th>
+            <th>email</th>
             <th>Date nais</th>
             <th>Etat</th>
             <th>Ville</th>
@@ -43,9 +43,10 @@
             <td>{{user.DateNaiss|date('Y-m-d')}}</td>
             {#                        <td>{{candidat.mdp}}</td>#}
             {% if user.etat == "0" %}
-                <td>compte activé</td>
+
+                <td style="color: chartreuse">compte activé</td>
             {% else %}
-                <td>compte déactivé</td>
+                <td style="color: #e52d27">  compte déactivé</td>
             {% endif %}
             <td>{{user.gover}}</td>
             {#                        <td>{{candidat.num}}</td>#}
@@ -54,7 +55,7 @@
 
             <td>{{user.special}}</td>
             {#                        <td>{{candidat.diplome}}</td>#}
-            <td>  {{user.CreatedAt|date('Y-m-d')}} </td>
+            <td>  {{user.CreatedAt|date('Y-m-d H:m')}} </td>
         </tr>
 
         {% endfor %}

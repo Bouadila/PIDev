@@ -35,11 +35,10 @@ class User implements UserInterface
 
     /**
      * @Assert\NotBlank(message="Veuillez saisir votre mdp ")
-     * @Assert\Length(min=2 , minMessage="votre mdp {{ value }} ne peut pas faire moins de {{ limit }} characters")
-     * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
 
     /**
      *  @Assert\NotBlank(message="Veuillez saisir votre nom")
@@ -79,9 +78,9 @@ class User implements UserInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_naiss;
+
 protected  $captchaCode;
     /**
-     * @Assert\NotBlank(message="Veuillez saisir nom de l'entreprise")
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nom_entre;
@@ -102,9 +101,20 @@ protected  $captchaCode;
     private $color;
 
     /**
+     *  @ORM\GeneratedValue
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $created_at;
+//    /**
+//     * @ORM\Column(type="string", length=255, nullable=true)
+//     * @Groups ("video")
+//     */
+//    private $votes;
+//    /**
+//     * @ORM\OneToMany(targetEntity=PostLike::class, mappedBy="post")
+//     * @Groups("video")
+//     */
+//    private $likes;
 
     public function getId(): ?int
     {
@@ -338,4 +348,60 @@ protected  $captchaCode;
 
         return $this;
     }
+//    public function getVotes(): ?string
+//    {
+//        return $this->votes;
+//    }
+//
+//    public function setVotes(?string $votes): self
+//    {
+//        $this->votes = $votes;
+//
+//        return $this;
+//    }
+
+//    /**
+//     * @return Collection|PostLike[]
+//     */
+//    public function getLikes(): Collection
+//    {
+//        return $this->likes;
+//    }
+//
+//    public function addLike(PostLike $like): self
+//    {
+//        if (!$this->likes->contains($like)) {
+//            $this->likes[] = $like;
+//            $like->setPost($this);
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeLike(PostLike $like): self
+//    {
+//        if ($this->likes->removeElement($like)) {
+//            // set the owning side to null (unless already changed)
+//            if ($like->getPost() === $this) {
+//                $like->setPost(null);
+//            }
+//        }
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * permet de savoir si cet video est like par un user
+//     * @param User $user
+//     * @return boolean
+//     */
+//    public function isLikedByUser(User $user) : bool
+//    {
+//
+//        foreach ($this->likes as $like){
+//            if($like->getUser() === $user ) return true;
+//        }
+//        return false;
+//
+//    }
 }

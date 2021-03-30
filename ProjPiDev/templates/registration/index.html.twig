@@ -1,5 +1,5 @@
-{# templates/registration/index.html.twig #} {% extends 'base.html.twig' %} {%
-    block body %}
+ {% extends 'base.html.twig' %}
+ {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-md-10 ml-md-auto">
@@ -34,28 +34,34 @@
 
                         <div class="form_group">
                             <div class="col-md-12 mb-3">
+{#                                <p>mot de passe </p>#}
+{#                                <div class="name-item">#}
+{#                                    {{ form_widget(form.password.first) }}#}
+{#                                </div>#}
+
                                 <p>mot de passe </p>
                                 <div class="name-item">
-                                    {{ form_widget(form.password.first) }}
+                                    {{ form_widget(form.password) }}
                                 </div>
                                 <div class="msg">
-                                    {{ form_errors(form.password.first) }}
+                                    {{ form_errors(form.password) }}
                                 </div>
 
                             </div>
                         </div>
                         <div class="form_group">
-                            <div class="col-md-12 mb-3">
-                                <p> confirmer le mot de passe </p>
-                                <div class="name-item">
-                                    {{ form_widget(form.password.second) }}
-                                </div>
-                                <div class="msg">
-                                    {{ form_errors(form.password.second) }}
-                                </div>
+{#                            <div class="col-md-12 mb-3">#}
+{#                                <p> confirmer le mot de passe </p>#}
+{#                                <div class="name-item">#}
+{#                                    {{ form_widget(form.password.second) }}#}
+{#                                </div>#}
+{#                                <div class="msg">#}
+{#                                    {{ form_errors(form.password.second) }}#}
+{#                                </div>#}
 
-                            </div>
-                        </div>
+{#                            </div>#}
+
+
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -101,16 +107,20 @@
                             {{ form_widget(form.captchaCode) }}
 
                         </div>
-                       {% set formErrors = form.vars.errors.form.getErrors(true) %}
-                        {% if formErrors|length %}
-                        <div class="alert alert-danger">
-                            <ul>
-                                {% for error in formErrors %}
-                                <li> {{ error.message }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-{%  endif %}
+{#                       {% set formErrors = form.vars.errors.form.getErrors(true) %}#}
+{#                        {% if formErrors|length %}#}
+{#                        <div class="alert alert-danger">#}
+{#                            <ul>#}
+{#                                {% for error in formErrors %}#}
+{#                                <li> {{ error.message }}</li>#}
+{#                                {% endfor %}#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                            {%  endif %}#}
+
+                            <div class="msg">
+                                {{ form_errors(form.captchaCode) }}
+                            </div>
 
                         {{ form_end(form) }}
 

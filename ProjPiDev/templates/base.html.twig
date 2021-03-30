@@ -11,6 +11,10 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <title>{% block title %} Recruitini {% endblock %} </title>
     {% block css%}
@@ -71,23 +75,60 @@
                     <li class="nav-item"><a class="nav-link" href="#">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
                     {% if app.user %}
-                    {% if app.user.etat=="1" %}
-                    <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
+                    {% if app.user.etat == "1" %}
+                    <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
+
+                        <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path ('app_login') }}"> Connexion</a>
+                    <a class="dropdown-item" href="{{ path ('registration') }}">SignUp candidat</a>
+                    <a class="dropdown-item" href="{{ path ('registrationentrep') }}">SignUp employeur</a>
+                        </div>
+                    </li>
                 {% else %}
-                    <li><a class="nav-link" href="{{ path('aff_user') }}"> Compte</a></li>
+                    {% if app.user.ActivationToken != null %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
+
+                        <div class="dropdown-menu">
+
+                            <a class="dropdown-item" href="{{ path ('app_login') }}"> Connexion</a>
+                            <a class="dropdown-item" href="{{ path ('registration') }}">SignUp candidat</a>
+                            <a class="dropdown-item" href="{{ path ('registrationentrep') }}">SignUp employeur</a>
+                        </div>
+                    </li>
+                            {% else %}
+                    {% if app.user.roles["0"] == "Candidat" %}
+                        <li><a class="nav-link" href="{{ path('aff_user1') }}"> Compte</a></li>
+                    {% else %}
+                    <li> <a class="nav-link" href="{{ path ('aff_user') }}"> Compte </a></li>
+                    {% endif %}
+
                     <li> <a  class="nav-link"  href="{{ path('app_logout') }}">Déconnexion</a></li>
                     <li class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="home" role="button"  aria-haspopup="true" aria-expanded="false"><img class="imgtop" src="{{ asset('uploads/image/' ~ app.user.img) }}" alt="abc" height="40" width="45"></a>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ path ('aff_user') }}"> voir compte </a>
                             <a class="dropdown-item" href="{{ path ('Supp_user') }}"> Desactiver compte </a>
+                            {% if app.user.roles["0"] == "Candidat" %}
                             <a class="dropdown-item" href="{{ path ('Modif_user') }}">Modifier compte</a>
+                                <a class="dropdown-item" href="{{ path ('aff_user1') }}"> voir compte </a>
+
+                            {% else %}
+                                <a class="dropdown-item" href="{{ path ('Modif_useremploy') }}">Modifier compte</a>
+                                <a class="dropdown-item" href="{{ path ('aff_user') }}"> voir compte </a>
+
+                            {% endif %}
+
                         </div>
                 </div>
                 </li>
-{% endif %}
+                {% endif %}
+
+                {% endif %}
                     {% else %}
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nos Espaces</a>
 
@@ -159,6 +200,7 @@
 <!-- Additional Scripts -->
 <script src={{ asset('assets/js/custom.js') }}></script>
 <script src={{ asset('assets/js/owl.js') }}></script>
+
 {% endblock %}
 </body>
 </html>

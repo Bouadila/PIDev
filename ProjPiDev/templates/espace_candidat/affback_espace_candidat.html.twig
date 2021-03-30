@@ -3,30 +3,32 @@
 {% block title %}Les comptes des candidats {% endblock %}
 
 {% block body %}
+<input id="searchC" type="text" class="form-control" name="query" placeholder="Search now" aria-label="search" aria-describedby="search">
+<br>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Liste des comptes</h4>
+            <div class="table-responsive">
+                <table id="t" class="table table-hover">
 
-    <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title"> Table des utilisateurs </h4>
-                <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>mail</th>
                         <th>Date nais</th>
-{#                        <th>mdp</th>#}
                         <th>Etat</th>
                         <th>Ville</th>
                         <th>nom entreprise </th>
                         <th>Spécialité</th>
-{#                        <th>Diplome</th>#}
 
                     </tr>
                     </thead>
+                    <tbody id="all">
+
                     {% for user in user  %}
 
-                    <tbody>
                     <tr>
                         <td>{{user.name}}</td>
                         <td>{{user.prenom}}</td>
@@ -49,8 +51,12 @@
 
 
 
-                                    </tbody>
                     {% endfor %}
+
+                    </tbody>
+
+                    <tbody id="searchC">
+                    </tbody>
 
                     <a class="btn btn-success" href="{{ path('listo') }}">Create pdf</a>
 
@@ -58,5 +64,59 @@
             </div>
         </div>
     </div>
+</div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script>
+        $( document ).ready(function() {
+            $("#searchC").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('searchcompte') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    method : 'GET',
+                    dataType: "JSON",
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    async : true,
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#t tbody#searchC').empty();
+                            $(retour).each( function(user, obj) {
+                                $('#t tbody#all').hide();
+                                $('#t tbody#searchC').append(
+                                    '<tr>'+
+                                    '<td>'+ obj.name +'</td>' +
+                                    '<td>'+ obj.prenom +'</td>' +
+                                    '<td>'+ obj.email +'</td>' +
+                                    '<td>'+ obj.DateNaiss +'</td>' +
+                                    '<td>'+ obj.etat +'</td>' +
+                                    '<td>'+ obj.gover +'</td>' +
+                                    '<td>'+ obj.NomEntre +'</td>' +
+                                    '<td>'+ obj.Special +'</td>' +
+
+                                    '</tr>'
+                                );
+                            });
+                        }
+                        else
+                        {
+                            $('#t tbody#all').show();
+                            $('#t tbody#searchC').empty();
+                            $('#t tbody#searchC').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
 {% endblock %}

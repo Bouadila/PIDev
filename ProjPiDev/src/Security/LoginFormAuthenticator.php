@@ -112,17 +112,27 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         if($user->getRoles()[0]=="Employeur")
         {
-            if ($user->getEtat()=="0")
-            return new RedirectResponse($this->urlGenerator->generate('espace_employeur'));
-            else
-                return new RedirectResponse($this->urlGenerator->generate('app_actv'));
+            if ($user->getActivationToken()==null)
+            {
+                if ($user->getEtat()=="0")
+                    return new RedirectResponse($this->urlGenerator->generate('espace_employeur'));
+                else
+                    return new RedirectResponse($this->urlGenerator->generate('app_actv'));
+            }
+           else
+               return new RedirectResponse($this->urlGenerator->generate('app1_actv'));
 
         }elseif ($user->getRoles()[0]=="Candidat")
         {
+            if ($user->getActivationToken()==null)
+            {
             if ($user->getEtat()=="0")
                 return new RedirectResponse($this->urlGenerator->generate('espace_candidat'));
             else
                 return new RedirectResponse($this->urlGenerator->generate('app_actv'));
+            }
+            else
+                return new RedirectResponse($this->urlGenerator->generate('app1_actv'));
         }
         else
             return new RedirectResponse($this->urlGenerator->generate('back'));
