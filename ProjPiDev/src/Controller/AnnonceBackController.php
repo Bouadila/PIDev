@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Annonce;
 use App\Form\AnnonceType;
 use App\Repository\AnnonceRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,20 +39,22 @@ class AnnonceBackController extends AbstractController
 
     /**
      * @Route("/back/annonce/affiche", name="annonce_back_affiche")
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return Response
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $em = $this->getDoctrine()->getRepository(Annonce::class);
         $list = $em->findAll();
-        /*$paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
             $list,
             $request->query->getInt('page', 1),
-            10
-        );*/
+            5
+        );
         return $this->render('annonce_back/liste_annonce_back.html.twig', [
             'controller_name' => 'AnnonceController',
-            'list'=>$list,
+            'list'=>$result,
         ]);
     }
 

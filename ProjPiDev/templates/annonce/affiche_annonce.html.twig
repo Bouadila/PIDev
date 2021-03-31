@@ -47,6 +47,7 @@
                             <p>Likes : {{ i.NbrReac }}</p>
                             <a class="filled-button" href="{{ path('like',{'id':i.id}) }}" >Like</a>
                             <a class="filled-button" href="{{ path('dislike',{'id':i.id}) }}" >Dislike</a>
+                            <a class="filled-button" href="{{ path('delete', {'id': i.id}) }}">Delete</a>
                             <hr>
                         {% endfor %}
                     </div>

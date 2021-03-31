@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Reclamation;
 use App\Form\ReclamationType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,22 +63,24 @@ class ReclamationController extends AbstractController
 
     /**
      * @Route("/reclamation/affiche", name="afficheReclamation")
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return Response
      */
-    public function Affiche(): Response
+    public function Affiche(Request $request , PaginatorInterface $paginator): Response
     {
         $em = $this->getDoctrine()->getRepository(Reclamation::class);
         $list = $em->findAll();
 
-        /*$paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
             $list,
             $request->query->getInt('page', 1),
-            10
-        );*/
+            5
+        );
 
         return $this->render('reclamation/afficheReclamation.html.twig', [
             'controller_name' => 'ReclamationController',
-            'list'=>$list
+            'list'=>$result
         ]);
     }
 

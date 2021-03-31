@@ -19,11 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Status ADDED functional">
+    <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Paginator Bundle added">
+      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AnnonceBackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnonceBackController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AnnonceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnonceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/annonce/affiche_annonce.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/affiche_annonce.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/annonce/liste_annonce.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce/liste_annonce.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/annonce_back/liste_annonce_back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annonce_back/liste_annonce_back.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reclamation/afficheReclamation.html.twig" afterDir="false" />
@@ -159,6 +166,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
     </include_path>
   </component>
   <component name="ProjectId" id="1oyfRGrdr6HxRDudt9wenipjh4W" />
@@ -226,7 +234,9 @@
       <workItem from="1617028711611" duration="1287000" />
       <workItem from="1617043384718" duration="3043000" />
       <workItem from="1617046501522" duration="2936000" />
-      <workItem from="1617140417926" duration="6241000" />
+      <workItem from="1617140417926" duration="6298000" />
+      <workItem from="1617186212750" duration="1650000" />
+      <workItem from="1617197014499" duration="1922000" />
     </task>
     <task id="LOCAL-00007" summary="crud terminer">
       <created>1614846379142</created>
@@ -326,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617146528461</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Paginator Bundle added">
+      <created>1617146957857</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1617146957857</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +387,8 @@
     <MESSAGE value="ADDED FN &#10;CLEANED CODE" />
     <MESSAGE value="Clean Base" />
     <MESSAGE value="Status ADDED functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Status ADDED functional" />
+    <MESSAGE value="Paginator Bundle added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Paginator Bundle added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="309" y="42" key="#Inspections" timestamp="1614383405692">
@@ -391,12 +409,12 @@
     </state>
     <state x="400" y="72" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1614435413447" />
     <state x="450" y="82" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1614344038559" />
-    <state x="456" y="126" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617144407945">
+    <state x="456" y="126" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617198377194">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1614593150367" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1615381331304" />
-    <state x="456" y="126" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1304.768@62.0.1304.768" timestamp="1617144407945" />
+    <state x="456" y="126" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/62.0.1304.768@62.0.1304.768" timestamp="1617198377194" />
     <state x="571" y="276" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#0" timestamp="1614344353218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -409,10 +427,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614506857024" />
-    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1617146553675">
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1617146962147">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1617146553675" />
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1617146962147" />
     <state x="531" y="298" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616407021722">
       <screen x="62" y="0" width="1304" height="768" />
     </state>

@@ -8,29 +8,34 @@ use App\Form\AnnonceType;
 use App\Form\CommentaireType;
 use App\Repository\AnnonceRepository;
 use App\Repository\CommentaireRepository;
+use ContainerBRQgFOK\PaginatorInterface_82dac15;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 class AnnonceController extends AbstractController
 {
     /**
      * @Route("/annonce", name="annonce")
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return Response
      */
-    public function index(): Response
+    public function index(Request $request,PaginatorInterface $paginator): Response
     {
         $em = $this->getDoctrine()->getRepository(Annonce::class);
         $list = $em->findAll();
-        /*$paginator = $this->get('knp_paginator');
         $result = $paginator->paginate(
             $list,
             $request->query->getInt('page', 1),
-            10
-        );*/
+            5
+        );
+
         return $this->render('annonce/liste_annonce.html.twig', [
             'controller_name' => 'AnnonceController',
-            'list'=>$list,
+            'list'=>$result,
         ]);
     }
     /**
@@ -79,6 +84,18 @@ class AnnonceController extends AbstractController
         $commentaire = $repo->find($id);
         $commentaire->setNbrReac($commentaire->getNbrReac()-1);
         $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        return $this->redirectToRoute('afficheAnnonce',array('id'=>$commentaire->getAnnonce()->getId()));
+    }
+    /**
+     * @Route("/delete/{id}", name="delete")
+     */
+    public function Delete ($id): Response
+    {
+        $repo = $this->getDoctrine()->getRepository(Commentaire::class);
+        $commentaire = $repo->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($commentaire);
         $em->flush();
         return $this->redirectToRoute('afficheAnnonce',array('id'=>$commentaire->getAnnonce()->getId()));
     }
