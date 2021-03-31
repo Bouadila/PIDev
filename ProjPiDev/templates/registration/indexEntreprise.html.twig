@@ -35,20 +35,10 @@
                         <div class="form_group">
                             <p>mot de passe </p>
                             <div class="name-item">
-                                {{ form_widget(form.password.first) }}
+                                {{ form_widget(form.password) }}
                             </div>
                             <div class="msg">
-                                {{ form_errors(form.password.first) }}
-                            </div>
-
-                        </div>
-                        <div class="form_group">
-                            <p> confirmer le mot de passe </p>
-                            <div class="name-item">
-                                {{ form_widget(form.password.second) }}
-                            </div>
-                            <div class="msg">
-                                {{ form_errors(form.password.second) }}
+                                {{ form_errors(form.password) }}
                             </div>
 
                         </div>
@@ -95,16 +85,7 @@
                             {{ form_widget(form.captchaCode) }}
 
                         </div>
-                        {% set formErrors = form.vars.errors.form.getErrors(true) %}
-                        {% if formErrors|length %}
-                            <div class="alert alert-danger">
-                                <ul>
-                                    {% for error in formErrors %}
-                                        <li> {{ error.message }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        {%  endif %}
+
                         </br>
                         {{ form_end(form) }}
                     </div>

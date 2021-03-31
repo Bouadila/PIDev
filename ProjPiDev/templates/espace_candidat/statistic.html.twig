@@ -1,0 +1,110 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Statistiques{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.addons.css') }}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('css/shared/style.css') }}">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('css/demo_1/style.css') }}">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
+            <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css')}}" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1> Statistiques</h1>
+        <h6> Les Statistiques sur les comptes activer et desactiver dans le site Recrutini </h6>
+        <canvas id="monGraph" width="400" height="200"></canvas>
+<br>
+        <br>
+        <h6> liste des comptes cree par date dans le site Recrutini </h6>
+
+        <canvas id="user" width="500" height="150"></canvas>
+
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('vendors/js/vendor.bundle.addons.js') }}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="{{ asset('js/shared/off-canvas.js') }}"></script>
+    <script src="{{ asset('js/shared/misc.js') }}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{{ asset('js/demo_1/dashboard.js') }}"></script>
+    <!-- End custom js for this page-->
+    <script src="{{ asset('js/shared/jquery.cookie.js') }}" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+
+    <script>
+        let ctx = document.querySelector("#monGraph")
+        let graph = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels:  ['Les Comptes activer ' , 'les comptes desactiver'],
+                datasets: [{
+                    label: "Répartition des catégories",
+                    data: {{ dates|raw }},
+                    backgroundColor: ['#81DAF5', '#F78181', 'orange', 'red']
+                }]
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true  }
+                }]
+            }
+        })
+
+        let user = document.querySelector("#user")
+        let annGraph = new Chart(user, {
+            type: "line",
+            data: {
+
+                labels: {{ date|raw }},
+                datasets: [{
+                    label: "Nombre des comtpes",
+                    data: {{ annoncesCounte|raw }} ,
+                    borderColor:['#81DAF5'] ,
+                    borderWidth: ['3']
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        })
+    </script>
+   
+{% endblock %}

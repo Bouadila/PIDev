@@ -34,7 +34,8 @@ class EspaceCandidatController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegistrationType::class, $user);
         $form->handleRequest($request);
-        if($form->isSubmitted() and $form->isValid()) {
+        if($form->isSubmitted() ) {
+
             $hash=$encoder->encodePassword($user,$user->getPassword());
             $user->setPassword($hash);
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
@@ -65,6 +66,13 @@ class EspaceCandidatController extends AbstractController
     public function index1(): Response
     {
         return $this->render('espace_candidat/confirm.html.twig');
+    }
+    /**
+     * @Route("espace/candidat/app1_actv", name="app1_actv" , methods={"GET"})
+     */
+    public function index3(): Response
+    {
+        return $this->render('espace_candidat/confirmdes.html.twig');
     }
 
     /**

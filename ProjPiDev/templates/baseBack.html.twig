@@ -161,25 +161,18 @@
                     </div>
                 </li>
                 <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                        <img src="images/faces/face5.jpg" alt="profile"/>
-                        <span class="nav-profile-name">Louis Barnett</span>
+                    <a class="nav-link dropdown-toggle" href="{{ path ('back') }}" data-toggle="dropdown" id="profileDropdown">
+{#                        <img src="images/faces/face5.jpg" alt="profile"/>#}
+               <img class="imgtop" src="{{ asset('uploads/image/' ~ app.user.img) }}" alt="abc" height="40" width="45">
+
+                        <span class="nav-profile-name">{{ app.user.name }}</span>
+                        <a class="nav-profile-name"  href="{{ path ('app_logout') }}">Logout</a>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item">
-                            <i class="mdi mdi-settings text-primary"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item">
-                            <i class="mdi mdi-logout text-primary"></i>
-                            Logout
-                        </a>
-                    </div>
+
+
                 </li>
             </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                <span class="mdi mdi-menu"></span>
-            </button>
+
         </div>
 
     </nav>
@@ -238,12 +231,9 @@
                             <li class="nav-item"> <a class="nav-link" href={{ path('list_demande_back') }}>Offres</a></li>
                             <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Quiz</a></li>
 
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-                            
+                            <li class="nav-item"> <a class="nav-link" href="{{ path('stats') }}"> les statistiques des comptes </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ path('affback_user') }}"> les comptes </a></li>
+
                         </ul>
                     </div>
                 </li>

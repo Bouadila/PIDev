@@ -33,10 +33,9 @@ class EntrepriseType extends AbstractType
                     'name'=>'name',
                 ]
             ])
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm Password']
+            ->add('password', PasswordType::class, [
+                'empty_data' => '' ,
+                'mapped' => true,
             ])
 
 
