@@ -47,4 +47,14 @@ class AnnonceRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function findAnnonceParTitre($nom){
+        return $this->createQueryBuilder('annonce')
+            ->where('annonce.nom LIKE :nom')
+            ->setParameter('nom', '%'.$nom.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
 }

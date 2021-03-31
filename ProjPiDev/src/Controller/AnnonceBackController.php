@@ -7,9 +7,11 @@ use App\Form\AnnonceType;
 use App\Repository\AnnonceRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class AnnonceBackController extends AbstractController
 {
@@ -47,14 +49,14 @@ class AnnonceBackController extends AbstractController
     {
         $em = $this->getDoctrine()->getRepository(Annonce::class);
         $list = $em->findAll();
-        $result = $paginator->paginate(
+        /*$result = $paginator->paginate(
             $list,
             $request->query->getInt('page', 1),
             5
-        );
+        );*/
         return $this->render('annonce_back/liste_annonce_back.html.twig', [
             'controller_name' => 'AnnonceController',
-            'list'=>$result,
+            'list'=>$list,
         ]);
     }
 
@@ -88,6 +90,28 @@ class AnnonceBackController extends AbstractController
         $em->flush();
         return $this->redirectToRoute("annonce_back_affiche");
     }
+
+
+    /**
+     * @Route("/searchAnnonce ", name="searchAnnonce")
+     */
+    public function searchVideo(Request $request,NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Annonce::class);
+        $requestString=$request->get('searchValue');
+        $annonce = $repository->findAnnonceParTitre($requestString);
+        $data=array();
+
+        foreach ($annonce as $a)
+        {
+            array_push($data,array("id"=>$a->getId(),"nom"=>$a->getNom(),
+               "img"=>$a->getImg(),"origine"=>$a->getOrigine()));
+        }
+
+
+        return new JsonResponse($data);
+    }
+
 
 
 }

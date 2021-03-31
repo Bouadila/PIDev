@@ -1,47 +1,101 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseBack.html.twig' %}
 
 {% block title %}Annonce Presse{% endblock %}
 
 {% block body %}
+<br>
+<input id="searchAnnonce" type="text" class="form-control" name="query" placeholder="Search now" aria-label="search" aria-describedby="search">
+<br>
 
-    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="text-content">
-                        <h2>Annonce Presse</h2>
-                    </div>
-                </div>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><h4 class="card-title">Liste des annonces</h4></th>
+                    <th><a class="btn btn-primary mr-2" href="{{ path('AnnonceAjout') }}" >Ajouter une annonce</a></th>
+                </tr>
+                </thead>
+                <tbody>
+            <div class="table-responsive">
+                <table id="t1" class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>Source</th>
+                        <th>Supprimer</th>
+                    </tr>
+                    </thead>
+                    <tbody id="all1" >
+                    {% for i in list %}
+                        <tr>
+                            <td><a href="{{ path('modifyAnnonce',{'id':i.id}) }}">{{ i.id }}</a></td>
+                            <td><a href="{{ path('modifyAnnonce',{'id':i.id}) }}" class="services-item-image"><img src="{{ asset('picture/' ~ i.img) }}" height="400" width="300" class="img-fluid" alt=""></a></td>
+                            <td><a href="{{ path('modifyAnnonce',{'id':i.id}) }}">{{ i.nom }}</a></td>
+                            <td><a href="{{ path('modifyAnnonce',{'id':i.id}) }}">{{ i.origine }}</a></td>
+                            <td><a class="btn btn-primary mr-2" href="{{ path('DeleteAnnonce',{'id':i.id}) }}">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tbody id="searchAnnonce">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
 
-    <div class="products">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="row">
-                        {% for i in list %}
-                        <div class="col-md-6">
-                            <div class="service-item">
-                                <a href="{{ path('modifyAnnonce',{'id':i.id}) }}" class="services-item-image"><img src="{{ asset('picture/' ~ i.img) }}" height="400" width="300" class="img-fluid" alt=""></a>
 
-                                <div class="down-content">
-                                    <h4><a href="{{ path('modifyAnnonce',{'id':i.id}) }}">{{ i.nom }}</a></h4>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-                                    <p style="margin: 0;">{{ i.origine }} </p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navigation">
-            {{ knp_pagination_render(list) }}
-        </div>
+<script>
+    $( document ).ready(function() {
+        $("#searchAnnonce").keyup(function(e){
+            /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+            var value = $(this).val();
+            /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+            $.ajax({
+                /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                url : "{{ path('searchAnnonce') }}",
+                /* La méthode utilisée pour transférer les données est GET */
+                method : 'GET',
+                dataType: "JSON",
+                /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                data: {
+                    'searchValue' : value
+                },
+                async : true,
+                /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                success : function(retour){
+                    if(retour){
+                        $('#t1 tbody#searchAnnonce').empty();
+                        $(retour).each( function(i, obj) {
+                            $('#t1 tbody#all1').hide();
+                            $('#t1 tbody#searchAnnonce').append(
+                                '<tr>'+
+                                '<td>'+ obj.id +'</td>' +
+                                '<td>'+ obj.img +'</td>' +
+                                '<td>'+ obj.nom +'</td>' +
+                                '<td>'+ obj.origine +'</td>' +
+                                '</tr>'
+                            );
+                        });
+                    }
+                    else
+                    {
+                        $('#t1 tbody#all1').show();
+                        $('#t1 tbody#searchAnnonce').empty();
+                        $('#t1 tbody#searchAnnonce').fadeIn('fast');
+                    }
+                },
+            });
+            return false;
+        });
+    });
+</script>
 {% endblock %}

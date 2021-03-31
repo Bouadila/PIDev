@@ -33,16 +33,16 @@ class ReclamationBackController extends AbstractController
     {
         $em = $this->getDoctrine()->getRepository(Reclamation::class);
         $list = $em->findAll();
-
+/*
         $result = $paginator->paginate(
             $list,
             $request->query->getInt('page', 1),
             5
-        );
+        );*/
 
         return $this->render('reclamation_back/affiche_reclamation_back.html.twig', [
             'controller_name' => 'ReclamationController',
-            'list'=>$result
+            'list'=>$list
         ]);
     }
 

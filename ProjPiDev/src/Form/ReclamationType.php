@@ -34,6 +34,7 @@ class ReclamationType extends AbstractType
                     'Choisir le type de reclamation' => null,
                     'Profile' => 'Profile',
                     'General' => 'General',
+                    'Autre' => 'Autre',
                 ],
             ])
 
