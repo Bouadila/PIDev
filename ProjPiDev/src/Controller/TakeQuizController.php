@@ -53,7 +53,7 @@ class TakeQuizController extends AbstractController
                 
                 if( $rep->getReponse() != null && $rep->getReponse()->getId() == $rep->getQuestion()->getRepJust()->getId() )
                     $score +=1;
-
+                $score = ($score * 100) / count($reponses);
             }
             $reponseList->setScore($score);
             $em->flush();

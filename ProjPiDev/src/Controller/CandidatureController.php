@@ -37,14 +37,14 @@ class CandidatureController extends AbstractController
     public function index(CandidatureRepository $candidatureRepository, Request $request, PaginatorInterface $paginator): Response
 
     {
-      //  $userId = $this->getUser()->getId();
-     //   $id = array('id_candidat' => $userId);
-     //   return $this->render('candidature/index.html.twig', [
-     //       'candidatures' => $candidatureRepository->findBy($id),
-     //   ]);
+        //  $userId = $this->getUser()->getId();
+        //   $id = array('candidat' => $userId);
+        //   return $this->render('candidature/index.html.twig', [
+        //       'candidatures' => $candidatureRepository->findBy($id),
+        //   ]);
 
         $userId = $this->getUser()->getId();
-        $id = array('id_candidat' => $userId);
+        $id = array('candidat' => $userId);
         $donnees =$candidatureRepository->findBy($id);
         $candidatures = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
@@ -92,7 +92,7 @@ class CandidatureController extends AbstractController
         $name = $this->getUser()->getName();
         $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
         $candidature->setCandidat($user);
-        
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -124,7 +124,7 @@ class CandidatureController extends AbstractController
 
             $mailer->send($message);
 
-            
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($candidature);
             $entityManager->flush();
@@ -231,7 +231,7 @@ class CandidatureController extends AbstractController
         $orderBy = $request->query->get('order');
 
         $donnee = $this->getDoctrine()->getRepository(Candidature::class)
-           // ->findBy($id)
+            // ->findBy($id)
             ->search($query, $orderBy);
 
 
