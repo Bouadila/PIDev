@@ -1,0 +1,42 @@
+{% block body %}
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+
+    <h2>Liste formation</h2>
+ 
+
+    <hr>
+    <table>
+
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Domaine</th>
+
+        </tr>
+{% for video in videos %}
+            <tr>
+                <td>{{video.id}}</td>
+                <td>{{video.title}}</td>
+                <td>{{video.domaine}}</td>
+
+            </tr>
+{% endfor %}
+    </table>
+    <hr>
+
+{% endblock %}

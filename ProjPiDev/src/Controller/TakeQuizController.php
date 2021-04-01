@@ -58,6 +58,18 @@ class TakeQuizController extends AbstractController
             $score = ($score * 100) / count($reponses);
             $reponseList->setScore($score);
             $em->flush();
+            $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
+            
+            $message = (new \Swift_Message('Resultat de quiz'))
+            ->setFrom('pidevtestad@gmail.com')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'email/showResult.html.twig', ['quiz' => $reponseList]
+                ),
+                'text/html'
+            );
+//            $mailer->send($message);
             return $this->redirectToRoute('quiz_result', ['id' => $reponseList->getId()]);
 
         }

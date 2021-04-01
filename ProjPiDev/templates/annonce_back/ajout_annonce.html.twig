@@ -1,0 +1,29 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Annonce Presse{% endblock %}
+
+{% block body %}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ajouter une Annonce</h4>
+                <form class="forms-sample" {{ form_start(form) }}
+                    <div class="form-group">
+                        <label for="exampleInputName1">Nom</label>
+                        <input type="text" class="form-control" placeholder= "Veuillez ecrire le titre de votre Annonce" {{ form_widget(form.nom) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Source</label>
+                        {{ form_widget(form.origine) }}
+                    </div>
+                    <div class="form-group">
+                        <label>File upload</label>
+                        {{ form_widget(form.img) }}
+                    </div>
+                    {{ form_widget(form.Submit) }}
+                    <a class="btn btn-light" href="{{ path('annonce_back_affiche') }}">Annuler</a>
+                </form {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

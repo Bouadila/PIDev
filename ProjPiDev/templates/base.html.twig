@@ -74,10 +74,10 @@
                     </li>
 
 
-                    <li class="nav-item"><a class="nav-link" href="{{ path('offre_index') }}">Offre D'emploi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('offre_index') }}">Offres</a></li>
 
                     <li class="nav-item"><a class="nav-link" href={{ path('list_video') }}>Formations</a></li>
-                    <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+                    
 
                     {% if app.user %}
                     {% if app.user.etat == "1" %}
@@ -107,30 +107,32 @@
                     {% if app.user.roles["0"] == "Candidat" %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Activiter</a>
-
+                         
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href={{ path('Ajout_demande_emploi') }}>Ajouter demande</a>
                             <a class="dropdown-item" href={{ path('list_demande_emploi') }}>Vos demandes</a>
                             <a class="dropdown-item" href={{ path('Addvideo') }}>Ajouter formation</a>
                             <a class="dropdown-item" href={{ path('Viewvideo') }}>Vos formations</a>
+                            <a class="dropdown-item" href={{ path('candidature_index') }}>Candidature</a>
                         </div>
                     </li>
-                        <li><a class="nav-link" href="{{ path('aff_user1') }}"> Compte</a></li>
+                        {#<li><a class="nav-link" href="{{ path('aff_user1') }}"> Compte</a></li>#}
                         
                     {% else %}
                     <li> <a class="nav-link" href="{{ path ('aff_user') }}"> Compte </a></li>
                     {% endif %}
-
-                    <li> <a  class="nav-link"  href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    <li class="nav-item"><a class="nav-link" href={{ path('annonce') }}>Presse</a></li>
+                   <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
                     <li class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="home" role="button"  aria-haspopup="true" aria-expanded="false"><img class="imgtop" src="{{ asset('uploads/image/' ~ app.user.img) }}" alt="abc" height="40" width="45"></a>
 
                         <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ path ('aff_user1') }}"> Profile </a>
                             <a class="dropdown-item" href="{{ path ('Supp_user') }}"> Desactiver compte </a>
                             {% if app.user.roles["0"] == "Candidat" %}
                             <a class="dropdown-item" href="{{ path ('Modif_user') }}">Modifier compte</a>
                             <a  class="dropdown-item"  href="{{ path('app_logout') }}">Déconnexion</a>
-                                <a class="dropdown-item" href="{{ path ('aff_user1') }}"> voir compte </a>
+                                
 
                             {% else %}
                                 <a class="dropdown-item" href="{{ path ('Modif_useremploy') }}">Modifier compte</a>
@@ -173,17 +175,7 @@
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="inner-content">
-                    <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

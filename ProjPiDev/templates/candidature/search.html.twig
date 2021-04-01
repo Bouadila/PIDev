@@ -20,6 +20,8 @@
     <!-- Banner Ends Here -->
 
     <h3>Recherche entre deux date</h3>
+<br>
+    <h3>Recherche entre deux date</h3>
     <br>
     <form method="GET"  action="{{ path('search_date') }}">
 
@@ -59,7 +61,7 @@
                             <a href="#" class="filled-button">Résultat de quiz</a>
                             <a href="{{ path('candidature_show', {'id': result.id}) }}" class="filled-button">Voir</a>
                             <a href="{{ path('candidature_edit', {'id': result.id}) }}" class="filled-button">Modifier</a>
-                            <a href="{{ asset('uploads/images/' ~ result.cv) }}" class="filled-button">Télécharger CV</a>
+                            <a href="{{ asset('uploads/image/' ~ result.cv) }}" class="filled-button">Télécharger CV</a>
 
                         </div>
                     </div>

@@ -50,7 +50,7 @@ class CandidatureType extends AbstractType
                 ],
             ])
             
-            ->add('cv', FileType::class, array('label' => 'Télécharger votre CV (PDF file)'))
+            ->add('cv', FileType::class, array('data_class' => null, 'label' => 'Télécharger votre CV (PDF file)'))
         ;
     }
 

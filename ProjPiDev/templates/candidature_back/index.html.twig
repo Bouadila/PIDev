@@ -3,7 +3,7 @@
 {% block title %}Candidature index{% endblock %}
 
 {% block body %}
-    <h1>List des candidatures par id d'offer:</h1>
+    <h1>List des candidatures:</h1>
     <a href="{{ path('statscandidature') }}">Pour voir les statistique</a>
     <br>
     <br>
@@ -13,7 +13,6 @@
     <table id="t" class="table" style="overflow-x:scroll">
         <thead>
             <tr>
-                <th>Offer</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Sexe</th>
@@ -30,7 +29,6 @@
         <tbody id="all" >
         {% for candidature in candidatures %}
             <tr>
-                <td>{{ candidature.offre }}</td>
                 <td>{{ candidature.nom }}</td>
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.sexe }}</td>
@@ -60,8 +58,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('candidatureback_new') }}">Create new</a>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -90,7 +86,6 @@
                                 $('#t tbody#all').hide();
                                 $('#t tbody#search').append(
                                     '<tr>'+
-                                    '<td>'+ obj.id_offer +'</td>' +
                                     '<td>'+ obj.nom +'</td>' +
                                     '<td>'+ obj.prenom +'</td>' +
                                     '<td>'+ obj.sexe +'</td>' +

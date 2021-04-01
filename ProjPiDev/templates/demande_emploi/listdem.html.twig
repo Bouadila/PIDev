@@ -15,12 +15,9 @@
             background-color: #dddddd;
         }
     </style>
-    <h1>
-        Monsieur/madame
-    </h1>
 
-    <h2>Votre CV</h2>
-    <h2>Voici votre cv</h2>
+    <h2>Liste demande d'emploi</h2>
+ 
 
     <hr>
     <table>
@@ -30,13 +27,13 @@
             <th>titre</th>
             <th>statut</th>
         </tr>
-
+{% for demande in demandes %}
             <tr>
                 <td>{{ demande.id }}</td>
                 <td>{{ demande.TitreDemande }}</td>
                 <td>{{ demande.statutCand }}</td>
             </tr>
-
+{% endfor %}
     </table>
     <hr>
 

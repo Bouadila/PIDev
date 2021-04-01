@@ -325,19 +325,31 @@ class CandidatureController extends AbstractController
     }
 
     /**
-     * @Route("/searchCandidature ", name="searchCandidature")
+     * @Route("/searchCandidatureback ", name="searchCandidatureback")
      */
-    public function searchVideo(Request $request,NormalizerInterface $Normalizer)
+    public function searchCandback(Request $request,NormalizerInterface $Normalizer)
     {
         $repository = $this->getDoctrine()->getRepository(Candidature::class);
         $requestString=$request->get('searchValue');
         $candidature = $repository->findCandidatureParNom($requestString);
-        // $serializer = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
+        $serializer1 = new Serializer(array(new DateTimeNormalizer('Y-m-d')));
+        $serializer2 = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
         $data=array();
 
         foreach ($candidature as $c)
         {
-            array_push($data,array("id"=>$c->getId(),"nom"=>$c->getNom(),"prenom"=>$c->getPrenom()));
+            array_push($data,array(
+                "nom"=>$c->getNom(),
+                "prenom"=>$c->getPrenom(),
+                "sexe"=>$c->getSexe(),
+                "email"=>$c->getEmail(),
+                "date_naiss"=>$serializer1->normalize($c->getDateNaiss()),
+                "num"=>$c->getNum(),
+                "status"=>$c->getStatus(),
+                "diplome"=>$c->getDiplome(),
+                "cv"=>$c->getCv(),
+                "date_candidature"=>$serializer2->normalize($c->getDateCandidature())
+            ));
         }
 
         return new JsonResponse($data);

@@ -59,7 +59,7 @@
                             <a href="#" class="filled-button">Résultat de quiz</a>
                             <a href="{{ path('candidature_show', {'id': candidature.id}) }}" class="filled-button">Voir</a>
                             <a href="{{ path('candidature_edit', {'id': candidature.id}) }}" class="filled-button">Modifier</a>
-                            <a href="{{ asset('uploads/images/' ~ candidature.cv) }}" class="filled-button">Télécharger CV</a>
+                            <a href="{{ asset('uploads/image/' ~ candidature.cv) }}" class="filled-button">Télécharger CV</a>
                             {{include('candidature/_delete_form.html.twig') }}
                         </div>
                     </div>

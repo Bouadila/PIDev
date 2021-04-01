@@ -1,0 +1,46 @@
+
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Affichage de Reclamation{% endblock %}
+
+{% block body %}
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste des réclamations</h4>
+                <div class="table-responsive">
+                    <table id="t1" class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody id="all2" >
+                        {% for i in list %}
+                            <tr>
+                                <td>{{i.id}}</td>
+                                <td>{{ i.Title }} &nbsp;&nbsp;</td>
+                                <td>{{ i.DescriptionReclamation }} &nbsp;&nbsp;</td>
+                                <td>{{ i.Type }} &nbsp;</td>
+                                <td>{{ i.DateReclamation }} &nbsp;&nbsp;</td>
+                                <td>
+                                    <a href="{{ path('approve',{'id':i.id}) }}" >Résolu</a>
+                                    <a>/</a>
+                                    <a href="{{ path('disapprove',{'id':i.id}) }}" >Non Résolu</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -119,7 +119,20 @@ class CandidatureRepository extends ServiceEntityRepository
      * @param Integer $id
      * @return array
      */
-    
+    public function searchTEST(string $query, string $order, Integer $id): array
+    {
+        return $this->createQueryBuilder('c')
+           // ->select('COUNT(c.id) AS cand WHERE c.id = :id')
+               ->where('c.id LIKE :id')
+            ->andWhere('c.nom LIKE :query')
+            ->orWhere('c.prenom LIKE :query')
+            ->orWhere('c.email LIKE :query')
+            ->orderBy('c.date_candidature', $order === 'newer' ? 'DESC' : 'ASC' )
+            ->setParameter('query', '%'.$query.'%')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
 
     /**
      * @param string $query

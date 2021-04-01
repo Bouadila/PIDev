@@ -14,19 +14,17 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Image</th>
+                                    
                                     <th>Titre</th>
                                     <th>Domaine</th>
                                     <th>Statut</th>
                                     <th>Description</th>
-                                    <th>PDF</th>
+                                    <th>CV</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td class="py-1">
-                                        <img src="{{ asset('../../images/faces/face1.jpg') }}" alt="image"/>
-                                    </td>
+                            
                                     <td>
                                         {{ demande.TitreDemande }}
                                     </td>
@@ -40,7 +38,7 @@
                                         {{ demande.description }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-success" href="{{ path('listdem' , {'id': demande.id}) }}"  >Pdf</a>
+                                        <td><a class="btn btn-success" href="{{ asset('uploads/image/' ~ demande.cvCand) }}" download >CV</a></td>
                                     </td>
                                 </tr>
                                 </tbody>

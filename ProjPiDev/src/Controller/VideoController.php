@@ -25,6 +25,7 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use Symfony\Component\Serializer\Serializer;
+use App\Repository\VideoRepository;
 
 class VideoController extends AbstractController
 {
@@ -478,6 +479,42 @@ class VideoController extends AbstractController
         return new JsonResponse($data);
     }
 
+
+
+
+    /**
+     * @Route("/listvid", name="listvid", methods={"GET"})
+     * @param VideoRepository $videoRepository
+     * @return Response
+     */
+    public function listvid(VideoRepository $videoRepository): Response
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('video/listvid.html.twig', [
+            'videos' => $videoRepository->findAll(),
+        ]);
+
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (inline view)
+        $dompdf->stream("Liste video.pdf", [
+            "Attachment" => false
+        ]);
+    }
 
 
 }

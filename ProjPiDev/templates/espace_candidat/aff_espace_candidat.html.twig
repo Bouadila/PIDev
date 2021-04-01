@@ -71,15 +71,10 @@
                         {% else %}
 
                         {% endif %}
+                        <br>
                             <a href="{{ path ('Supp_user') }}" class="button"><button class="btn btn-warning btn-block">Desactiver compte</button>  </a>                        
                         </div>
-                        <div class="row user-detail-row">
-                            <div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
-                                <div class="border"></div>
-                                <p>FOLLOWER</p>
-                                <span>320</span>
-                            </div>                           
-                        </div>
+                    
                        
                     </div>
                 </div>
@@ -89,7 +84,9 @@
                             <div class="row">
                                 <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
                                     <h1>{{user.getName()}} {{user.getPrenom()}}</h1>
+                                    <br>
                                     <h5>{{user.special()}}</h5>
+                                    <br>
                                 </div>
                                 <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
                                     <a href="{{ path ('Modif_user') }}" class="btn btn-primary btn-block" >Modifier le compte</a>

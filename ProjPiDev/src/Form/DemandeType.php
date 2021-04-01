@@ -96,7 +96,8 @@ class DemandeType extends AbstractType
                 ]
             ])
 
-           ->add('cvCand', FileType::class, array('data_class' => null ))
+
+           ->add('cvCand', FileType::class, array('label' => 'cvCand (PDF file)','data_class' => null))
             ;
 
     }

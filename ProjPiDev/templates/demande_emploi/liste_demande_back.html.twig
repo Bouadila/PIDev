@@ -9,6 +9,7 @@
             <div class="card-body">
                 <h4 class="card-title">Liste des demandes</h4>
                 <div class="table-responsive">
+                <a class="btn btn-success" href="{{ path('listdem') }}" download>PDF Liste</a>
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -17,7 +18,7 @@
                         <th>Domaine</th>
                         <th>Statut</th>
                         <th>Description</th>
-                        <th>Pdf</th>
+                        <th>Cv</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,7 +31,7 @@
                         <td>{{demande.domaineTravail}}</td>
                         <td>{{demande.statutCand}}</td>
                         <td>{{demande.description}}</td>
-                        <td><a class="btn btn-success" href="{{ path('listdem' , {'id': demande.id}) }}" download >PDF</a></td>
+                        <td><a class="btn btn-success" href="{{ asset('uploads/image/' ~ demande.cvCand) }}" download >CV</a></td>
                     </tr>
 
     {% endfor %}

@@ -127,12 +127,12 @@ class Demande
         return $this;
     }
 
-    public function getCvCand(): ?string
+    public function getCvCand()
     {
         return $this->cvCand;
     }
 
-    public function setCvCand(string $cvCand): self
+    public function setCvCand($cvCand)
     {
         $this->cvCand = $cvCand;
 

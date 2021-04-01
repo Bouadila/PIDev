@@ -15,6 +15,9 @@ use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use App\Entity\Offre;
 
 /**
  * @Route("/candidatureback")
@@ -35,8 +38,8 @@ class CandidatureBackController extends AbstractController
         //       'candidatures' => $candidatureRepository->findBy($id),
         //   ]);
 
-        $userId = $this->getUser()->getId();
-        $id = array('id_candidat' => $userId);
+
+
         $donnees =$candidatureRepository->findAll();
         $candidatures = $paginator->paginate(
             $donnees, // Requête contenant les données à paginer (ici nos articles)
@@ -49,7 +52,7 @@ class CandidatureBackController extends AbstractController
     }
 
     /**
-     * @Route("/stats", name="stats")
+     * @Route("/stats", name="statscandidature")
      */
     public function stats() : Response
     {
@@ -109,28 +112,33 @@ class CandidatureBackController extends AbstractController
 
     /**
      * @Route("/searchCandidatureback ", name="searchCandidatureback")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return JsonResponse
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
      */
     public function searchCandback(Request $request,NormalizerInterface $Normalizer)
     {
         $repository = $this->getDoctrine()->getRepository(Candidature::class);
         $requestString=$request->get('searchValue');
         $candidature = $repository->findCandidatureParNom($requestString);
-        //$serializer = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
+        $serializer1 = new Serializer(array(new DateTimeNormalizer('Y-m-d')));
+        $serializer2 = new Serializer(array(new DateTimeNormalizer('Y-m-d H:i:s')));
         $data=array();
 
         foreach ($candidature as $c)
         {
-            array_push($data,array("id_offer"=>$c->getIdOffer(),
+            array_push($data,array(
                 "nom"=>$c->getNom(),
                 "prenom"=>$c->getPrenom(),
                 "sexe"=>$c->getSexe(),
                 "email"=>$c->getEmail(),
-               // "date_naiss"=>$serializer->normalize($c->getDateNaiss()),
+                "date_naiss"=>$serializer1->normalize($c->getDateNaiss()),
                 "num"=>$c->getNum(),
                 "status"=>$c->getStatus(),
                 "diplome"=>$c->getDiplome(),
                 "cv"=>$c->getCv(),
-               // "date_cand"=>$serializer->normalize($c->getDateCandidature())
+                "date_candidature"=>$serializer2->normalize($c->getDateCandidature())
             ));
         }
 
@@ -146,30 +154,7 @@ class CandidatureBackController extends AbstractController
      * @return Response
      * @throws \Exception
      */
-    public function new(Request $request): Response
-    {
-        $candidature = new Candidature();
-        $form = $this->createForm(CandidatureType::class, $candidature);
-        $form->handleRequest($request);
 
-                $candidature->setDateCandidature(new \DateTime('now'));
-        
-        $userId = $this->getUser()->getId();
-        $candidature->setIdCandidat($userId);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($candidature);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('candidatureback_index');
-        }
-
-        return $this->render('candidature_back/new.html.twig', [
-            'candidature' => $candidature,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * @Route("/{id}", name="candidatureback_show", methods={"GET"})
@@ -222,7 +207,4 @@ class CandidatureBackController extends AbstractController
 
         return $this->redirectToRoute('candidatureback_index');
     }
-
-
-
 }

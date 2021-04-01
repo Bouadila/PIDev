@@ -11,14 +11,7 @@
                 <th>Id</th>
                 <td>{{ candidature.id }}</td>
             </tr>
-            <tr>
-                <th>Id_candidat</th>
-                <td>{{ candidature.candidat }}</td>
-            </tr>
-            <tr>
-                <th>Id_offer</th>
-                <td>{{ candidature.offer }}</td>
-            </tr>
+
 
             <tr>
                 <th>Date_candidature</th>
@@ -58,7 +51,7 @@
             </tr>
             <tr>
                 <th>Cv</th>
-                <td><a href="{{ asset('uploads/images/' ~ candidature.cv) }}" class="filled-button">voir</a></td>
+                <td><a href="{{ asset('uploads/image/' ~ candidature.cv) }}" class="filled-button">voir</a></td>
             </tr>
         </tbody>
     </table>
