@@ -13,20 +13,13 @@
             </tr>
             <tr>
                 <th>Id_candidat</th>
-                <td>{{ candidature.idCandidat }}</td>
+                <td>{{ candidature.candidat }}</td>
             </tr>
             <tr>
                 <th>Id_offer</th>
-                <td>{{ candidature.idOffer }}</td>
+                <td>{{ candidature.offer }}</td>
             </tr>
-            <tr>
-                <th>Id_quiz</th>
-                <td>{{ candidature.idQuiz }}</td>
-            </tr>
-            <tr>
-                <th>Id_rdv</th>
-                <td>{{ candidature.idRdv }}</td>
-            </tr>
+
             <tr>
                 <th>Date_candidature</th>
                 <td>{{ candidature.DateCandidature ? candidature.DateCandidature|date('Y-m-d H:i:s') : '' }}</td>
@@ -65,7 +58,7 @@
             </tr>
             <tr>
                 <th>Cv</th>
-                <td>{{ candidature.cv }}</td>
+                <td><a href="{{ asset('uploads/images/' ~ candidature.cv) }}" class="filled-button">voir</a></td>
             </tr>
         </tbody>
     </table>

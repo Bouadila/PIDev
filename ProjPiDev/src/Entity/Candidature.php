@@ -102,7 +102,6 @@ class Candidature
      */
     private $rendezvous;
 
-
     /**
      * @ORM\Column(type="datetime")
      * @Groups("post:read")

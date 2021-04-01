@@ -21,12 +21,32 @@ class RendezvousController extends AbstractController
     /**
      * @Route("/", name="rendezvous_index", methods={"GET"})
      */
-    public function index(RendezvousRepository $rendezvousRepository): Response
+    public function index(RendezvousRepository $rendezvous): Response
     {
-        dd($rendezvousRepository->findAll());
+        //dd($rendezvousRepository->findAll());
         // return $this->render('rendezvous/index.html.twig', [
         //     'rendezvouses' => $rendezvousRepository->findAll(),
         // ]);
+        $events = $rendezvous->findAll();
+        $rdvs = [];
+        $rdvs[] = [];
+        foreach($events as $event){
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'start' => $event->getStart()->format('Y-m-d H:i:s'),
+                'end' => $event->getEnd()->format('Y-m-d H:i:s'),
+                'title' => $event->getTitre(),
+                'description' => $event->getDescription(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+                'textColor' => $event->getTextColor(),
+                'allDay' => $event->getAllDay(),
+            ];
+        }
+
+        $data = json_encode($rdvs);
+        //dd($data);
+        return $this->render('calendrier/index.html.twig', compact('data'));
 
     }
 
@@ -148,11 +168,39 @@ class RendezvousController extends AbstractController
         return $this->redirectToRoute('rendezvous_index');
     }
     /**
-     * @Route("/accepter/{id}", name="rendezvous_accepter" , methods={"GET","POST"})
+     * @Route("/accepter/{id}/{accepte}", name="rendezvous_accepter" , methods={"GET","POST"})
      */
-    public function accepter(Request $request, Rendezvous $rendezvou): Response
+    public function accepter(Request $request, Rendezvous $rendezvou ,$id,UserRepository $repository,$accepte, \Swift_Mailer $mailer): Response
     {
+        $user = new User();
+        $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
+        $em = $this->getDoctrine()->getManager();
+        $rendezvous = $em->getRepository(Rendezvous::class)->find($id);
+        if ($accepte == 0){
+            $rendezvous->setBackgroundColor("#ff0000");
+            $rendezvous->setAccepte(false);
+            $message = (new \Swift_Message('confirmation rendez vous entretien d\'embauche'))
+                ->setFrom($user->getEmail())
+                ->setTo($rendezvous->getCandidature()->getCandidat()->getEmail())
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'rendezvous/emailroom.html.twig',
+                        ['rendezvous' => $rendezvous]
+                    ),
+                    'text/html'
+                    
+                );
+            $mailer->send($message);
+            $this->getDoctrine()->getManager()->flush();
+            $em->flush();
+            return $this->redirectToRoute('listClassroom');
+            return $this->redirectToRoute('rendezvous_index');
+        }else{
+
+        }
         return $this->render('rendezvous/accepter.html.twig', [
+            'rendezvous' => $rendezvous,
         ]);
     }
 }

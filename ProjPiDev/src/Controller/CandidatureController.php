@@ -34,46 +34,44 @@ class CandidatureController extends AbstractController
     /**
      * @Route("/", name="candidature_index", methods={"GET"})
      */
-    public function index(CandidatureRepository $candidatureRepository, Request $request, PaginatorInterface $paginator): Response
+    public function index(CandidatureRepository $candidatureRepository, Request $request, PaginatorInterface $paginator,UserRepository $repository): Response
 
     {
-      //  $userId = $this->getUser()->getId();
-     //   $id = array('id_candidat' => $userId);
-     //   return $this->render('candidature/index.html.twig', [
-     //       'candidatures' => $candidatureRepository->findBy($id),
-     //   ]);
-
+        $user = new User();
+        $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
         $userId = $this->getUser()->getId();
-        $id = array('id_candidat' => $userId);
+        $id = array('candidat' => $userId);
         $donnees =$candidatureRepository->findBy($id);
-        $candidatures = $paginator->paginate(
-            $donnees, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            3// Nombre de résultats par page
-        );
-        return $this->render('candidature/index.html.twig', [
-            'candidatures' => $candidatures,
-        ]);
+        if ($user== null){
+            dd("cette route inaccessible ");
+        }
+        elseif($user->getRoles()[0]=="Employeur")
+        {
+
+        }
+        else{
+            $candidatures = $paginator->paginate(
+                $donnees, // Requête contenant les données à paginer (ici nos articles)
+                $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                3// Nombre de résultats par page
+            );
+            return $this->render('candidature/index.html.twig', [
+                'candidatures' => $candidatures,
+            ]);
+
+        }
     }
 
     /**
-     * @Route("/ent/{id_offer}", name="candidatureEnt", methods={"GET"})
+     * @Route("/candidatureEnt", name="candidatureEnt", methods={"GET"})
      */
-    public function indexEnt(CandidatureRepository $candidatureRepository, $id_offer, Request $request, PaginatorInterface $paginator): Response
+    public function indexEnt(CandidatureRepository $candidatureRepository, Request $request, PaginatorInterface $paginator): Response
 
     {
-
-        $candidatureRepository = $this->getDoctrine()->getRepository(Candidature::class);
-        $id = array('id_offer' => $id_offer);
-        $donnees =$candidatureRepository->findBy($id);
-        $candidatures = $paginator->paginate(
-            $donnees, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            3// Nombre de résultats par page
-        );
         return $this->render('candidature/indexEnt.html.twig', [
-            'candidatures' => $candidatures,
+            'candidatures' => $candidatureRepository->findAll(),
         ]);
+
     }
 
     /**
@@ -92,7 +90,7 @@ class CandidatureController extends AbstractController
         $name = $this->getUser()->getName();
         $user = $repository->findOneBy(['email' => $this->get('session')->get('_security.last_username')]);
         $candidature->setCandidat($user);
-        
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -124,7 +122,7 @@ class CandidatureController extends AbstractController
 
             $mailer->send($message);
 
-            
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($candidature);
             $entityManager->flush();
@@ -231,7 +229,7 @@ class CandidatureController extends AbstractController
         $orderBy = $request->query->get('order');
 
         $donnee = $this->getDoctrine()->getRepository(Candidature::class)
-           // ->findBy($id)
+            // ->findBy($id)
             ->search($query, $orderBy);
 
 
@@ -277,8 +275,6 @@ class CandidatureController extends AbstractController
             'order' => $orderBy,
         ]);
     }
-
-
 
     /**
      * @Route("/{id}", name="candidature_show", methods={"GET"})

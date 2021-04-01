@@ -20,154 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f31c4d1-a347-4808-82f6-333b3808096d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/offre/show_list_back.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/emailroom.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/assets/controllers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/captcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/captcha.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/DataCollector/MessageDataCollector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/DataCollector/MessageDataCollector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/DelayedEnvelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/DelayedEnvelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Envelope.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Envelope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvents.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Event/MessageEvents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/EnvelopeListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/EnvelopeListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageLoggerListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/EventListener/MessageLoggerListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/ExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/ExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/HttpTransportException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/HttpTransportException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/IncompleteDsnException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/IncompleteDsnException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/InvalidArgumentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/InvalidArgumentException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/LogicException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/LogicException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/RuntimeException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/RuntimeException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/TransportExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/UnsupportedSchemeException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Exception/UnsupportedSchemeException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Header/MetadataHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Header/MetadataHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Header/TagHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Header/TagHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/MailerInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/MailerInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/MessageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/MessageHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/SendEmailMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Messenger/SendEmailMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/SentMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/SentMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailCount.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailCount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailIsQueued.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Test/Constraint/EmailIsQueued.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Test/TransportFactoryTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Test/TransportFactoryTestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractApiTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractApiTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractHttpTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractHttpTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/AbstractTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Dsn.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Dsn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/FailoverTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/FailoverTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NativeTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NativeTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/NullTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/RoundRobinTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/RoundRobinTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/SendmailTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/AuthenticatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/AuthenticatorInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/CramMd5Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/CramMd5Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/LoginAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/LoginAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/PlainAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/PlainAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/XOAuth2Authenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Auth/XOAuth2Authenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransportFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/EsmtpTransportFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/SmtpTransport.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/SmtpTransport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/AbstractStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/AbstractStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/ProcessStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/ProcessStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/SocketStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Smtp/Stream/SocketStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportFactoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportFactoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/TransportInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Transports.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/Transport/Transports.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mailer/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mailer/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/BodyRendererInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/BodyRendererInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/CharacterStream.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/CharacterStream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/DkimOptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/DkimOptions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/DkimSigner.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/DkimSigner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/SMime.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/SMime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/SMimeEncrypter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/SMimeEncrypter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/SMimeSigner.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Crypto/SMimeSigner.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/DependencyInjection/AddMimeTypeGuesserPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/DependencyInjection/AddMimeTypeGuesserPass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/AddressEncoderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/AddressEncoderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Base64ContentEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Base64ContentEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Base64Encoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Base64Encoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Base64MimeHeaderEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Base64MimeHeaderEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/ContentEncoderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/ContentEncoderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/EightBitContentEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/EightBitContentEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/EncoderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/EncoderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/IdnAddressEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/IdnAddressEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/MimeHeaderEncoderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/MimeHeaderEncoderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/QpContentEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/QpContentEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/QpEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/QpEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/QpMimeHeaderEncoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/QpMimeHeaderEncoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Rfc2231Encoder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Encoder/Rfc2231Encoder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Exception/AddressEncoderException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Exception/AddressEncoderException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Exception/ExceptionInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Exception/ExceptionInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Exception/InvalidArgumentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Exception/InvalidArgumentException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Exception/LogicException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Exception/LogicException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Exception/RfcComplianceException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Exception/RfcComplianceException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Exception/RuntimeException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Exception/RuntimeException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/FileBinaryMimeTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/FileBinaryMimeTypeGuesser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/FileinfoMimeTypeGuesser.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/FileinfoMimeTypeGuesser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/AbstractHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/AbstractHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/DateHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/DateHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/HeaderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/HeaderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/Headers.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/Headers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/IdentificationHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/IdentificationHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/MailboxHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/MailboxHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/MailboxListHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/MailboxListHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/ParameterizedHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/ParameterizedHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/PathHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/PathHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Header/UnstructuredHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Header/UnstructuredHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/MessageConverter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/MessageConverter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypeGuesserInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypeGuesserInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/MimeTypesInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/AbstractMultipartPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/AbstractMultipartPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/AbstractPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/AbstractPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/DataPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/DataPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/MessagePart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/MessagePart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/AlternativePart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/AlternativePart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/DigestPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/DigestPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/FormDataPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/FormDataPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/MixedPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/MixedPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/RelatedPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/Multipart/RelatedPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/SMimePart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/SMimePart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Part/TextPart.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Part/TextPart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/RawMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/RawMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Resources/bin/update_mime_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Resources/bin/update_mime_types.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailAddressContains.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailAddressContains.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailAttachmentCount.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailAttachmentCount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailHasHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailHasHeader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailHeaderSame.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailHeaderSame.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailHtmlBodyContains.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailHtmlBodyContains.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailTextBodyContains.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Test/Constraint/EmailTextBodyContains.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210327183907.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210328103654.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210329122654.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330101943.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330103224.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330105831.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330112333.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330115343.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330151147.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/CandidatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/CandidatureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/OffreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/RendezvousController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/RendezvousController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/TakeQuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/TakeQuizController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Candidature.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Candidature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Form/CandidatureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/CandidatureType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/CandidatureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/CandidatureRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/OffreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/OffreRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/indexEnt.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/indexEnt.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/searchEnt.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/searchEnt.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/accepter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/accepter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,6 +227,7 @@
       <workItem from="1616792424378" duration="757000" />
       <workItem from="1616852023374" duration="10506000" />
       <workItem from="1617052218978" duration="1844000" />
+      <workItem from="1617163329050" duration="19527000" />
     </task>
     <servers />
   </component>
@@ -367,17 +255,34 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="476" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1616804099728" />
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616980856991">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617231837474">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1616980856991" />
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1617231837474" />
     <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1616915402916">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1616915402916" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614810082483">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1617228191637">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1617228191637" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1617162650749">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1617162650749" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1617162650723">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1617162650723" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1617162650703">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1617162650703" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1617162650724">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1617162650724" />
     <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1616858219734" />
     <state x="0" y="0" width="585" height="728" key="find.popup" timestamp="1616858200440">
       <screen x="0" y="0" width="1366" height="728" />

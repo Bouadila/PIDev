@@ -56,7 +56,6 @@ class CandidatureRepository extends ServiceEntityRepository
     */
 
     /**
-     * @param DateType $date
      * @return mixed
      */
     public function getMonth()
@@ -114,19 +113,17 @@ class CandidatureRepository extends ServiceEntityRepository
      ->getResult();
     }
 
-    public function findCandidatureByName($query){
-        return $this->createQueryBuilder('c')
-            ->orWhere('c.prenom LIKE :query')
-            ->orWhere('c.nom LIKE :query')
-            ->setParameter('query', '%'.$query.'%')
-            ->getQuery()
-            ->getResult();
-    }
+    /**
+     * @param string $query
+     * @param string $order
+     * @param Integer $id
+     * @return array
+     */
+    
 
     /**
      * @param string $query
      * @param string $order
-     * @param DateTime $date
      * @return array
      */
     public function search(string $query, string $order): array
