@@ -337,5 +337,35 @@ class RegistrationController extends AbstractController
         }
         return new JsonResponse($data); }
 
+    /**
+     * @Route("/stats", name="stats")
+     */
+    public function statistiques(UserRepository $userRepository)
+    {
+        $users = $userRepository->countByDate();
+//$users1 = $userRepository->countByDate2();
+        $dates = [];
+        foreach($users as $user){
+            $dates[] = $user['count'];
+        }
+////
+        $users1 = $userRepository->countByDate2();
+
+        $date = [];
+        $annoncesCounte = [];
+
+        // On "démonte" les données pour les séparer tel qu'attendu par ChartJS
+        foreach($users1 as $userss){
+            $date[] = $userss['dateCompte'];
+            $annoncesCounte[] = $userss['counte'];
+        }
+
+
+        return $this->render('espace_candidat/statistic.html.twig', [
+            'dates' => json_encode($dates),
+            'date' => json_encode($date),
+            'annoncesCounte' => json_encode($annoncesCounte),
+        ]); }
+
     }
 

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rendezvous index{% endblock %}
+
+{% block body %}
+    <!-- Page Content -->
+    <div class="page-heading contact-heading header-text" style="background-image: url({{asset('assets/images/heading-4-1920x500.jpg') }});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-content">
+                        <h4>Recrutini</h4>
+                        <h2>Rendez-vous</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-heading">
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="contact-form">
+                <p>vous pouvez accepter votre rendezvous ?</p>
+                <br>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <a href="{{ path('rendezvousaccepter', {'id': rendezvous.id,'accepte':0}) }}" class="btn btn-danger backBtn btn-lg pull-left">
+                        <i class="fa fa-check" aria-hidden="true"></i> Accepter Rendez-Vous
+                    </a>
+                    <a href="{{ path('rendezvousaccepter', {'id': rendezvous.id,'accepte':1}) }}" class="btn btn-danger backBtn btn-lg pull-left">
+                        <i class="fa fa-minus" aria-hidden="true"></i> Annuller
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

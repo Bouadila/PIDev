@@ -1,169 +1,180 @@
 {% extends 'base.html.twig' %}
-{% block title %}Compte{% endblock %}
+
+{% block title %}compte employeur{% endblock %}
 {% block body %}
-    {#<section id="services_main">
+    <section id="services_main">
         <div class="container">
             <div class="row">
                 <div class="services_main_1">
                     <h2>SERVICES</h2>
                     <p><a href="{{ path('home') }}"> Acceuil </a> <i class="fa fa-angle-double-right"></i> <a href="#"> Vos demandes </a></p>
                 </div>
+
+
             </div>
         </div>
     </section>
+
     <div class="latest-products">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>
-                            {{user.getName()}} {{user.getPrenom()}}
+                        <h2> {{user.getPrenom()}}  {{user.getName()}}
+
                         </h2>
                         <a href="{{ path ('Modif_user') }}" class="fa fa-pencil" >Modifier le compte</a>
                     </div>
+
+
+
+                    {#                    <input type="text" name="note" id="note" value={{ user.color }}>#}
+                    {#                        <button type="submit">Valider</button>#}
+
                 </div>
+
                 <div class="col-md-4">
                     <div class="product-item" >
                         <a href="#"><img src="{{ asset('uploads/image/' ~ user.img) }}" alt="abc" height="300" width="400" ></a>
                         <div class="down-content">
+
                             <small>
-                                <strong title="Posted on"><i class="fa fa-calendar"></i>  {{user.getDateNaiss()|date('Y-m-d')}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                 <strong title="Location"><i class="fa fa-map-marker"></i>  {{user.getGover()}}</strong>
-                            </br>
+                                <strong title="Location"><i class="fa fa-file"></i> {{user.DateNaiss|date('Y-m-d')}}</strong>
+
+                                </br>
                                 <strong title="Type"><i class="fa fa-file"></i> {{user.getEmail()}}</strong>
                             </small>
                         </div>
                     </div>
                     <a href="{{ path ('Supp_user') }}" class="button">Desactiver compte</a>
+
                 </div>
+
                 <div class="col-md-4">
                     <div class="product-item">
                         <div class="down-content">
                             <h3>Specialite </h3>
                             <p>                              {{user.getSpecial()}}
                             </p>
-{#                            <h3>Diplome </h3>#}
-{#                            {{candidat.getDiplome()}}#}
+                            {#                            <h3>Diplome </h3>#}
+                            {#                            {{candidat.getDiplome()}}#}
 
-                      {#}  </div>
+                        </div>
                     </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div align="center" style=" ;  padding: 10px;color:#000000;">
+                            <i class="fa fa-star fa-2x" data-index="0"></i>
+                            <i class="fa fa-star fa-2x" data-index="1"></i>
+                            <i class="fa fa-star fa-2x" data-index="2"></i>
+                            <i class="fa fa-star fa-2x" data-index="3"></i>
+                            <i class="fa fa-star fa-2x" data-index="4"></i>
+                            <i class="fa fa-star fa-2x" data-index="5"></i>
+                            <i class="fa fa-star fa-2x" data-index="6"></i>
+                            <i class="fa fa-star fa-2x" data-index="7"></i>
+                            <i class="fa fa-star fa-2x" data-index="8"></i>
+                            <br><br>
+                            <?php echo round($avg,2) ?>
+
+                            <p>  vous avez :{{ user.color }} etoile </p>
+
+                        </div>
+                        <div class="down-content">
+                            <h3>Aide </h3>
+                            <p>                    acune etoile : sans bac
+                                <br>
+                                1 etoile :  bac
+                                <br>
+                                2 etoile :  bac +1
+                                <br>
+                                3 etoile :  bac +2
+                                <br>
+                                4 etoile :  bac +3
+                                <br>
+                                5 etoile :  bac + 4
+                                <br>
+                                6 etoile :  bac +5
+                                <br>
+                                7 etoile :  bac +6
+                                <br>
+                                8 etoile :  bac +7
+                                <br>
+                                9 etoile :  bac +8
+
+                            </p>
+                            {#                            <h3>Diplome </h3>#}
+                            {#                            {{candidat.getDiplome()}}#}
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    </section>#}
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-        <div class="container main-secction">
-        <div class="row">
 
-            <div class="row user-left-part">
-                <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
-                    <div class="row ">
-                        <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
-                            <img src="{{ asset('uploads/image/' ~ user.img) }}" alt="abc" height="250" width="250"  class="rounded-circle">
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
-                        {% if user.nomentre %}
-                            <button id="btn-contact" (click)="clearModal()" data-toggle="modal" data-target="#contact" class="btn btn-success btn-block follow">Contactarme</button> 
-                        {% else %}
+    </section>
 
-                        {% endif %}
-                        <br>
-                            <a href="{{ path ('Supp_user') }}" class="button"><button class="btn btn-warning btn-block">Desactiver compte</button>  </a>                        
-                        </div>
-                    
-                       
-                    </div>
-                </div>
-                <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
-                    <div class="row profile-right-section-row">
-                        <div class="col-md-12 profile-header">
-                            <div class="row">
-                                <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
-                                    <h1>{{user.getName()}} {{user.getPrenom()}}</h1>
-                                    <br>
-                                    <h5>{{user.special()}}</h5>
-                                    <br>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
-                                    <a href="{{ path ('Modif_user') }}" class="btn btn-primary btn-block" >Modifier le compte</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-8">
-                                        <ul class="nav nav-tabs" role="tablist">
-                                                <li class="nav-item">
-                                                  <a class="nav-link active" href="#profile" role="tab" data-toggle="tab"><i class="fas fa-user-circle"></i> Profile Professionelle</a>
-                                                </li>
-                                              
-                                              </ul>
-                                              
-                                              <!-- Tab panes -->
-                                              <div class="tab-content">
-                                                <div role="tabpanel" class="tab-pane fade show active" id="profile">
-                                                           
-                                                           {% if user.nomentre %}
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Nom Entreprise</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p>user.nomentre</p>
-                                                                </div>
-                                                            </div>
-                                                            {% endif %}
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Email</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p>{{user.email}}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label>Date de naissance</label>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <p>{{ user.datenaiss|date("m/d/Y")}}</p>
-                                                                </div>
-                                                            </div>
-                                                            {# {% if candidat %}
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label>Diplome</label>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <p>{{candidat.getDiplome()}}</p>
-                                                                    </div>
-                                                                </div>
-                                                            {% endif %} #}
-                                                </div>
-                                            
-                                              </div>
-                          
-                                </div>
-                                <div class="col-md-4 img-main-rightPart">
-                                    <div class="row">
-                                       
+    <script src="http://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script>
+        var ratedIndex = -1, uID = 0;
+        $(document).ready(function () {
+            resetStarColors();
 
-                                        <div class="col-md-12 image-right-detail-section2">
+            if (localStorage.getItem('ratedIndex') != null) {
+                setStars(parseInt(localStorage.getItem('ratedIndex')));
+                uID = localStorage.getItem('uID');
+            }
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            $('.fa-star').on('click', function () {
+                ratedIndex = parseInt($(this).data('index'));
+                localStorage.setItem('ratedIndex', ratedIndex);
+                saveToTheDB();
+            });
+
+            $('.fa-star').mouseover(function () {
+                resetStarColors();
+                var currentIndex = parseInt($(this).data('index'));
+                setStars(currentIndex);
+            });
+
+            $('.fa-star').mouseleave(function () {
+                resetStarColors();
+
+                if (ratedIndex != -1)
+                    setStars(ratedIndex);
+            });
+        });
+
+        function saveToTheDB() {
+            $.ajax({
+                url : "{{ path('aff_user') }}",
+                method: "POST",
+                dataType: 'json',
+                data: {
+                    save: 1,
+                    uID: uID,
+                    ratedIndex: ratedIndex
+                }, success: function (r) {
+                    uID = r.id;
+                    localStorage.setItem('uID', uID);
+                }
+            });
+        }
+
+        function setStars(max) {
+            for (var i=0; i <= max; i++)
+                $('.fa-star:eq('+i+')').css('color', 'red');
+        }
+
+        function resetStarColors() {
+            $('.fa-star').css('color', 'black');
+        }
+    </script>
 
 
 {% endblock %}

@@ -10,7 +10,7 @@
         <div class="card-body">
             <h4 class="card-title">Liste des comptes</h4>
             <div class="table-responsive">
-                <table id="t" class="table table-hover">
+                <table id="tu" class="table table-hover">
 
                     <thead>
                     <tr>
@@ -25,7 +25,7 @@
 
                     </tr>
                     </thead>
-                    <tbody id="all">
+                    <tbody id="allu">
 
                     {% for user in user  %}
 
@@ -34,19 +34,18 @@
                         <td>{{user.prenom}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.DateNaiss|date('Y-m-d')}}</td>
-{#                        <td>{{candidat.mdp}}</td>#}
+
                        {% if user.etat == "0" %}
                         <td>compte activé</td>
                         {% else %}
                         <td>compte déactivé</td>
                         {% endif %}
                         <td>{{user.gover}}</td>
-{#                        <td>{{candidat.num}}</td>#}
-{#                        <td>{{user.roles}}</td>#}
+
                         <td>{{user.NomEntre}}</td>
 
                         <td>{{user.special}}</td>
-{#                        <td>{{candidat.diplome}}</td>#}
+
                     </tr>
 
 
@@ -89,11 +88,11 @@
                     /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
                     success : function(retour){
                         if(retour){
-                            $('#t tbody#searchC').empty();
+                            $('#tu tbody#searchC').empty();
                             $(retour).each( function(user, obj) {
-                                $('#t tbody#all').hide();
-                                $('#t tbody#searchC').append(
-                                    '<tr>'+
+                                $('#tu tbody#allu').hide();
+                                $('#tu tbody#searchC').append(
+                                
                                     '<td>'+ obj.name +'</td>' +
                                     '<td>'+ obj.prenom +'</td>' +
                                     '<td>'+ obj.email +'</td>' +
@@ -109,9 +108,9 @@
                         }
                         else
                         {
-                            $('#t tbody#all').show();
-                            $('#t tbody#searchC').empty();
-                            $('#t tbody#searchC').fadeIn('fast');
+                            $('#tu tbody#allu').show();
+                            $('#tu tbody#searchC').empty();
+                            $('#tu tbody#searchC').fadeIn('fast');
                         }
                     },
                 });

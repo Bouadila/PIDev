@@ -1,8 +1,8 @@
 <p>Bonjour, je vous écris pour confirmer votre rendez-vous
     avec {{ rendezvous.candidature.offre.entreprise.nomEntre }}
     le {{ rendezvous.start ? rendezvous.start|date('Y-m-d') : '' }}
-    si vous etes disponible
-    <a href="http://127.0.0.1:8000/rendezvous/accepter/{{ rendezvous.id }}" class="text-danger">
+    dans la room {{rendezvous.room}}
+    <a href="http://127.0.0.1:8000/token" class="text-danger">
         cliquez ici.
     </a>
-    </p>
+</p>

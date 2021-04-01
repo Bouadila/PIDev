@@ -65,14 +65,18 @@ class EspaceCandidatController extends AbstractController
      */
     public function index1(): Response
     {
-        return $this->render('espace_candidat/confirm.html.twig');
+        return $this->render('espace_candidat/confirm.html.twig', [
+            'controller_name' => 'EspaceCandidatController',
+        ]);
     }
     /**
      * @Route("espace/candidat/app1_actv", name="app1_actv" , methods={"GET"})
      */
     public function index3(): Response
     {
-        return $this->render('espace_candidat/confirmdes.html.twig');
+        return $this->render('espace_candidat/confirmdes.html.twig', [
+            'controller_name' => 'EspaceCandidatController',
+        ]);
     }
 
     /**

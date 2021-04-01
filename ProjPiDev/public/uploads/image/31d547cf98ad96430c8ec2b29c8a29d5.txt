@@ -1,0 +1,57 @@
+
+
+CREATE TABLE Models (
+ref_model varchar2(30) PRIMARY KEY, 
+modele varchar2(30) NOT NULL, 
+marque varchar2(30) NOT NULL, 
+puissance varchar2(30) NOT NULL );
+
+CREATE TABLE Vehicules (
+immatriculation varchar2(30) PRIMARY KEY, 
+ref_model varchar2(30) NOT NULL,   
+date_mise_en_circulation date NOT NULL, 
+kilometrage number NOT NULL, 
+prix_demande number NOT NULL, 
+FOREIGN KEY(ref_model) REFERENCES models(ref_model) );
+
+CREATE TABLE Personnes ( 
+cin varchar2(15) PRIMARY KEY, 
+nom varchar2(30) NOT NULL, 
+prenom varchar2(30) NOT NULL, 
+email varchar2(30) UNIQUE CHECK (email LIKE '%@%'), num_tel number  UNIQUE);
+
+CREATE TABLE Acquisitions (
+immatriculation varchar2(30), 
+cin varchar2(30), 
+date_debut date , 
+date_fin date NOT NULL, 
+CHECK (date_fin > date_debut), 
+PRIMARY KEY(immatriculation,cin));
+
+CREATE TABLE Contrat_vente (
+ref_contract varchar2(30), 
+cin varchar2(30), 
+immatriculation varchar2(30), 
+date_vente date default sysdate not null, 
+prix_vente number NOT NULL, 
+FOREIGN KEY(cin) REFERENCES personnes(cin),  
+FOREIGN KEY(immatriculation) REFERENCES vehicules(immatriculation), 
+PRIMARY KEY (ref_contract, immatriculation, cin));
+
+
+
+ALTER TABLE models 
+ADD CHECK (puissance IN ('4CH', '5CH', '6CH'));
+
+ALTER TABLE  vehicules 
+ADD CHECK( prix_demande BETWEEN 1000 and 100000);
+
+ALTER TABLE  personnes 
+ADD CHECK( prenom <> nom);
+
+ALTER TABLE  acquisitions 
+MODIFY date_debut  CONSTRAINT date_debut NOT NULL;
+
+ALTER TABLE vehicules 
+ADD( num_chassis varchar2(50) NOT NULL);
+
