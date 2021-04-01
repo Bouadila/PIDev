@@ -9,6 +9,7 @@ use App\Entity\Candidature;
 use App\Entity\Reponse;
 use App\Entity\ReponseCondidat;
 use App\Entity\ReponseList;
+use App\Repository\UserRepository;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -33,7 +34,7 @@ class TakeQuizController extends AbstractController
     /**
      * @Route("/quiz/take/{id}", name="take_quiz", methods={"GET", "POST"})
      */
-    public function takeQuiz (Request $request, Quiz $quiz): Response{
+    public function takeQuiz (Request $request, Quiz $quiz,UserRepository $repository): Response{
         $em = $this->getDoctrine()->getManager();
         if($request->query->get("answer")){
             $reponseList = $this->getDoctrine()->getRepository(ListReponsesCondidat::class)->find($request->query->get("rl"));

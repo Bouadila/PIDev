@@ -55,27 +55,19 @@ class CandidatureController extends AbstractController
             'candidatures' => $candidatures,
         ]);
     }
-
     /**
-     * @Route("/ent/{id_offer}", name="candidatureEnt", methods={"GET"})
+     * @Route("/candidatureEnt", name="candidatureEnt", methods={"GET"})
      */
-    public function indexEnt(CandidatureRepository $candidatureRepository, $id_offer, Request $request, PaginatorInterface $paginator): Response
+    public function indexEnt(CandidatureRepository $candidatureRepository, Request $request, PaginatorInterface $paginator): Response
 
     {
-
-        $candidatureRepository = $this->getDoctrine()->getRepository(Candidature::class);
-        $id = array('id_offer' => $id_offer);
-        $donnees =$candidatureRepository->findBy($id);
-        $candidatures = $paginator->paginate(
-            $donnees, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            3// Nombre de résultats par page
-        );
         return $this->render('candidature/indexEnt.html.twig', [
-            'candidatures' => $candidatures,
+            'candidatures' => $candidatureRepository->findAll(),
         ]);
+
     }
 
+    
     /**
      * @Route("/new/{id}", name="candidature_new", methods={"GET","POST"})
      */

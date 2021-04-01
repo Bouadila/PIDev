@@ -7,11 +7,10 @@ const Chat = () => {
     const [hasJoinedRoom, setHasJoinedRoom] = useState(false);
 
     const joinChat = event => {
-        event.preventDefault();
-        if (roomName) {
+    event.preventDefault();
+      if (roomName) {
             axios.post('/access_token', { roomName }, ).then((response) => {
                 connectToRoom(response.data.token);
-
                 setHasJoinedRoom(true);
                 setRoomName('');
 
@@ -22,13 +21,11 @@ const Chat = () => {
             alert("You need to enter a room name")
         }
     };
-
     const connectToRoom = (token) => {
         const { connect, createLocalVideoTrack } = Video;
 
-
         let connectOption = { name: roomName };
-        console.log(token);
+
         connect( token, connectOption).then(room => {
 
             console.log(`Successfully joined a Room: ${room}`);
@@ -58,10 +55,11 @@ const Chat = () => {
         });
     };
 
+
     return(
         <div className="container">
             <div className={"col-md-12"}>
-                <h1 className="text-title"> Recrutini Video Chat</h1>
+                <h1 className="text-title">Recruitini Video Chat</h1>
             </div>
 
             <div className="col-md-6">
@@ -71,7 +69,7 @@ const Chat = () => {
                             <input type="text" name={'roomName'} className={"form-control"} id="roomName"
                                    placeholder="Enter a room name" value={roomName} onChange={event => setRoomName(event.target.value)}/>
 
-                            <button type="submit" className="btn btn-primary">Join Room</button>
+                                <button type="submit" className="btn btn-primary">Join Room</button>
 
                         </form>
                     )}

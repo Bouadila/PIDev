@@ -123,6 +123,7 @@
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href={{ path('annonce') }}>Presse</a></li>
                    <li class="nav-item"><a class="nav-link" href={{ path('contact') }}>Contact</a></li>
+                
                     <li class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle"  data-toggle="dropdown" href="home" role="button"  aria-haspopup="true" aria-expanded="false"><img class="imgtop" src="{{ asset('uploads/image/' ~ app.user.img) }}" alt="abc" height="40" width="45"></a>
 
@@ -131,12 +132,16 @@
                             <a class="dropdown-item" href="{{ path ('Supp_user') }}"> Desactiver compte </a>
                             {% if app.user.roles["0"] == "Candidat" %}
                             <a class="dropdown-item" href="{{ path ('Modif_user') }}">Modifier compte</a>
+                             <a class="dropdown-item" href={{ path('ajoutReclamation') }}>Réclamation</a>
                             <a  class="dropdown-item"  href="{{ path('app_logout') }}">Déconnexion</a>
                                 
 
                             {% else %}
+                            <a class="dropdown-item" href="{{ path ('Modif_user') }}">Planifier RendezVous</a>
                                 <a class="dropdown-item" href="{{ path ('Modif_useremploy') }}">Modifier compte</a>
+                                 <a class="dropdown-item" href={{ path('ajoutReclamation') }}>Réclamation</a>
                                 <a class="dropdown-item" href="{{ path ('aff_user') }}"> voir compte </a>
+                                <a  class="dropdown-item"  href="{{ path('app_logout') }}">Déconnexion</a>
 
                             {% endif %}
 

@@ -1,0 +1,98 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Liste offres{% endblock %}
+
+{% block body %}
+    <br>
+    <input id="searchOf" type="text" class="form-control" name="query" placeholder="Search now" aria-label="search" aria-describedby="search">
+    <br>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste des offres</h4>
+                <div class="table-responsive">
+                    <table id="tof" class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Post</th>
+                            <th>Domaine</th>
+                            <th>Date dépot</th>
+                            <th>Date expiration</th>
+                        </tr>
+                        </thead>
+                        <tbody id="allof" >
+                        {% for offre in offres %}
+                            <tr>
+                                <td>{{offre.id}}</td>
+                                <td>{{offre.post}}</td>
+                                <td>{{offre.domaine}}</td>
+                                <td>{{offre.description}}</td>
+                                <td>{{ offre.dateDepo ? offre.dateDepo|date('Y-m-d') : '' }}</td>
+                                <td>{{ offre.dateExpiration ? offre.dateExpiration|date('Y-m-d') : '' }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tbody id="searchOf">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <script>
+        $( document ).ready(function() {
+            $("#searchOf").keyup(function(e){
+                /* La variable value va prendre la valeur insérer dans le champ de texte afin d’effectuer la recherche */
+                var value = $(this).val();
+                /* Ajax est lancé lors du remplissage du champ texte dont l’id est « search » pour faire la recherche */
+                $.ajax({
+                    /* l’url est une chaine de caractères contenant l’adresse où la requête est envoyée */
+                    url : "{{ path('searchOffre') }}",
+                    /* La méthode utilisée pour transférer les données est GET */
+                    method : 'GET',
+                    dataType: "JSON",
+                    /*Ici search value va prendre la chaine entrée par un utilisateur dans la zone de recherche et sera placée après l’url */
+                    data: {
+                        'searchValue' : value
+                    },
+                    async : true,
+                    /*Cette fonction permet de vider le contenu du tableau pour recevoir le nouveau contenu*/
+                    success : function(retour){
+                        if(retour){
+                            $('#tof tbody#searchOf').empty();
+                            $(retour).each( function(offre, obj) {
+                                $('#tof tbody#allof').hide();
+                                $('#tof tbody#searchOf').append(
+                                    '<tr>'+
+                                    '<td>'+ obj.id +'</td>' +
+                                    '<td>'+ obj.post +'</td>' +
+                                    '<td>'+ obj.domaine +'</td>' +
+                                    '<td>'+ obj.description +'</td>' +
+                                    '<td>'+ obj.dateDepo +'</td>' +
+                                    '<td>'+ obj.dateExpiration +'</td>' +
+                                    '</tr>'
+                                );
+                            });
+                        }
+                        else
+                        {
+                            $('#tof tbody#allof').show();
+                            $('#tof tbody#searchOf').empty();
+                            $('#tof tbody#searchOf').fadeIn('fast');
+                        }
+                    },
+                });
+                return false;
+            });
+        });
+    </script>
+
+
+{% endblock %}

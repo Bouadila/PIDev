@@ -12,9 +12,13 @@ use App\Repository\UserRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * @Route("/offre")
@@ -87,6 +91,42 @@ class OffreController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/searchOffre ", name="searchOffre")
+     */
+    public function searchOffre(Request $request,NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Offre::class);
+        $requestString=$request->get('searchValue');
+        $offre = $repository->findOffreParPost($requestString);
+        $serializer = new Serializer(array(new DateTimeNormalizer('Y-m-d')));
+        $data=array();
+
+        foreach ($offre as $o)
+        {
+            array_push($data,array("id"=>$o->getId(),"post"=>$o->getPost(),"description"=>$o->getDescription(),
+                "dateDepo"=>$serializer->normalize($o->getDateDepo()),"dateExpiration"=>$serializer->normalize($o->getDateExpiration()),"domaine"=>$o->getDomaine()));
+        }
+
+
+        return new JsonResponse($data);
+    }
+    /**
+     * @Route("/backoffre", name="backoffre", methods={"GET"})
+     */
+    public function backoffre(OffreRepository $offreRepository,Request $request): Response
+    {
+        //dd($offreRepository->findAll());
+        return $this->render('offre/show_list_back.html.twig', [
+            'offres' => $offreRepository->findAll(),
+        ]);
+    }
+
+
+
+
+
     /**
      * @Route("/{id}", name="offre_show", methods={"GET"})
      */
@@ -132,6 +172,8 @@ class OffreController extends AbstractController
         ]);
     }
 
+
+
     /**
      * @Route("/{id}", name="offre_delete", methods={"DELETE"})
      */
@@ -146,4 +188,6 @@ class OffreController extends AbstractController
 
         return $this->redirectToRoute('offre_index');
     }
+
+
 }

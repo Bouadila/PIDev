@@ -47,4 +47,14 @@ class OffreRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+
+    public function findOffreParPost($post){
+        return $this->createQueryBuilder('offre')
+            ->where('offre.post LIKE :post')
+            ->setParameter('post', '%'.$post.'%')
+            ->getQuery()
+            ->getResult();
+    }
 }
