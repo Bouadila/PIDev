@@ -90,6 +90,26 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $query->getQuery()->getResult();
     }
 
+    /**
+     * Returns number of "Annonces" per day
+     * @return void
+     */
+    public function countByDate2(){
+        $query = $this->getEntityManager()->createQuery("
+            SELECT SUBSTRING(a.created_at, 1, 10) as dateCompte, COUNT(a) as counte FROM App\Entity\User a GROUP BY dateCompte
+        ");
+        return $query->getResult();
+    }
 
+    /**
+     * Returns number of "Annonces" per day
+     * @return void
+     */
+    public function countByDate(){
+        $query = $this->createQueryBuilder('a')
+            ->select('COUNT(a) as count')
+            ->groupBy('a.etat ') ;
+        return $query->getQuery()->getResult();
+    }
 
 }
