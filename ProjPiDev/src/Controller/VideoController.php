@@ -6,9 +6,11 @@ use App\Entity\Video;
 use App\Entity\PostLike;
 use App\Repository\PostLikeRepository;
 use App\Entity\user;
+use App\Repository\VideoRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -21,10 +23,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Exception\ExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\BarChart;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class VideoController extends AbstractController
 {
@@ -477,6 +483,167 @@ class VideoController extends AbstractController
 
         return new JsonResponse($data);
     }
+
+
+    /**
+     * @Route("/add_video" , name="add_video" )
+     * @param Request $request
+     * @return RedirectResponse|Response
+     * @throws ExceptionInterface
+     */
+
+    public function add_Vid(Request $request , NormalizerInterface $Normalizer)
+    {
+        $link = "https://www.youtube.com/embed/";
+        $date = new \DateTime();
+        $video = new Video();
+
+        $em = $this->getDoctrine()->getManager();
+        $url = $request->get('url');
+        $link = $link.substr($url,-11);
+        //$link = (($link . $this->between ('=', '&', $url)) || ($link.substr($url,-11))) ;
+        $video->setUrl($link);
+        $video->setVotes(0);
+        $video->setPublishDate($date);
+        $video->setIdCand($request->get('id_cand'));
+        $video->setTitle($request->get('title'));
+        $video->setDomaine($request->get('domaine'));
+        $video->setDescription($request->get('description'));
+
+        $em->persist($video);
+        $em->flush();
+
+       // http://127.0.0.1:8000/add_video?url=https://www.youtube.com/embed/11456824632&title=student&domaine=droit&description=testjson&id_cand=1
+
+        $jsonContent=$Normalizer->normalize($video,'json', ['groups'=>'video']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response(json_encode($jsonContent));
+
+
+    }
+
+
+
+
+   /* public function view_All_vid(VideoRepository $repo , SerializerInterface $SerializerInterface)
+    {
+        $video = $repo->findAll();
+        $json=$SerializerInterface->serialize($video,'json', ['groups'=>'video']);
+        dump($json);
+        die;
+    }*/
+
+
+    /**
+     * @Route("/view_All_vid" , name="view_All_vid")
+     */
+    public function view_All_vid(Request $request, NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Video::class);
+        $videos = $repository->findAll();
+
+        $jsonContent=$Normalizer->normalize($videos,'json', ['groups'=>'video']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response(json_encode($jsonContent));
+    }
+
+
+    /**
+     * @Route("/delete_video/{id}" , name="delete_video")
+     * @param $id
+     * @return Response
+     * @throws ExceptionInterface
+     */
+
+    public function delete_Action(Request $request , NormalizerInterface $Normalizer,$id)
+    {
+
+
+        $em=$this->getDoctrine()->getManager();
+        $video=$em->getRepository(Video::class)->find($id);
+
+        if($video!=null)
+        {
+            $em->remove($video);
+            $em->flush();
+
+            $jsonContent=$Normalizer->normalize($video,'json', ['groups'=>'video']);
+            /*dump($jsonContent);
+            die;*/
+            return new Response("Information deleted".json_encode($jsonContent));
+
+
+        }
+
+        return new JsonResponse("id formation invalide");
+
+
+
+
+    }
+
+
+    /**
+     * @Route("/update_video/{id}" , name="Update_video")
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse|Response
+     * @throws ExceptionInterface
+     */
+    public function update_Vid(Request $request , NormalizerInterface $Normalizer,$id)
+    {
+        $link = "https://www.youtube.com/embed/";
+        $date = new \DateTime();
+
+
+        $em = $this->getDoctrine()->getManager();
+        $video = $em->getRepository(Video::class)->find($id);
+        $url = $request->get('url');
+        $link = $link.substr($url,-11);
+        //$link = (($link . $this->between ('=', '&', $url)) || ($link.substr($url,-11))) ;
+        $video->setUrl($link);
+        $video->setVotes(0);
+        $video->setPublishDate($date);
+        $video->setIdCand($request->get('id_cand'));
+        $video->setTitle($request->get('title'));
+        $video->setDomaine($request->get('domaine'));
+        $video->setDescription($request->get('description'));
+
+
+        $em->flush();
+
+        // http://127.0.0.1:8000/add_video?url=https://www.youtube.com/embed/11456824632&title=student&domaine=droit&description=testjson&id_cand=1
+
+        $jsonContent=$Normalizer->normalize($video,'json', ['groups'=>'video']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response("Information updated".json_encode($jsonContent));
+
+
+
+
+    }
+
+
+    /**
+     * @Route("/list_video_detail/{id}", name="list_video_detail")
+     * @param $id
+     * @return Response
+     */
+    public function list_Det(Request $request,$id, NormalizerInterface $Normalizer): Response
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $video = $em->getRepository(Video::class)->find($id);
+        $jsonContent=$Normalizer->normalize($video,'json', ['groups'=>'video']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response(json_encode($jsonContent));
+
+    }
+
 
 
 
