@@ -498,14 +498,16 @@ class VideoController extends AbstractController
         $date = new \DateTime();
         $video = new Video();
 
+
         $em = $this->getDoctrine()->getManager();
+        $user = $request->getUser();
         $url = $request->get('url');
         $link = $link.substr($url,-11);
         //$link = (($link . $this->between ('=', '&', $url)) || ($link.substr($url,-11))) ;
         $video->setUrl($link);
         $video->setVotes(0);
         $video->setPublishDate($date);
-        $video->setIdCand($request->get('id_cand'));
+        $video->setIdCand($user);
         $video->setTitle($request->get('title'));
         $video->setDomaine($request->get('domaine'));
         $video->setDescription($request->get('description'));
@@ -551,15 +553,15 @@ class VideoController extends AbstractController
 
 
     /**
-     * @Route("/delete_video/{id}" , name="delete_video")
-     * @param $id
+     * @Route("/delete_video" , name="delete_video")
      * @return Response
      * @throws ExceptionInterface
      */
 
-    public function delete_Action(Request $request , NormalizerInterface $Normalizer,$id)
+    public function delete_Action(Request $request , NormalizerInterface $Normalizer)
     {
 
+        $id = $request->get("id");
 
         $em=$this->getDoctrine()->getManager();
         $video=$em->getRepository(Video::class)->find($id);
@@ -586,14 +588,14 @@ class VideoController extends AbstractController
 
 
     /**
-     * @Route("/update_video/{id}" , name="Update_video")
+     * @Route("/update_video" , name="Update_video")
      * @param Request $request
-     * @param $id
      * @return RedirectResponse|Response
      * @throws ExceptionInterface
      */
-    public function update_Vid(Request $request , NormalizerInterface $Normalizer,$id)
+    public function update_Vid(Request $request , NormalizerInterface $Normalizer)
     {
+        $id = $request->get("id");
         $link = "https://www.youtube.com/embed/";
         $date = new \DateTime();
 
@@ -628,12 +630,13 @@ class VideoController extends AbstractController
 
 
     /**
-     * @Route("/list_video_detail/{id}", name="list_video_detail")
-     * @param $id
+     * @Route("/list_video_detail", name="list_video_detail")
      * @return Response
      */
-    public function list_Det(Request $request,$id, NormalizerInterface $Normalizer): Response
+    public function list_Det(Request $request, NormalizerInterface $Normalizer): Response
     {
+
+        $id = $request->get("id");
 
         $em = $this->getDoctrine()->getManager();
         $video = $em->getRepository(Video::class)->find($id);
