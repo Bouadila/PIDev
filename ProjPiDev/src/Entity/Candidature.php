@@ -16,7 +16,7 @@ class Candidature
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $id;
 
@@ -24,20 +24,20 @@ class Candidature
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le nom est requis")
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le prenom est requis")
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $sexe;
 
@@ -45,14 +45,14 @@ class Candidature
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Email is required")
      * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $email;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $date_naiss;
 
@@ -65,20 +65,20 @@ class Candidature
      *      maxMessage = "Votre numéro ne peut pas dépasser  {{ limit }} caractères"
      * )
      * @Assert\NotBlank(message="Le numéro est requis")
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $num;
 
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $status;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $diplome;
 
@@ -86,13 +86,12 @@ class Candidature
      * @ORM\Column(type="string", nullable=true)
      * Assert\Blank(message:"Télécharger votre cv svp")
      * Assert\File(mimeTypes={ "application/pdf" })
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $cv;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     * @Groups("post:read")
      */
     private $id_candidat;
 
@@ -105,7 +104,7 @@ class Candidature
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups("post:read")
+     * @Groups("candidature")
      */
     private $date_candidature;
 

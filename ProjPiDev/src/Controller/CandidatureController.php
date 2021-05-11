@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Knp\Component\Pager\PaginatorInterface;
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\TableChart;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 
@@ -142,6 +143,147 @@ class CandidatureController extends AbstractController
         // uniqid(), which is based on timestamps
         return md5(uniqid());
     }
+
+    /**
+     * @Route("/view_all_candidature" , name="view_all_candidature")
+     */
+    public function view_all_vid(Request $request, NormalizerInterface $Normalizer)
+    {
+        $repository = $this->getDoctrine()->getRepository(Candidature::class);
+        $candidatures = $repository->findAll();
+
+        $jsonContent=$Normalizer->normalize($candidatures,'json', ['groups'=>'candidature']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/delete_candidature/{id}" , name="delete_candidature")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return JsonResponse|Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+
+    public function delete_candidature(Request $request , NormalizerInterface $Normalizer)
+    {
+
+        $id = $request->get("id");
+
+        $em=$this->getDoctrine()->getManager();
+        $candidature=$em->getRepository(Candidature::class)->find($id);
+
+        if($candidature!=null)
+        {
+            $em->remove($candidature);
+            $em->flush();
+
+            $jsonContent=$Normalizer->normalize($candidature,'json', ['groups'=>'candidature']);
+            /*dump($jsonContent);
+            die;*/
+            return new Response("candidature deleted".json_encode($jsonContent));
+
+
+        }
+
+        return new JsonResponse("id candidature invalide");
+
+    }
+
+    /**
+     * @Route("/list_candidature_detail"), name="list_candidature_detlail")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function list_Det(Request $request, NormalizerInterface $Normalizer): Response
+    {
+
+        $id = $request->get("id");
+
+        $em = $this->getDoctrine()->getManager();
+        $candidature = $em->getRepository(Candidature::class)->find($id);
+        $jsonContent=$Normalizer->normalize($candidature,'json', ['groups'=>'candidature']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response(json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route("/add_candidature" , name="add_candidature" )
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function add_candidature(Request $request , NormalizerInterface $Normalizer)
+    {
+        $candidature = new candidature();
+        $em = $this->getDoctrine()->getManager();
+        $user = $request->getUser();
+        //$name = $this->getUser()->getName();
+
+        $candidature->setNum($request->get('num'));
+        $candidature->setStatus($request->get('status'));
+        $candidature->setDiplome($request->get('diplome'));
+        $candidature->setCv($request->get('cv'));
+        //$candidature->setDispo($request->get('dispo'));
+        //$candidature->setLettre_motiv($request->get('lettre_motiv'));
+        $candidature->setDateCandidature(new \DateTime('now'));
+        //$candidature->setCandidat_id($user);
+        $candidature->setCandidat($request->get('candidat_id'));
+        $candidature->setOffre($request->get('offre_id'));
+
+        $em->persist($candidature);
+        $em->flush();
+
+        // http://127.0.0.1:8000/add_candidature?num=21544887&status=a&diplome=a&cv=test.pdf&dispo=a&lettre_motiv=test.pdf&date_candidature=1&offre_id=4&candidat_id=4
+        //http://127.0.0.1:8000/candidature/add_candidature?num=21544887&status=test&diplome=etst&cv=test.pdf&offre_id=4&candidat_id=4
+        $jsonContent=$Normalizer->normalize($candidature,'json', ['groups'=>'candidature']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response(json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route("/update_candidature" , name="update_candidature")
+     * @param Request $request
+     * @param NormalizerInterface $Normalizer
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     */
+    public function update_candidature(Request $request , NormalizerInterface $Normalizer)
+    {
+        $id = $request->get("id");
+        $em = $this->getDoctrine()->getManager();
+        $candidature = $em->getRepository(Candidature::class)->find($id);
+
+        $candidature->setNum($request->get('num'));
+        $candidature->setStatus($request->get('status'));
+        $candidature->setDiplome($request->get('diplome'));
+        $candidature->setCv($request->get('cv'));
+        //$candidature->setDispo($request->get('dispo'));
+        //$candidature->setLettre_motiv($request->get('lettre_motiv'));
+        //$candidature->setCandidat_id($user);
+        $candidature->setCandidat($request->get('candidat_id'));
+        $candidature->setOffre($request->get('offre_id'));
+        //http://127.0.0.1:8000/candidature/update_candidature?id=14&num=21544887&status=test&diplome=etst.pdf&cv=test.pdf
+
+        $em->flush();
+        $jsonContent=$Normalizer->normalize($candidature,'json', ['groups'=>'candidature']);
+        /*dump($jsonContent);
+        die;*/
+        return new Response("Candidature updated".json_encode($jsonContent));
+
+
+
+
+    }
+
 
     /**
      * @Route("/searchDate", name="search_date")
@@ -346,6 +488,8 @@ class CandidatureController extends AbstractController
 
         return new JsonResponse($data);
     }
+
+
 
 
 
