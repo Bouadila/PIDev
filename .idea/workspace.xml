@@ -20,41 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f31c4d1-a347-4808-82f6-333b3808096d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/offre/show_list_back.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/emailroom.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiOffreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210327183907.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210328103654.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210329122654.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330101943.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330103224.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330105831.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330112333.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330115343.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/migrations/Version20210330151147.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/CandidatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/CandidatureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/OffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/OffreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/RendezvousController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/RendezvousController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/TakeQuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/TakeQuizController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Candidature.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Candidature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Form/CandidatureType.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Form/CandidatureType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/CandidatureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/CandidatureRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/OffreRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/OffreRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/baseBack.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/indexEnt.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/indexEnt.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/searchEnt.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/searchEnt.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/candidature_back/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Contrat.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Contrat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Offre.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/accepter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/accepter.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/email.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/emailroom.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/rendezvous/emailroom.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +179,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/wamp64/www/ProjPiDev" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../symfony-react-video-chat" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -227,7 +201,15 @@
       <workItem from="1616792424378" duration="757000" />
       <workItem from="1616852023374" duration="10506000" />
       <workItem from="1617052218978" duration="1844000" />
-      <workItem from="1617163329050" duration="19527000" />
+      <workItem from="1617163329050" duration="24397000" />
+      <workItem from="1617248867305" duration="781000" />
+      <workItem from="1618214078188" duration="1541000" />
+      <workItem from="1618924333131" duration="1504000" />
+      <workItem from="1620074358585" duration="1239000" />
+      <workItem from="1620122994589" duration="4883000" />
+      <workItem from="1620256753769" duration="4269000" />
+      <workItem from="1620590527179" duration="1477000" />
+      <workItem from="1620675482864" duration="8484000" />
     </task>
     <servers />
   </component>
@@ -255,18 +237,18 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="476" y="78" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1616804099728" />
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617231837474">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620767492708">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1617231837474" />
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1620767492708" />
     <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1616915402916">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1616915402916" />
-    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1617228191637">
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1617249201741">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1617228191637" />
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1617249201741" />
     <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1617162650749">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -288,5 +270,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1616858200440" />
+    <state x="680" y="173" key="run.anything.popup" timestamp="1620769845185">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="680" y="173" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1620769845185" />
   </component>
 </project>

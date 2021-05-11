@@ -28,10 +28,10 @@
                 <p>vous pouvez accepter votre rendezvous ?</p>
                 <br>
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <a href="{{ path('rendezvous_accepter', {'id': rendezvous.id,'accepte':0}) }}" class="btn btn-danger backBtn btn-lg pull-left">
+                    <a href="{{ path('rendezvousaccepter', {'id': rendezvous.id,'accepte':0}) }}" class="btn btn-danger backBtn btn-lg pull-left">
                         <i class="fa fa-check" aria-hidden="true"></i> Accepter Rendez-Vous
                     </a>
-                    <a href="{{ path('rendezvous_accepter', {'id': rendezvous.id,'accepte':1}) }}" class="btn btn-danger backBtn btn-lg pull-left">
+                    <a href="{{ path('rendezvousaccepter', {'id': rendezvous.id,'accepte':1}) }}" class="btn btn-danger backBtn btn-lg pull-left">
                         <i class="fa fa-minus" aria-hidden="true"></i> Annuller
                     </a>
                 </div>

@@ -8,6 +8,7 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -19,12 +20,14 @@ class Offre
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"offre:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="la description d'offre ne peut pas être vide ")
+     * @Groups({"offre:get"})
      */
     private $description;
 
@@ -33,12 +36,14 @@ class Offre
      * @Assert\NotBlank(message="le salaire d'offre ne peut pas être vide ")
      * @Assert\NotNull(message="le salaire ne doit pas être nulle")
      * @Assert\GreaterThan(0, message="salaire doit être positif")
+     * @Groups({"offre:get"})
      */
     private $salaire;
 
     /**
      * @ORM\Column(type="date")
      * @Assert\NotBlank()
+     * @Groups({"offre:get"})
      */
     private $dateDepo;
 
@@ -49,6 +54,7 @@ class Offre
      *      value = "today",
      *      message = "date d'expiration invalide"
      * )
+     * @Groups({"offre:get"})
      */
     private $dateExpiration;
 
@@ -57,6 +63,7 @@ class Offre
      * @Assert\NotBlank(message="le nombre de place ne peut pas être vide ")
      * @Assert\NotNull(message="le nombre de place ne doit pas être nulle")
      * @Assert\GreaterThan(0, message="nombre de place doit être positif")
+     * @Groups({"offre:get"})
      */
     private $nombrePlace;
 
@@ -65,30 +72,35 @@ class Offre
      * @ORM\JoinColumn(nullable=false)
      * @ORM\ManyToOne(targetEntity=Contrat::class, inversedBy="offres")
      * @Assert\NotBlank(message="le contrat ne peut pas être vide ")
+     * @Groups({"offre:get"})
      */
     private $contrat;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="la post ne peut pas être vide ")
+     * @Groups({"offre:get"})
      */
     private $post;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message=" objectif  ne peut pas être vide ")
+     * @Groups({"offre:get"})
      */
     private $objectif;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank(message="les competences ne peuvent pas être vide ")
+     * @Groups({"offre:get"})
      */
     private $competences ;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le domaine ne peut pas être vide ")
+     * @Groups({"offre:get"})
      */
     private $domaine;
 
@@ -96,22 +108,26 @@ class Offre
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="l'experience ne peut pas être vide ")
      * @Assert\GreaterThan(0, message="experience doit être positif")
+     * @Groups({"offre:get"})
      */
     private $experienceMin;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\GreaterThan(0, message="experience doit être positif")
+     * @Groups({"offre"})
      */
     private $experienceMax;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"offre:get"})
      */
     private $flagSupprimer;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Groups({"offre:get"})
      */
     private $flagExpirer;
 
@@ -216,19 +232,6 @@ class Offre
     public function setContrat(?Contrat $contrat): self
     {
         $this->contrat = $contrat;
-
-        return $this;
-    }
-
-
-    public function getEtat(): ?bool
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(bool $etat): self
-    {
-        $this->etat = $etat;
 
         return $this;
     }
