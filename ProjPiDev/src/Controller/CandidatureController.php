@@ -159,7 +159,7 @@ class CandidatureController extends AbstractController
     }
 
     /**
-     * @Route("/delete_candidature/{id}" , name="delete_candidature")
+     * @Route("/delete_candidature" , name="delete_candidature")
      * @param Request $request
      * @param NormalizerInterface $Normalizer
      * @return JsonResponse|Response
