@@ -6,6 +6,7 @@ use App\Repository\QuizRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -17,12 +18,14 @@ class Quiz
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"quiz:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le nom de quiz est obligatoir")
+     * @Groups({"quiz:get"})
      */
     private $nom_quiz;
 
@@ -31,12 +34,14 @@ class Quiz
      * @Assert\NotBlank(message="le nombre de questions est obligatoir")
      * @Assert\GreaterThan(0, message="le nombre de question doit etre positif")
      * @Assert\LessThan(50, message="le nombre de question doit etre inferieure a 50")
+     * @Groups({"quiz:get"})
      */
     private $nomb_question;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="quiz_id")
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @Groups({"quiz:get"})
      */
     private $questions;
 

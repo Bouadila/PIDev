@@ -66,7 +66,7 @@ class ApiOffreController extends AbstractController
         $offre->setExperienceMin($request->get('experienceMin'));
         $offre->setExperienceMax($request->get('experienceMax'));
         $offre->setEntreprise($entpreprise);
-        //dd($offre);
+
         $em->persist($offre);
         $em->flush();
         $jsonContent = $Normalizer->normalize($offre,'json',['groups'=>'offre:get']);

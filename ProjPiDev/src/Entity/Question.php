@@ -6,6 +6,7 @@ use App\Repository\QuestionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -17,12 +18,14 @@ class Question
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"quiz:get","question:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le contenu de question est obligatoir")
+     * @Groups({"quiz:get","question:get"})
      */
     private $contenu_ques;
 
@@ -31,18 +34,21 @@ class Question
      * @Assert\NotBlank(message="le nombre de reonses est obligatoir")
      * @Assert\GreaterThan(0, message="le nombre de reponse doit etre positif")
      * @Assert\LessThan(5, message="le nombre de question doit etre inferieure a 5")
+     * @Groups({"quiz:get","question:get"})
      */
     private $nomb_rep;
 
     /**
      * @ORM\OneToMany(targetEntity=Reponse::class, mappedBy="id_ques", orphanRemoval=true, cascade={"persist"})
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @Groups({"quiz:get","question:get"})
      */
     private $reponses;
 
     /**
      * @ORM\OneToOne(targetEntity=Reponse::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true, onDelete="CASCADE")
+     * @Groups({"quiz:get"})
      */
     private $rep_just;
 

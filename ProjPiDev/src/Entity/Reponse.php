@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ReponseRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ReponseRepository::class)
@@ -15,12 +16,14 @@ class Reponse
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"quiz:get"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="le contenu de reponse est obligatoir")
+     * @Groups({"quiz:get","question:get"})
      */
     private $contenu_rep;
 
