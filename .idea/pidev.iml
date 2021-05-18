@@ -6,13 +6,19 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/ProjPiDev/tests" isTestSource="true" packagePrefix="App\Tests\" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/blackknight467/star-rating-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/captcha-com/captcha" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/captcha-com/symfony-captcha-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/cmen/google-charts-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/collections" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/data-fixtures" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/doctrine-fixtures-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/doctrine-migrations-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/inflector" />
@@ -22,21 +28,36 @@
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/orm" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/persistence" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/doctrine/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/dompdf/dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/firebase/php-jwt" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/friendsofphp/proxy-manager-lts" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/google/apiclient" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/google/apiclient-services" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/google/auth" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/laminas/laminas-code" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/laminas/laminas-eventmanager" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/laminas/laminas-zendframework-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/phenx/php-svg-lib" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/cache" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/link" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/sabberworm/php-css-parser" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/asset" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/browser-kit" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/cache" />
@@ -93,6 +114,7 @@
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/serializer" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/service-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/swiftmailer-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/ProjPiDev/vendor/symfony/twig-bridge" />

@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5e11c26-e7c2-4a60-b2e3-8041c609c262" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pidev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pidev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/aff_espace_candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/aff_espace_candidat.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/ProjPiDev/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -124,6 +134,28 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/collections" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/composer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/captcha-com/captcha" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/captcha-com/symfony-captcha-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/blackknight467/star-rating-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pGWTluqFJG1qQbzrTMWWhyuFvK" />
@@ -134,7 +166,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../wamp64/www/ProjPiDev" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -148,6 +180,31 @@
       <updated>1614809918280</updated>
       <workItem from="1614809919462" duration="411000" />
       <workItem from="1614846165100" duration="2000" />
+      <workItem from="1618612740901" duration="744000" />
+      <workItem from="1618613548930" duration="153000" />
+      <workItem from="1620169627523" duration="3563000" />
+      <workItem from="1620219603119" duration="7470000" />
+      <workItem from="1620244940883" duration="3275000" />
+      <workItem from="1620287394647" duration="2026000" />
+      <workItem from="1620339569683" duration="9126000" />
+      <workItem from="1620389148684" duration="2787000" />
+      <workItem from="1620401169446" duration="598000" />
+      <workItem from="1620434515066" duration="2891000" />
+      <workItem from="1620520196596" duration="1948000" />
+      <workItem from="1620593078585" duration="4699000" />
+      <workItem from="1620643183375" duration="1283000" />
+      <workItem from="1620677529608" duration="7736000" />
+      <workItem from="1620733920433" duration="9897000" />
+      <workItem from="1620813930279" duration="6316000" />
+      <workItem from="1620865456305" duration="3642000" />
+      <workItem from="1620927686291" duration="5662000" />
+      <workItem from="1621003352769" duration="6853000" />
+      <workItem from="1621078176122" duration="1290000" />
+      <workItem from="1621086222720" duration="1908000" />
+      <workItem from="1621102489875" duration="2449000" />
+      <workItem from="1621163589536" duration="2370000" />
+      <workItem from="1621182441371" duration="780000" />
+      <workItem from="1621248645709" duration="14827000" />
     </task>
     <servers />
   </component>
@@ -155,9 +212,17 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620173195882">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1620173195882" />
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1614810082483">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614810082483" />
+    <state x="716" y="93" key="NewPhpClassDialog" timestamp="1620340968741">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="716" y="93" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1620340968741" />
   </component>
 </project>

@@ -23,6 +23,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Symfony\Component\Serializer\Serializer ;
+use Symfony\Component\Serializer\SerializerInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer ;
@@ -85,6 +86,7 @@ class RegistrationController extends AbstractController
 //        return $this->render('registration/confirm.html.twig', [
             'form' => $form->createView(),
         ]);
+
     }
 
     /**
@@ -300,7 +302,6 @@ class RegistrationController extends AbstractController
         // Si aucun utilisateur n'est associé à ce token
         if(!$users){
             // On renvoie une erreur 404
-            throw $this->createNotFoundException('Cet utilisateur n\'existe pas');
         }
 
         // On supprime le token
@@ -366,6 +367,16 @@ class RegistrationController extends AbstractController
             'date' => json_encode($date),
             'annoncesCounte' => json_encode($annoncesCounte),
         ]); }
+
+    /**
+     * @Route("/userss", name="userss")
+     */
+    public function users(UserRepository $userRep , SerializerInterface $serializer): Response
+    {
+        $users = $userRep->findAll() ;
+        $json = $serializer->serialize($users,'json',['groups' => 'User']);
+        return new Response($json);
+    }
 
     }
 

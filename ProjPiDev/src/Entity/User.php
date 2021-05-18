@@ -6,7 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Table(name="user")
@@ -18,6 +18,7 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("user")
      */
     private $id;
 
@@ -25,17 +26,20 @@ class User implements UserInterface
      * @Assert\Email(message = "l adress mail'{{ value }}' n'est pas valide .")
      * @Assert\NotBlank(message="Veuillez saisir votre email")
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups("user")
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("user")
      */
     private $roles = [];
 
     /**
      * @Assert\NotBlank(message="Veuillez saisir votre mdp ")
      * @ORM\Column(type="string")
+     * @Groups("user")
      */
     private $password;
 
@@ -43,66 +47,78 @@ class User implements UserInterface
     /**
      *  @Assert\NotBlank(message="Veuillez saisir votre nom")
      * @ORM\Column(type="string", length=255)
+     * @Groups("user")
      */
     private $name;
 
     /**
      * @Assert\NotBlank(message="Veuillez saisir votre prenom")
      * @ORM\Column(type="string", length=255)
+     * @Groups("user")
      */
     private $prenom;
 
     /**
      * @Assert\NotBlank(message="Veuillez saisir votre gover")
      * @ORM\Column(type="string", length=255)
+     * @Groups("user")
      */
     private $gover;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("user")
      */
     private $img;
 
     /**
      * @Assert\NotBlank(message="Veuillez saisir votre specialite")
      * @ORM\Column(type="string", length=255)
+     * @Groups("user")
      */
     private $special;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("user")
      */
     private $etat;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups("user")
      */
     private $date_naiss;
 
 protected  $captchaCode;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("user")
      */
     private $nom_entre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("user")
      */
     private $activation_token;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("user")
      */
     private $reset_token;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("user")
      */
     private $color;
 
     /**
      *  @ORM\GeneratedValue
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups("user")
      */
     private $created_at;
 //    /**
@@ -404,4 +420,5 @@ protected  $captchaCode;
 //        return false;
 //
 //    }
+
 }

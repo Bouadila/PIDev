@@ -103,6 +103,28 @@
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/collections" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/ProjPiDev/vendor/composer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/captcha-com/captcha" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/captcha-com/symfony-captcha-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/cmen/google-charts-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/google/apiclient" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/google/apiclient-services" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/google/auth" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/ProjPiDev/vendor/blackknight467/star-rating-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
