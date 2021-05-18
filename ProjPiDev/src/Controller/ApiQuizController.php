@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\ListReponsesCondidat;
 use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\Reponse;
+use App\Entity\ReponseCondidat;
 use App\Repository\ContratRepository;
+use App\Repository\OffreRepository;
+use App\Repository\QuestionRepository;
 use App\Repository\QuizRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,10 +54,13 @@ class ApiQuizController extends AbstractController
     /**
      * @Route("/api/quiz/new", name="api_quiz_add", methods={"POST"})
      */
-    public function new( Request $request,NormalizerInterface $Normalizer,UserRepository $repository ,ContratRepository $contratRepository)
+    public function new( Request $request,NormalizerInterface $Normalizer, OffreRepository $offre)
     {
+
+        $results = $offre->findBy(array(),array('id'=>'DESC'),1,0);
         $em = $this->getDoctrine()->getManager();
         $quiz = new Quiz();
+        $quiz->setOffre($results);
         $quiz->setNomQuiz($request->get('nom_quiz'));
         $quiz->setNombQuestion($request->get('nb'));
         $em->persist($quiz);
@@ -116,5 +123,43 @@ class ApiQuizController extends AbstractController
         $jsonContent = $Normalizer->normalize($question,'json',['groups'=>'question:get']);
         //dd($jsonContent);
         return new Response(json_encode($jsonContent));
+    }
+    /**
+     * @Route("/api/take", name="api_take")
+     */
+    public function take( Request $request,NormalizerInterface $Normalizer, QuizRepository  $quizrep, QuestionRepository $quesrep, ReponseRepository $reprep){
+
+        $em = $this->getDoctrine()->getManager();
+        $reponseList = new ListReponsesCondidat();
+        $quiz = new Quiz();
+        $quiz = $quizrep->find($request->query->get("quiz"));
+        $score = (int)$request->query->get("score");
+        $reponseList->setQuiz($quiz);
+        $reponseList->setScore($score);
+        $question  = new Question();
+        $reponse = new Reponse();
+        for( $i  = (int)1; $i < 50 ; $i++){
+
+            $str = "question".$i;
+            if($request->query->has($str)){
+                $reponseCondidat = new ReponseCondidat();
+                $reponseCondidat->setListReponsesCondidat($reponseList);
+
+                $question = $quesrep->find((int)$request->query->get($str));
+                $reponseCondidat->setQuestion($question);
+                $str = "reponse".$i;
+                $reponse = $reprep->find((int)$request->query->get($str));
+                $reponseCondidat->setReponse($reponse);
+                $em->persist($reponseCondidat);
+
+            }
+            else
+                break;
+        }
+
+        $em->persist($reponseList);
+        $em->flush();
+        return new Response();
+
     }
 }

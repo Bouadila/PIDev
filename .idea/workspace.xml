@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5f31c4d1-a347-4808-82f6-333b3808096d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiOffreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiOffreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Question.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Quiz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Reponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Reponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiQuizController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/ApiQuizController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/Offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/Offre.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +208,11 @@
       <workItem from="1620999779990" duration="1800000" />
       <workItem from="1621092591665" duration="6597000" />
       <workItem from="1621153897255" duration="585000" />
-      <workItem from="1621164283490" duration="11221000" />
+      <workItem from="1621164283490" duration="11233000" />
+      <workItem from="1621200379715" duration="2238000" />
+      <workItem from="1621244485464" duration="3067000" />
+      <workItem from="1621296330473" duration="3059000" />
+      <workItem from="1621350705675" duration="4710000" />
     </task>
     <servers />
   </component>

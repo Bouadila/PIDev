@@ -115,7 +115,7 @@ class Offre
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\GreaterThan(0, message="experience doit être positif")
-     * @Groups({"offre"})
+     * @Groups({"offre:get"})
      */
     private $experienceMax;
 
