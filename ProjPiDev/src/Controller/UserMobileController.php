@@ -104,7 +104,6 @@ class UserMobileController extends AbstractController
         return $this->json([
             'prenom' => $user->getPrenom(),
             'name' => $user->getName(),
-            'img' => $user->getImg(),
             'gover' => $user->getGover(),
             'special' => $user->getSpecial(),
             'roles' => $rol,
@@ -171,7 +170,7 @@ if($user) {
         'id' => $user->getId(),
         'username' => $user->getUsername(),
         'roles' => $user->getRoles(),
-        'activation_token'=>$user->getActivationToken(),
+//        'activation_token'=>$user->getActivationToken(),
         'name' => $user->getName()
     ]);
 }else
@@ -188,18 +187,17 @@ if($user) {
     {
         $email=$request->query->get("email");
         $username=$request->query->get("name");
-        $img=$request->query->get("img");
+//        $img=$request->query->get("img");
         $pwd=$request->query->get("password");
         $roles= $request->query->get("roles");
         $prenom=$request->query->get("prenom");
         $gov=$request->query->get("gover");
         $specia=$request->query->get("special");
         $pwd=$request->query->get("password");
-
         $user=new User();
         $user->setName($username);
         $user->setEmail($email);
-        $user->setImg($img);
+        $user->setImg("person_3.jpg");
         $hash = $userPasswordEncoder->encodePassword($user, $pwd);
         $user->setPassword($hash);
         $user->setEtat('0');
@@ -250,7 +248,7 @@ if($user) {
         $specia=$request->query->get("special");
         $user = $em->getRepository(User::class)->find($id);
         //bon l modification bch na3mlouha bel image ya3ni kif tbadl profile ta3ik tzid image
-        $img=$request->query->get("img");
+//        $img=$request->query->get("img");
 
 //        if($request->files->get("img")!= null) {
 //
@@ -259,7 +257,7 @@ if($user) {
 //            $file->move($fileName);
 //            $user->setImg($fileName);
 //        }
-        $user->setImg($img);
+//        $user->setImg($img);
 
         $user->setPrenom($prenom);
         $user->setGover($gov);

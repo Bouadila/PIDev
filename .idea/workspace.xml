@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5e11c26-e7c2-4a60-b2e3-8041c609c262" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pidev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pidev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/ProjPiDev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/aff_espace_candidat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/templates/espace_candidat/aff_espace_candidat.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjPiDev/src/Controller/UserMobileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ProjPiDev/src/Controller/UserMobileController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +190,8 @@
       <workItem from="1621102489875" duration="2449000" />
       <workItem from="1621163589536" duration="2370000" />
       <workItem from="1621182441371" duration="780000" />
-      <workItem from="1621248645709" duration="14827000" />
+      <workItem from="1621248645709" duration="15662000" />
+      <workItem from="1621379355566" duration="4357000" />
     </task>
     <servers />
   </component>
