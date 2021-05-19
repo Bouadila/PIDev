@@ -59,6 +59,22 @@ class Reclamation
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Groups({"reclamation:get"})
+     */
+    private $id_user;
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +148,18 @@ class Reclamation
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?int
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(?int $id_user): self
+    {
+        $this->id_user = $id_user;
 
         return $this;
     }

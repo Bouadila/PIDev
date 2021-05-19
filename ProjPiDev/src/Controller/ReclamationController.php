@@ -38,8 +38,9 @@ class ReclamationController extends AbstractController
         if($form->isSubmitted()){
             $newDate = new \DateTime('now');
             $reclamation->setEmail('test@email.tn');
+            $reclamation->setIdUser(1);
             $reclamation->setDateReclamation($newDate->format('Y-m-d H:i:s'));
-            $reclamation->setStatus('Non Résolu');
+            $reclamation->setStatus('Non Approuvé');
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();

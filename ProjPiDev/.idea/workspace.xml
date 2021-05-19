@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0cee593-b4e4-4f83-819c-c971ce919264" name="Default Changelist" comment="Paginator Bundle working">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ApiReclamationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/api_reclamation/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjPiDev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjPiDev.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ApiReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ApiReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationBackController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReclamationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reclamation.php" afterDir="false" />
     </list>
@@ -244,6 +240,14 @@
       <workItem from="1620829745752" duration="1412000" />
       <workItem from="1620831285897" duration="1187000" />
       <workItem from="1621094964930" duration="2138000" />
+      <workItem from="1621099117023" duration="1800000" />
+      <workItem from="1621127581325" duration="1608000" />
+      <workItem from="1621206367319" duration="2034000" />
+      <workItem from="1621293287721" duration="1438000" />
+      <workItem from="1621304366858" duration="293000" />
+      <workItem from="1621305570188" duration="1536000" />
+      <workItem from="1621336774618" duration="7687000" />
+      <workItem from="1621385014816" duration="4706000" />
     </task>
     <task id="LOCAL-00007" summary="crud terminer">
       <created>1614846379142</created>

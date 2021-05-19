@@ -68,7 +68,7 @@ class ReclamationBackController extends AbstractController
 
         $repo = $this->getDoctrine()->getRepository(Reclamation::class);
         $etat = $repo->find($id);
-        $etat->setStatus('Résolu');
+        $etat->setStatus('Approuvé');
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
@@ -95,7 +95,7 @@ class ReclamationBackController extends AbstractController
 
         $repo = $this->getDoctrine()->getRepository(Reclamation::class);
         $etat = $repo->find($id);
-        $etat->setStatus('Non Résolu');
+        $etat->setStatus('Non Approuvé');
         $em = $this->getDoctrine()->getManager();
         $em->flush();
         $message = (new \Swift_Message('Votre Réclamation est Non Résolu'))
