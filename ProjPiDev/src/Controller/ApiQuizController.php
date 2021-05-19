@@ -3,13 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\ListReponsesCondidat;
+use App\Entity\Offre;
 use App\Entity\Question;
 use App\Entity\Quiz;
 use App\Entity\Reponse;
 use App\Entity\ReponseCondidat;
+use App\Repository\CandidatureRepository;
 use App\Repository\ContratRepository;
 use App\Repository\OffreRepository;
 use App\Repository\QuestionRepository;
+use App\Repository\ReponseRepository;
 use App\Repository\QuizRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -57,10 +60,11 @@ class ApiQuizController extends AbstractController
     public function new( Request $request,NormalizerInterface $Normalizer, OffreRepository $offre)
     {
 
-        $results = $offre->findBy(array(),array('id'=>'DESC'),1,0);
+        $off = new Offre();
+        $off = $offre->findBy(array(),array('id'=>'DESC'),1,0);
         $em = $this->getDoctrine()->getManager();
         $quiz = new Quiz();
-        $quiz->setOffre($results);
+        $quiz->setOffre($off[0]);
         $quiz->setNomQuiz($request->get('nom_quiz'));
         $quiz->setNombQuestion($request->get('nb'));
         $em->persist($quiz);
@@ -127,11 +131,13 @@ class ApiQuizController extends AbstractController
     /**
      * @Route("/api/take", name="api_take")
      */
-    public function take( Request $request,NormalizerInterface $Normalizer, QuizRepository  $quizrep, QuestionRepository $quesrep, ReponseRepository $reprep){
+    public function take( Request $request,NormalizerInterface $Normalizer, QuizRepository  $quizrep, QuestionRepository $quesrep, ReponseRepository $reprep,CandidatureRepository $repositoryCandidature){
 
         $em = $this->getDoctrine()->getManager();
         $reponseList = new ListReponsesCondidat();
         $quiz = new Quiz();
+        $results = $repositoryCandidature->findBy(array(),array('id'=>'DESC'),1,0);
+        $reponseList->setCandidature( $results[0]);
         $quiz = $quizrep->find($request->query->get("quiz"));
         $score = (int)$request->query->get("score");
         $reponseList->setQuiz($quiz);
@@ -161,5 +167,20 @@ class ApiQuizController extends AbstractController
         $em->flush();
         return new Response();
 
+    }
+
+
+    /**
+     * @Route("/api/update/quiz", name="api_quiz_update", methods={"GET","POST"})
+     */
+    public function update( Request $request, NormalizerInterface $Normalizer, QuizRepository $quizrep)
+    {
+
+        $results = $quizrep->findBy(array(),array('id'=>'DESC'),1,0);
+        $quiz1 = $results[0];
+        $quiz1->setNombQuestion($request->query->get("nb"));
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        return new Response();
     }
 }

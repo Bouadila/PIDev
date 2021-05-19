@@ -42,6 +42,24 @@ class ApiOffreController extends AbstractController
 
     }
     /**
+     * @Route("/api/offreQuiz/{id}", name="api_offre_quiz_show", methods={"GET"})
+     */
+    public function showQuiz( Request $request , $id ,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $offre = new Offre();
+        $x = 0;
+        $offre = $em->getRepository(Offre::class)->find($id);
+        if($offre->getQuiz() != null){
+            $x = $offre->getQuiz()->getId();
+        }
+        $rdvs= ['id'=>$x];
+//        $jsonContent = $Normalizer->normalize("{x:10}");
+        //dd($jsonContent);
+        return new Response(json_encode($rdvs));
+
+    }
+    /**
      * @Route("/api/offre/new", name="api_offre_add", methods={"POST"})
      */
     public function new( Request $request,NormalizerInterface $Normalizer,UserRepository $repository ,ContratRepository $contratRepository)
@@ -114,6 +132,5 @@ class ApiOffreController extends AbstractController
         $jsonContent = $Normalizer->normalize($offre,'json',['groups'=>'offre:get']);
         //dd($jsonContent);
         return new Response("Information deleted successfully".json_encode($jsonContent));
-
     }
 }
